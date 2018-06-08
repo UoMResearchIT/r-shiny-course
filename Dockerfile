@@ -11,5 +11,5 @@ RUN apt-get update && \
  libcurl4-openssl-dev libssl-dev libxml2-dev \
  zlib1g-dev libssh2-1-dev texlive-latex-extra 
 
-RUN Rscript -e 'install.packages(c("tidyverse", "shiny"))'
+RUN Rscript -e 'install.packages(c("tidyverse", "shiny", "shinyWidgets"))'
 
