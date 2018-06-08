@@ -57,6 +57,7 @@ gapminder <- completeGapminder %>%
   filter(!is.na(continent)) %>% # There's still a couple of countries we can't assign a continent to
   mutate(continent = factor(continent)) %>% 
   mutate(subregion = factor(subregion)) %>% 
+  mutate(yearInt = year) %>% 
   mutate(year = factor(year)) 
            
 saveRDS(gapminder, "coursematerial/gapminder.rds")
