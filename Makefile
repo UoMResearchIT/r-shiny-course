@@ -14,7 +14,7 @@ present: $(presentationname).html
 dockerimage: Dockerfile	
 	docker build . -t mawds/rstudio
 
-coursematerial/gapminder.csv: createData.R
+coursematerial/gapminder.rds: createData.R
 	Rscript $<
 
 runrstudio: 

@@ -11,8 +11,6 @@ lifeexp <- read_csv("https://docs.google.com/spreadsheet/pub?key=phAwcNAVuyj2tPL
 continent_lookup <- read_csv("https://raw.githubusercontent.com/lukes/ISO-3166-Countries-with-Regional-Codes/master/all/all.csv") %>% 
   select(name, region, `sub-region`)
  
-names(population)
-
 gapminder <- gather(population, key = "year", value = "population", -1) %>% rename(country = `Total population`) %>% 
   full_join( gather(totalgdp, key = "year", value = "gdp", -1)
             %>% rename(country = `Total GDP, PPP`) ) %>% 
@@ -21,10 +19,6 @@ gapminder <- gather(population, key = "year", value = "population", -1) %>% rena
 
 completeGapminder <- gapminder %>% filter(complete.cases(gapminder)) %>% 
   mutate(gdpPerCap = gdp / population)
-
-
-completeGapminder %>% 
-  ggplot(aes(x = gdpPerCap, y = lifeExp, size = population, frame = year)) + geom_point()
 
 # Some countries names are recorded differently in the continent lookup table
 countryRename <- tribble(
@@ -60,6 +54,9 @@ gapminder <- completeGapminder %>%
   left_join(continent_lookup, by = c("consolidatedCountry" = "name") ) %>% 
   select(-isocountry, -consolidatedCountry) %>%
   rename(continent = region, subregion = `sub-region`) %>% 
-  filter(!is.na(continent)) # There's still a couple of countries we can't assign a continent to
-
-write_csv(gapminder, "coursematerial/gapminder.csv")
+  filter(!is.na(continent)) %>% # There's still a couple of countries we can't assign a continent to
+  mutate(continent = factor(continent)) %>% 
+  mutate(subregion = factor(subregion)) %>% 
+  mutate(year = factor(year)) 
+           
+saveRDS(gapminder, "coursematerial/gapminder.rds")
