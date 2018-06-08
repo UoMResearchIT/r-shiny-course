@@ -7,4 +7,13 @@ presentationname=WorkshopSlides
 $(presentationname).html: $(presentationname).Rmd
 	Rscript -e "rmarkdown::render('$<')"
 
+present: $(presentationname).html
+	chromium-browser $< &
+
+dockerimage: Dockerfile	
+	docker build . -t mawds/rstudio
+
+coursematerial/gapminder.csv: createData.R
+	Rscript $<
+
 
