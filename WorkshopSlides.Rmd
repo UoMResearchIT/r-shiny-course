@@ -1,0 +1,25 @@
+---
+title: "Shiny Workshop"
+author: "David Mawdsley, Louise Lever"
+date: "RSE 2018 Conference<p><img src='http://assets.manchester.ac.uk/logos/hi-res/TAB_UNI_MAIN_logo/White_backgrounds/TAB_col_white_background.png' style='border:0px solid black' width='50%'></p>"
+output: 
+  revealjs::revealjs_presentation:
+    transition: fade
+    theme: solarize
+    fig_height: 6
+    self_contained: true
+    reveal_options:
+      controls: false
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE)
+```
+
+## Shiny for R
+
+- Introduction
+- Workshop format
+    - Writing Shiny apps
+    - Deploying Shiny apps
+  
