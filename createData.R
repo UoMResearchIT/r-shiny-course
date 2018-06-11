@@ -1,24 +1,38 @@
-## Download full gapminder data for Shiny workshop
+## Assemble gapminder data for Shiny workshop
 
 library(tidyverse)
 library(readxl)
 library(gganimate)
 
-population <- read_csv("https://docs.google.com/spreadsheet/pub?key=phAwcNAVuyj0XOoBL_n5tAQ&output=csv")
-totalgdp <- read_csv("https://docs.google.com/spreadsheet/pub?key=0Asm_G8nr4TCSdDh2NWQtVDJhYlVsTElFRjJIYkNlSnc&output=csv")
-lifeexp <- read_csv("https://docs.google.com/spreadsheet/pub?key=phAwcNAVuyj2tPLxKvvnNPA&output=csv")
+population <- read_excel("sourcedata/DataPopulationv5.xlsx", sheet = "Data countries etc by year") # long
+gdpPerCap <- read_excel("sourcedata/gdppc_cppp-by-gapminder.xlsx", sheet = "countries_and_territories") # wide
+lifeExp <- read_excel("sourcedata/lex-by-gapminder.xlsx",  sheet = "countries_and_territories") # wide
 
-continent_lookup <- read_csv("https://raw.githubusercontent.com/lukes/ISO-3166-Countries-with-Regional-Codes/master/all/all.csv") %>% 
+continent_lookup <- #read_csv("https://raw.githubusercontent.com/lukes/ISO-3166-Countries-with-Regional-Codes/master/all/all.csv") %>% 
+  read_csv("sourcedata/all.csv") %>% 
   select(name, region, `sub-region`)
  
-gapminder <- gather(population, key = "year", value = "population", -1) %>% rename(country = `Total population`) %>% 
-  full_join( gather(totalgdp, key = "year", value = "gdp", -1)
-            %>% rename(country = `Total GDP, PPP`) ) %>% 
-  full_join( gather(lifeexp, key = "year", value = "lifeExp", -1) %>%
-               rename(country = `Life expectancy`) )
+# gapminder <- gather(population, key = "year", value = "population", -1) %>% rename(country = `Total population`) %>% 
+#   full_join( gather(totalgdp, key = "year", value = "gdp", -1)
+#             %>% rename(country = `Total GDP, PPP`) ) %>% 
+#   full_join( gather(lifeexp, key = "year", value = "lifeExp", -1) %>%
+#                rename(country = `Life expectancy`) )
+gapminder <- population %>% 
+  full_join( gather(gdpPerCap, key = "year", value = "gdpPerCap", -(1:4)) %>% 
+               mutate(year = as.integer(year)),
+             by  = c("geo", "year")) %>% 
+  full_join(gather(lifeExp, key = "year", value = "lifeExp", -(1:4)) %>% 
+              mutate(year = as.integer(year)),
+            by = c("geo", "year")) %>% 
+  select(-starts_with("indicator")) %>% # Remove unwanted and duplicate columns from join
+  select(-ends_with(".x")) %>% 
+  select(-ends_with(".y")) %>% 
+  rename(country = name)
 
-completeGapminder <- gapminder %>% filter(complete.cases(gapminder)) %>% 
-  mutate(gdpPerCap = gdp / population)
+
+completeGapminder <- gapminder %>% 
+  filter(complete.cases(gapminder)) 
+  
 
 # Some countries names are recorded differently in the continent lookup table
 countryRename <- tribble(
@@ -56,8 +70,9 @@ gapminder <- completeGapminder %>%
   rename(continent = region, subregion = `sub-region`) %>% 
   filter(!is.na(continent)) %>% # There's still a couple of countries we can't assign a continent to
   mutate(continent = factor(continent)) %>% 
-  mutate(subregion = factor(subregion)) %>% 
-  mutate(yearInt = as.integer(year)) %>% 
-  mutate(year = factor(year)) 
+  mutate(subregion = factor(subregion))%>% 
+  filter(year <= 2017) %>%  # don't use predicted values
+  rename(yearInt = year) %>% 
+  mutate(year = factor(yearInt)) 
            
 saveRDS(gapminder, "coursematerial/gapminder.rds")

@@ -4,6 +4,7 @@
 .PHONEY: runrstudio stoprstudio dockerimage
 
 presentationname=WorkshopSlides
+sourcedata = $(wildcard sourcedata/*)
 
 $(presentationname).html: $(presentationname).Rmd
 	Rscript -e "rmarkdown::render('$<')"
@@ -14,7 +15,7 @@ present: $(presentationname).html
 dockerimage: Dockerfile	
 	docker build . -t mawds/rstudio
 
-coursematerial/gapminder.rds: createData.R
+coursematerial/gapminder.rds: createData.R $(sourcedata)
 	Rscript $<
 
 runrstudio: 
