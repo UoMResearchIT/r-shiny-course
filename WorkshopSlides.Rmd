@@ -14,12 +14,89 @@ output:
 
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = FALSE)
+library(tidyverse)
+gapminder <- readRDS("coursematerial/gapminder.rds")
 ```
 
 ## Shiny for R
 
 - Introduction
 - Workshop format
+    - Why (not?) use Shiny
+    - Gapminder data
     - Writing Shiny apps
     - Deploying Shiny apps
   
+## Why use Shiny
+
+- Fast to develop
+- Use R's libraries easily
+
+## Why not use Shiny
+
+- Does not scale very well
+- Expensive pro version of server
+- 
+
+## Gapminder data
+
+- Background to gapminder
+- Factfullness
+
+<iframe width="560" height="315" src="http://www.youtube.com/embed/jbkSRLYSojo?start=75" frameborder="0" allowfullscreen></iframe>
+
+## Static visualisation
+
+```{r, echo = FALSE}
+
+staticplot <- function(indata, year){
+  
+  indata %>% 
+    filter(year == !!year) %>% 
+    ggplot(aes(x = gdpPerCap,
+               y = lifeExp,
+               size = population,
+               colour = continent)) +
+    geom_point() +
+    coord_cartesian(xlim = c(400, 40000),
+                    ylim = c(25, 80)) +
+    scale_x_log10() + 
+    guides(size = FALSE) +
+    labs(title = year )
+  
+}
+
+
+staticplot(gapminder, 1817)  
+
+```
+
+## Static visualisation
+
+```{r}
+staticplot(gapminder, 1917)
+```
+
+## Static visualisation
+
+```{r}
+staticplot(gapminder, 2017)
+```
+
+## Plotting code
+
+```{r, echo=TRUE}
+staticplot
+```
+
+## Workshop aims
+
+- To use Shiny to make an interactive version of the plot
+  - Select / animate the year
+  - Identify a country by selecting it
+  - Show trajectories for all / selected country
+  
+
+## Deploying Shiny apps
+
+- Probably won't do this bit interactively.
