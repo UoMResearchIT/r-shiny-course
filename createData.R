@@ -74,5 +74,12 @@ gapminder <- completeGapminder %>%
   filter(year <= 2017) %>%  # don't use predicted values
   rename(yearInt = year) %>% 
   mutate(year = factor(yearInt)) 
-           
+
+# Only keep countries we  have a full time series for
+maxcountry <- (gapminder %>% count(country) %>% arrange(desc(n)))[1,]$n
+completecountries <- (gapminder %>% count(country) %>% filter(n==maxcountry))$country
+
+gapminder <- gapminder %>% 
+  filter(country %in% completecountries)
+
 saveRDS(gapminder, "coursematerial/gapminder.rds")
