@@ -562,13 +562,26 @@ document.getElementsByTagName('head')[0].appendChild(style);
 ##     labs(title = year )
 ##   
 ## }
-## &lt;bytecode: 0x55ffa925b930&gt;</code></pre>
+## &lt;bytecode: 0x55d412f146f8&gt;</code></pre>
 </section>
-<section id="writing-shiny-apps" class="slide level2">
-<h2>Writing Shiny apps</h2>
+<section id="workshop-aims" class="slide level2">
+<h2>Workshop aims</h2>
 <ul>
-<li>Main bulk of workshop</li>
+<li>To use Shiny to make an interactive version of the plot
+<ul>
+<li>Select / animate the year</li>
+<li>Identify a country by selecting it</li>
+<li>Show trajectories for all / selected country</li>
+</ul></li>
 </ul>
+</section>
+<section id="getting-started" class="slide level2">
+<h2>Getting started</h2>
+<p>Run the Docker container we will be using:</p>
+<pre><code>docker run -d --name rstudio -p 8787:8787 -p 3838:3838 \
+-v &quot;$(pwd)/coursematerial:/home/rstudio/coursematerial&quot; \
+-e USERID=ID  mawds/rstudio</code></pre>
+<p>And then connect to <a href="http://localhost:8787" class="uri">http://localhost:8787</a> using Chromium</p>
 </section>
 <section id="deploying-shiny-apps" class="slide level2">
 <h2>Deploying Shiny apps</h2>
