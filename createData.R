@@ -7,6 +7,7 @@ library(gganimate)
 population <- read_excel("sourcedata/DataPopulationv5.xlsx", sheet = "Data countries etc by year") # long
 gdpPerCap <- read_excel("sourcedata/gdppc_cppp-by-gapminder.xlsx", sheet = "countries_and_territories") # wide
 lifeExp <- read_excel("sourcedata/lex-by-gapminder.xlsx",  sheet = "countries_and_territories") # wide
+tfr <- read_excel("sourcedata/tfr-by-gapminder.xlsx", sheet = "countries_and_territories")
 
 continent_lookup <- #read_csv("https://raw.githubusercontent.com/lukes/ISO-3166-Countries-with-Regional-Codes/master/all/all.csv") %>% 
   read_csv("sourcedata/all.csv") %>% 
@@ -22,6 +23,9 @@ gapminder <- population %>%
                mutate(year = as.integer(year)),
              by  = c("geo", "year")) %>% 
   full_join(gather(lifeExp, key = "year", value = "lifeExp", -(1:4)) %>% 
+              mutate(year = as.integer(year)),
+            by = c("geo", "year")) %>% 
+  full_join(gather(tfr, key = "year", value = "tfr", -(1:4)) %>% 
               mutate(year = as.integer(year)),
             by = c("geo", "year")) %>% 
   select(-starts_with("indicator")) %>% # Remove unwanted and duplicate columns from join
