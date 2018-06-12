@@ -82,4 +82,13 @@ completecountries <- (gapminder %>% count(country) %>% filter(n==maxcountry))$co
 gapminder <- gapminder %>% 
   filter(country %in% completecountries)
 
+
+## Just keep countries with the largest population in 2017?
+# gapminder <- gapminder %>% 
+#   filter(year == 2017) %>% 
+#   arrange(desc(population)) %>% 
+#   filter(row_number() <= 100) %>% 
+#   select(country) %>% 
+#   inner_join(gapminder, by = "country")
+
 saveRDS(gapminder, "coursematerial/gapminder.rds")
