@@ -94,7 +94,7 @@ staticplot
 - To use Shiny to make an interactive version of the plot
     - Select / animate the year
     - Identify a country by selecting it
-    - Show trajectories for all / selected country
+    - Show "trajectory" for selected country
 
 ## Getting started
 
@@ -106,6 +106,48 @@ docker run -d --name rstudio -p 8787:8787 -p 3838:3838 \
 -e USERID=ID  mawds/rstudio
 ```
 And then connect to http://localhost:8787 using Chromium
+
+## Anatomy of a Shiny App - user interface
+
+```
+ui <- fluidPage(
+    
+    # Application title
+    titlePanel("Old Faithful Geyser Data"),
+    
+    # Sidebar with a slider input for number of bins 
+    sidebarLayout(
+        sidebarPanel(
+            sliderInput("bins", ...
+        ),
+        
+        
+        mainPanel(
+           plotOutput("distPlot")
+        )
+    )
+)
+```
+
+## Anatomy of a Shiny App - server
+```
+server <- function(input, output) {
+    
+    output$distPlot <- renderPlot({
+        # generate bins based on input$bins from ui.R
+        x    <- faithful[, 2] 
+        bins <- seq(min(x), max(x), length.out = input$bins + 1)
+        
+        # draw the histogram with the specified number of bins
+        hist(x, breaks = bins, col = 'darkgray', border = 'white')
+    })
+}
+
+```
+
+## Exercise 
+
+
 
 ## Deploying Shiny apps
 
