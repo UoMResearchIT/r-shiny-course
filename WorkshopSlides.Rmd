@@ -71,6 +71,18 @@ gapminder %>%
 
 ```
 
+## Static visualisation
+
+```{r}
+historicData <- gapminder %>% 
+  filter(country == "United Kingdom")
+
+gapminder %>% 
+  filter(year == 2017) %>% 
+  produceGapminderPlot(makeSemiTransparent = TRUE) %>% 
+  addHistoricPlot(historicData, 2017)
+```
+
 ## Workshop aims
 
 - To use Shiny to make an interactive version of the plot
@@ -88,6 +100,9 @@ docker run -d --name rstudio -p 8787:8787 -p 3838:3838 \
 -e USERID=ID  mawds/rstudio
 ```
 And then connect to http://localhost:8787 using Chromium
+
+
+
 
 ## Anatomy of a Shiny App - user interface
 
