@@ -108,12 +108,16 @@ saveRDS(gapminder, "coursematerial/gapminder.rds")
 
 ##  colour pallette for continent
 # Make the gapminder colours a bit brigher
-continent_colours <- adjustcolor(continent_colors, 
-                                 red.f = 1.5,
-                                 green.f = 1.5, 
-                                 blue.f = 1.5)
-
-saveRDS(continent_colours, "coursematerial/continent_colours.rds")
-
-
-
+# Rather than load this as a separate object 
+# the pallet has been pasted into plottingFunctions.R
+# continent_names <- names(continent_colors)
+# continent_colours <- adjustcolor(continent_colors, 
+#                                  red.f = 1.5,
+#                                  green.f = 1.5, 
+#                                  blue.f = 1.5)
+# names(continent_colours) <- continent_names
+# 
+# saveRDS(continent_colours, "coursematerial/continent_colours.rds")
+# 
+# 
+# 
