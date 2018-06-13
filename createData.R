@@ -3,6 +3,7 @@
 library(tidyverse)
 library(readxl)
 library(gganimate)
+library(gapminder)
 
 population <- read_excel("sourcedata/DataPopulationv5.xlsx", sheet = "Data countries etc by year") # long
 gdpPerCap <- read_excel("sourcedata/gdppc_cppp-by-gapminder.xlsx", sheet = "countries_and_territories") # wide
@@ -102,3 +103,17 @@ if (max(yearcheck$delta, na.rm = TRUE) != 1){
 #   inner_join(gapminder, by = "country")
 
 saveRDS(gapminder, "coursematerial/gapminder.rds")
+
+
+
+##  colour pallette for continent
+# Make the gapminder colours a bit brigher
+continent_colours <- adjustcolor(continent_colors, 
+                                 red.f = 1.5,
+                                 green.f = 1.5, 
+                                 blue.f = 1.5)
+
+saveRDS(continent_colours, "coursematerial/continent_colours.rds")
+
+
+
