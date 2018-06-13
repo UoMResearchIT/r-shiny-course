@@ -16,6 +16,7 @@ output:
 knitr::opts_chunk$set(echo = FALSE)
 library(tidyverse)
 gapminder <- readRDS("coursematerial/gapminder.rds")
+source("coursematerial/plottingFunctions.R")
 ```
 
 ## Shiny for R
@@ -48,45 +49,26 @@ gapminder <- readRDS("coursematerial/gapminder.rds")
 ## Static visualisation
 
 ```{r, echo = FALSE}
-
-staticplot <- function(indata, year){
-  
-  indata %>% 
-    filter(year == !!year) %>% 
-    ggplot(aes(x = gdpPerCap,
-               y = lifeExp,
-               size = population,
-               colour = continent)) +
-    geom_point() +
-    coord_cartesian(xlim = c(400, 40000),
-                    ylim = c(25, 80)) +
-    scale_x_log10() + 
-    guides(size = FALSE) +
-    labs(title = year )
-  
-}
-
-
-staticplot(gapminder, 1817)  
-
+gapminder %>% 
+  filter(year == 1817) %>% 
+  produceGapminderPlot()
 ```
 
 ## Static visualisation
 
 ```{r}
-staticplot(gapminder, 1917)
+gapminder %>% 
+  filter(year == 1917) %>% 
+  produceGapminderPlot()
 ```
 
 ## Static visualisation
 
 ```{r}
-staticplot(gapminder, 2017)
-```
+gapminder %>% 
+  filter(year == 2017) %>% 
+  produceGapminderPlot()
 
-## Plotting code
-
-```{r, echo=TRUE}
-staticplot
 ```
 
 ## Workshop aims

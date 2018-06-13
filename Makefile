@@ -6,7 +6,7 @@
 presentationname=WorkshopSlides
 sourcedata = $(wildcard sourcedata/*)
 
-$(presentationname).html: $(presentationname).Rmd
+$(presentationname).html: $(presentationname).Rmd coursematerial/plottingFunctions.R $(sourcedata) 
 	Rscript -e "rmarkdown::render('$<')"
 
 present: $(presentationname).html
