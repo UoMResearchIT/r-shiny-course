@@ -75,9 +75,7 @@ gapminder <- completeGapminder %>%
   filter(!is.na(continent)) %>% # There's still a couple of countries we can't assign a continent to
   mutate(continent = factor(continent)) %>% 
   mutate(subregion = factor(subregion))%>% 
-  filter(year <= 2017) %>%  # don't use predicted values
-  rename(yearInt = year) %>% 
-  mutate(year = factor(yearInt)) 
+  filter(year <= 2017) # don't use predicted values
 
 # Only keep countries we  have a full time series for
 maxcountry <- (gapminder %>% count(country) %>% arrange(desc(n)))[1,]$n
@@ -86,6 +84,14 @@ completecountries <- (gapminder %>% count(country) %>% filter(n==maxcountry))$co
 gapminder <- gapminder %>% 
   filter(country %in% completecountries)
 
+# Check we have sequential years 
+yearcheck <- gapminder %>% 
+  select(year) %>% 
+  mutate(lagyear = lag(year)) %>% 
+  mutate(delta = year - lagyear)
+if (max(yearcheck$delta, na.rm = TRUE) != 1){
+  stop("Non sequential year")
+}
 
 ## Just keep countries with the largest population in 2017?
 # gapminder <- gapminder %>% 
