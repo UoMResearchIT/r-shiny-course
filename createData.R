@@ -83,7 +83,8 @@ maxcountry <- (gapminder %>% count(country) %>% arrange(desc(n)))[1,]$n
 completecountries <- (gapminder %>% count(country) %>% filter(n==maxcountry))$country
 
 gapminder <- gapminder %>% 
-  filter(country %in% completecountries)
+  filter(country %in% completecountries) %>% 
+  select(-geo.name, -geo)
 
 # Check we have sequential years 
 yearcheck <- gapminder %>% 
