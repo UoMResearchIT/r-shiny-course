@@ -231,6 +231,13 @@ ui <- fluidPage(
 - The widths of each row of columns should sum to 12
 - Columns can be nested
 
+## Making the graph interactive
+
+- Click on a country and see its name
+
+- `renderPlot("plotname", click = "clickName")` will output information about mouse clicks to the server.
+
+- Demo this
 
     
 ## Deploying Shiny apps
