@@ -195,8 +195,19 @@ server <- function(input, output) {
     - ~~Customise the look of our app~~
     - ~~Identify a country by selecting it~~
     - ~~Show "trajectory" for selected country~~
+
+- Add another widget to select continents, and modify your server function to filter the data so that only the selected continents are shown.
+
+## Cutomising how our app looks
+
+- The `shinythemes` package lets us select readymade themes for our app
+- Can write our own css for more control
+- `shinythemes::themeSelector()` widget lets us interactively exeriment with themes
+- Use the option `theme = shinytheme("themename")` on your user interface function (`fluidPage`) in our example
     
-    
+## App layout
+
+TODO
     
 ## Deploying Shiny apps
 
