@@ -207,7 +207,31 @@ server <- function(input, output) {
     
 ## App layout
 
-TODO
+- The default apps `sidebarLayout()` is a good starting point.
+- The `fluidPage()` layout gives us more control.
+
+```{r, echo = TRUE,  eval = FALSE}
+ui <- fluidPage(
+  titlePanel("Gapminder Analysis"), # Will cover whole width
+  plotOutput("mainPlot", click = "mainPlotClick"), # Ditto
+  fluidRow( 
+    column(6, # column width
+           sliderInput(inputId = "year", # Things to include in the column
+                       ....)
+           
+    ),
+    column(6, # Next column
+           checkboxGroupInput("continent", # Things to include in second column
+                              ....)
+    )
+  )
+)
+```
+
+- The widths of each row of columns should sum to 12
+- Columns can be nested
+
+
     
 ## Deploying Shiny apps
 
