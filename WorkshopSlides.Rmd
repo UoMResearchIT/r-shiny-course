@@ -270,6 +270,18 @@ set_vertex_attr(g, "color", value ="red", index = c("year", "continents", "click
 ```
 
 
+## Exercise: Workshop aims
+
+- To use Shiny to make an interactive version of the plot
+    - ~~Select / animate the year~~
+    - ~~Only plot data for selected continents~~
+    - ~~Customise the look of our app~~
+    - Identify a country by selecting it
+    - Show "trajectory" for selected country
+    
+- Modify `output$mainPlot` to highlight the selected country and show a trace of its trajectory.
+    - `codeExample.R` contains an example of doing this.
+    
 
     
 ## Deploying Shiny apps
