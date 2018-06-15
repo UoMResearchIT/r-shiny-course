@@ -15,6 +15,7 @@ output:
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = FALSE)
 library(tidyverse)
+library(igraph)
 gapminder <- readRDS("coursematerial/gapminder.rds")
 source("coursematerial/plottingFunctions.R")
 ```
@@ -238,6 +239,37 @@ ui <- fluidPage(
 - `renderPlot("plotname", click = "clickName")` will output information about mouse clicks to the server.
 
 - Demo this
+
+## Working with click data
+
+- Click output is in mapped coordinates
+  - (this works with ggplot2 and base graphs, but not lattice graphs)
+- Need to map coordinates to an entry in the data - `nearPoints()` does this for us
+- But we only care about the points we can see.  At the moment these are filtered in our `renderPlot()` function
+  - Should avoid code repetition
+  
+## Reactive data
+
+```{r}
+edges <- tribble(~v1, ~v2,
+                 "year", "plotData",
+                 "continents", "plotData",
+                 "plotData", "plot",
+                 "plotData", "activeCountry",
+                 "click", "activeCountry",
+                 "activeCountry", "countryText")
+
+
+
+g <- graph_from_edgelist(as.matrix(edges))
+set_vertex_attr(g, "color", value ="red", index = c("year", "continents", "click")) %>% 
+  set_vertex_attr( "color", value ="green", index = c("plotData", "activeCountry")) %>% 
+  set_vertex_attr("color", value ="yellow", index = c("plot", "countryText")) %>% 
+  plot()
+
+```
+
+
 
     
 ## Deploying Shiny apps
