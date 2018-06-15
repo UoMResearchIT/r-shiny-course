@@ -87,19 +87,27 @@ gapminder %>%
 
 - To use Shiny to make an interactive version of the plot
     - Select / animate the year
+    - Only plot data for selected continents
+    - Customise the look of our app
     - Identify a country by selecting it
     - Show "trajectory" for selected country
 
 ## Getting started
 
-Run the Docker container we will be using:
+* Run the Docker container we will be using:
 
 ```
 docker run -d --name rstudio -p 8787:8787 -p 3838:3838 \
 -v "$(pwd)/coursematerial:/home/rstudio/coursematerial" \
 -e USERID=ID  mawds/rstudio
 ```
-And then connect to http://localhost:8787 using Chromium
+* Connect to http://localhost:8787 using Chromium. 
+
+* username: rstudio password: rstudio
+
+* `coursematerial` contains the data and plotting functions we will use.
+
+* `codeExample.R` shows how to use the plotting functions.
 
 
 
@@ -126,6 +134,10 @@ ui <- fluidPage(
 )
 ```
 
+`input$bins` is a source
+
+`output$distPlot` is an endpoint
+
 ## Anatomy of a Shiny App - server
 ```
 server <- function(input, output) {
@@ -144,8 +156,48 @@ server <- function(input, output) {
 
 ## Exercise 
 
+* Create and save a new Shiny app (this will be pre-filled with the example code)
+* Check this works
+* Modify the app to load the tidyverse library, gapminder data and `plottingFunctions.R`
+
+* Modify the app to plot a histogram of all the populations in the gapminder data
 
 
+## Exercise: Workshop aims
+
+- To use Shiny to make an interactive version of the plot
+    - Select / animate the year
+    - ~~Only plot data for selected continents~~
+    - ~~Customise the look of our app~~
+    - ~~Identify a country by selecting it~~
+    - ~~Show "trajectory" for selected country~~
+    
+    
+
+- Create a new `sliderInput` with `inputId` "year" to select a year.
+- use the `animate` option to allow this to run through the years
+    
+- Using the code in `codeExample.R` as a starting point,  plot the data for the selected year in the app
+
+## More widgets
+
+- Many common widget types are built into Shiny see:
+    https://shiny.rstudio.com/gallery/widget-gallery.html 
+- Can be extended using additional packages (https://github.com/dreamRs/shinyWidgets)
+- or by writing your own.
+  
+
+## Exercise: Workshop aims
+
+- To use Shiny to make an interactive version of the plot
+    - ~~Select / animate the year~~
+    - Only plot data for selected continents
+    - ~~Customise the look of our app~~
+    - ~~Identify a country by selecting it~~
+    - ~~Show "trajectory" for selected country~~
+    
+    
+    
 ## Deploying Shiny apps
 
 - Probably won't do this bit interactively.
