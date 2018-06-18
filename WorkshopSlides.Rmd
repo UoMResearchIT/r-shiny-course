@@ -234,7 +234,6 @@ ui <- fluidPage(
     column(6, # column width
            sliderInput(inputId = "year", # Things to include in the column
                        ....)
-           
     ),
     column(6, # Next column
            checkboxGroupInput("continent", # Things to include in second column
@@ -244,25 +243,32 @@ ui <- fluidPage(
 )
 ```
 
-- The widths of each row of columns should sum to 12
+- The widths of each row of columns should sum to 12 <span style="color:red">fluidpage</span>
 - Columns can be nested
 
 ## Making the graph interactive
+- To use Shiny to make an interactive version of the plot
+    - ~~Select / animate the year~~
+    - ~~Only plot data for selected continents~~
+    - ~~Customise the look of our app~~
+    - Identify a country by selecting it
+    - ~~Show "trajectory" for selected country~~
 
-- Click on a country and see its name
 
-- `renderPlot("plotname", click = "clickName")` will output information about mouse clicks to the server.
-
-- Demo this
+- `plotOutput("plotname", click = "clickName")` will output information about mouse clicks within a plot to the server.
+- To see the output of this we need to use `renderPrint()` to capture the output
+- Which we then need to display in our user interface using `textOutput()`
+<span style="color:red">clickdata</span>
 
 ## Working with click data
 
 - Click output is in mapped coordinates
   - (this works with ggplot2 and base graphs, but not lattice graphs)
 - Need to map coordinates to an entry in the data - `nearPoints()` does this for us
-- But we only care about the points we can see.  At the moment these are filtered in our `renderPlot()` function
-  - Should avoid code repetition
-  
+  - We can look at the output of `nearPoints()` (optionally using `renderTable()` and `tableOutput()` to format things nicely)
+<span style="color:red">nearpoints</span>
+
+
 ## Reactive data
 
 ```{r}
