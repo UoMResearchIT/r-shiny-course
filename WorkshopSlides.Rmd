@@ -38,7 +38,7 @@ source("coursematerial/plottingFunctions.R")
 
 - Does not scale very well
 - Expensive pro version of server
-- 
+ 
 
 ## Gapminder data
 
@@ -111,6 +111,18 @@ docker run -d --name rstudio -p 8787:8787 -p 3838:3838 \
 * `codeExample.R` shows how to use the plotting functions.
 
 
+## Interactive exercises
+
+* The `coursematerial` folder is a git repository
+* Solutions are stored as tagged commits for code in the `worked_example` directory
+    * These are coloured red in the slides
+
+```
+git checkout helloworld
+```
+From the rstudio console will checkout the solution.
+
+Make your own Shiny app in another directory
 
 
 ## Anatomy of a Shiny App - user interface
@@ -157,12 +169,10 @@ server <- function(input, output) {
 
 ## Exercise 
 
-* Create and save a new Shiny app (this will be pre-filled with the example code)
+* Create and save a new Shiny app (this will be pre-filled with the example code) <span style="color:red">helloworld</span>
 * Check this works
-* Modify the app to load the tidyverse library, gapminder data and `plottingFunctions.R`
-
-* Modify the app to plot a histogram of all the populations in the gapminder data
-
+* Modify the app to load the tidyverse library, gapminder data and `plottingFunctions.R` <span style="color:red">loadresources</span>
+* Modify the app to plot a histogram of all the populations in the gapminder data <span style="color:red">histogram</span>
 
 ## Exercise: Workshop aims
 
@@ -172,13 +182,16 @@ server <- function(input, output) {
     - ~~Customise the look of our app~~
     - ~~Identify a country by selecting it~~
     - ~~Show "trajectory" for selected country~~
-    
-    
 
-- Create a new `sliderInput` with `inputId` "year" to select a year.
-- use the `animate` option to allow this to run through the years
+## Exercises
+
+- Create a new `sliderInput` with `inputId` "year" to select a year. <span style="color:red">yearslider</span>
+- use the `animate` option to allow this to run through the years <span style="color:red">animate</span>
+    - You may wish to explore `animationOptions()` to control the animation speed
     
 - Using the code in `codeExample.R` as a starting point,  plot the data for the selected year in the app
+    - Delete the `bins` slider as it is no longer being used. <span style="color:red">baseplot</span>
+
 
 ## More widgets
 
@@ -282,6 +295,10 @@ set_vertex_attr(g, "color", value ="red", index = c("year", "continents", "click
 - Modify `output$mainPlot` to highlight the selected country and show a trace of its trajectory.
     - `codeExample.R` contains an example of doing this.
     
+## Stretch exercises
+
+- add another tab and put a second plot in it, showing gdp vs fertility rate 
+- add tree selector to select countries by continent
 
     
 ## Deploying Shiny apps
