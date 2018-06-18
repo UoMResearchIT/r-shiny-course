@@ -9,7 +9,8 @@ ENV MAKEFLAGS="-j 7"
 RUN apt-get update && \
  apt-get install -y --no-install-recommends \
  libcurl4-openssl-dev libssl-dev libxml2-dev \
- zlib1g-dev libssh2-1-dev texlive-latex-extra 
+ zlib1g-dev libssh2-1-dev texlive-latex-extra \
+ vim
 
 RUN Rscript -e 'install.packages(c("tidyverse", "shiny", "shinyWidgets", "shinythemes"))'
 
