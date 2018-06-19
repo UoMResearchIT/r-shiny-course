@@ -262,32 +262,89 @@ ui <- fluidPage(
 
 ## Working with click data
 
-- Click output is in mapped coordinates
-  - (this works with ggplot2 and base graphs, but not lattice graphs)
+- Click output is in mapped coordinates (dependent on graph package)
 - Need to map coordinates to an entry in the data - `nearPoints()` does this for us
   - We can look at the output of `nearPoints()` (optionally using `renderTable()` and `tableOutput()` to format things nicely)
 <span style="color:red">nearpoints</span>
 
+## Working with click data
+
+2 problems:
+
+1. `nearPoints()` is using _all_ the data, not just the current year
+    - Should be the data displayed on the graph
+2. As soon as the graph changes...the click event is lost
+    - Year advances
+    - Graph resizes
+
+## Solving problem 1
+
+- We make the filtered data _reactive_   <span style="color:red">reactivedata</span>
+    - Data which changes over time
 
 ## Reactive data
 
 ```{r}
 edges <- tribble(~v1, ~v2,
                  "year", "plotData",
-                 "continents", "plotData",
-                 "plotData", "plot",
-                 "plotData", "activeCountry",
-                 "click", "activeCountry",
-                 "activeCountry", "countryText")
+                 "continent", "plotData",
+                 "plotData", "lifeExpPlot",
+                 "plotClick", "showClick",
+                 "plotData", "showClick")
 
 
 
-g <- graph_from_edgelist(as.matrix(edges))
-set_vertex_attr(g, "color", value ="red", index = c("year", "continents", "click")) %>% 
-  set_vertex_attr( "color", value ="green", index = c("plotData", "activeCountry")) %>% 
-  set_vertex_attr("color", value ="yellow", index = c("plot", "countryText")) %>% 
-  plot()
+g <- graph_from_edgelist(as.matrix(edges)) %>% 
+set_vertex_attr( "color", value = "red", index = c("year", "continent", "plotClick")) %>% 
+  set_vertex_attr( "color", value = "green", index = c("plotData")) %>% 
+  set_vertex_attr("color", value = "yellow", index = c("lifeExpPlot", "showClick")) 
 
+layout <- structure(c(148, 200, 281, 121, 400, 287, 386, 200, 386, 4, 382, 
+0), .Dim = c(6L, 2L))
+
+plot(g, layout = layout)
+
+```
+
+## Solving problem 2
+
+- The `plotClick` is lost every time the graph updates
+- We use `observeEvent()` to observe when a click happens
+- And only then do we update the active country <span style="color:red">showselected</span>
+
+##
+
+```{r}
+edges2 <- tribble(~v1, ~v2,
+                 "year", "plotData",
+                 "continent", "plotData",
+                 "year", "historicData",
+                 "activeCountry", "historicData",
+                 "plotData", "lifeExpPlot",
+                 # "historicData", "lifeExpPlot",
+                 "activeCountry", "showClick",
+                 "plotClick", "activeCountry"
+                 )
+
+
+
+g2 <- graph_from_edgelist(as.matrix(edges2)) %>% 
+set_vertex_attr( "color", value = "red", index = c("year", "continent", "plotClick")) %>% 
+  set_vertex_attr( "color", value = "green", index = c("plotData", "historicData", "activeCountry")) %>% 
+  set_vertex_attr("color", value = "yellow", index = c("lifeExpPlot", "showClick")) 
+
+layout2 <- structure(c(83, 117, 244, 247, 353, 77, 378, 381, 364, 170, 368, 
+171, 246, 0, 5, 371), .Dim = c(8L, 2L))
+
+plot(g2, layout = layout2)
+```
+
+##
+
+```{r}
+g2 %>% add_edges(c("historicData", "lifeExpPlot",
+                   "year", "lifeExpPlot")) %>% 
+  plot(layout=layout2)
 ```
 
 
@@ -297,18 +354,14 @@ set_vertex_attr(g, "color", value ="red", index = c("year", "continents", "click
     - ~~Select / animate the year~~
     - ~~Only plot data for selected continents~~
     - ~~Customise the look of our app~~
-    - Identify a country by selecting it
+    - ~~Identify a country by selecting it~~
     - Show "trajectory" for selected country
     
-- Modify `output$mainPlot` to highlight the selected country and show a trace of its trajectory.
-    - `codeExample.R` contains an example of doing this.
-    
-## Stretch exercises
 
-- add another tab and put a second plot in it, showing gdp vs fertility rate 
-- add tree selector to select countries by continent
+- Complete the app by modifying `output$lifeExpPlot` to add the historic data if `!is.na( activeCountry() )`
+<span style="color:red">showtrace</span>
 
-    
+
 ## Deploying Shiny apps
 
-- Probably won't do this bit interactively.
+
