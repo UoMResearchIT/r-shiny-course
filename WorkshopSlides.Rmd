@@ -29,16 +29,15 @@ source("coursematerial/plottingFunctions.R")
     - Writing Shiny apps
     - Deploying Shiny apps
   
-## Why use Shiny
+## Why (not?) use Shiny
 
 - Fast to develop
 - Use R's libraries easily
-
-## Why not use Shiny
-
-- Does not scale very well
-- Expensive pro version of server
- 
+- Many built in widgets
+    - And packages for others
+<p>
+- Awkward to scale
+- Non-free pro version needed for some features
 
 ## Gapminder data
 
@@ -171,7 +170,7 @@ server <- function(input, output) {
 
 * Create and save a new Shiny app (this will be pre-filled with the example code) <span style="color:red">helloworld</span>
 * Check this works
-* Modify the app to load the tidyverse library, gapminder data and `plottingFunctions.R` <span style="color:red">loadresources</span>
+* Modify the app to load the ggplot2 and dplyr libraries, gapminder data and `plottingFunctions.R` <span style="color:red">loadresources</span>
 * Modify the app to plot a histogram of all the populations in the gapminder data <span style="color:red">histogram</span>
 
 ## Exercise: Workshop aims
@@ -232,19 +231,17 @@ ui <- fluidPage(
   plotOutput("mainPlot", click = "mainPlotClick"), # Ditto
   fluidRow( 
     column(6, # column width
-           sliderInput(inputId = "year", # Things to include in the column
-                       ....)
+           sliderInput(inputId = "year", ....) # Things to include in the column
     ),
     column(6, # Next column
-           checkboxGroupInput("continent", # Things to include in second column
-                              ....)
+           checkboxGroupInput("continent", ....)# Things to include in second column
     )
   )
 )
 ```
 
 - The widths of each row of columns should sum to 12 <span style="color:red">fluidpage</span>
-- Columns can be nested
+
 
 ## Making the graph interactive
 - To use Shiny to make an interactive version of the plot
@@ -254,6 +251,7 @@ ui <- fluidPage(
     - Identify a country by selecting it
     - ~~Show "trajectory" for selected country~~
 
+##
 
 - `plotOutput("plotname", click = "clickName")` will output information about mouse clicks within a plot to the server.
 - To see the output of this we need to use `renderPrint()` to capture the output
@@ -364,4 +362,12 @@ g2 %>% add_edges(c("historicData", "lifeExpPlot",
 
 ## Deploying Shiny apps
 
+- Run from R(Studio)
 
+- https://shinyapps.io easy deployment from RStudioo
+    - Various pricing tiers 
+    - https://mawds.shinyapps.io/worked_example/
+- Local Shiny server
+    - Free and commercial versions
+    - Authentication requires commercial version
+    
