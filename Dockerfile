@@ -11,6 +11,5 @@ RUN apt-get update && \
  libcurl4-openssl-dev libssl-dev libxml2-dev \
  zlib1g-dev libssh2-1-dev texlive-latex-extra \
  vim && apt-get clean
-
-RUN Rscript -e 'install.packages(c("tidyverse", "shiny", "shinyWidgets", "shinythemes"))'
+RUN Rscript -e 'install.packages(c("ggplot2","dplyr","readr", "tibble","magrittr", "shiny", "shinythemes", "RCurl", "RJSONIO", "PKI", "rstudioapi", "yaml", "packrat", "rsconnect"))'
 
