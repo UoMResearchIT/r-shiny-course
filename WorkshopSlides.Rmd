@@ -364,10 +364,16 @@ g2 %>% add_edges(c("historicData", "lifeExpPlot",
 
 - Run from R(Studio)
 
-- https://shinyapps.io easy deployment from RStudioo
+- https://shinyapps.io easy deployment from RStudio
     - Various pricing tiers 
     - https://mawds.shinyapps.io/worked_example/
-- Local Shiny server
+- Shiny server
     - Free and commercial versions
     - Authentication requires commercial version
     
+## Summary
+
+- Define the UI and server functions
+- Reactive programming handles the depencencies between elements
+- Deploy apps using shinyapps.io or to a Shiny Server
+
