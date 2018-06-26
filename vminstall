@@ -1,0 +1,36 @@
+sudo apt-get update
+sudo apt-get install  --no-install-recommends libjpeg62 r-base git  libcurl4-openssl-dev libssl-dev build-essential
+sudo Rscript -e 'install.packages(c("ggplot2","dplyr","readr", "tibble","magrittr", "shiny", "shinythemes", "RCurl", "RJSONIO", "PKI", "rstudioapi", "yaml", "packrat", "rsconnect"))'
+export MAKEFLAGS="-j 2" # Not strictly required but speeds up build of R packages
+wget https://download1.rstudio.org/rstudio-xenial-1.1.453-amd64.deb
+sudo dpkg -i rstudio-xenial-1.1.453-amd64.deb 
+rm rstudio-xenial-1.1.453-amd64.deb
+sudo apt remove build-essential # Assuming none of the other workshops need it
+sudo apt autoremove
+sudo apt-get clean
+
+# For testing:
+git clone https://github.com/UoMResearchIT/RSE18-shiny-workshop-materials.git mawdsley
+
+cd mawdsley
+
+
+Rscript codeExample.R
+# Should get the help page for sliderInput (quit with q)
+# Should be a pdf Rplots.pdf in working directory
+evince Rplots.pdf
+# Should contain 5 plots; 2 scatter plots, 1 line plot, 2 scatter + line plots
+rm Rplots.pdf
+
+rstudio
+
+# navigate to folder (lower right window), and select coursmaterial.Rproj
+# navigate to worked_example and load app.r
+# select run app
+# Graph should appear in new window
+# Check this animates (play button below timeline)
+# continents can be selected
+# a country can be selected (click point in graph)
+# Check app works in a browser window (select open in browser in toolbar)
+
+
