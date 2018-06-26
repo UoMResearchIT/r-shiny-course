@@ -1,16 +1,19 @@
 # RSE 2018 Shiny Workshop
 
-To run docker image containing shiny server
+This repo contains the slides and other material for the RSE 2018 Shiny Workshop.
 
-```
-docker run -d --name rstudio -p 8787:8787 -p 3838:3838  -v "$(pwd)/coursematerial:/home/rstudio/coursematerial" -e USERID=$UID  mawds/rstudio
-```
+The running example is a submodule.  
 
-We map 3838 so we can view in external browser.
+Early work was done in a Docker image - this is no longer needed, as it was more space-efficient to install RStudio etc directly in the virtual machine supplied by the organisers.  Build instructions for this, and a test script are in `viminstall`
 
-Image sets up Rprofile.site so that default interface for Shiny is
-0.0.0.0:3838
+The Docker image can be built with `make dockerimage`
+The Docker image can be started/stoped with `run|stoprstudio`
+The slide deck will be compiled and opened with `make present`
 
-Note the RunApp button doesn't seem to work properly in Firefox - the app doesn't initialise properly.   Is OK in Chromium
+If running the Docker image, connect to `localhost:8787`, username/password: rstudio/rstudio
+
+We also map port 3838 so we can view Shiny apps in the external browser.
+
+Note the RunApp button doesn't seem to work properly in Firefox - the app doesn't initialise properly.   Is OK in Chromium.
 
 
