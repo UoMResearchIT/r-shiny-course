@@ -24,7 +24,7 @@ rm Rplots.pdf
 
 rstudio
 
-# navigate to folder (lower right window), and select coursmaterial.Rproj
+# navigate to folder (lower right window), and select coursematerial.Rproj
 # navigate to worked_example and load app.r
 # select run app
 # Graph should appear in new window
