@@ -4,6 +4,7 @@ author: "David Mawdsley, Louise Lever"
 date: "RSE 2018 Conference<p><img src='http://assets.manchester.ac.uk/logos/hi-res/TAB_UNI_MAIN_logo/White_backgrounds/TAB_col_white_background.png' style='border:0px solid black' width='50%'></p>"
 output: 
   revealjs::revealjs_presentation:
+    css: present.css
     transition: fade
     theme: solarize
     fig_height: 6
@@ -29,6 +30,9 @@ source("coursematerial/plottingFunctions.R")
     - Writing Shiny apps
     - Deploying Shiny apps
   
+[git:animate]()
+
+[git:nearpoints]()
 ## Why (not?) use Shiny
 
 - Fast to develop
@@ -91,6 +95,7 @@ gapminder %>%
     - Customise the look of our app
     - Identify a country by selecting it
     - Show "trajectory" for selected country
+    
 
 ## Getting started
 

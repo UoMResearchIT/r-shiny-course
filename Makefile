@@ -6,8 +6,13 @@
 presentationname=WorkshopSlides
 sourcedata = $(wildcard sourcedata/*)
 
-$(presentationname).html: $(presentationname).Rmd coursematerial/plottingFunctions.R coursematerial/gapminder.rds  
-	Rscript -e "rmarkdown::render('$<')"
+
+
+$(presentationname)_annote.Rmd: $(presentationname).Rmd
+	cp $< $@
+
+$(presentationname).html: $(presentationname)_annote.Rmd coursematerial/plottingFunctions.R coursematerial/gapminder.rds  present.css
+	Rscript -e "rmarkdown::render('$<', output_file='$@')"
 
 present: $(presentationname).html
 	chromium-browser $< &
