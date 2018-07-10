@@ -22,12 +22,14 @@ source("coursematerial/plottingFunctions.R")
 
 ## Shiny for R
 
-- Introduction
-- Workshop format
-    - Why (not?) use Shiny
-    - Gapminder data
-    - Writing Shiny apps
-    - Deploying Shiny apps
+- Introduction to Shiny
+- Gapminder data
+- Running example: visualising the gapminder data
+- Deploying Shiny apps
+
+## Introduction to Shiny
+- Interactive visualisation using R
+  -[Shiny gallery](https://shiny.rstudio.com/gallery/)
   
 ## Why (not?) use Shiny
 
@@ -39,18 +41,13 @@ source("coursematerial/plottingFunctions.R")
 - Awkward to scale
 - Non-free pro version needed for some features
 
-## Gapminder data
-
-- Background to gapminder
-- Factfulness
-
-<p>
+## [Gapminder](https://www.gapminder.org) 
 
 <iframe width="560" height="315" src="http://www.youtube.com/embed/jbkSRLYSojo?start=75" frameborder="0" allowfullscreen></iframe>
 
 ## Static visualisation
 
-```{r, echo = FALSE}
+```{r}
 gapminder %>% 
   filter(year == 1817) %>% 
   produceGapminderPlot()
@@ -105,21 +102,47 @@ rstudio
 
 * `codeExample.R` shows how to use the plotting functions.
 
+##
+
+```{r, echo = TRUE, fig.height=4, fig.width=5}
+gapminder %>% 
+  filter(year == 2017) %>% 
+  produceGapminderPlot()
+
+```
+
+
+##
+
+```{r, echo = TRUE, fig.height=4, fig.width=5}
+historicData <- gapminder %>% 
+  filter(country == "United Kingdom")
+
+gapminder %>% 
+  filter(year == 2017) %>% 
+  produceGapminderPlot(makeSemiTransparent = TRUE) %>% 
+  addHistoricPlot(historicData)
+```
 
 ## Interactive exercises
 
 * The `coursematerial` folder is a git repository
 * Solutions are stored as tagged commits for code in the `worked_example` directory
-  * e.g [git:helloworld]() 
+  * e.g [git:01_helloworld]() 
   * Link takes you to github's commit page
+  * Checkout versions with `git checkout helloworld`
 
-```
-git checkout helloworld
-```
-From the rstudio console will checkout the solution.
+* Make your own Shiny app in another directory
 
-Make your own Shiny app in another directory
+## Getting started
 
+* Make a new Shiny app and check it works: [git:01_helloworld]()
+    * File, New File, Shiny Web App
+    * Name: gapminder
+    * Single file
+    * Create within directory: `~/mawdsley`
+  
+* Run App using toolbar or <kbd>Ctrl</kbd>+<kbd>Shift</kbd>+<kbd>Enter</kbd>
 
 ## Anatomy of a Shiny App - user interface
 
@@ -163,70 +186,78 @@ server <- function(input, output) {
 
 ```
 
-## Exercise 
+## Exercise - getting ready for the rest of the course.
 
-* Create and save a new Shiny app (this will be pre-filled with the example code) [git:helloworld]()
-* Check this works
-* Modify the app to load the ggplot2 and dplyr libraries, gapminder data and `plottingFunctions.R` [git:loadresources]()
-* Modify the app to plot a histogram of all the populations in the gapminder data [git:histogram]()
+* Modify the app to load the ggplot2 and dplyr libraries, gapminder data and `plottingFunctions.R` 
+* Modify the app to show a (non interactive) gapminder plot instead of the histogram.
+    * `codeExample.R` may be useful.
 
-## Exercise: Workshop aims
+[git:02_loadresources]()
+
+## Exercise
 
 - To use Shiny to make an interactive version of the plot
-    - Select / animate the year
+    - **Select / animate the year**
     - Only plot data for selected continents
     - Identify a country by selecting it
     - Show "trajectory" for selected country
 
-## Exercises
 
-- Create a new `sliderInput` with `inputId` "year" to select a year. [git:yearslider]()
-- use the `animate` option to allow this to run through the years [git:animate]()
+## Exercise
+
+- Create a new `sliderInput` with `inputId` "year" to select a year. [git:03_yearslider]()
+- use the `animate` option to allow this to run through the years [git:04_animate]()
     - You may wish to explore `animationOptions()` to control the animation speed
     
-- Using the code in `codeExample.R` as a starting point,  plot the data for the selected year in the app
-    - Delete the `bins` slider as it is no longer being used. [git:baseplot]()
+- Use the slider to make the graph interactive.
+- Delete the `bins` slider as it is no longer being used. [git:05_baseplot]()
 
 
 ## More widgets
 
 - Many common widget types are built into Shiny see:
     https://shiny.rstudio.com/gallery/widget-gallery.html 
-- Can be extended using additional packages (https://github.com/dreamRs/shinyWidgets)
-- or by writing your own.
+- Can be extended using additional packages (e.g. https://github.com/dreamRs/shinyWidgets)
+- [or by writing your own](https://shiny.rstudio.com/articles/building-inputs.html).
   
 
-## Exercise: Workshop aims
+## Exercise
 
 - To use Shiny to make an interactive version of the plot
     - ~~Select / animate the year~~
-    - Only plot data for selected continents
+    - **Only plot data for selected continents**
     - Identify a country by selecting it
     - Show "trajectory" for selected country
 
-- Add another widget to select continents [git:continentUI]()
-- Modify your server function to filter the data so that only the selected continents are shown. [git:continent]()
+## Exercise
+
+- [The Shiny Widget Gallery](https://shiny.rstudio.com/gallery/widget-gallery.html) lists built in widgets
+- Use a `checkboxGroupInput` to select continents. [git:06_continentUI]()
+    - `levels(gapminder$continent)` will return a vector of the continents in the data.
+    - The `selected` option controls which elements are selected at the start
+
+- Modify your server function to filter the data so that only the selected continents are shown. [git:07_continent]()
 
 ## Making the graph interactive
 - To use Shiny to make an interactive version of the plot
     - ~~Select / animate the year~~
     - ~~Only plot data for selected continents~~
-    - Identify a country by selecting it
+    - **Identify a country by selecting it**
     - Show "trajectory" for selected country
 
-##
+## Demo:
 
 - `plotOutput("plotname", click = "clickName")` will output information about mouse clicks within a plot to the server.
-- To see the output of this we need to use `renderPrint()` to capture the output
-- Which we then need to display in our user interface using `textOutput()`
-[git:clickdata]()
+- To see the output of this we need to use `renderPrint()` to capture the output (cf. `renderPlot()`)
+- Which we then need to display in our user interface using `textOutput()` (cf. `plotOutput()`)
+[git:08_clickdata]()
 
 ## Working with click data
 
 - Click output is in mapped coordinates (dependent on graph package)
 - Need to map coordinates to an entry in the data - `nearPoints()` does this for us
   - We can look at the output of `nearPoints()` (optionally using `renderTable()` and `tableOutput()` to format things nicely)
-[git:nearpoints]()
+[git:09_nearpoints]()
 
 ## Working with click data
 
@@ -240,7 +271,7 @@ server <- function(input, output) {
 
 ## Solving problem 1
 
-- We make the filtered data _reactive_   [git:reactivedata]()
+- We make the filtered data _reactive_   [git:10_reactivedata]()
     - Data which changes over time
 
 ## Reactive data
@@ -271,7 +302,7 @@ plot(g, layout = layout)
 
 - The `plotClick` is lost every time the graph updates
 - We use `observeEvent()` to observe when a click happens
-- And only then do we update the active country [git:showselected]()
+- And only then do we update the active country [git:11_showselected]()
 
 ##
 
