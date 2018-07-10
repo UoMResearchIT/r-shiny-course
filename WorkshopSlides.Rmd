@@ -30,9 +30,6 @@ source("coursematerial/plottingFunctions.R")
     - Writing Shiny apps
     - Deploying Shiny apps
   
-[git:animate]()
-
-[git:nearpoints]()
 ## Why (not?) use Shiny
 
 - Fast to develop
@@ -114,7 +111,8 @@ rstudio
 
 * The `coursematerial` folder is a git repository
 * Solutions are stored as tagged commits for code in the `worked_example` directory
-    * These are coloured red in the slides
+  * e.g [git:helloworld]() 
+  * Link takes you to github's commit page
 
 ```
 git checkout helloworld
@@ -168,10 +166,10 @@ server <- function(input, output) {
 
 ## Exercise 
 
-* Create and save a new Shiny app (this will be pre-filled with the example code) <span style="color:red">helloworld</span>
+* Create and save a new Shiny app (this will be pre-filled with the example code) [git:helloworld]()
 * Check this works
-* Modify the app to load the ggplot2 and dplyr libraries, gapminder data and `plottingFunctions.R` <span style="color:red">loadresources</span>
-* Modify the app to plot a histogram of all the populations in the gapminder data <span style="color:red">histogram</span>
+* Modify the app to load the ggplot2 and dplyr libraries, gapminder data and `plottingFunctions.R` [git:loadresources]()
+* Modify the app to plot a histogram of all the populations in the gapminder data [git:histogram]()
 
 ## Exercise: Workshop aims
 
@@ -184,12 +182,12 @@ server <- function(input, output) {
 
 ## Exercises
 
-- Create a new `sliderInput` with `inputId` "year" to select a year. <span style="color:red">yearslider</span>
-- use the `animate` option to allow this to run through the years <span style="color:red">animate</span>
+- Create a new `sliderInput` with `inputId` "year" to select a year. [git:yearslider]()
+- use the `animate` option to allow this to run through the years [git:animate]()
     - You may wish to explore `animationOptions()` to control the animation speed
     
 - Using the code in `codeExample.R` as a starting point,  plot the data for the selected year in the app
-    - Delete the `bins` slider as it is no longer being used. <span style="color:red">baseplot</span>
+    - Delete the `bins` slider as it is no longer being used. [git:baseplot]()
 
 
 ## More widgets
@@ -209,15 +207,15 @@ server <- function(input, output) {
     - ~~Identify a country by selecting it~~
     - ~~Show "trajectory" for selected country~~
 
-- Add another widget to select continents <span style="color:red">continentUI</span>
-- Modify your server function to filter the data so that only the selected continents are shown.<span style="color:red">continent</span>
+- Add another widget to select continents [git:continentUI]()
+- Modify your server function to filter the data so that only the selected continents are shown. [git:continent]()
 
 ## Cutomising how our app looks
 
 - The `shinythemes` package lets us select readymade themes for our app
 - Can write our own css for more control
-- `shinythemes::themeSelector()` widget lets us interactively exeriment with themes <span style="color:red">themeselector</span>
-- Use the option `theme = shinytheme("themename")` on your user interface function (`fluidPage`) in our example <span style="color:red">changetheme</span>
+- `shinythemes::themeSelector()` widget lets us interactively exeriment with themes [git:themeselector]()
+- Use the option `theme = shinytheme("themename")` on your user interface function (`fluidPage`) in our example [git:changetheme]()
 
     
 ## App layout
@@ -240,7 +238,7 @@ ui <- fluidPage(
 )
 ```
 
-- The widths of each row of columns should sum to 12 <span style="color:red">fluidpage</span>
+- The widths of each row of columns should sum to 12 [git:fluidpage]()
 
 
 ## Making the graph interactive
@@ -256,14 +254,14 @@ ui <- fluidPage(
 - `plotOutput("plotname", click = "clickName")` will output information about mouse clicks within a plot to the server.
 - To see the output of this we need to use `renderPrint()` to capture the output
 - Which we then need to display in our user interface using `textOutput()`
-<span style="color:red">clickdata</span>
+[git:clickdata]()
 
 ## Working with click data
 
 - Click output is in mapped coordinates (dependent on graph package)
 - Need to map coordinates to an entry in the data - `nearPoints()` does this for us
   - We can look at the output of `nearPoints()` (optionally using `renderTable()` and `tableOutput()` to format things nicely)
-<span style="color:red">nearpoints</span>
+[git:nearpoints]()
 
 ## Working with click data
 
@@ -277,7 +275,7 @@ ui <- fluidPage(
 
 ## Solving problem 1
 
-- We make the filtered data _reactive_   <span style="color:red">reactivedata</span>
+- We make the filtered data _reactive_   [git:reactivedata]()
     - Data which changes over time
 
 ## Reactive data
@@ -308,7 +306,7 @@ plot(g, layout = layout)
 
 - The `plotClick` is lost every time the graph updates
 - We use `observeEvent()` to observe when a click happens
-- And only then do we update the active country <span style="color:red">showselected</span>
+- And only then do we update the active country [git:showselected]()
 
 ##
 
@@ -357,7 +355,7 @@ g2 %>% add_edges(c("historicData", "lifeExpPlot",
     
 
 - Complete the app by modifying `output$lifeExpPlot` to add the historic data if `!is.na( activeCountry() )`
-<span style="color:red">showtrace</span>
+[git:showtrace]()
 
 
 ## Deploying Shiny apps

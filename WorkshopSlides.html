@@ -97,6 +97,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 
     <style type="text/css">code{white-space: pre;}</style>
 
+    <link href="data:text/css;charset=utf-8," rel="stylesheet" />
 
 <!-- Printing and PDF exports -->
 <script id="paper-css" type="application/dynamic-css">
@@ -574,10 +575,9 @@ document.getElementsByTagName('head')[0].appendChild(style);
 <h2>Interactive exercises</h2>
 <ul>
 <li>The <code>coursematerial</code> folder is a git repository</li>
-<li>Solutions are stored as tagged commits for code in the <code>worked_example</code> directory
-<ul>
-<li>These are coloured red in the slides</li>
-</ul></li>
+<li>Solutions are stored as tagged commits for code in the <code>worked_example</code> directory</li>
+<li>e.g <a href="https://github.com/UoMResearchIT/RSE18-shiny-workshop-materials/commit/d24b1573b92d98863497439e758eed78ec291441">git:helloworld</a></li>
+<li>Link takes you to github’s commit page</li>
 </ul>
 <pre><code>git checkout helloworld</code></pre>
 <p>From the rstudio console will checkout the solution.</p>
@@ -623,10 +623,10 @@ document.getElementsByTagName('head')[0].appendChild(style);
 <section id="exercise" class="slide level2">
 <h2>Exercise</h2>
 <ul>
-<li>Create and save a new Shiny app (this will be pre-filled with the example code) <span style="color:red">helloworld</span></li>
+<li>Create and save a new Shiny app (this will be pre-filled with the example code) <a href="https://github.com/UoMResearchIT/RSE18-shiny-workshop-materials/commit/d24b1573b92d98863497439e758eed78ec291441">git:helloworld</a></li>
 <li>Check this works</li>
-<li>Modify the app to load the ggplot2 and dplyr libraries, gapminder data and <code>plottingFunctions.R</code> <span style="color:red">loadresources</span></li>
-<li>Modify the app to plot a histogram of all the populations in the gapminder data <span style="color:red">histogram</span></li>
+<li>Modify the app to load the ggplot2 and dplyr libraries, gapminder data and <code>plottingFunctions.R</code> <a href="https://github.com/UoMResearchIT/RSE18-shiny-workshop-materials/commit/347b662e5863cb86f8625196e740e92fd5808707">git:loadresources</a></li>
+<li>Modify the app to plot a histogram of all the populations in the gapminder data <a href="https://github.com/UoMResearchIT/RSE18-shiny-workshop-materials/commit/b7b62229a7d024cb2afe4373a050576cca568db4">git:histogram</a></li>
 </ul>
 </section>
 <section id="exercise-workshop-aims" class="slide level2">
@@ -645,14 +645,14 @@ document.getElementsByTagName('head')[0].appendChild(style);
 <section id="exercises" class="slide level2">
 <h2>Exercises</h2>
 <ul>
-<li>Create a new <code>sliderInput</code> with <code>inputId</code> “year” to select a year. <span style="color:red">yearslider</span></li>
-<li>use the <code>animate</code> option to allow this to run through the years <span style="color:red">animate</span>
+<li>Create a new <code>sliderInput</code> with <code>inputId</code> “year” to select a year. <a href="https://github.com/UoMResearchIT/RSE18-shiny-workshop-materials/commit/a85a6099413da29f4532b262a1afc1ed30ede457">git:yearslider</a></li>
+<li>use the <code>animate</code> option to allow this to run through the years <a href="https://github.com/UoMResearchIT/RSE18-shiny-workshop-materials/commit/840b0c5571914e2bcbfc6fb5d3324071014ecb29">git:animate</a>
 <ul>
 <li>You may wish to explore <code>animationOptions()</code> to control the animation speed</li>
 </ul></li>
 <li>Using the code in <code>codeExample.R</code> as a starting point, plot the data for the selected year in the app
 <ul>
-<li>Delete the <code>bins</code> slider as it is no longer being used. <span style="color:red">baseplot</span></li>
+<li>Delete the <code>bins</code> slider as it is no longer being used. <a href="https://github.com/UoMResearchIT/RSE18-shiny-workshop-materials/commit/3febc998703aa0fdaaae5133d64f421de90bfd4a">git:baseplot</a></li>
 </ul></li>
 </ul>
 </section>
@@ -675,8 +675,8 @@ document.getElementsByTagName('head')[0].appendChild(style);
 <li><del>Identify a country by selecting it</del></li>
 <li><del>Show “trajectory” for selected country</del></li>
 </ul></li>
-<li>Add another widget to select continents <span style="color:red">continentUI</span></li>
-<li>Modify your server function to filter the data so that only the selected continents are shown.<span style="color:red">continent</span></li>
+<li>Add another widget to select continents <a href="https://github.com/UoMResearchIT/RSE18-shiny-workshop-materials/commit/aa06c242357bc6c14dedea3a5ed8d218f65d26d6">git:continentUI</a></li>
+<li>Modify your server function to filter the data so that only the selected continents are shown. <a href="https://github.com/UoMResearchIT/RSE18-shiny-workshop-materials/commit/713b1952e31be134ba58b87111a8689b292ce71e">git:continent</a></li>
 </ul>
 </section>
 <section id="cutomising-how-our-app-looks" class="slide level2">
@@ -684,8 +684,8 @@ document.getElementsByTagName('head')[0].appendChild(style);
 <ul>
 <li>The <code>shinythemes</code> package lets us select readymade themes for our app</li>
 <li>Can write our own css for more control</li>
-<li><code>shinythemes::themeSelector()</code> widget lets us interactively exeriment with themes <span style="color:red">themeselector</span></li>
-<li>Use the option <code>theme = shinytheme(&quot;themename&quot;)</code> on your user interface function (<code>fluidPage</code>) in our example <span style="color:red">changetheme</span></li>
+<li><code>shinythemes::themeSelector()</code> widget lets us interactively exeriment with themes <a href="https://github.com/UoMResearchIT/RSE18-shiny-workshop-materials/commit/9b0a31641e29ff93667b2be501019d05bb96233d">git:themeselector</a></li>
+<li>Use the option <code>theme = shinytheme(&quot;themename&quot;)</code> on your user interface function (<code>fluidPage</code>) in our example <a href="https://github.com/UoMResearchIT/RSE18-shiny-workshop-materials/commit/4eaedf67065eb7d0bd7345bd0f0697d0ed9e76af">git:changetheme</a></li>
 </ul>
 </section>
 <section id="app-layout" class="slide level2">
@@ -707,7 +707,7 @@ document.getElementsByTagName('head')[0].appendChild(style);
   )
 )</code></pre></div>
 <ul>
-<li>The widths of each row of columns should sum to 12 <span style="color:red">fluidpage</span></li>
+<li>The widths of each row of columns should sum to 12 <a href>git:fluidpage</a></li>
 </ul>
 </section>
 <section id="making-the-graph-interactive" class="slide level2">
@@ -728,7 +728,7 @@ document.getElementsByTagName('head')[0].appendChild(style);
 <ul>
 <li><code>plotOutput(&quot;plotname&quot;, click = &quot;clickName&quot;)</code> will output information about mouse clicks within a plot to the server.</li>
 <li>To see the output of this we need to use <code>renderPrint()</code> to capture the output</li>
-<li>Which we then need to display in our user interface using <code>textOutput()</code> <span style="color:red">clickdata</span></li>
+<li>Which we then need to display in our user interface using <code>textOutput()</code> <a href="https://github.com/UoMResearchIT/RSE18-shiny-workshop-materials/commit/bc76b7ea7bc2a9a195bf5950f6891478c29d61bc">git:clickdata</a></li>
 </ul>
 </section>
 <section id="working-with-click-data" class="slide level2">
@@ -736,7 +736,7 @@ document.getElementsByTagName('head')[0].appendChild(style);
 <ul>
 <li>Click output is in mapped coordinates (dependent on graph package)</li>
 <li>Need to map coordinates to an entry in the data - <code>nearPoints()</code> does this for us</li>
-<li>We can look at the output of <code>nearPoints()</code> (optionally using <code>renderTable()</code> and <code>tableOutput()</code> to format things nicely) <span style="color:red">nearpoints</span></li>
+<li>We can look at the output of <code>nearPoints()</code> (optionally using <code>renderTable()</code> and <code>tableOutput()</code> to format things nicely) <a href="https://github.com/UoMResearchIT/RSE18-shiny-workshop-materials/commit/6c9558f0f3475b00a7f5a20907fb5e9692d81606">git:nearpoints</a></li>
 </ul>
 </section>
 <section id="working-with-click-data-1" class="slide level2">
@@ -757,7 +757,7 @@ document.getElementsByTagName('head')[0].appendChild(style);
 <section id="solving-problem-1" class="slide level2">
 <h2>Solving problem 1</h2>
 <ul>
-<li>We make the filtered data <em>reactive</em> <span style="color:red">reactivedata</span>
+<li>We make the filtered data <em>reactive</em> <a href="https://github.com/UoMResearchIT/RSE18-shiny-workshop-materials/commit/2db9bb8e85a8e76fb45ab9dc5c11fb973245976d">git:reactivedata</a>
 <ul>
 <li>Data which changes over time</li>
 </ul></li>
@@ -772,7 +772,7 @@ document.getElementsByTagName('head')[0].appendChild(style);
 <ul>
 <li>The <code>plotClick</code> is lost every time the graph updates</li>
 <li>We use <code>observeEvent()</code> to observe when a click happens</li>
-<li>And only then do we update the active country <span style="color:red">showselected</span></li>
+<li>And only then do we update the active country <a href="https://github.com/UoMResearchIT/RSE18-shiny-workshop-materials/commit/222154529e8e64c8b50d202f07c9c9b1f1c53b99">git:showselected</a></li>
 </ul>
 </section>
 <section id="section-1" class="slide level2">
@@ -794,7 +794,7 @@ document.getElementsByTagName('head')[0].appendChild(style);
 <li><del>Identify a country by selecting it</del></li>
 <li>Show “trajectory” for selected country</li>
 </ul></li>
-<li>Complete the app by modifying <code>output$lifeExpPlot</code> to add the historic data if <code>!is.na( activeCountry() )</code> <span style="color:red">showtrace</span></li>
+<li>Complete the app by modifying <code>output$lifeExpPlot</code> to add the historic data if <code>!is.na( activeCountry() )</code> <a href="https://github.com/UoMResearchIT/RSE18-shiny-workshop-materials/commit/29bd21514456c7f75dd9c760c80bad9cd1861c39">git:showtrace</a></li>
 </ul>
 </section>
 <section id="deploying-shiny-apps" class="slide level2">
