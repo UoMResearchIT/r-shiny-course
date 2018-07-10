@@ -1,9 +1,10 @@
 # Build the artefacts required for the RSE 2018 Workshop on Shiny
 #
 # David Mawdsley
-.PHONEY: runrstudio stoprstudio dockerimage
-
 presentationname=WorkshopSlides
+
+.PHONEY: runrstudio stoprstudio dockerimage
+.INTERMEDIATE: $(presentationname)_annote.Rmd
 sourcedata = $(wildcard sourcedata/*)
 
 $(presentationname).html: $(presentationname)_annote.Rmd coursematerial/plottingFunctions.R coursematerial/gapminder.rds  
