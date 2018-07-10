@@ -103,6 +103,11 @@ if (max(yearcheck$delta, na.rm = TRUE) != 1){
 #   select(country) %>% 
 #   inner_join(gapminder, by = "country")
 
+# Change variable types
+gapminder <- gapminder %>% 
+  mutate(country = factor(country),
+         year = as.integer(year))
+
 saveRDS(gapminder, "coursematerial/gapminder.rds")
 
 
