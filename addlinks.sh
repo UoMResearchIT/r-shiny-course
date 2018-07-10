@@ -4,10 +4,13 @@ gitrepoprefix=https://github.com/UoMResearchIT/RSE18-shiny-workshop-materials/co
 
 taglist=$(git -C coursematerial/ tag)
 
+regex=""
+
 for t in $taglist;
 do
-	echo tag $t
 	commitid=$(git -C coursematerial/ rev-list -n 1 $t)
-        sed -E "s!(\[git:$t\])\(\)!\1\($gitrepoprefix$commitid\)!" $1
+	regex="${regex}s!(\[git:$t\])\(\)!\1\($gitrepoprefix$commitid\)!g;"
+#        sed -E "s!(\[git:$t\])\(\)!\1\($gitrepoprefix$commitid\)!g" $1
 done
 
+sed -E $regex $1 >$2
