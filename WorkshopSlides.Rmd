@@ -42,7 +42,9 @@ source("coursematerial/plottingFunctions.R")
 ## Gapminder data
 
 - Background to gapminder
-- Factfullness
+- Factfulness
+
+<p>
 
 <iframe width="560" height="315" src="http://www.youtube.com/embed/jbkSRLYSojo?start=75" frameborder="0" allowfullscreen></iframe>
 
@@ -88,10 +90,8 @@ gapminder %>%
 - To use Shiny to make an interactive version of the plot
     - Select / animate the year
     - Only plot data for selected continents
-    - Customise the look of our app
     - Identify a country by selecting it
     - Show "trajectory" for selected country
-    
 
 ## Getting started
 
@@ -174,10 +174,9 @@ server <- function(input, output) {
 
 - To use Shiny to make an interactive version of the plot
     - Select / animate the year
-    - ~~Only plot data for selected continents~~
-    - ~~Customise the look of our app~~
-    - ~~Identify a country by selecting it~~
-    - ~~Show "trajectory" for selected country~~
+    - Only plot data for selected continents
+    - Identify a country by selecting it
+    - Show "trajectory" for selected country
 
 ## Exercises
 
@@ -202,51 +201,18 @@ server <- function(input, output) {
 - To use Shiny to make an interactive version of the plot
     - ~~Select / animate the year~~
     - Only plot data for selected continents
-    - ~~Customise the look of our app~~
-    - ~~Identify a country by selecting it~~
-    - ~~Show "trajectory" for selected country~~
+    - Identify a country by selecting it
+    - Show "trajectory" for selected country
 
 - Add another widget to select continents [git:continentUI]()
 - Modify your server function to filter the data so that only the selected continents are shown. [git:continent]()
-
-## Cutomising how our app looks
-
-- The `shinythemes` package lets us select readymade themes for our app
-- Can write our own css for more control
-- `shinythemes::themeSelector()` widget lets us interactively exeriment with themes [git:themeselector]()
-- Use the option `theme = shinytheme("themename")` on your user interface function (`fluidPage`) in our example [git:changetheme]()
-
-    
-## App layout
-
-- The default apps `sidebarLayout()` is a good starting point.
-- The `fluidPage()` layout gives us more control.
-
-```{r, echo = TRUE,  eval = FALSE}
-ui <- fluidPage(
-  titlePanel("Gapminder Analysis"), # Will cover whole width
-  plotOutput("mainPlot", click = "mainPlotClick"), # Ditto
-  fluidRow( 
-    column(6, # column width
-           sliderInput(inputId = "year", ....) # Things to include in the column
-    ),
-    column(6, # Next column
-           checkboxGroupInput("continent", ....)# Things to include in second column
-    )
-  )
-)
-```
-
-- The widths of each row of columns should sum to 12 [git:fluidpage]()
-
 
 ## Making the graph interactive
 - To use Shiny to make an interactive version of the plot
     - ~~Select / animate the year~~
     - ~~Only plot data for selected continents~~
-    - ~~Customise the look of our app~~
     - Identify a country by selecting it
-    - ~~Show "trajectory" for selected country~~
+    - Show "trajectory" for selected country
 
 ##
 
@@ -348,7 +314,6 @@ g2 %>% add_edges(c("historicData", "lifeExpPlot",
 - To use Shiny to make an interactive version of the plot
     - ~~Select / animate the year~~
     - ~~Only plot data for selected continents~~
-    - ~~Customise the look of our app~~
     - ~~Identify a country by selecting it~~
     - Show "trajectory" for selected country
     
@@ -362,7 +327,7 @@ g2 %>% add_edges(c("historicData", "lifeExpPlot",
 - Run from R(Studio)
 
 - https://shinyapps.io easy deployment from RStudio
-    - Various pricing tiers 
+    - Various pricing tiers (inc. free)
     - https://mawds.shinyapps.io/worked_example/
 - Shiny server
     - Free and commercial versions
@@ -373,4 +338,37 @@ g2 %>% add_edges(c("historicData", "lifeExpPlot",
 - Define the UI and server functions
 - Reactive programming handles the depencencies between elements
 - Deploy apps using shinyapps.io or to a Shiny Server
+
+
+## Extra Slides
+
+## Cutomising how our app looks
+
+- The `shinythemes` package lets us select readymade themes for our app
+- Can write our own css for more control
+- `shinythemes::themeSelector()` widget lets us interactively exeriment with themes [git:themeselector]()
+- Use the option `theme = shinytheme("themename")` on your user interface function (`fluidPage`) in our example [git:changetheme]()
+
+    
+## App layout
+
+- The default apps `sidebarLayout()` is a good starting point.
+- The `fluidPage()` layout gives us more control.
+
+```{r, echo = TRUE,  eval = FALSE}
+ui <- fluidPage(
+  titlePanel("Gapminder Analysis"), # Will cover whole width
+  plotOutput("mainPlot", click = "mainPlotClick"), # Ditto
+  fluidRow( 
+    column(6, # column width
+           sliderInput(inputId = "year", ....) # Things to include in the column
+    ),
+    column(6, # Next column
+           checkboxGroupInput("continent", ....)# Things to include in second column
+    )
+  )
+)
+```
+
+- The widths of each row of columns should sum to 12 [git:fluidpage]()
 

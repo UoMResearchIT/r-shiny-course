@@ -525,8 +525,9 @@ document.getElementsByTagName('head')[0].appendChild(style);
 <h2>Gapminder data</h2>
 <ul>
 <li>Background to gapminder</li>
-<li>Factfullness</li>
+<li>Factfulness</li>
 </ul>
+<p>
 <iframe width="560" height="315" src="http://www.youtube.com/embed/jbkSRLYSojo?start=75" frameborder="0" allowfullscreen>
 </iframe>
 </section>
@@ -553,7 +554,6 @@ document.getElementsByTagName('head')[0].appendChild(style);
 <ul>
 <li>Select / animate the year</li>
 <li>Only plot data for selected continents</li>
-<li>Customise the look of our app</li>
 <li>Identify a country by selecting it</li>
 <li>Show “trajectory” for selected country</li>
 </ul></li>
@@ -634,10 +634,9 @@ document.getElementsByTagName('head')[0].appendChild(style);
 <li>To use Shiny to make an interactive version of the plot
 <ul>
 <li>Select / animate the year</li>
-<li><del>Only plot data for selected continents</del></li>
-<li><del>Customise the look of our app</del></li>
-<li><del>Identify a country by selecting it</del></li>
-<li><del>Show “trajectory” for selected country</del></li>
+<li>Only plot data for selected continents</li>
+<li>Identify a country by selecting it</li>
+<li>Show “trajectory” for selected country</li>
 </ul></li>
 </ul>
 </section>
@@ -670,43 +669,11 @@ document.getElementsByTagName('head')[0].appendChild(style);
 <ul>
 <li><del>Select / animate the year</del></li>
 <li>Only plot data for selected continents</li>
-<li><del>Customise the look of our app</del></li>
-<li><del>Identify a country by selecting it</del></li>
-<li><del>Show “trajectory” for selected country</del></li>
+<li>Identify a country by selecting it</li>
+<li>Show “trajectory” for selected country</li>
 </ul></li>
 <li>Add another widget to select continents <a href="https://github.com/UoMResearchIT/RSE18-shiny-workshop-materials/commit/aa06c242357bc6c14dedea3a5ed8d218f65d26d6">git:continentUI</a></li>
 <li>Modify your server function to filter the data so that only the selected continents are shown. <a href="https://github.com/UoMResearchIT/RSE18-shiny-workshop-materials/commit/713b1952e31be134ba58b87111a8689b292ce71e">git:continent</a></li>
-</ul>
-</section>
-<section id="cutomising-how-our-app-looks" class="slide level2">
-<h2>Cutomising how our app looks</h2>
-<ul>
-<li>The <code>shinythemes</code> package lets us select readymade themes for our app</li>
-<li>Can write our own css for more control</li>
-<li><code>shinythemes::themeSelector()</code> widget lets us interactively exeriment with themes <a href="https://github.com/UoMResearchIT/RSE18-shiny-workshop-materials/commit/9b0a31641e29ff93667b2be501019d05bb96233d">git:themeselector</a></li>
-<li>Use the option <code>theme = shinytheme(&quot;themename&quot;)</code> on your user interface function (<code>fluidPage</code>) in our example <a href="https://github.com/UoMResearchIT/RSE18-shiny-workshop-materials/commit/4eaedf67065eb7d0bd7345bd0f0697d0ed9e76af">git:changetheme</a></li>
-</ul>
-</section>
-<section id="app-layout" class="slide level2">
-<h2>App layout</h2>
-<ul>
-<li>The default apps <code>sidebarLayout()</code> is a good starting point.</li>
-<li>The <code>fluidPage()</code> layout gives us more control.</li>
-</ul>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">ui &lt;-<span class="st"> </span><span class="kw">fluidPage</span>(
-  <span class="kw">titlePanel</span>(<span class="st">&quot;Gapminder Analysis&quot;</span>), <span class="co"># Will cover whole width</span>
-  <span class="kw">plotOutput</span>(<span class="st">&quot;mainPlot&quot;</span>, <span class="dt">click =</span> <span class="st">&quot;mainPlotClick&quot;</span>), <span class="co"># Ditto</span>
-  <span class="kw">fluidRow</span>( 
-    <span class="kw">column</span>(<span class="dv">6</span>, <span class="co"># column width</span>
-           <span class="kw">sliderInput</span>(<span class="dt">inputId =</span> <span class="st">&quot;year&quot;</span>, ....) <span class="co"># Things to include in the column</span>
-    ),
-    <span class="kw">column</span>(<span class="dv">6</span>, <span class="co"># Next column</span>
-           <span class="kw">checkboxGroupInput</span>(<span class="st">&quot;continent&quot;</span>, ....)<span class="co"># Things to include in second column</span>
-    )
-  )
-)</code></pre></div>
-<ul>
-<li>The widths of each row of columns should sum to 12 <a href>git:fluidpage</a></li>
 </ul>
 </section>
 <section id="making-the-graph-interactive" class="slide level2">
@@ -716,9 +683,8 @@ document.getElementsByTagName('head')[0].appendChild(style);
 <ul>
 <li><del>Select / animate the year</del></li>
 <li><del>Only plot data for selected continents</del></li>
-<li><del>Customise the look of our app</del></li>
 <li>Identify a country by selecting it</li>
-<li><del>Show “trajectory” for selected country</del></li>
+<li>Show “trajectory” for selected country</li>
 </ul></li>
 </ul>
 </section>
@@ -789,7 +755,6 @@ document.getElementsByTagName('head')[0].appendChild(style);
 <ul>
 <li><del>Select / animate the year</del></li>
 <li><del>Only plot data for selected continents</del></li>
-<li><del>Customise the look of our app</del></li>
 <li><del>Identify a country by selecting it</del></li>
 <li>Show “trajectory” for selected country</li>
 </ul></li>
@@ -802,7 +767,7 @@ document.getElementsByTagName('head')[0].appendChild(style);
 <li><p>Run from R(Studio)</p></li>
 <li><a href="https://shinyapps.io" class="uri">https://shinyapps.io</a> easy deployment from RStudio
 <ul>
-<li>Various pricing tiers</li>
+<li>Various pricing tiers (inc. free)</li>
 <li><a href="https://mawds.shinyapps.io/worked_example/" class="uri">https://mawds.shinyapps.io/worked_example/</a></li>
 </ul></li>
 <li>Shiny server
@@ -818,6 +783,40 @@ document.getElementsByTagName('head')[0].appendChild(style);
 <li>Define the UI and server functions</li>
 <li>Reactive programming handles the depencencies between elements</li>
 <li>Deploy apps using shinyapps.io or to a Shiny Server</li>
+</ul>
+</section>
+<section id="extra-slides" class="slide level2">
+<h2>Extra Slides</h2>
+</section>
+<section id="cutomising-how-our-app-looks" class="slide level2">
+<h2>Cutomising how our app looks</h2>
+<ul>
+<li>The <code>shinythemes</code> package lets us select readymade themes for our app</li>
+<li>Can write our own css for more control</li>
+<li><code>shinythemes::themeSelector()</code> widget lets us interactively exeriment with themes <a href="https://github.com/UoMResearchIT/RSE18-shiny-workshop-materials/commit/9b0a31641e29ff93667b2be501019d05bb96233d">git:themeselector</a></li>
+<li>Use the option <code>theme = shinytheme(&quot;themename&quot;)</code> on your user interface function (<code>fluidPage</code>) in our example <a href="https://github.com/UoMResearchIT/RSE18-shiny-workshop-materials/commit/4eaedf67065eb7d0bd7345bd0f0697d0ed9e76af">git:changetheme</a></li>
+</ul>
+</section>
+<section id="app-layout" class="slide level2">
+<h2>App layout</h2>
+<ul>
+<li>The default apps <code>sidebarLayout()</code> is a good starting point.</li>
+<li>The <code>fluidPage()</code> layout gives us more control.</li>
+</ul>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">ui &lt;-<span class="st"> </span><span class="kw">fluidPage</span>(
+  <span class="kw">titlePanel</span>(<span class="st">&quot;Gapminder Analysis&quot;</span>), <span class="co"># Will cover whole width</span>
+  <span class="kw">plotOutput</span>(<span class="st">&quot;mainPlot&quot;</span>, <span class="dt">click =</span> <span class="st">&quot;mainPlotClick&quot;</span>), <span class="co"># Ditto</span>
+  <span class="kw">fluidRow</span>( 
+    <span class="kw">column</span>(<span class="dv">6</span>, <span class="co"># column width</span>
+           <span class="kw">sliderInput</span>(<span class="dt">inputId =</span> <span class="st">&quot;year&quot;</span>, ....) <span class="co"># Things to include in the column</span>
+    ),
+    <span class="kw">column</span>(<span class="dv">6</span>, <span class="co"># Next column</span>
+           <span class="kw">checkboxGroupInput</span>(<span class="st">&quot;continent&quot;</span>, ....)<span class="co"># Things to include in second column</span>
+    )
+  )
+)</code></pre></div>
+<ul>
+<li>The widths of each row of columns should sum to 12 <a href>git:fluidpage</a></li>
 </ul>
 </section>
     </div>
