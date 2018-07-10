@@ -82,7 +82,7 @@ historicData <- gapminder %>%
 gapminder %>% 
   filter(year == 2017) %>% 
   produceGapminderPlot(makeSemiTransparent = TRUE) %>% 
-  addHistoricPlot(historicData, 2017)
+  addHistoricPlot(historicData)
 ```
 
 ## Workshop aims
