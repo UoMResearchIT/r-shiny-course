@@ -128,9 +128,9 @@ gapminder %>%
 
 * The `coursematerial` folder is a git repository
 * Solutions are stored as tagged commits for code in the `worked_example` directory
-  * e.g [git:01_helloworld]() 
-  * Link takes you to github's commit page
-  * Checkout versions with `git checkout helloworld`
+    * e.g [git:01_helloworld]() 
+    * Link takes you to github's commit page
+    * Checkout versions with `git checkout helloworld`
 
 * Make your own Shiny app in another directory
 
@@ -273,6 +273,7 @@ server <- function(input, output) {
 
 - We make the filtered data _reactive_   [git:10_reactivedata]()
     - Data which changes over time
+    - We need the active data in two places - for the graph and as input to `nearpoints()`.
 
 ## Reactive data
 
@@ -300,8 +301,8 @@ plot(g, layout = layout)
 
 ## Solving problem 2
 
-- The `plotClick` is lost every time the graph updates
-- We use `observeEvent()` to observe when a click happens
+- The `plotClick` becomes invalid every time the graph updates
+- We use `observeEvent()` to observe when a click happens, and store the click information
 - And only then do we update the active country [git:11_showselected]()
 
 ##
@@ -313,7 +314,7 @@ edges2 <- tribble(~v1, ~v2,
                  "year", "historicData",
                  "activeCountry", "historicData",
                  "plotData", "lifeExpPlot",
-                 # "historicData", "lifeExpPlot",
+                  "historicData", "lifeExpPlot",
                  "activeCountry", "showClick",
                  "plotClick", "activeCountry"
                  )
@@ -328,17 +329,11 @@ set_vertex_attr( "color", value = "red", index = c("year", "continent", "plotCli
 layout2 <- structure(c(83, 117, 244, 247, 353, 77, 378, 381, 364, 170, 368, 
 171, 246, 0, 5, 371), .Dim = c(8L, 2L))
 
-plot(g2, layout = layout2)
+g3 <- g2 %>% delete_vertices("historicData")
+layout3 <- layout2[!(V(g2)$name == "historicData"),]
+
+plot(g3, layout = layout3)
 ```
-
-##
-
-```{r}
-g2 %>% add_edges(c("historicData", "lifeExpPlot",
-                   "year", "lifeExpPlot")) %>% 
-  plot(layout=layout2)
-```
-
 
 ## Exercise: Workshop aims
 
@@ -346,18 +341,41 @@ g2 %>% add_edges(c("historicData", "lifeExpPlot",
     - ~~Select / animate the year~~
     - ~~Only plot data for selected continents~~
     - ~~Identify a country by selecting it~~
-    - Show "trajectory" for selected country
+    - **Show "trajectory" for selected country**
     
+```{r, fig.height=3, fig.width=5}
+historicData <- gapminder %>% 
+  filter(country == "United Kingdom")
 
-- Complete the app by modifying `output$lifeExpPlot` to add the historic data if `!is.na( activeCountry() )`
-[git:showtrace]()
+gapminder %>% 
+  filter(year == 2017) %>% 
+  produceGapminderPlot(makeSemiTransparent = TRUE) %>% 
+  addHistoricPlot(historicData)
+```
+
+
+##
+
+- We need to make another reactive data-set containing the historic data for the selected country
+- We need to add this to the plot, if a country is selected.
+
+[git:12_showtrace]()
+
+##
+```{r}
+g2 %>% 
+  # add_edges(c("historicData", "lifeExpPlot",
+  #                  "year", "lifeExpPlot")) %>% 
+  plot(layout = layout2)
+```
 
 
 ## Deploying Shiny apps
 
 - Run from R(Studio)
 
-- https://shinyapps.io easy deployment from RStudio
+- https://shinyapps.io 
+    - Easy deployment from RStudio
     - Various pricing tiers (inc. free)
     - https://mawds.shinyapps.io/worked_example/
 - Shiny server
@@ -378,7 +396,7 @@ g2 %>% add_edges(c("historicData", "lifeExpPlot",
 - The `shinythemes` package lets us select readymade themes for our app
 - Can write our own css for more control
 - `shinythemes::themeSelector()` widget lets us interactively exeriment with themes [git:themeselector]()
-- Use the option `theme = shinytheme("themename")` on your user interface function (`fluidPage`) in our example [git:changetheme]()
+- Use the option `theme = shinytheme("themename")` on your user interface function (`fluidPage`) in our example [git:13_changetheme]()
 
     
 ## App layout
@@ -401,5 +419,5 @@ ui <- fluidPage(
 )
 ```
 
-- The widths of each row of columns should sum to 12 [git:fluidpage]()
+- The widths of each row of columns should sum to 12 [git:14_fluidpage]()
 
