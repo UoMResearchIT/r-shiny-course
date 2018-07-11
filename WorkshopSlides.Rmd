@@ -191,6 +191,8 @@ server <- function(input, output) {
 * Modify the app to load the ggplot2 and dplyr libraries, gapminder data and `plottingFunctions.R` 
 * Modify the app to show a (non interactive) gapminder plot instead of the histogram.
     * `codeExample.R` may be useful.
+    * (Don't worry about changing the "bins" slider - we'll do that next)
+* Change the title of the app to something sensible
 
 [git:02_loadresources]()
 
@@ -205,12 +207,14 @@ server <- function(input, output) {
 
 ## Exercise
 
-- Create a new `sliderInput` with `inputId` "year" to select a year. [git:03_yearslider]()
-- use the `animate` option to allow this to run through the years [git:04_animate]()
+- Modify the `sliderInput`; change  `inputId` to  "year" and use this to select a year. [git:03_yearslider]()
+    - The `sep` option will let you deal with the ","s in the years.
+    - `step` contols the interval between selectable values.
+- Use the `animate` option to allow this to run through the years [git:04_animate]()
     - You may wish to explore `animationOptions()` to control the animation speed
     
 - Use the slider to make the graph interactive.
-- Delete the `bins` slider as it is no longer being used. [git:05_baseplot]()
+[git:05_baseplot]()
 
 
 ## More widgets
@@ -281,7 +285,7 @@ server <- function(input, output) {
 edges <- tribble(~v1, ~v2,
                  "year", "plotData",
                  "continent", "plotData",
-                 "plotData", "lifeExpPlot",
+                 "plotData", "gapminderPlot",
                  "plotClick", "showClick",
                  "plotData", "showClick")
 
@@ -290,7 +294,7 @@ edges <- tribble(~v1, ~v2,
 g <- graph_from_edgelist(as.matrix(edges)) %>% 
 set_vertex_attr( "color", value = "red", index = c("year", "continent", "plotClick")) %>% 
   set_vertex_attr( "color", value = "green", index = c("plotData")) %>% 
-  set_vertex_attr("color", value = "yellow", index = c("lifeExpPlot", "showClick")) 
+  set_vertex_attr("color", value = "yellow", index = c("gapminderPlot", "showClick")) 
 
 layout <- structure(c(148, 200, 281, 121, 400, 287, 386, 200, 386, 4, 382, 
 0), .Dim = c(6L, 2L))
@@ -313,8 +317,8 @@ edges2 <- tribble(~v1, ~v2,
                  "continent", "plotData",
                  "year", "historicData",
                  "activeCountry", "historicData",
-                 "plotData", "lifeExpPlot",
-                  "historicData", "lifeExpPlot",
+                 "plotData", "gapminderPlot",
+                  "historicData", "gapminderPlot",
                  "activeCountry", "showClick",
                  "plotClick", "activeCountry"
                  )
@@ -324,7 +328,7 @@ edges2 <- tribble(~v1, ~v2,
 g2 <- graph_from_edgelist(as.matrix(edges2)) %>% 
 set_vertex_attr( "color", value = "red", index = c("year", "continent", "plotClick")) %>% 
   set_vertex_attr( "color", value = "green", index = c("plotData", "historicData", "activeCountry")) %>% 
-  set_vertex_attr("color", value = "yellow", index = c("lifeExpPlot", "showClick")) 
+  set_vertex_attr("color", value = "yellow", index = c("gapminderPlot", "showClick")) 
 
 layout2 <- structure(c(83, 117, 244, 247, 353, 77, 378, 381, 364, 170, 368, 
 171, 246, 0, 5, 371), .Dim = c(8L, 2L))
@@ -364,8 +368,8 @@ gapminder %>%
 ##
 ```{r}
 g2 %>% 
-  # add_edges(c("historicData", "lifeExpPlot",
-  #                  "year", "lifeExpPlot")) %>% 
+  # add_edges(c("historicData", "gapminderPlot",
+  #                  "year", "gapminderPlot")) %>% 
   plot(layout = layout2)
 ```
 
@@ -395,8 +399,8 @@ g2 %>%
 
 - The `shinythemes` package lets us select readymade themes for our app
 - Can write our own css for more control
-- `shinythemes::themeSelector()` widget lets us interactively exeriment with themes [git:themeselector]()
-- Use the option `theme = shinytheme("themename")` on your user interface function (`fluidPage`) in our example [git:13_changetheme]()
+- `shinythemes::themeSelector()` widget lets us interactively exeriment with themes [git:13_themeselector]()
+- Use the option `theme = shinytheme("themename")` on your user interface function (`fluidPage`) in our example [git:14_changetheme]()
 
     
 ## App layout
@@ -406,8 +410,8 @@ g2 %>%
 
 ```{r, echo = TRUE,  eval = FALSE}
 ui <- fluidPage(
-  titlePanel("Gapminder Analysis"), # Will cover whole width
-  plotOutput("mainPlot", click = "mainPlotClick"), # Ditto
+  titlePanel("Gapminder visualisation"), # Will cover whole width
+  plotOutput("gapminderPlot", click = "plotClick"), # Ditto
   fluidRow( 
     column(6, # column width
            sliderInput(inputId = "year", ....) # Things to include in the column
@@ -419,5 +423,5 @@ ui <- fluidPage(
 )
 ```
 
-- The widths of each row of columns should sum to 12 [git:14_fluidpage]()
+- The widths of each row of columns should sum to 12 [git:15_fluidpage]()
 
