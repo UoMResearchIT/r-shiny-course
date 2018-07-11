@@ -2,6 +2,8 @@
 
 This repo contains the slides and other material for the RSE 2018 Shiny Workshop.
 
+The slideshow for the workshop is at https://uomresearchit.github.io/RSE18-shiny-workshop/WorkshopSlides.html#/
+
 The running example is a submodule.  
 
 Early work was done in a Docker image - this is no longer needed, as it was more space-efficient to install RStudio etc directly in the virtual machine supplied by the organisers.  Build instructions for this, and a test script are in `viminstall`
