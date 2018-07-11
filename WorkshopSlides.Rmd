@@ -43,7 +43,7 @@ source("coursematerial/plottingFunctions.R")
 
 ## [Gapminder](https://www.gapminder.org) 
 
-<iframe width="560" height="315" src="http://www.youtube.com/embed/jbkSRLYSojo?start=75" frameborder="0" allowfullscreen></iframe>
+<iframe width="560" height="315" src="http://www.youtube.com/embed/jbkSRLYSojo?start=75" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
 
 ## Static visualisation
 
