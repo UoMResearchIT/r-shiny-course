@@ -214,6 +214,7 @@ server <- function(input, output) {
     - You may wish to explore `animationOptions()` to control the animation speed
     
 - Use the slider to make the graph interactive.
+    - `input$year` will contain the value of the year
 [git:05_baseplot]()
 
 
