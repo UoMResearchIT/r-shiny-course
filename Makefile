@@ -10,6 +10,9 @@ sourcedata = $(wildcard sourcedata/*)
 $(presentationname).html: $(presentationname)_annote.Rmd coursematerial/plottingFunctions.R coursematerial/gapminder.rds  .gitmodules
 	Rscript -e "rmarkdown::render('$<', output_file='$@')"
 
+courseNotes.md: courseNotes.Rmd
+	Rscript -e "knitr::knit('$<', output='$@')"
+
 $(presentationname)_annote.Rmd: $(presentationname).Rmd
 	./addlinks.sh $< $@
 

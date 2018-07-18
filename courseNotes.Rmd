@@ -1,0 +1,36 @@
+---
+title: "Shiny Workshop - RSE conference 2018"
+output: github_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+
+# What I want to cover:
+
+Using Shiny to make an interactive data-driven web app
+
+## Formative assessments:
+
+Adding a widget to an app
+
+Adding an output to an app
+
+"Wiring" the widget and output together
+
+Deploying a Shiny app to shinyapps.io
+
+Understanding and controlling how events are linked to each other.
+
+# Concepts
+
+## What is Shiny + what can we do with it?
+
+## How we interact with Shiny - Widgets
+
+## Reactivity (How Shiny responds to events) - inputs change ==> outputs change
+
+## Deploying Shiny apps
+
