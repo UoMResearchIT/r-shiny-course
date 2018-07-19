@@ -2,18 +2,28 @@
 #
 # David Mawdsley
 presentationname=WorkshopSlides
+notesname=courseNotes
 
 .PHONEY: runrstudio stoprstudio dockerimage
-.INTERMEDIATE: $(presentationname)_annote.Rmd
+.INTERMEDIATE: $(presentationname)_annote.Rmd $(notesname)_annote.Rmd
 sourcedata = $(wildcard sourcedata/*)
+
+all: slides notes
+
+notes: $(notesname).md
+
+slides: $(presentationname).html
 
 $(presentationname).html: $(presentationname)_annote.Rmd coursematerial/plottingFunctions.R coursematerial/gapminder.rds  .gitmodules
 	Rscript -e "rmarkdown::render('$<', output_file='$@')"
 
-courseNotes.md: courseNotes.Rmd
+$(notesname).md: $(notesname)_annote.Rmd
 	Rscript -e "knitr::knit('$<', output='$@')"
 
 $(presentationname)_annote.Rmd: $(presentationname).Rmd
+	./addlinks.sh $< $@
+
+$(notesname)_annote.Rmd: $(notesname).Rmd
 	./addlinks.sh $< $@
 
 present: $(presentationname).html
