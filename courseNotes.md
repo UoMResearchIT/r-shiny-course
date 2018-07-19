@@ -3,9 +3,7 @@ title: "Shiny Workshop - RSE conference 2018"
 output: github_document
 ---
 
-```{r setup, include=FALSE}
-knitr::opts_chunk$set(echo = TRUE)
-```
+
 
 
 # What I want to cover:
@@ -59,16 +57,43 @@ In this workshop, we're going to use data from the [Gapminder project](https://w
 
 The material we'll use for this workshop are in the `~/mawdsley` directory.  This contains the gapminder data we'll be plotting (`gapminder.rds`), the Shiny app we're going to be making (a deployed version of this is at https://mawds.shinyapps.io/worked_example/) (in `worked_example/`) and some example code showing how to produce (static) graphs of the gapminder data (in `codeExample.R`).  The example code uses the functions in `plottingFunctions.R` to produce the graphs; this is to reduce the time we spend dealing with the inticacies of ggplot2.
 
-The directory is a git repository.  Each commit is tagged, and represents the solution to an exercise.  (Not sure how best to do this part - either the user makes a *new* git repo in another directory and puts their exercise under version control _or_ creates the app within `~/mawdsley` and leaves their app out of version control, and checks out the various steps).  You can look at the diff for a commit within RStudio, or you can view it on github by clicking the link within the solution, e.g. [git:01_helloworld]().
+The directory is a git repository.  Each commit is tagged, and represents the solution to an exercise.  (Not sure how best to do this part - either the user makes a *new* git repo in another directory and puts their exercise under version control _or_ creates the app within `~/mawdsley` and leaves their app out of version control, and checks out the various steps).  You can look at the diff for a commit within RStudio, or you can view it on github by clicking the link within the solution, e.g. [git:01_helloworld](https://github.com/UoMResearchIT/RSE18-shiny-workshop-materials/commit/ffe945ba4943bef378d744e941bea6f46f9970c0).
 
 Before we start doing things with Shiny, we'll briefly go through the process of creating a static graph in R of the gapminder data.  The code below shows how to do this:
 
-```{r}
+
+```r
 # Load the required libraries
 library(ggplot2)
 library(dplyr)
-library(shiny)
+```
 
+```
+## 
+## Attaching package: 'dplyr'
+```
+
+```
+## The following objects are masked from 'package:stats':
+## 
+##     filter, lag
+```
+
+```
+## The following objects are masked from 'package:base':
+## 
+##     intersect, setdiff, setequal, union
+```
+
+```r
+library(shiny)
+```
+
+```
+## Loading required package: methods
+```
+
+```r
 # Load the gapminder data 
 # (this contains more data than that included in the gapminder R package)
 gapminder <- readRDS("gapminder.rds")
@@ -82,8 +107,9 @@ source("plottingFunctions.R")
 gapminder %>% 
   filter(year == 2000) %>% 
   produceGapminderPlot()
-
 ```
+
+![plot of chunk unnamed-chunk-1](figure/unnamed-chunk-1-1.png)
 
 ### Assessment - fiddle around with the codeExample.R
 
