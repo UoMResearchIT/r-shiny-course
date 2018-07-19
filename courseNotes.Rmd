@@ -77,7 +77,6 @@ gapminder <- readRDS("gapminder.rds")
 source("plottingFunctions.R")
 
 # Produce a plot for a year of data
-
 # produceGapminderPlot expects a single year of data
 gapminder %>% 
   filter(year == 2000) %>% 
@@ -85,32 +84,88 @@ gapminder %>%
 
 ```
 
-### Assessment - fiddle around with the codeExample.R
+## Exercise:
+
+Add another `filter` to the example to only show countries that are in Europe and Africa
+
+## Solution:
+
+```{r}
+
+gapminder %>% 
+  filter(year == 2000) %>% 
+  filter(continent %in% c("Europe", "Africa")) %>% 
+  produceGapminderPlot()
+```
+
 
 
 ## Creating a Shiny app
 
 The most straightforward way of creating a new Shiny app is to use RStudio.  From the menu, choose, File, New, Shiny Web App.  
 
-Choose a suitable name for your app (e.g. "gapminder").   Leave the other options as the
+Choose a suitable name for your app (e.g. "gapminder").   Leave the other options as their defaults ("Single File", and Create within directory: `~/mawdsley`).
 
-When we create a new Shiny app we can create a single file (`app.R`), or as two separate files (`ui.R` and `server.R`).   The latter format used to be the only method of definining an Shiny app, but can still be useful when building a more complicated app, as it allows us to separate the user interface (`ui.R`) from the server logic (`server.R`).  As we will be building a relatively small app, we'll use the single file approach.  
+> ## Single vs multiple files
+>
+>When we create a new Shiny app we can create a single file (`app.R`), or as two separate files (`ui.R` and `server.R`).   The latter format used to be the only method of definining an Shiny app, but can still be useful when building a more complicated app, as it allows us to separate the user interface (`ui.R`) from the server logic (`server.R`).  As we will be building a relatively small app, we'll use the single file approach.  
 
 When we create a new Shiny app in RStudio, it creates an example app that allows us to alter the number of bins in a histogram.  This uses an example data-set that is provided with R of the waiting times for the erruption of the "Old Faithful" geyser.
 
-The app consists of two functions; the first defines the user interface (`fluidPage(...)`) and the second defines the server logic.
+We can run the app by pressing the "Run App" button in the toolbar (or by pressing Ctrl+Shift+Enter).  This will launch an browser window within RStudio where we can interact with our app.  
+
+The example app doesn't load any external data or functions (The `faithful` dataset is provided with R).  When we run an app, it sets its location as the working directory.  When we deploy an app it is much easier if all its dependencies are in the same directory.  
+
+* Copy the data (`gapminder.rds`) and plotting functions (`plottingFunctions.R`) into the app directory.  
+
+* Modify the example app to load the `ggplot2` and `dplyr` libraries, the gapminder data from `gapminder.rds` and the plotting functions in `plottingFunctions.R`
+
+
+> ## Getting help
+> 
+> There is a cheat sheet for Shiny included with RStudio.  This can be accessed from the menu: Help, Cheatsheets, Web Applications with shiny.
+
+
+## User interface design.
+
+We can see in the example app that it is split into two sections; the user interface (`ui`), and a server function.  
+
+The default app uses `fluidPage()` to create the app's layout, and uses a `sidebarLayout` to split the page into two sections, which contain (in the example) the app's input (the slider) and output (the histogram).  The fluidPage layout will automatically respond to changes in browser size.   
+
+More flexible, but complex layout options are available (give examples)...
+
+Most common html tags have a builder function associated with them.  So to add a paragraph of text to the app, we can pass another arguement to the `fluidPage()` function:
+
+```{r, eval = FALSE}
+ui <- fluidPage(
+   
+   # Application title
+   titlePanel("Old Faithful Geyser Data"),
+   p("Here is some text"),
+   # Sidebar with a slider input for number of bins 
+   sidebarLayout(....
+                 
+```
+
+A very important type of element we can add to the app is a widget.  This provides a control that lets us interact with our app.  The default app has a single widget - the slider that  lets us select the number of bins we want the histogram to have.  The first argument of the function defines the inputId - essentially this is the name of the variable that the widget's output (in this case the selected number of bins) is assigned to.  The second argument defines the label for widget.   
+
+Shiny comes with a number of built in widgets that give different ways of interacting with our app. [The Shiny Widget Gallery](https://shiny.rstudio.com/gallery/widget-gallery.html) lists built in widgets, along with example code to use them.
+
+## Exercise:
+
+We want to be able to show the data for selected continents only.   The `checkboxGroupInput()` widget will let us do this.   Add one to the app.  You will need to provide a vector containing the continent names as the `choices` argument; this can be done using `levels(gapminder$continent)`.  By default none of the checkboxes are selected; this can be changed using the `selected` argument.
 
 
 
 
 
-## Page layout in Shiny (will just be leaving this as the default - so not sure whether to cover)
+## Reactivity (How Shiny responds to events) - inputs change ==> outputs change
 
-## How we interact with Shiny - Widgets
+
+
 
 ## Outputting things in Shiny
 
-## Reactivity (How Shiny responds to events) - inputs change ==> outputs change
 
 ## Deploying Shiny apps
 
