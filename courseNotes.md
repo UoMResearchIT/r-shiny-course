@@ -18,7 +18,7 @@ We wish to let the user select 0 or more continents from the data.  Choose a sui
 
 ## Adding an output to an app
 
-Add a plot for gdp and life expectancy (either using ggplot directly, or using the pre-built functions)
+Add a plot for GDP and life expectancy (either using ggplot directly, or using the pre-built functions)
 
 ## Controlling where widgets and outputs are placed
 
@@ -38,9 +38,9 @@ Create an account on shinyapps.io and deploy your app
 
 ## What is Shiny + what can we do with it?
 
-Shiny lets us build interactive web apps, using R.   This means we can use (pretty much) all of R's extensive (and extensible) data analysis and visualisation features in our app.  Essentially, we can take almost any analysis we've done in R, and then make it interactive.   We can run our apps locally, within RStudio (this is what we'll do most of today), make them standalone, either by deploying them to a **Shiny Server**, or to a hosting service, such as https://shinyapps.io (we'll do this today), or even including them in a Markdown document.
+Shiny lets us build interactive web apps, using R.   This means we can use (pretty much) all of R's extensive (and extensible) data analysis and visualisation features in our app.  Essentially, we can take almost any analysis we've done in R, and then make it interactive.   We can run our apps locally, within R Studio (this is what we'll do most of today), make them standalone, either by deploying them to a **Shiny Server**, or to a hosting service, such as https://shinyapps.io (we'll do this today), or even including them in a Markdown document.
 
-Rstudio provide a gallery of other Shiny apps: https://shiny.rstudio.com/gallery/
+R studio provide a gallery of other Shiny apps: https://shiny.rstudio.com/gallery/
 
 Shiny works well with many widely used R packages, such as [ggplot2](https://ggplot2.tidyverse.org/), and [Leaflet for R](https://rstudio.github.io/leaflet/).  
 
@@ -55,9 +55,9 @@ In this workshop, we're going to use data from the [Gapminder project](https://w
 
 ## How the workshop materials work
 
-The material we'll use for this workshop are in the `~/mawdsley` directory.  This contains the gapminder data we'll be plotting (`gapminder.rds`), the Shiny app we're going to be making (a deployed version of this is at https://mawds.shinyapps.io/worked_example/) (in `worked_example/`) and some example code showing how to produce (static) graphs of the gapminder data (in `codeExample.R`).  The example code uses the functions in `plottingFunctions.R` to produce the graphs; this is to reduce the time we spend dealing with the inticacies of ggplot2.
+The material we'll use for this workshop are in the `~/mawdsley` directory.  This contains the gapminder data we'll be plotting (`gapminder.rds`), the Shiny app we're going to be making (a deployed version of this is at https://mawds.shinyapps.io/worked_example/) (in `worked_example/`) and some example code showing how to produce (static) graphs of the gapminder data (in `codeExample.R`).  The example code uses the functions in `plottingFunctions.R` to produce the graphs; this is to reduce the time we spend dealing with the intricacies of ggplot2.
 
-The directory is a git repository.  Each commit is tagged, and represents the solution to an exercise.  (Not sure how best to do this part - either the user makes a *new* git repo in another directory and puts their exercise under version control _or_ creates the app within `~/mawdsley` and leaves their app out of version control, and checks out the various steps).  You can look at the diff for a commit within RStudio, or you can view it on github by clicking the link within the solution, e.g. [git:01_helloworld](https://github.com/UoMResearchIT/RSE18-shiny-workshop-materials/commit/ffe945ba4943bef378d744e941bea6f46f9970c0).
+The directory is a git repository.  Each commit is tagged, and represents the solution to an exercise.  (Not sure how best to do this part - either the user makes a *new* git repo in another directory and puts their exercise under version control _or_ creates the app within `~/mawdsley` and leaves their app out of version control, and checks out the various steps).  You can look at the diff for a commit within R Studio, or you can view it on github by clicking the link within the solution, e.g. [git:01_helloworld](https://github.com/UoMResearchIT/RSE18-shiny-workshop-materials/commit/ffe945ba4943bef378d744e941bea6f46f9970c0).
 
 Before we start doing things with Shiny, we'll briefly go through the process of creating a static graph in R of the gapminder data.  The code below shows how to do this:
 
@@ -130,7 +130,7 @@ gapminder %>%
 
 ## Creating a Shiny app
 
-The most straightforward way of creating a new Shiny app is to use RStudio.  From the menu, choose, File, New, Shiny Web App.  
+The most straightforward way of creating a new Shiny app is to use R Studio.  From the menu, choose, File, New, Shiny Web App.  
 
 Choose a suitable name for your app (e.g. "gapminder").   Leave the other options as their defaults ("Single File", and Create within directory: `~/mawdsley`).
 
@@ -138,9 +138,9 @@ Choose a suitable name for your app (e.g. "gapminder").   Leave the other option
 >
 >When we create a new Shiny app we can create a single file (`app.R`), or as two separate files (`ui.R` and `server.R`).   The latter format used to be the only method of definining an Shiny app, but can still be useful when building a more complicated app, as it allows us to separate the user interface (`ui.R`) from the server logic (`server.R`).  As we will be building a relatively small app, we'll use the single file approach.  
 
-When we create a new Shiny app in RStudio, it creates an example app that allows us to alter the number of bins in a histogram.  This uses an example data-set that is provided with R of the waiting times for the erruption of the "Old Faithful" geyser.
+When we create a new Shiny app in R Studio, it creates an example app that allows us to alter the number of bins in a histogram.  This uses an example data-set that is provided with R of the waiting times for the eruption of the "Old Faithful" geyser.
 
-We can run the app by pressing the "Run App" button in the toolbar (or by pressing Ctrl+Shift+Enter).  This will launch an browser window within RStudio where we can interact with our app.  
+We can run the app by pressing the "Run App" button in the toolbar (or by pressing Ctrl+Shift+Enter).  This will launch an browser window within R Studio where we can interact with our app.  
 
 The example app doesn't load any external data or functions (The `faithful` dataset is provided with R).  When we run an app, it sets its location as the working directory.  When we deploy an app it is much easier if all its dependencies are in the same directory.  
 
@@ -162,7 +162,7 @@ The default app uses `fluidPage()` to create the app's layout, and uses a `sideb
 
 More flexible, but complex layout options are available (give examples)...
 
-Most common html tags have a builder function associated with them.  So to add a paragraph of text to the app, we can pass another arguement to the `fluidPage()` function:
+Most common html tags have a builder function associated with them.  So to add a paragraph of text to the app, we can pass another argument to the `fluidPage()` function:
 
 
 ```r
@@ -181,7 +181,7 @@ Shiny comes with a number of built in widgets that give different ways of intera
 
 ## Exercise:
 
-We want to be able to show the data for selected continents only.   The `checkboxGroupInput()` widget will let us do this.   Add one to the app.  You will need to provide a vector containing the continent names as the `choices` argument; this can be done using `levels(gapminder$continent)`.  By default none of the checkboxes are selected; this can be changed using the `selected` argument.
+We want to be able to show the data for selected continents only.   The `checkboxGroupInput()` widget will let us do this.   Add one to the app.  You will need to provide a vector containing the continent names as the `choices` argument; this can be done using `levels(gapminder$continent)`.  By default none of the check-boxes are selected; this can be changed using the `selected` argument.
 
 
 
