@@ -61,45 +61,6 @@ The material we'll use for this workshop are in the `~/mawdsley` directory.  Thi
 
 The directory is a git repository.  Each commit is tagged, and represents the solution to an exercise.  (Not sure how best to do this part - either the user makes a *new* git repo in another directory and puts their exercise under version control _or_ creates the app within `~/mawdsley` and leaves their app out of version control, and checks out the various steps).  You can look at the diff for a commit within R Studio, or you can view it on github by clicking the link within the solution, e.g. [git:01_helloworld]().
 
-Before we start doing things with Shiny, we'll briefly go through the process of creating a static graph in R of the gapminder data.  The code below shows how to do this:
-
-```{r}
-# Load the required libraries
-library(ggplot2)
-library(dplyr)
-library(shiny)
-
-# Load the gapminder data 
-# (this contains more data than that included in the gapminder R package)
-gapminder <- readRDS("gapminder.rds")
-
-# Load the plotting functions
-source("plottingFunctions.R")
-
-# Produce a plot for a year of data
-# produceGapminderPlot expects a single year of data
-gapminder %>% 
-  filter(year == 2000) %>% 
-  produceGapminderPlot()
-
-```
-
-## Exercise:
-
-Add another `filter` to the example to only show countries that are in Europe and Africa
-
-## Solution:
-
-```{r}
-
-gapminder %>% 
-  filter(year == 2000) %>% 
-  filter(continent %in% c("Europe", "Africa")) %>% 
-  produceGapminderPlot()
-```
-
-
-
 ## Creating a Shiny app
 
 The most straightforward way of creating a new Shiny app is to use R Studio.  From the menu, choose, File, New, Shiny Web App.  
@@ -114,11 +75,6 @@ When we create a new Shiny app in R Studio, it creates an example app that allow
 
 We can run the app by pressing the "Run App" button in the toolbar (or by pressing Ctrl+Shift+Enter).  This will launch an browser window within R Studio where we can interact with our app.  
 
-The example app doesn't load any external data or functions (The `faithful` dataset is provided with R).  When we run an app, it sets its location as the working directory.  When we deploy an app it is much easier if all its dependencies are in the same directory.  
-
-* Copy the data (`gapminder.rds`) and plotting functions (`plottingFunctions.R`) into the app directory.  
-
-* Modify the example app to load the `ggplot2` and `dplyr` libraries, the gapminder data from `gapminder.rds` and the plotting functions in `plottingFunctions.R`
 
 
 > ## Getting help
@@ -128,9 +84,9 @@ The example app doesn't load any external data or functions (The `faithful` data
 
 ## User interface design.
 
-We can see in the example app that it is split into two sections; the user interface (`ui`), and a server function.  
+We can see in the example app that it is split into two sections; the user interface (`ui`), and a server function.   We'll deal with each of these in turn..
 
-The default app uses `fluidPage()` to create the app's layout, and uses a `sidebarLayout` to split the page into two sections, which contain (in the example) the app's input (the slider) and output (the histogram).  The fluidPage layout will automatically respond to changes in browser size.   
+The user interface of the default app uses `fluidPage()` to create the app's layout, and uses a `sidebarLayout` to split the page into two sections; the `sidebarPanel()` which contain (in the example) the app's input (the slider) and the `mainPanel()` which in the example app contains the histogram output.  The fluidPage layout will automatically respond to changes in browser size.     This is a fairly typical layout for a Shiny app (note that there's nothing stopping us putting more output above the `sidebarLayout()` - for example the `titlePanel()`, or after it - we could, for example use a `p()` tag to include further text, or add further widgets, outputs etc.)
 
 More flexible, but complex layout options are available (give examples)...
 
@@ -153,27 +109,108 @@ Shiny comes with a number of built in widgets that give different ways of intera
 
 ## Exercise:
 
-We want to be able to show the data for selected continents only.   The `checkboxGroupInput()` widget will let us do this.   Add one to the app.  You will need to provide a vector containing the continent names as the `choices` argument; this can be done using `levels(gapminder$continent)`.  By default none of the check-boxes are selected; this can be changed using the `selected` argument.
+We want to be able to show the data for selected continents only.   The `checkboxGroupInput()` widget will let us do this.   Add one to the app.  You will need to provide a vector containing the continent names as the `choices` argument; this can be done using `levels(gapminder$continent)`.  By default none of the check-boxes are selected; this can be changed using the `selected` argument. (for now the check boxes won't do anything; we've not made use of the widget's values anywhere in the app - we'll do this shortly)
+
+## Solution:
+ 
+DO THIS
 
 
+The `mainPanel()` of the user interface contains a single element in the example app.  The `plotOutput()` displays a plot - in the example app called `distPlot`.  We'll come to how that plot is defined in a moment.  For now, note that there are several `...Output()` functions for displaying various types of output from R, such as `renderTable()` and `renderText
 
 
+### The server function
+
+The server function contains the code behind the webapp.   Each `...Output()` function has a corresponding `render...()` function.   The first argument of the plot contains the R code to generate the thing we want to render.  For example, in the example app, the `renderPlot()` function contains the code that will generate a histogram.  As we want a single expression this will typically be contained in `{}`s 
+
+Let's briefly look at the example code that generates the histogram:
+
+```{r}
+   output$distPlot <- renderPlot({
+      # generate bins based on input$bins from ui.R
+      x    <- faithful[, 2] 
+      bins <- seq(min(x), max(x), length.out = input$bins + 1)
+      
+      # draw the histogram with the specified number of bins
+      hist(x, breaks = bins, col = 'darkgray', border = 'white')
+   })
+```
+
+`input$bins` will contain the value of the slider which was defined in the user interface (which was called `bins`).   This is how we connect elements of the user interface to the the server logic.
+
+The first agument of `renderPlot()` returns a graph; _how_ we make that graph is up to us.
 
 ## Reactivity (How Shiny responds to events) - inputs change ==> outputs change
 
+Shiny uses a reactive programming model.  This means that when something changes (such as the slider being moved), everything that depends on that something will be updated automatically.   In the example app the only thing that depends on the slider is the `distPlot` graph, so this will be redrawn if we move the slider.
+
+The graph also depends on some other properties of the app, which we can't see directly, such as the window size.  If we resize the window, Shiny knows that the graph depends on that property of the app, and so will redraw it.
+
+Shiny automatically takes care of the dependencies between the various elements, and only updates what is needed.   
+
+## Plotting a "gapminder" graph
+
+In order to avoid getting bogged down on the syntax of ggplot2, a function to produce a "gapminder" plot is provided in the `plottingFunctions.R` file.  This uses ggplot2 to produce a graph, deals with setting fixed axes, consistent colours etc.
+
+Stepping aside from Shiny, we can produce a gapminder plot in R using the following code:
 
 
+```{r}
+# Load the required libraries
+library(ggplot2)
+library(dplyr)
+library(shiny)
 
-## Outputting things in Shiny
+# Load the gapminder data 
+gapminder <- readRDS("gapminder.rds")
+
+# Load the plotting functions
+source("plottingFunctions.R")
+
+# Produce a plot for a year of data
+# produceGapminderPlot expects a single year of data
+gapminder %>% 
+  filter(year == 2000) %>% 
+  produceGapminderPlot()
+
+```
+
+
+## Exercise:
+
+Add another `filter` to the example to only show countries that are in Europe and Africa
+
+## Solution:
+
+```{r}
+
+gapminder %>% 
+  filter(year == 2000) %>% 
+  filter(continent %in% c("Europe", "Africa")) %>% 
+  produceGapminderPlot()
+```
+
+
+## Back to Shiny
+
+The example app doesn't load any external data or functions (The `faithful` dataset is provided with R).  When we run an app, it sets its location as the working directory.  When we deploy an app it is much easier if all its dependencies are in the same directory.  
+
+* Copy the data (`gapminder.rds`) and plotting functions (`plottingFunctions.R`) into the app directory.  
+
+* Modify the example app to load the `ggplot2` and `dplyr` libraries, the gapminder data from `gapminder.rds` and the plotting functions in `plottingFunctions.R`
+
+
+## Exercises
+
+* Modify the Shiny app to produce a gapminder plot instead of the histogram.   Note that the `produceGapminderPlot()` requires a single year of data, so you will need to `filter()` the data to a single year before passing it to the function.
+
+* Use the widget you created earlier to only show data for the selected continents
+
+* Create a new widget (or modify the `bins` widget) to let the user choose the year of data to plot.
 
 
 ## Deploying Shiny apps
 
-## Starting R/Rstudio (prereq - no material provided)
-
-## Plotting graphs in R/Rstudio (prereq)
-
-## Filtering data in R/Rstudio (Tidyverse) (prereq)
 
 
 
