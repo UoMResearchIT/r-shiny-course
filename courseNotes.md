@@ -45,7 +45,7 @@ R studio provide a gallery of other Shiny apps: https://shiny.rstudio.com/galler
 Shiny works well with many widely used R packages, such as [ggplot2](https://ggplot2.tidyverse.org/), and [Leaflet for R](https://rstudio.github.io/leaflet/).  
 
 In this workshop, we're going to use data from the [Gapminder project](https://www.gapminder.org) to visualise how GDP per capita and life expectancy have changed over time.   This takes one of Hans Rosling's 
-[![innovative visualisations](http://img.youtube.com/vi/jbkSRLYSojo/0.jpg)](https://youtu.be/jbkSRLYSojo?t=90) and puts it into Shiny. The app we'll produce can be found here: https://mawds.shinyapps.io/worked_example/
+[innovative visualisations](https://youtu.be/jbkSRLYSojo?t=90) and puts it into Shiny. The app we'll produce can be found here: https://mawds.shinyapps.io/worked_example/
 
 
 
