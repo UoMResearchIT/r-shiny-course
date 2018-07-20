@@ -38,7 +38,7 @@ Create an account on shinyapps.io and deploy your app
 
 ## What is Shiny + what can we do with it?
 
-Shiny lets us build interactive web apps, using R.   This means we can use (pretty much) all of R's extensive (and extensible) data analysis and visualisation features in our app.  Essentially, we can take almost any analysis we've done in R, and then make it interactive.   We can run our apps locally, within R Studio (this is what we'll do most of today), make them standalone, either by deploying them to a **Shiny Server**, or to a hosting service, such as https://shinyapps.io (we'll do this today), or even including them in a Markdown document.
+Shiny lets us build interactive web apps, using R.   This means we can use (pretty much) all of R's extensive (and extensible) data analysis and visualisation features in our app.  Essentially, we can take almost any analysis we've done in R, and then make it interactive.   We can run our apps locally, within R Studio (this is what we'll do most of today), make them standalone, either by deploying them to a [Shiny Server](https://www.rstudio.com/products/shiny/shiny-server/), or to a hosting service, such as https://shinyapps.io (we'll do this today), or even including them in a Markdown document.
 
 R studio provide a gallery of other Shiny apps: https://shiny.rstudio.com/gallery/
 
@@ -52,6 +52,9 @@ In this workshop, we're going to use data from the [Gapminder project](https://w
 > ## Aside
 >
 > I've tried to minimise the amount of non-Shiny material in this workshop, but we will need to so some manipulation of the data. I've adopted a [tidyverse](https://www.tidyverse.org/) based approach to doing this, using pipes and filters.  If you're more comfortable using base R you're very welcome to use that approach.   If you need a quick refresher on using the tidyverse to manipulate tabular data, [this episode](https://uomresearchit.github.io/r-tidyverse-intro/04-dplyr/) of the [Data Analysis using R course](https://uomresearchit.github.io/r-tidyverse-intro/), which we teach at the University of Manchester may be useful.
+> 
+> To minimise the amount of formatting of graphs etc, I've provided functions that will generate the graphs we'll be using, given an appropriate data set.  Where these functions are used you could use your own call to `ggplot()`.
+
 
 ## How the workshop materials work
 
@@ -135,13 +138,9 @@ Let's briefly look at the example code that generates the histogram:
    })
 ```
 
-```
-## Error in renderPlot({: could not find function "renderPlot"
-```
-
 `input$bins` will contain the value of the slider which was defined in the user interface (which was called `bins`).   This is how we connect elements of the user interface to the the server logic.
 
-The first agument of `renderPlot()` returns a graph; _how_ we make that graph is up to us.
+The first agument of `renderPlot()` returns a graph; _how_ we make that graph is up to us.  In the example app, base R graphic are used.  We'll be using ggplot2 in this workshop, as it's easier to make nice looking graphs with it.  To simplify things I've put the ggplot functions within a wrapper function - we'll come to this shortly.  The important thing is that the first argument returns a graph object.
 
 ## Reactivity (How Shiny responds to events) - inputs change ==> outputs change
 
@@ -242,6 +241,16 @@ The example app doesn't load any external data or functions (The `faithful` data
 * Create a new widget (or modify the `bins` widget) to let the user choose the year of data to plot.
 
 
+We've now created a working app, which lets us explore the data by year and filter by continent.  To summarise:
+
+* Define your user interface and server
+* Create graphs in the server function  using `renderPlot()`, and other types of output using `render....()` functions
+* Display graphs using `plotOutput()` (or `...Output()` for other types of output)
+* Connect widgets to outputs using `input$inputID` 
+* Shiny takes care of updating outputs when inputs change (recative programming)
+
+Now lets look at deploying apps..
+
 ## Deploying Shiny apps
 
 If we want to use our app out of R Studio we will need to deploy it to a Shiny Server.  There are a number of options for doing this:
@@ -258,6 +267,41 @@ Create an account on shinyapps.io via https://www.shinyapps.io/admin/#/signup  Y
 Having created an account, we can deploy the app directly from R Studio. To do this, click the blue publish icon (to the right of the run button).   You will be prompted to enter your account token.  This can be obtained from the dashboard for your shinyapps.io account.  Click the account menu (on the left) then select tokens.  Click "show", "show secret" and then copy the token to the clipboard.  This can be pasted into the box in Studio.
 
 Having connected your account, check that the `app.R` file and all its dependencies (`plottingFunctions.R` and `gapminder.rds`) are selected and then choose publish.  The app will be packaged and uploaded to shinyapps.io
+
+
+## Going further - reactive data
+
+In this example we only use the filtered gapminder data in a single place - to plot the graph.   For this reason we did the filtering within the `renderPlot()` function.   
+
+Let's add another output to the app; we'll show which country is the richest displayed on the graph, and what its GDP per capita is. This means that we'll be using the gapminder data filtered by year and country in two places; on the graph itself and in the logic where we work out what the richest country is.   
+
+To do this, we'll make the a reactive expression, which contains the data we want to plot.  A rective expression is an expression whose value can change during the running of the app.   As mentioned previously, the reactive programming approach means that Shiny will keep track of when reactive expressions have become invalid, and will then recalculate them automatically.  
+
+Let's make the plotted data a reactive expression. We add the following code to the `server()` function:
+
+
+```r
+   # The data we wish to plot
+   plotData <- reactive({
+     gapminder %>% 
+       filter(year == input$year) %>% 
+       filter(continent %in% input$continent)
+   })
+```
+
+Reactive expressions return a function, so we refer to the data we're plotting as `plotData()`.  We can use this in our `renderPlot()` function:
+
+
+```r
+   output$gapminderPlot <- renderPlot({
+      plotData() %>% 
+         produceGapminderPlot() })
+```
+
+## Exercise
+
+The `getRichCountry()` function will return a tibble containing the richest country and its GDP per capita.  The `renderTable()` function will render a tibble, and `tableOutput()` will display it.   Use these functions, with the reactive data to display the richest visible country in the app.
+
 
 
 
