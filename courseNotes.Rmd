@@ -42,12 +42,12 @@ Create an account on shinyapps.io and deploy your app
 
 Shiny lets us build interactive web apps, using R.   This means we can use (pretty much) all of R's extensive (and extensible) data analysis and visualisation features in our app.  Essentially, we can take almost any analysis we've done in R, and then make it interactive.   We can run our apps locally, within R Studio (this is what we'll do most of today), make them standalone, either by deploying them to a [Shiny Server](https://www.rstudio.com/products/shiny/shiny-server/), or to a hosting service, such as https://shinyapps.io (we'll do this today), or even including them in a Markdown document.
 
-R studio provide a gallery of other Shiny apps: https://shiny.rstudio.com/gallery/
+R studio provide a gallery of other Shiny apps: [https://shiny.rstudio.com/gallery/]
 
 Shiny works well with many widely used R packages, such as [ggplot2](https://ggplot2.tidyverse.org/), and [Leaflet for R](https://rstudio.github.io/leaflet/).  
 
 In this workshop, we're going to use data from the [Gapminder project](https://www.gapminder.org) to visualise how GDP per capita and life expectancy have changed over time.   This takes one of Hans Rosling's 
-[innovative visualisations](https://youtu.be/jbkSRLYSojo?t=90) and puts it into Shiny. The app we'll produce can be found here: https://mawds.shinyapps.io/worked_example/
+[innovative visualisations](https://youtu.be/jbkSRLYSojo?t=90) and puts it into Shiny. The app we'll produce can be found here: [https://mawds.shinyapps.io/worked_example/]
 
 
 
@@ -89,11 +89,11 @@ We can run the app by pressing the "Run App" button in the toolbar (or by pressi
 
 We can see in the example app that it is split into two sections; the user interface (`ui`), and a server function.   We'll deal with each of these in turn..
 
-The user interface of the default app uses `fluidPage()` to create the app's layout, and uses a `sidebarLayout` to split the page into two sections; the `sidebarPanel()` which contain (in the example) the app's input (the slider) and the `mainPanel()` which in the example app contains the histogram output.  The fluidPage layout will automatically respond to changes in browser size.     This is a fairly typical layout for a Shiny app (note that there's nothing stopping us putting more output above the `sidebarLayout()` - for example the `titlePanel()`, or after it - we could, for example use a `p()` tag to include further text, or add further widgets, outputs etc.)
+The user interface of the default app uses the `fluidPage()` to create the app's layout. The fluidPage layout will automatically respond to changes in browser size.  Within the `fluidPage()`, we use a `sidebarLayout()` to split the page into two sections; the `sidebarPanel()` which contain (in the example) the app's input (the slider) and the `mainPanel()` which in the example app contains the histogram output.   This is a fairly typical layout for a Shiny app (note that there's nothing stopping us putting more output above the `sidebarLayout()` - for example the `titlePanel()`, or after it - we could, for example use a `p()` tag to include further text, or add further widgets, outputs etc.).  W
 
-More flexible, but complex layout options are available (give examples)...
+More flexible, but complex layout options are available, such as `navBarPage()`, to produce a page with a navigation bar.  It's also possible to build a [user intrface from scratch](https://shiny.rstudio.com/articles/html-ui.html), using HTML, CSS etc.
 
-Most common html tags have a builder function associated with them.  So to add a paragraph of text to the app, we can pass another argument to the `fluidPage()` function:
+For this tutorial we'll stick with the `fluidPage()` approach.  Most common html tags have a builder function associated with them.  So to add a paragraph of text to the app, we can pass another argument to the `fluidPage()` function:
 
 ```{r, eval = FALSE}
 ui <- fluidPage(
@@ -124,7 +124,7 @@ The `mainPanel()` of the user interface contains a single element in the example
 
 ### The server function
 
-The server function contains the code behind the webapp.   Each `...Output()` function has a corresponding `render...()` function.   The first argument of the plot contains the R code to generate the thing we want to render.  For example, in the example app, the `renderPlot()` function contains the code that will generate a histogram.  As we want a single expression this will typically be contained in `{}`s 
+The server function contains the code behind the webapp.   Each `...Output()` function in the user interface has a corresponding `render...()` function.   The first argument of function contains the R code to generate the thing we want to render.  For example, in the example app, the `renderPlot()` function contains the code that will generate a histogram.  As we need single expression this will typically be contained in `{}`s 
 
 Let's briefly look at the example code that generates the histogram:
 
@@ -141,13 +141,13 @@ Let's briefly look at the example code that generates the histogram:
 
 `input$bins` will contain the value of the slider which was defined in the user interface (which was called `bins`).   This is how we connect elements of the user interface to the the server logic.
 
-The first agument of `renderPlot()` returns a graph; _how_ we make that graph is up to us.  In the example app, base R graphic are used.  We'll be using ggplot2 in this workshop, as it's easier to make nice looking graphs with it.  To simplify things I've put the ggplot functions within a wrapper function - we'll come to this shortly.  The important thing is that the first argument returns a graph object.
+The first agument of `renderPlot()` returns a graph; _how_ we make that graph is up to us.  In the example app, base R graphic are used.  We'll be using ggplot2 in this workshop, as it's easier to make nice looking graphs with it.  To simplify things I've put the ggplot functions within a wrapper function - we'll come to this shortly.  The important thing is that the first (and in the example, only) argument returns a graph object.   We can also pass arguments to manually control the width and height of the plot, etc.
 
 ## Reactivity (How Shiny responds to events) - inputs change ==> outputs change
 
 Shiny uses a reactive programming model.  This means that when something changes (such as the slider being moved), everything that depends on that something will be updated automatically.   In the example app the only thing that depends on the slider is the `distPlot` graph, so this will be redrawn if we move the slider.
 
-The graph also depends on some other properties of the app, which we can't see directly, such as the window size.  If we resize the window, Shiny knows that the graph depends on that property of the app, and so will redraw it.
+The graph also depends on some other properties of the app, which we can't see directly, such as the window size.  If we resize the window, Shiny knows that the graph depends on that property of the app, and so will redraw the graph.
 
 Shiny automatically takes care of the dependencies between the various elements, and only updates what is needed.   
 
@@ -198,7 +198,7 @@ gapminder %>%
 
 The example app doesn't load any external data or functions (The `faithful` dataset is provided with R).  When we run an app, it sets its location as the working directory.  When we deploy an app it is much easier if all its dependencies are in the same directory.  
 
-* Copy the data (`gapminder.rds`) and plotting functions (`plottingFunctions.R`) into the app directory.  
+* Copy the data (`gapminder.rds`) and plotting functions (`plottingFunctions.R`) into your app directory.  
 
 * Modify the example app to load the `ggplot2` and `dplyr` libraries, the gapminder data from `gapminder.rds` and the plotting functions in `plottingFunctions.R`
 
@@ -211,12 +211,14 @@ The example app doesn't load any external data or functions (The `faithful` data
 
 * Create a new widget (or modify the `bins` widget) to let the user choose the year of data to plot.
 
+* If you created a new widget, you can delete the `bins` widget as we are no longer using this.
+
 
 We've now created a working app, which lets us explore the data by year and filter by continent.  To summarise:
 
-* Define your user interface and server
+* Define your server function and user interface 
 * Create graphs in the server function  using `renderPlot()`, and other types of output using `render....()` functions
-* Display graphs using `plotOutput()` (or `...Output()` for other types of output)
+* Display graphs using `plotOutput()` (or `...Output()` for other types of output) in your user interface
 * Connect widgets to outputs using `input$inputID` 
 * Shiny takes care of updating outputs when inputs change (recative programming)
 
@@ -227,13 +229,13 @@ Now lets look at deploying apps..
 If we want to use our app out of R Studio we will need to deploy it to a Shiny Server.  There are a number of options for doing this:
 
 * Host a [Shiny Server instance](https://www.rstudio.com/products/shiny/shiny-server/).   Shiny Server comes in both open source and commercial editions.   
-      * See also [Shinyproxy](https://www.shinyproxy.io/) to extend the features of the open source version (authentication, containerisation)
+   *See also [Shinyproxy](https://www.shinyproxy.io/) to extend the features of the open source version (authentication, containerisation)
 * Deploy the app to shinyapps.io
-      * Free and paid for versions
+   * Free and paid for versions
 
 Setting up a Shiny Server is beyond the scope of this workshop.   Instead we'll deploy our apps to shinyapps.io
 
-Create an account on shinyapps.io via https://www.shinyapps.io/admin/#/signup  You can do this using a Google or Github account, or using a username/password.
+Create an account on shinyapps.io via [https://www.shinyapps.io/admin/#/signup]  You can do this using a Google or Github account, or using a username/password.
 
 Having created an account, we can deploy the app directly from R Studio. To do this, click the blue publish icon (to the right of the run button).   You will be prompted to enter your account token.  This can be obtained from the dashboard for your shinyapps.io account.  Click the account menu (on the left) then select tokens.  Click "show", "show secret" and then copy the token to the clipboard.  This can be pasted into the box in Studio.
 
@@ -246,7 +248,7 @@ In this example we only use the filtered gapminder data in a single place - to p
 
 Let's add another output to the app; we'll show which country is the richest displayed on the graph, and what its GDP per capita is. This means that we'll be using the gapminder data filtered by year and country in two places; on the graph itself and in the logic where we work out what the richest country is.   
 
-To do this, we'll make the a reactive expression, which contains the data we want to plot.  A rective expression is an expression whose value can change during the running of the app.   As mentioned previously, the reactive programming approach means that Shiny will keep track of when reactive expressions have become invalid, and will then recalculate them automatically.  
+To do this, we'll make the a reactive expression, which contains the data we want to plot.  A rective expression is an expression whose value can change during the running of the app.   As mentioned previously, the reactive programming approach means that Shiny will keep track of when reactive expressions have become invalid (for example, if their inputs have changed - in this example if `year` or `continent` change), and will then recalculate them automatically.  
 
 Let's make the plotted data a reactive expression. We add the following code to the `server()` function:
 
@@ -272,10 +274,13 @@ Reactive expressions return a function, so we refer to the data we're plotting a
 
 ```
 
+The app will behave in the same way as before, but by definining the reactive expression `plotData()` we can use the data that we're plotting on the graph elsewhere in the app.
+
 ## Exercise
 
-The `getRichCountry()` function will return a tibble containing the richest country and its GDP per capita.  The `renderTable()` function will render a tibble, and `tableOutput()` will display it.   Use these functions, with the reactive data to display the richest visible country in the app.
-
+The `renderTable()` function will render a tibble, and `tableOutput()` will display it.   Use these functions, with the reactive data to display a (long) table containing the data displayed on the graph.
+  
+The `getRichestCountry()` function in `plottingFunctions.R` will return a tibble containing the name of the richest country in a tibble, and the country's GDP per capita. Modify your `renderTable()` function to only display this information for the displayed graph.
 
 
 
