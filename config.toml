@@ -6,6 +6,9 @@ googleAnalytics = ""
 disqusShortname = ""
 ignoreFiles = ["\\.Rmd$", "\\.Rmarkdown$", "_files$", "_cache$"]
 publishdir = "docs"
+relativeURLS = true
+baseURL = "https://uomresearchit.github.io/RSE18-shiny-workshop/"
+
 [permalinks]
     post = "/:year/:month/:day/:slug/"
 
