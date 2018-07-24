@@ -1,0 +1,8 @@
+---
+title: "Shiny Workshop"
+output: html_notebook
+---
+
+This site contains the material for the Shiny workshop at the 2018 RSE conference
+
+It is built using blogdown and hugo, and hosted on github pages.
