@@ -1,4 +1,3 @@
-baseurl = "/"
 languageCode = "en-us"
 title = "Introduction to Shiny"
 theme = "hugo-lithium"
@@ -6,8 +5,7 @@ googleAnalytics = ""
 disqusShortname = ""
 ignoreFiles = ["\\.Rmd$", "\\.Rmarkdown$", "_files$", "_cache$"]
 publishDir = "docs"
-relativeURLS = true
-baseURL = "https://uomresearchit.github.io/RSE18-shiny-workshop/"
+relativeURLs = true
 
 [permalinks]
     post = "/:year/:month/:day/:slug/"
