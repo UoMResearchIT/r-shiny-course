@@ -6,37 +6,7 @@ output: github_document
 
 
 
-# What I want to cover:
-
-Using Shiny to make an interactive data-driven web app
-
-# Formative assessments:
-
-## Adding a widget to an app
-
-We wish to let the user select 0 or more continents from the data.  Choose a suitable widget from the [Shiny widget gallery](https://shiny.rstudio.com/gallery/widget-gallery.html) to do this, and add it to your app.  
-
-## Adding an output to an app
-
-Add a plot for GDP and life expectancy (either using ggplot directly, or using the pre-built functions)
-
-## Controlling where widgets and outputs are placed
-
-## "Wiring" the widget and output together
-
-Modify app to only show data for selected continents
-
-## Deploying a Shiny app to shinyapps.io
-
-Create an account on shinyapps.io and deploy your app
-
-## Understanding and controlling how events are linked to each other.
-
-
-
-# Concepts
-
-## What is Shiny + what can we do with it?
+## Introduction
 
 Shiny lets us build interactive web apps, using R.   This means we can use (pretty much) all of R's extensive (and extensible) data analysis and visualisation features in our app.  Essentially, we can take almost any analysis we've done in R, and then make it interactive.   We can run our apps locally, within R Studio (this is what we'll do most of today), make them standalone, either by deploying them to a [Shiny Server](https://www.rstudio.com/products/shiny/shiny-server/), or to a hosting service, such as https://shinyapps.io (we'll do this today), or even including them in a Markdown document.
 
@@ -238,7 +208,9 @@ The example app doesn't load any external data or functions (The `faithful` data
 
 * Use the widget you created earlier to only show data for the selected continents
 
-* Create a new widget (or modify the `bins` widget) to let the user choose the year of data to plot.
+* Create a new widget (or modify the `bins` widget) to let the user choose the year of data to plot. You might want to check out the `sep` option to deal with the thousand separator commas.  
+
+* (optional) check out the options for the `sliderInput()` widget and add an animation button.
 
 * If you created a new widget, you can delete the `bins` widget as we are no longer using this.
 
