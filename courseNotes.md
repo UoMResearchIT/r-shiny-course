@@ -87,7 +87,7 @@ We can run the app by pressing the "Run App" button in the toolbar (or by pressi
 
 We can see in the example app that it is split into two sections; the user interface (`ui`), and a server function.   We'll deal with each of these in turn..
 
-The user interface of the default app uses the `fluidPage()` to create the app's layout. The fluidPage layout will automatically respond to changes in browser size.  Within the `fluidPage()`, we use a `sidebarLayout()` to split the page into two sections; the `sidebarPanel()` which contain (in the example) the app's input (the slider) and the `mainPanel()` which in the example app contains the histogram output.   This is a fairly typical layout for a Shiny app (note that there's nothing stopping us putting more output above the `sidebarLayout()` - for example the `titlePanel()`, or after it - we could, for example use a `p()` tag to include further text, or add further widgets, outputs etc.).   Note that each element of the page is an argument to a function, with `fluidPage()` at the top level.  It's quite easy to forget this when building an interface, and to forget to place the commas between arguments.  
+The user interface of the default app uses the `fluidPage()` to create the app's layout. The fluidPage layout will automatically respond to changes in browser size.  Within the `fluidPage()`, we use a `sidebarLayout()` to split the page into two sections; the `sidebarPanel()` which contain (in the example) the app's input (the slider) and the `mainPanel()` which in the example app contains the histogram output.   This is a fairly typical layout for a Shiny app (note that there's nothing stopping us putting more output above the `sidebarLayout()` - for example the `titlePanel()`, or after it - we could, for example use a `p()` tag to include further text, or add further widgets, outputs etc.).   Note that each element of the page is an argument to a function, with `fluidPage()` at the top level.  It's easy to forget this when building an interface, and to forget to place the commas between arguments.  
 
 More flexible, but complex layout options are available, such as `navBarPage()`, to produce a page with a navigation bar.  It's also possible to build a [user intrface from scratch](https://shiny.rstudio.com/articles/html-ui.html), using HTML, CSS etc.
 
@@ -122,7 +122,7 @@ The `mainPanel()` of the user interface contains a single element in the example
 
 ### The server function
 
-The server function contains the code behind the webapp.   Each `...Output()` function in the user interface has a corresponding `render...()` function.   The first argument of function contains the R code to generate the thing we want to render.  For example, in the example app, the `renderPlot()` function contains the code that will generate a histogram.  As we need single expression this will typically be contained in `{}`s 
+The server function contains the code behind the webapp.   Each `...Output()` function in the user interface has a corresponding `render...()` function.   The first argument of the `render...()` function contains the R code to generate the thing we want to render.  For example, in the example app, the `renderPlot()` function contains the code that will generate a histogram.  As this neeeds to b a single expression this will typically be contained in `{}`s 
 
 Let's briefly look at the example code that generates the histogram:
 
@@ -148,7 +148,7 @@ Shiny uses a reactive programming model.  This means that when something changes
 
 The graph also depends on some other properties of the app, which we can't see directly, such as the window size.  If we resize the window, Shiny knows that the graph depends on that property of the app, and so will redraw the graph.
 
-Shiny automatically takes care of the dependencies between the various elements, and only updates what is needed.   
+Shiny automatically takes care of the dependencies between the various elements, and only updates what is needed. 
 
 ## Plotting a "gapminder" graph
 
@@ -307,6 +307,7 @@ The app will behave in the same way as before, but by definining the reactive ex
 The `renderTable()` function will render a tibble, and `tableOutput()` will display it.   Use these functions, with the reactive data to display a (long) table containing the data displayed on the graph.
   
 The `getRichestCountry()` function in `plottingFunctions.R` will return a tibble containing the name of the richest country in a tibble, and the country's GDP per capita. Modify your `renderTable()` function to only display this information for the displayed graph.
+
 
 
 
