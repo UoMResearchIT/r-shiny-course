@@ -14,11 +14,11 @@ In this workshop, we're going to use data from the [Gapminder project](https://w
 [innovative visualisations](https://youtu.be/jbkSRLYSojo?t=90) and puts it into Shiny. The app we'll produce can be found here: https://mawds.shinyapps.io/worked_example/
 
 
-> ## Aside
->
-> I've tried to minimise the amount of non-Shiny material in this workshop, but we will need to so some manipulation of the data. I've adopted a [tidyverse](https://www.tidyverse.org/) based approach to doing this, using pipes and filters.  If you're more comfortable using base R you're very welcome to use that approach.   If you need a quick refresher on using the tidyverse to manipulate tabular data, [this episode](https://uomresearchit.github.io/r-tidyverse-intro/04-dplyr/) of the [Data Analysis using R course](https://uomresearchit.github.io/r-tidyverse-intro/), which we teach at the University of Manchester may be useful.
-> 
-> To minimise the amount of formatting of graphs etc, I've provided functions that will generate the graphs we'll be using, given an appropriate data set.  Where these functions are used you could use your own call to `ggplot()`.
+{{% notice tip%}}
+I've tried to minimise the amount of non-Shiny material in this workshop, but we will need to so some manipulation of the data. I've adopted a [tidyverse](https://www.tidyverse.org/) based approach to doing this, using pipes and filters.  If you're more comfortable using base R you're very welcome to use that approach.   If you need a quick refresher on using the tidyverse to manipulate tabular data, [this episode](https://uomresearchit.github.io/r-tidyverse-intro/04-dplyr/) of the [Data Analysis using R course](https://uomresearchit.github.io/r-tidyverse-intro/), which we teach at the University of Manchester may be useful.
+ 
+To minimise the amount of formatting of graphs etc, I've provided functions that will generate the graphs we'll be using, given an appropriate data set.  Where these functions are used you could use your own call to `ggplot()`, `plot()` etc.
+{{% /notice %}}
 
 
 ## How the workshop materials work

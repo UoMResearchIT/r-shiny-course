@@ -8,13 +8,16 @@ publishDir = "docs"
 relativeURLs = true
 baseURL = "/"
 
-[[menu.main]]
+[[menu.shortcuts]]
     name = "About"
     url = "/about/"
-[[menu.main]]
+[[menu.shortcuts]]
+    name = "Slides"
+    url = "/slides/"
+[[menu.shortcuts]]
     name = "GitHub"
     url = "https://github.com/uomresearchit/RSE18-shiny-workshop/"
-[[menu.main]]
+[[menu.shortcuts]]
     name = "Twitter"
     url = "https://twitter.com/davemawdsley"
 

@@ -12,17 +12,17 @@
     <title>Introduction to Shiny :: Introduction to Shiny</title>
     
     
-    <link href="./css/nucleus.css?1532520775" rel="stylesheet">
-    <link href="./css/font-awesome.min.css?1532520775" rel="stylesheet">
-    <link href="./css/hybrid.css?1532520775" rel="stylesheet">
-    <link href="./css/featherlight.min.css?1532520775" rel="stylesheet">
-    <link href="./css/perfect-scrollbar.min.css?1532520775" rel="stylesheet">
-    <link href="./css/auto-complete.css?1532520775" rel="stylesheet">
-    <link href="./css/theme.css?1532520775" rel="stylesheet">
-    <link href="./css/hugo-theme.css?1532520775" rel="stylesheet">
+    <link href="./css/nucleus.css?1532525377" rel="stylesheet">
+    <link href="./css/font-awesome.min.css?1532525377" rel="stylesheet">
+    <link href="./css/hybrid.css?1532525377" rel="stylesheet">
+    <link href="./css/featherlight.min.css?1532525377" rel="stylesheet">
+    <link href="./css/perfect-scrollbar.min.css?1532525377" rel="stylesheet">
+    <link href="./css/auto-complete.css?1532525377" rel="stylesheet">
+    <link href="./css/theme.css?1532525377" rel="stylesheet">
+    <link href="./css/hugo-theme.css?1532525377" rel="stylesheet">
     
 
-    <script src="./js/jquery-2.x.min.js?1532520775"></script>
+    <script src="./js/jquery-2.x.min.js?1532525377"></script>
     
     <style type="text/css">
       :root #header + #content > #left > #rlblock_left{ 
@@ -191,6 +191,29 @@
 
     
     
+      <section id="shortcuts">
+        <h3>More</h3>
+        <ul>
+          
+              <li> 
+                  <a class="padding" href="./about/">About</a>
+              </li>
+          
+              <li> 
+                  <a class="padding" href="https://github.com/uomresearchit/RSE18-shiny-workshop/">GitHub</a>
+              </li>
+          
+              <li> 
+                  <a class="padding" href="./slides/">Slides</a>
+              </li>
+          
+              <li> 
+                  <a class="padding" href="https://twitter.com/davemawdsley">Twitter</a>
+              </li>
+          
+        </ul>
+      </section>
+    
 
     
     <section id="footer">
@@ -233,13 +256,11 @@
 <p>In this workshop, we&rsquo;re going to use data from the <a href="https://www.gapminder.org">Gapminder project</a> to visualise how GDP per capita and life expectancy have changed over time.   This takes one of Hans Rosling&rsquo;s
 <a href="https://youtu.be/jbkSRLYSojo?t=90">innovative visualisations</a> and puts it into Shiny. The app we&rsquo;ll produce can be found here: <a href="https://mawds.shinyapps.io/worked_example/">https://mawds.shinyapps.io/worked_example/</a></p>
 
-<blockquote>
-<h2 id="aside">Aside</h2>
+<div class="notices tip" ><p>I&rsquo;ve tried to minimise the amount of non-Shiny material in this workshop, but we will need to so some manipulation of the data. I&rsquo;ve adopted a <a href="https://www.tidyverse.org/">tidyverse</a> based approach to doing this, using pipes and filters.  If you&rsquo;re more comfortable using base R you&rsquo;re very welcome to use that approach.   If you need a quick refresher on using the tidyverse to manipulate tabular data, <a href="https://uomresearchit.github.io/r-tidyverse-intro/04-dplyr/">this episode</a> of the <a href="https://uomresearchit.github.io/r-tidyverse-intro/">Data Analysis using R course</a>, which we teach at the University of Manchester may be useful.</p>
 
-<p>I&rsquo;ve tried to minimise the amount of non-Shiny material in this workshop, but we will need to so some manipulation of the data. I&rsquo;ve adopted a <a href="https://www.tidyverse.org/">tidyverse</a> based approach to doing this, using pipes and filters.  If you&rsquo;re more comfortable using base R you&rsquo;re very welcome to use that approach.   If you need a quick refresher on using the tidyverse to manipulate tabular data, <a href="https://uomresearchit.github.io/r-tidyverse-intro/04-dplyr/">this episode</a> of the <a href="https://uomresearchit.github.io/r-tidyverse-intro/">Data Analysis using R course</a>, which we teach at the University of Manchester may be useful.</p>
+<p>To minimise the amount of formatting of graphs etc, I&rsquo;ve provided functions that will generate the graphs we&rsquo;ll be using, given an appropriate data set.  Where these functions are used you could use your own call to <code>ggplot()</code>, <code>plot()</code> etc.</p>
+</div>
 
-<p>To minimise the amount of formatting of graphs etc, I&rsquo;ve provided functions that will generate the graphs we&rsquo;ll be using, given an appropriate data set.  Where these functions are used you could use your own call to <code>ggplot()</code>.</p>
-</blockquote>
 
 <h2 id="how-the-workshop-materials-work">How the workshop materials work</h2>
 
@@ -390,20 +411,20 @@
     <div style="left: -1000px; overflow: scroll; position: absolute; top: -1000px; border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;">
       <div style="border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;"></div>
     </div>
-    <script src="./js/clipboard.min.js?1532520775"></script>
-    <script src="./js/perfect-scrollbar.min.js?1532520775"></script>
-    <script src="./js/perfect-scrollbar.jquery.min.js?1532520775"></script>
-    <script src="./js/jquery.sticky.js?1532520775"></script>
-    <script src="./js/featherlight.min.js?1532520775"></script>
-    <script src="./js/html5shiv-printshiv.min.js?1532520775"></script>
-    <script src="./js/highlight.pack.js?1532520775"></script>
+    <script src="./js/clipboard.min.js?1532525377"></script>
+    <script src="./js/perfect-scrollbar.min.js?1532525377"></script>
+    <script src="./js/perfect-scrollbar.jquery.min.js?1532525377"></script>
+    <script src="./js/jquery.sticky.js?1532525377"></script>
+    <script src="./js/featherlight.min.js?1532525377"></script>
+    <script src="./js/html5shiv-printshiv.min.js?1532525377"></script>
+    <script src="./js/highlight.pack.js?1532525377"></script>
     <script>hljs.initHighlightingOnLoad();</script>
-    <script src="./js/modernizr.custom.71422.js?1532520775"></script>
-    <script src="./js/learn.js?1532520775"></script>
-    <script src="./js/hugo-learn.js?1532520775"></script>
+    <script src="./js/modernizr.custom.71422.js?1532525377"></script>
+    <script src="./js/learn.js?1532525377"></script>
+    <script src="./js/hugo-learn.js?1532525377"></script>
 
-    <link href="./mermaid/mermaid.css?1532520775" type="text/css" rel="stylesheet" />
-    <script src="./mermaid/mermaid.js?1532520775"></script>
+    <link href="./mermaid/mermaid.css?1532525377" type="text/css" rel="stylesheet" />
+    <script src="./mermaid/mermaid.js?1532525377"></script>
     <script>
         mermaid.initialize({ startOnLoad: true });
     </script>
