@@ -1,0 +1,337 @@
+<!DOCTYPE html>
+<html lang="en" class="js csstransforms3d">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <meta name="generator" content="Hugo 0.45" />
+    <meta name="description" content="An introduction to Shiny, for the Research Software Engineering conference 2018">
+<meta name="author" content="David Mawdsley">
+
+    <link rel="shortcut icon" href="../images/favicon.png" type="image/x-icon" />
+<link rel="icon" href="../images/favicon.png" type="image/x-icon" />
+    <title>Getting started :: Introduction to Shiny</title>
+    
+    
+    <link href="../css/nucleus.css?1532515943" rel="stylesheet">
+    <link href="../css/font-awesome.min.css?1532515943" rel="stylesheet">
+    <link href="../css/hybrid.css?1532515943" rel="stylesheet">
+    <link href="../css/featherlight.min.css?1532515943" rel="stylesheet">
+    <link href="../css/perfect-scrollbar.min.css?1532515943" rel="stylesheet">
+    <link href="../css/auto-complete.css?1532515943" rel="stylesheet">
+    <link href="../css/theme.css?1532515943" rel="stylesheet">
+    <link href="../css/hugo-theme.css?1532515943" rel="stylesheet">
+    
+
+    <script src="../js/jquery-2.x.min.js?1532515943"></script>
+    
+    <style type="text/css">
+      :root #header + #content > #left > #rlblock_left{ 
+          display:none !important;
+      }
+      
+        :not(pre) > code + span.copy-to-clipboard {
+            display: none;
+        }
+      
+    </style>
+    
+  </head>
+  <body class="" data-url="/basics/">
+    <nav id="sidebar" class="">
+
+
+
+  <div id="header-wrapper">
+    <div id="header">
+      <img src='http://assets.manchester.ac.uk/logos/hi-res/TAB_UNI_MAIN_logo/White_backgrounds/TAB_col_white_background.png'>
+
+    </div>
+    
+  </div>
+
+    <div class="highlightable">
+    <ul class="topics">
+
+        
+          
+          
+
+
+ 
+  
+    
+    <li data-nav-id="/basics/" title="Getting started" class="dd-item 
+        parent
+        active
+        
+        ">
+      <a href="../basics/">
+          <b>1. </b>Getting started
+          
+      </a>
+      
+              
+    </li>
+  
+ 
+
+          
+          
+
+
+ 
+  
+    
+    <li data-nav-id="/ui/" title="User Interface design" class="dd-item 
+        
+        
+        
+        ">
+      <a href="../ui/">
+          <b>2. </b>User Interface design
+          
+      </a>
+      
+              
+    </li>
+  
+ 
+
+          
+          
+
+
+ 
+  
+    
+    <li data-nav-id="/plotting/" title="Producing plots" class="dd-item 
+        
+        
+        
+        ">
+      <a href="../plotting/">
+          <b>3. </b>Producing plots
+          
+      </a>
+      
+              
+    </li>
+  
+ 
+
+          
+         
+    </ul>
+
+    
+    
+
+    
+    <section id="footer">
+      <p>Built with <a href="https://github.com/matcornic/hugo-theme-learn"><i class="fa fa-heart"></i></a> from <a href="http://getgrav.org">Grav</a> and <a href="http://gohugo.io/">Hugo</a></p>
+
+    </section>
+  </div>
+</nav>
+
+
+
+
+
+        <section id="body">
+        <div id="overlay"></div>
+        <div class="padding highlightable">
+              
+              <div>
+                <div id="top-bar">
+                
+                
+                <div id="breadcrumbs" itemscope="" itemtype="http://data-vocabulary.org/Breadcrumb">
+                    <span id="sidebar-toggle-span">
+                        <a href="#" id="sidebar-toggle" data-sidebar-toggle="">
+                          <i class="fa fa-bars"></i>
+                        </a>
+                    </span>
+                  
+                  <span class="links">
+                    
+          
+          
+            
+            
+          
+          
+            <a href='../'>Introduction to Shiny</a> > Getting started
+          
+         
+          
+           
+                  </span>
+                </div>
+                
+              </div>
+            </div>
+            
+
+        
+          <div id="chapter">
+        
+        <div id="body-inner">
+          
+
+        
+
+
+
+
+<h3 id="chapter-1">Chapter 1</h3>
+
+<h1 id="getting-started-with-shiny">Getting started with Shiny</h1>
+
+<h2 id="creating-a-shiny-app">Creating a Shiny app</h2>
+
+<p>The most straightforward way of creating a new Shiny app is to use R Studio.  From the menu, choose, File, New, Shiny Web App.</p>
+
+<p>Choose a suitable name for your app (e.g. &ldquo;gapminder&rdquo;).   Leave the other options as their defaults (&ldquo;Single File&rdquo;, and Create within directory: <code>~/mawdsley</code>).</p>
+
+<blockquote>
+<h2 id="single-vs-multiple-files">Single vs multiple files</h2>
+
+<p>When we create a new Shiny app we can create a single file (<code>app.R</code>), or as two separate files (<code>ui.R</code> and <code>server.R</code>).   The latter format used to be the only method of definining an Shiny app, but can still be useful when building a more complicated app, as it allows us to separate the user interface (<code>ui.R</code>) from the server logic (<code>server.R</code>).  As we will be building a relatively small app, we&rsquo;ll use the single file approach.</p>
+</blockquote>
+
+<p>When we create a new Shiny app in R Studio, it creates an example app that allows us to alter the number of bins in a histogram.  This uses an example data-set that is provided with R of the waiting times for the eruption of the &ldquo;Old Faithful&rdquo; geyser.</p>
+
+<p>We can run the app by pressing the &ldquo;Run App&rdquo; button in the toolbar (or by pressing Ctrl+Shift+Enter).  This will launch an browser window within R Studio where we can interact with our app.</p>
+
+<blockquote>
+<h2 id="getting-help">Getting help</h2>
+
+<p>There is a cheat sheet for Shiny included with RStudio.  This can be accessed from the menu: Help, Cheatsheets, Web Applications with shiny.</p>
+</blockquote>
+
+
+<footer class=" footline" >
+	
+</footer>
+
+        
+            </div> 
+        
+        </div> 
+        
+
+      </div>
+
+    <div id="navigation">
+        
+        
+        
+        
+            
+            
+                
+                    
+                    
+                
+                
+
+                    
+                    
+                        
+                    
+                    
+
+                    
+                        
+            
+            
+                
+                    
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                        
+                        
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+            
+        
+        
+        
+
+
+        
+            <a class="nav nav-prev" href="../" title="Introduction to Shiny"> <i class="fa fa-chevron-left"></i></a>
+        
+        
+            <a class="nav nav-next" href="../ui/" title="User Interface design" style="margin-right: 0px;"><i class="fa fa-chevron-right"></i></a>
+        
+    </div>
+
+    </section>
+    
+    <div style="left: -1000px; overflow: scroll; position: absolute; top: -1000px; border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;">
+      <div style="border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;"></div>
+    </div>
+    <script src="../js/clipboard.min.js?1532515943"></script>
+    <script src="../js/perfect-scrollbar.min.js?1532515943"></script>
+    <script src="../js/perfect-scrollbar.jquery.min.js?1532515943"></script>
+    <script src="../js/jquery.sticky.js?1532515943"></script>
+    <script src="../js/featherlight.min.js?1532515943"></script>
+    <script src="../js/html5shiv-printshiv.min.js?1532515943"></script>
+    <script src="../js/highlight.pack.js?1532515943"></script>
+    <script>hljs.initHighlightingOnLoad();</script>
+    <script src="../js/modernizr.custom.71422.js?1532515943"></script>
+    <script src="../js/learn.js?1532515943"></script>
+    <script src="../js/hugo-learn.js?1532515943"></script>
+
+    <link href="../mermaid/mermaid.css?1532515943" type="text/css" rel="stylesheet" />
+    <script src="../mermaid/mermaid.js?1532515943"></script>
+    <script>
+        mermaid.initialize({ startOnLoad: true });
+    </script>
+    
+
+  </body>
+</html>

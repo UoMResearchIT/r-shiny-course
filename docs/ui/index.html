@@ -1,0 +1,377 @@
+<!DOCTYPE html>
+<html lang="en" class="js csstransforms3d">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <meta name="generator" content="Hugo 0.45" />
+    <meta name="description" content="An introduction to Shiny, for the Research Software Engineering conference 2018">
+<meta name="author" content="David Mawdsley">
+
+    <link rel="shortcut icon" href="../images/favicon.png" type="image/x-icon" />
+<link rel="icon" href="../images/favicon.png" type="image/x-icon" />
+    <title>User Interface design :: Introduction to Shiny</title>
+    
+    
+    <link href="../css/nucleus.css?1532515943" rel="stylesheet">
+    <link href="../css/font-awesome.min.css?1532515943" rel="stylesheet">
+    <link href="../css/hybrid.css?1532515943" rel="stylesheet">
+    <link href="../css/featherlight.min.css?1532515943" rel="stylesheet">
+    <link href="../css/perfect-scrollbar.min.css?1532515943" rel="stylesheet">
+    <link href="../css/auto-complete.css?1532515943" rel="stylesheet">
+    <link href="../css/theme.css?1532515943" rel="stylesheet">
+    <link href="../css/hugo-theme.css?1532515943" rel="stylesheet">
+    
+
+    <script src="../js/jquery-2.x.min.js?1532515943"></script>
+    
+    <style type="text/css">
+      :root #header + #content > #left > #rlblock_left{ 
+          display:none !important;
+      }
+      
+        :not(pre) > code + span.copy-to-clipboard {
+            display: none;
+        }
+      
+    </style>
+    
+  </head>
+  <body class="" data-url="/ui/">
+    <nav id="sidebar" class="">
+
+
+
+  <div id="header-wrapper">
+    <div id="header">
+      <img src='http://assets.manchester.ac.uk/logos/hi-res/TAB_UNI_MAIN_logo/White_backgrounds/TAB_col_white_background.png'>
+
+    </div>
+    
+  </div>
+
+    <div class="highlightable">
+    <ul class="topics">
+
+        
+          
+          
+
+
+ 
+  
+    
+    <li data-nav-id="/basics/" title="Getting started" class="dd-item 
+        
+        
+        
+        ">
+      <a href="../basics/">
+          <b>1. </b>Getting started
+          
+      </a>
+      
+              
+    </li>
+  
+ 
+
+          
+          
+
+
+ 
+  
+    
+    <li data-nav-id="/ui/" title="User Interface design" class="dd-item 
+        parent
+        active
+        
+        ">
+      <a href="../ui/">
+          <b>2. </b>User Interface design
+          
+      </a>
+      
+              
+    </li>
+  
+ 
+
+          
+          
+
+
+ 
+  
+    
+    <li data-nav-id="/plotting/" title="Producing plots" class="dd-item 
+        
+        
+        
+        ">
+      <a href="../plotting/">
+          <b>3. </b>Producing plots
+          
+      </a>
+      
+              
+    </li>
+  
+ 
+
+          
+         
+    </ul>
+
+    
+    
+
+    
+    <section id="footer">
+      <p>Built with <a href="https://github.com/matcornic/hugo-theme-learn"><i class="fa fa-heart"></i></a> from <a href="http://getgrav.org">Grav</a> and <a href="http://gohugo.io/">Hugo</a></p>
+
+    </section>
+  </div>
+</nav>
+
+
+
+
+
+        <section id="body">
+        <div id="overlay"></div>
+        <div class="padding highlightable">
+              
+              <div>
+                <div id="top-bar">
+                
+                
+                <div id="breadcrumbs" itemscope="" itemtype="http://data-vocabulary.org/Breadcrumb">
+                    <span id="sidebar-toggle-span">
+                        <a href="#" id="sidebar-toggle" data-sidebar-toggle="">
+                          <i class="fa fa-bars"></i>
+                        </a>
+                    </span>
+                  
+                  <span class="links">
+                    
+          
+          
+            
+            
+          
+          
+            <a href='../'>Introduction to Shiny</a> > User Interface design
+          
+         
+          
+           
+                  </span>
+                </div>
+                
+              </div>
+            </div>
+            
+
+        
+          <div id="chapter">
+        
+        <div id="body-inner">
+          
+
+        
+
+
+
+
+<h3 id="chapter-2">Chapter 2</h3>
+
+<h1 id="user-interface-design">User interface design.</h1>
+
+<p>We can see in the example app that it is split into two sections; the user interface (<code>ui</code>), and a server function.   We&rsquo;ll deal with each of these in turn..</p>
+
+<p>The user interface of the default app uses the <code>fluidPage()</code> to create the app&rsquo;s layout. The fluidPage layout will automatically respond to changes in browser size.  Within the <code>fluidPage()</code>, we use a <code>sidebarLayout()</code> to split the page into two sections; the <code>sidebarPanel()</code> which contain (in the example) the app&rsquo;s input (the slider) and the <code>mainPanel()</code> which in the example app contains the histogram output.   This is a fairly typical layout for a Shiny app (note that there&rsquo;s nothing stopping us putting more output above the <code>sidebarLayout()</code> - for example the <code>titlePanel()</code>, or after it - we could, for example use a <code>p()</code> tag to include further text, or add further widgets, outputs etc.).   Note that each element of the page is an argument to a function, with <code>fluidPage()</code> at the top level.  It&rsquo;s easy to forget this when building an interface, and to forget to place the commas between arguments.</p>
+
+<p>More flexible, but complex layout options are available, such as <code>navBarPage()</code>, to produce a page with a navigation bar.  It&rsquo;s also possible to build a <a href="https://shiny.rstudio.com/articles/html-ui.html">user intrface from scratch</a>, using HTML, CSS etc.</p>
+
+<p>For this tutorial we&rsquo;ll stick with the <code>fluidPage()</code> approach.  Most common html tags have a builder function associated with them.  So to add a paragraph of text to the app, we can pass another argument to the <code>fluidPage()</code> function:</p>
+
+<pre><code class="language-r">ui &lt;- fluidPage(
+   
+   # Application title
+   titlePanel(&quot;Old Faithful Geyser Data&quot;),
+   p(&quot;Here is some text&quot;),
+   # Sidebar with a slider input for number of bins 
+   sidebarLayout(....
+</code></pre>
+
+<p>A very important type of element we can add to the app is a widget.  This provides a control that lets us interact with our app.  The default app has a single widget - the slider that  lets us select the number of bins we want the histogram to have.  The first argument of the function defines the inputId - essentially this is the name of the variable that the widget&rsquo;s output (in this case the selected number of bins) is assigned to.  The second argument defines the label for widget.</p>
+
+<p>Shiny comes with a number of built in widgets that give different ways of interacting with our app. <a href="https://shiny.rstudio.com/gallery/widget-gallery.html">The Shiny Widget Gallery</a> lists built in widgets, along with example code to use them.</p>
+
+<h2 id="exercise">Exercise:</h2>
+
+<p>We want to be able to show the data for selected continents only.   The <code>checkboxGroupInput()</code> widget will let us do this.   Add one to the app.  You will need to provide a vector containing the continent names as the <code>choices</code> argument; this can be done using <code>levels(gapminder$continent)</code>.  By default none of the check-boxes are selected; this can be changed using the <code>selected</code> argument. (for now the check boxes won&rsquo;t do anything; we&rsquo;ve not made use of the widget&rsquo;s values anywhere in the app - we&rsquo;ll do this shortly)</p>
+
+<h2 id="solution">Solution:</h2>
+
+<p>DO THIS</p>
+
+<p>The <code>mainPanel()</code> of the user interface contains a single element in the example app.  The <code>plotOutput()</code> displays a plot - in the example app called <code>distPlot</code>.  We&rsquo;ll come to how that plot is defined in a moment.  For now, note that there are several <code>...Output()</code> functions for displaying various types of output from R, such as <code>renderTable()</code> and `renderText</p>
+
+<h3 id="the-server-function">The server function</h3>
+
+<p>The server function contains the code behind the webapp.   Each <code>...Output()</code> function in the user interface has a corresponding <code>render...()</code> function.   The first argument of the <code>render...()</code> function contains the R code to generate the thing we want to render.  For example, in the example app, the <code>renderPlot()</code> function contains the code that will generate a histogram.  As this neeeds to b a single expression this will typically be contained in <code>{}</code>s</p>
+
+<p>Let&rsquo;s briefly look at the example code that generates the histogram:</p>
+
+<pre><code class="language-r">   output$distPlot &lt;- renderPlot({
+      # generate bins based on input$bins from ui.R
+      x    &lt;- faithful[, 2] 
+      bins &lt;- seq(min(x), max(x), length.out = input$bins + 1)
+      
+      # draw the histogram with the specified number of bins
+      hist(x, breaks = bins, col = 'darkgray', border = 'white')
+   })
+</code></pre>
+
+<p><code>input$bins</code> will contain the value of the slider which was defined in the user interface (which was called <code>bins</code>).   This is how we connect elements of the user interface to the the server logic.</p>
+
+<p>The first agument of <code>renderPlot()</code> returns a graph; <em>how</em> we make that graph is up to us.  In the example app, base R graphic are used.  We&rsquo;ll be using ggplot2 in this workshop, as it&rsquo;s easier to make nice looking graphs with it.  To simplify things I&rsquo;ve put the ggplot functions within a wrapper function - we&rsquo;ll come to this shortly.  The important thing is that the first (and in the example, only) argument returns a graph object.   We can also pass arguments to manually control the width and height of the plot, etc.</p>
+
+<h2 id="reactivity-how-shiny-responds-to-events-inputs-change-outputs-change">Reactivity (How Shiny responds to events) - inputs change ==&gt; outputs change</h2>
+
+<p>Shiny uses a reactive programming model.  This means that when something changes (such as the slider being moved), everything that depends on that something will be updated automatically.   In the example app the only thing that depends on the slider is the <code>distPlot</code> graph, so this will be redrawn if we move the slider.</p>
+
+<p>The graph also depends on some other properties of the app, which we can&rsquo;t see directly, such as the window size.  If we resize the window, Shiny knows that the graph depends on that property of the app, and so will redraw the graph.</p>
+
+<p>Shiny automatically takes care of the dependencies between the various elements, and only updates what is needed.</p>
+
+
+<footer class=" footline" >
+	
+</footer>
+
+        
+            </div> 
+        
+        </div> 
+        
+
+      </div>
+
+    <div id="navigation">
+        
+        
+        
+        
+            
+            
+                
+                    
+                    
+                
+                
+
+                    
+                    
+                        
+                    
+                    
+
+                    
+                        
+            
+            
+                
+                    
+                        
+                        
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                        
+                        
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+            
+        
+        
+        
+
+
+        
+            <a class="nav nav-prev" href="../basics/" title="Getting started"> <i class="fa fa-chevron-left"></i></a>
+        
+        
+            <a class="nav nav-next" href="../plotting/" title="Producing plots" style="margin-right: 0px;"><i class="fa fa-chevron-right"></i></a>
+        
+    </div>
+
+    </section>
+    
+    <div style="left: -1000px; overflow: scroll; position: absolute; top: -1000px; border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;">
+      <div style="border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;"></div>
+    </div>
+    <script src="../js/clipboard.min.js?1532515943"></script>
+    <script src="../js/perfect-scrollbar.min.js?1532515943"></script>
+    <script src="../js/perfect-scrollbar.jquery.min.js?1532515943"></script>
+    <script src="../js/jquery.sticky.js?1532515943"></script>
+    <script src="../js/featherlight.min.js?1532515943"></script>
+    <script src="../js/html5shiv-printshiv.min.js?1532515943"></script>
+    <script src="../js/highlight.pack.js?1532515943"></script>
+    <script>hljs.initHighlightingOnLoad();</script>
+    <script src="../js/modernizr.custom.71422.js?1532515943"></script>
+    <script src="../js/learn.js?1532515943"></script>
+    <script src="../js/hugo-learn.js?1532515943"></script>
+
+    <link href="../mermaid/mermaid.css?1532515943" type="text/css" rel="stylesheet" />
+    <script src="../mermaid/mermaid.js?1532515943"></script>
+    <script>
+        mermaid.initialize({ startOnLoad: true });
+    </script>
+    
+
+  </body>
+</html>

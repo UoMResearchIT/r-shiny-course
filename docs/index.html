@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+<html lang="en" class="js csstransforms3d">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <meta name="generator" content="Hugo 0.45" />
+    <meta name="description" content="An introduction to Shiny, for the Research Software Engineering conference 2018">
+<meta name="author" content="David Mawdsley">
+
+    <link rel="shortcut icon" href="./images/favicon.png" type="image/x-icon" />
+<link rel="icon" href="./images/favicon.png" type="image/x-icon" />
+    <title>Introduction to Shiny :: Introduction to Shiny</title>
+    
+    
+    <link href="./css/nucleus.css?1532515943" rel="stylesheet">
+    <link href="./css/font-awesome.min.css?1532515943" rel="stylesheet">
+    <link href="./css/hybrid.css?1532515943" rel="stylesheet">
+    <link href="./css/featherlight.min.css?1532515943" rel="stylesheet">
+    <link href="./css/perfect-scrollbar.min.css?1532515943" rel="stylesheet">
+    <link href="./css/auto-complete.css?1532515943" rel="stylesheet">
+    <link href="./css/theme.css?1532515943" rel="stylesheet">
+    <link href="./css/hugo-theme.css?1532515943" rel="stylesheet">
+    
+
+    <script src="./js/jquery-2.x.min.js?1532515943"></script>
+    
+    <style type="text/css">
+      :root #header + #content > #left > #rlblock_left{ 
+          display:none !important;
+      }
+      
+        :not(pre) > code + span.copy-to-clipboard {
+            display: none;
+        }
+      
+    </style>
+    
+  </head>
+  <body class="" data-url="/">
+    <nav id="sidebar" class="">
+
+
+
+  <div id="header-wrapper">
+    <div id="header">
+      <img src='http://assets.manchester.ac.uk/logos/hi-res/TAB_UNI_MAIN_logo/White_backgrounds/TAB_col_white_background.png'>
+
+    </div>
+    
+  </div>
+
+    <div class="highlightable">
+    <ul class="topics">
+
+        
+          
+          
+
+
+ 
+  
+    
+    <li data-nav-id="/basics/" title="Getting started" class="dd-item 
+        
+        
+        
+        ">
+      <a href="./basics/">
+          <b>1. </b>Getting started
+          
+      </a>
+      
+              
+    </li>
+  
+ 
+
+          
+          
+
+
+ 
+  
+    
+    <li data-nav-id="/ui/" title="User Interface design" class="dd-item 
+        
+        
+        
+        ">
+      <a href="./ui/">
+          <b>2. </b>User Interface design
+          
+      </a>
+      
+              
+    </li>
+  
+ 
+
+          
+          
+
+
+ 
+  
+    
+    <li data-nav-id="/plotting/" title="Producing plots" class="dd-item 
+        
+        
+        
+        ">
+      <a href="./plotting/">
+          <b>3. </b>Producing plots
+          
+      </a>
+      
+              
+    </li>
+  
+ 
+
+          
+         
+    </ul>
+
+    
+    
+
+    
+    <section id="footer">
+      <p>Built with <a href="https://github.com/matcornic/hugo-theme-learn"><i class="fa fa-heart"></i></a> from <a href="http://getgrav.org">Grav</a> and <a href="http://gohugo.io/">Hugo</a></p>
+
+    </section>
+  </div>
+</nav>
+
+
+
+
+
+        <section id="body">
+        <div id="overlay"></div>
+        <div class="padding highlightable">
+              
+
+        
+        <div id="body-inner">
+          
+
+        
+
+<span id="sidebar-toggle-span">
+<a href="#" id="sidebar-toggle" data-sidebar-toggle=""><i class="fa fa-bars"></i> navigation</a>
+</span>
+
+ 
+
+
+<h1 id="introduction-to-shiny">Introduction to Shiny</h1>
+
+<p>Shiny lets us build interactive web apps, using R.   This means we can use (pretty much) all of R&rsquo;s extensive (and extensible) data analysis and visualisation features in our app.  Essentially, we can take almost any analysis we&rsquo;ve done in R, and then make it interactive.   We can run our apps locally, within R Studio (this is what we&rsquo;ll do most of today), make them standalone, either by deploying them to a <a href="https://www.rstudio.com/products/shiny/shiny-server/">Shiny Server</a>, or to a hosting service, such as <a href="https://shinyapps.io">https://shinyapps.io</a> (we&rsquo;ll do this today), or even including them in a Markdown document.</p>
+
+<p>R studio provide a gallery of other Shiny apps: <a href="https://shiny.rstudio.com/gallery/">https://shiny.rstudio.com/gallery/</a></p>
+
+<p>Shiny works well with many widely used R packages, such as <a href="https://ggplot2.tidyverse.org/">ggplot2</a>, and <a href="https://rstudio.github.io/leaflet/">Leaflet for R</a>.</p>
+
+<p>In this workshop, we&rsquo;re going to use data from the <a href="https://www.gapminder.org">Gapminder project</a> to visualise how GDP per capita and life expectancy have changed over time.   This takes one of Hans Rosling&rsquo;s
+<a href="https://youtu.be/jbkSRLYSojo?t=90">innovative visualisations</a> and puts it into Shiny. The app we&rsquo;ll produce can be found here: <a href="https://mawds.shinyapps.io/worked_example/">https://mawds.shinyapps.io/worked_example/</a></p>
+
+<blockquote>
+<h2 id="aside">Aside</h2>
+
+<p>I&rsquo;ve tried to minimise the amount of non-Shiny material in this workshop, but we will need to so some manipulation of the data. I&rsquo;ve adopted a <a href="https://www.tidyverse.org/">tidyverse</a> based approach to doing this, using pipes and filters.  If you&rsquo;re more comfortable using base R you&rsquo;re very welcome to use that approach.   If you need a quick refresher on using the tidyverse to manipulate tabular data, <a href="https://uomresearchit.github.io/r-tidyverse-intro/04-dplyr/">this episode</a> of the <a href="https://uomresearchit.github.io/r-tidyverse-intro/">Data Analysis using R course</a>, which we teach at the University of Manchester may be useful.</p>
+
+<p>To minimise the amount of formatting of graphs etc, I&rsquo;ve provided functions that will generate the graphs we&rsquo;ll be using, given an appropriate data set.  Where these functions are used you could use your own call to <code>ggplot()</code>.</p>
+</blockquote>
+
+<h2 id="how-the-workshop-materials-work">How the workshop materials work</h2>
+
+<p>The material we&rsquo;ll use for this workshop are in the <code>~/mawdsley</code> directory.  This contains the gapminder data we&rsquo;ll be plotting (<code>gapminder.rds</code>), the Shiny app we&rsquo;re going to be making (a deployed version of this is at <a href="https://mawds.shinyapps.io/worked_example/">https://mawds.shinyapps.io/worked_example/</a>) (in <code>worked_example/</code>) and some example code showing how to produce (static) graphs of the gapminder data (in <code>codeExample.R</code>).  The example code uses the functions in <code>plottingFunctions.R</code> to produce the graphs; this is to reduce the time we spend dealing with the intricacies of ggplot2.</p>
+
+<p>The directory is a git repository.  Each commit is tagged, and represents the solution to an exercise.  (Not sure how best to do this part - either the user makes a <em>new</em> git repo in another directory and puts their exercise under version control <em>or</em> creates the app within <code>~/mawdsley</code> and leaves their app out of version control, and checks out the various steps).  You can look at the diff for a commit within R Studio, or you can view it on github by clicking the link within the solution, e.g. <a href="https://github.com/UoMResearchIT/RSE18-shiny-workshop-materials/commit/ffe945ba4943bef378d744e941bea6f46f9970c0">git:01_helloworld</a>.</p>
+	
+  
+        
+        </div> 
+        
+
+      </div>
+
+    <div id="navigation">
+        
+        
+        
+        
+            
+            
+                
+                    
+                    
+                
+                
+
+                    
+                    
+                        
+                    
+                    
+
+                    
+                        
+            
+            
+                
+                    
+                        
+                        
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+            
+        
+        
+        
+
+
+        
+        
+            <a class="nav nav-next" href="./basics/" title="Getting started" style="margin-right: 0px;"><i class="fa fa-chevron-right"></i></a>
+        
+    </div>
+
+    </section>
+    
+    <div style="left: -1000px; overflow: scroll; position: absolute; top: -1000px; border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;">
+      <div style="border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;"></div>
+    </div>
+    <script src="./js/clipboard.min.js?1532515943"></script>
+    <script src="./js/perfect-scrollbar.min.js?1532515943"></script>
+    <script src="./js/perfect-scrollbar.jquery.min.js?1532515943"></script>
+    <script src="./js/jquery.sticky.js?1532515943"></script>
+    <script src="./js/featherlight.min.js?1532515943"></script>
+    <script src="./js/html5shiv-printshiv.min.js?1532515943"></script>
+    <script src="./js/highlight.pack.js?1532515943"></script>
+    <script>hljs.initHighlightingOnLoad();</script>
+    <script src="./js/modernizr.custom.71422.js?1532515943"></script>
+    <script src="./js/learn.js?1532515943"></script>
+    <script src="./js/hugo-learn.js?1532515943"></script>
+
+    <link href="./mermaid/mermaid.css?1532515943" type="text/css" rel="stylesheet" />
+    <script src="./mermaid/mermaid.js?1532515943"></script>
+    <script>
+        mermaid.initialize({ startOnLoad: true });
+    </script>
+    
+
+  </body>
+</html>
+
