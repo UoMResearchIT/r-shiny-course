@@ -19,7 +19,7 @@ sitecontent: $(contentmd)
 	
 %.md: %.Rmd
 	./addlinks.sh $(patsubst %.md,%.Rmd,$@) $(patsubst %.md,%_gitlink.Rmd,$@) 
-	Rscript -e "knitr::knit('$(patsubst %.md,%_gitlink.Rmd,$@)', output='$@')"
+	cd $(dir $@) && Rscript -e "knitr::knit('$(patsubst %.md,%_gitlink.Rmd,$(notdir $@))', output='$(notdir $@)')"
 	rm $(patsubst %.md, %_gitlink.Rmd,$@)
 
 

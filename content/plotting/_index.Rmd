@@ -14,6 +14,9 @@ pre: "<b>3. </b>"
 In order to avoid getting bogged down on the syntax of ggplot2, a function to produce a "gapminder" plot is provided in the `plottingFunctions.R` file.  This uses ggplot2 to produce a graph, deals with setting fixed axes, consistent colours etc.
 
 Stepping aside from Shiny, we can produce a gapminder plot in R using the following code:
+```{r}
+getwd()
+```
 
 ```{r, echo=FALSE}
 gapminder <- readRDS("../../gapminder.rds")

@@ -15,6 +15,14 @@ In order to avoid getting bogged down on the syntax of ggplot2, a function to pr
 
 Stepping aside from Shiny, we can produce a gapminder plot in R using the following code:
 
+```r
+getwd()
+```
+
+```
+## [1] "/home/zzalsdme/Dropbox (The University of Manchester)/Talks/1809ShinyWorkshop/content/plotting"
+```
+
 
 
 
@@ -64,7 +72,7 @@ gapminder %>%
   produceGapminderPlot()
 ```
 
-![plot of chunk unnamed-chunk-2](figure/unnamed-chunk-2-1.png)
+![plot of chunk unnamed-chunk-3](figure/unnamed-chunk-3-1.png)
 
 
 ## Exercise:
@@ -81,6 +89,6 @@ gapminder %>%
   produceGapminderPlot()
 ```
 
-![plot of chunk unnamed-chunk-3](figure/unnamed-chunk-3-1.png)
+![plot of chunk unnamed-chunk-4](figure/unnamed-chunk-4-1.png)
 
 
