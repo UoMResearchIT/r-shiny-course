@@ -21,3 +21,9 @@ plot(cars)
 
 ![plot of chunk unnamed-chunk-1](figure/unnamed-chunk-1-1.png)
 
+Link to git commit:
+
+[git:01_helloworld](https://github.com/UoMResearchIT/RSE18-shiny-workshop-materials/commit/ffe945ba4943bef378d744e941bea6f46f9970c0)
+
+
+

@@ -4,19 +4,24 @@
 presentationname=WorkshopSlides
 notesname=courseNotes
 
-.PHONEY: runrstudio stoprstudio dockerimage
-.INTERMEDIATE: $(presentationname)_annote.Rmd $(notesname)_annote.Rmd
-sourcedata = $(wildcard sourcedata/*)
-
 contentrmd = $(shell find content/ -name '*.Rmd' -print)
 contentmd = $(patsubst %.Rmd,%.md,$(contentrmd))
+
+sourcedata = $(wildcard sourcedata/*)
+
+.PHONEY: runrstudio stoprstudio dockerimage
+
+.INTERMEDIATE: $(presentationname)_annote.Rmd $(notesname)_annote.Rmd 
+
+all: slides notes sitecontent
 
 sitecontent: $(contentmd)
 	
 %.md: %.Rmd
-	Rscript -e "knitr::knit('$(patsubst %.md,%.Rmd,$@)', output='$@')"
+	./addlinks.sh $(patsubst %.md,%.Rmd,$@) $(patsubst %.md,%_gitlink.Rmd,$@) 
+	Rscript -e "knitr::knit('$(patsubst %.md,%_gitlink.Rmd,$@)', output='$@')"
+	rm $(patsubst %.md, %_gitlink.Rmd,$@)
 
-all: slides notes
 
 
 notes: $(notesname).md
