@@ -31,6 +31,7 @@ baseURL = "/"
     MathJaxVersion = "2.7.1"
     
     author = "David Mawdsley"
-    
+    disableSearch = true
+    disableInlineCopyToClipBoard = true
 
 
