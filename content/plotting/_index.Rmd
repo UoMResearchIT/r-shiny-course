@@ -1,0 +1,59 @@
+---
+title: "Producing plots"
+chapter: true
+weight: 20
+pre: "<b>3. </b>"
+---
+### Chapter 3
+
+# Producing plots
+
+
+## Plotting a "gapminder" graph
+
+In order to avoid getting bogged down on the syntax of ggplot2, a function to produce a "gapminder" plot is provided in the `plottingFunctions.R` file.  This uses ggplot2 to produce a graph, deals with setting fixed axes, consistent colours etc.
+
+Stepping aside from Shiny, we can produce a gapminder plot in R using the following code:
+
+```{r, echo=FALSE}
+gapminder <- readRDS("../../gapminder.rds")
+source("../../plottingFunctions.R")
+```
+
+
+```{r}
+# Load the required libraries
+library(ggplot2)
+library(dplyr)
+library(shiny)
+
+# Load the gapminder data 
+#gapminder <- readRDS("gapminder.rds")
+
+# Load the plotting functions
+#source("plottingFunctions.R")
+
+# Produce a plot for a year of data
+# produceGapminderPlot expects a single year of data
+gapminder %>% 
+  filter(year == 2000) %>% 
+  produceGapminderPlot()
+
+```
+
+
+## Exercise:
+
+Add another `filter` to the example to only show countries that are in Europe and Africa
+
+## Solution:
+
+```{r}
+
+gapminder %>% 
+  filter(year == 2000) %>% 
+  filter(continent %in% c("Europe", "Africa")) %>% 
+  produceGapminderPlot()
+```
+
+
