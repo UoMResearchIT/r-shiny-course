@@ -2,7 +2,6 @@
 #
 # David Mawdsley
 presentationname=WorkshopSlides
-notesname=courseNotes
 
 contentrmd = $(shell find content/ -name '*.Rmd' -print)
 contentmd = $(patsubst %.Rmd,%.md,$(contentrmd))
@@ -11,9 +10,9 @@ sourcedata = $(wildcard sourcedata/*)
 
 .PHONEY: runrstudio stoprstudio dockerimage
 
-.INTERMEDIATE: $(presentationname)_annote.Rmd $(notesname)_annote.Rmd 
+.INTERMEDIATE: $(presentationname)_annote.Rmd
 
-all: slides notes sitecontent
+all: slides sitecontent
 
 sitecontent: $(contentmd)
 	
@@ -24,21 +23,16 @@ sitecontent: $(contentmd)
 
 
 
-notes: $(notesname).md
 
 slides: $(presentationname).html
 
 $(presentationname).html: $(presentationname)_annote.Rmd coursematerial/plottingFunctions.R coursematerial/gapminder.rds  .gitmodules
 	Rscript -e "rmarkdown::render('$<', output_file='$@')"
 
-$(notesname).md: $(notesname)_annote.Rmd
-	Rscript -e "knitr::knit('$<', output='$@')"
 
 $(presentationname)_annote.Rmd: $(presentationname).Rmd
 	./addlinks.sh $< $@
 
-$(notesname)_annote.Rmd: $(notesname).Rmd
-	./addlinks.sh $< $@
 
 present: $(presentationname).html
 	chromium-browser $< &
