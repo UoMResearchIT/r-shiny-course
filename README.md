@@ -1,12 +1,12 @@
 # RSE 2018 Shiny Workshop
 
-This repo contains the slides and other material for the RSE 2018 Shiny Workshop.
+This repo contains the website,  slides and other material for the RSE 2018 Shiny Workshop.
 
-The slideshow for the workshop is at https://uomresearchit.github.io/RSE18-shiny-workshop/WorkshopSlides.html#/
+The website for the workshop is at https://uomresearchit.github.io/RSE18-shiny-workshop/
 
-The running example is a submodule.  
+The running example is in a submodule.  
 
-Early work was done in a Docker image - this is no longer needed, as it was more space-efficient to install RStudio etc directly in the virtual machine supplied by the organisers.  Build instructions for this, and a test script are in `viminstall`
+Early work was done in a Docker image - this is no longer needed, as it was more space-efficient to install RStudio etc directly in the virtual machine supplied by the organisers.  Build instructions for this, and a test script are in `vminstall`
 
 The Docker image can be built with `make dockerimage`
 The Docker image can be started/stoped with `run|stoprstudio`
