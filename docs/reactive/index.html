@@ -9,7 +9,7 @@
 
     <link rel="shortcut icon" href="../images/favicon.png" type="image/x-icon" />
 <link rel="icon" href="../images/favicon.png" type="image/x-icon" />
-    <title>Producing plots :: Introduction to Shiny</title>
+    <title>Reactive Data :: Introduction to Shiny</title>
     
     
     <link href="../css/nucleus.css?1532516397" rel="stylesheet">
@@ -36,7 +36,7 @@
     </style>
     
   </head>
-  <body class="" data-url="/plotting/">
+  <body class="" data-url="/reactive/">
     <nav id="sidebar" class="">
 
 
@@ -105,8 +105,8 @@
   
     
     <li data-nav-id="/plotting/" title="Producing plots" class="dd-item 
-        parent
-        active
+        
+        
         
         ">
       <a href="../plotting/">
@@ -171,8 +171,8 @@
   
     
     <li data-nav-id="/reactive/" title="Reactive Data" class="dd-item 
-        
-        
+        parent
+        active
         
         ">
       <a href="../reactive/">
@@ -227,7 +227,7 @@
             
           
           
-            <a href='../'>Introduction to Shiny</a> > Producing plots
+            <a href='../'>Introduction to Shiny</a> > Reactive Data
           
          
           
@@ -250,75 +250,40 @@
 
 
 
-<h3 id="chapter-3">Chapter 3</h3>
+<h3 id="chapter-6">Chapter 6</h3>
 
-<h1 id="producing-plots">Producing plots</h1>
+<h1 id="going-further-reactive-data">Going further - reactive data</h1>
 
-<h2 id="plotting-a-gapminder-graph">Plotting a &ldquo;gapminder&rdquo; graph</h2>
+<p>In this example we only use the filtered gapminder data in a single place - to plot the graph.   For this reason we did the filtering within the <code>renderPlot()</code> function.</p>
 
-<p>In order to avoid getting bogged down on the syntax of ggplot2, a function to produce a &ldquo;gapminder&rdquo; plot is provided in the <code>plottingFunctions.R</code> file.  This uses ggplot2 to produce a graph, deals with setting fixed axes, consistent colours etc.</p>
+<p>Let&rsquo;s add another output to the app; we&rsquo;ll show which country is the richest displayed on the graph, and what its GDP per capita is. This means that we&rsquo;ll be using the gapminder data filtered by year and country in two places; on the graph itself and in the logic where we work out what the richest country is.</p>
 
-<p>Stepping aside from Shiny, we can produce a gapminder plot in R using the following code:</p>
+<p>To do this, we&rsquo;ll make the a reactive expression, which contains the data we want to plot.  A rective expression is an expression whose value can change during the running of the app.   As mentioned previously, the reactive programming approach means that Shiny will keep track of when reactive expressions have become invalid (for example, if their inputs have changed - in this example if <code>year</code> or <code>continent</code> change), and will then recalculate them automatically.</p>
 
-<pre><code class="language-r">getwd()
+<p>Let&rsquo;s make the plotted data a reactive expression. We add the following code to the <code>server()</code> function:</p>
+
+<pre><code class="language-r">   # The data we wish to plot
+   plotData &lt;- reactive({
+     gapminder %&gt;% 
+       filter(year == input$year) %&gt;% 
+       filter(continent %in% input$continent)
+   })
 </code></pre>
 
-<pre><code>## [1] &quot;/home/zzalsdme/Dropbox (The University of Manchester)/Talks/1809ShinyWorkshop/content/plotting&quot;
+<p>Reactive expressions return a function, so we refer to the data we&rsquo;re plotting as <code>plotData()</code>.  We can use this in our <code>renderPlot()</code> function:</p>
+
+<pre><code class="language-r">   output$gapminderPlot &lt;- renderPlot({
+      plotData() %&gt;% 
+         produceGapminderPlot() })
 </code></pre>
 
-<pre><code class="language-r"># Load the required libraries
-library(ggplot2)
-library(dplyr)
-</code></pre>
+<p>The app will behave in the same way as before, but by definining the reactive expression <code>plotData()</code> we can use the data that we&rsquo;re plotting on the graph elsewhere in the app.</p>
 
-<pre><code>## 
-## Attaching package: 'dplyr'
-</code></pre>
+<h2 id="exercise">Exercise</h2>
 
-<pre><code>## The following objects are masked from 'package:stats':
-## 
-##     filter, lag
-</code></pre>
+<p>The <code>renderTable()</code> function will render a tibble, and <code>tableOutput()</code> will display it.   Use these functions, with the reactive data to display a (long) table containing the data displayed on the graph.</p>
 
-<pre><code>## The following objects are masked from 'package:base':
-## 
-##     intersect, setdiff, setequal, union
-</code></pre>
-
-<pre><code class="language-r">library(shiny)
-</code></pre>
-
-<pre><code>## Loading required package: methods
-</code></pre>
-
-<pre><code class="language-r"># Load the gapminder data 
-#gapminder &lt;- readRDS(&quot;gapminder.rds&quot;)
-
-# Load the plotting functions
-#source(&quot;plottingFunctions.R&quot;)
-
-# Produce a plot for a year of data
-# produceGapminderPlot expects a single year of data
-gapminder %&gt;% 
-  filter(year == 2000) %&gt;% 
-  produceGapminderPlot()
-</code></pre>
-
-<p><img src="figure/unnamed-chunk-3-1.png" alt="plot of chunk unnamed-chunk-3" /></p>
-
-<h2 id="exercise">Exercise:</h2>
-
-<p>Add another <code>filter</code> to the example to only show countries that are in Europe and Africa</p>
-
-<h2 id="solution">Solution:</h2>
-
-<pre><code class="language-r">gapminder %&gt;% 
-  filter(year == 2000) %&gt;% 
-  filter(continent %in% c(&quot;Europe&quot;, &quot;Africa&quot;)) %&gt;% 
-  produceGapminderPlot()
-</code></pre>
-
-<p><img src="figure/unnamed-chunk-4-1.png" alt="plot of chunk unnamed-chunk-4" /></p>
+<p>The <code>getRichestCountry()</code> function in <code>plottingFunctions.R</code> will return a tibble containing the name of the richest country in a tibble, and the country&rsquo;s GDP per capita. Modify your <code>renderTable()</code> function to only display this information for the displayed graph.</p>
 
 
 <footer class=" footline" >
@@ -393,26 +358,6 @@ gapminder %&gt;%
             
                 
                     
-                    
-                
-                
-
-                    
-                    
-                    
-
-                    
-            
-        
-                    
-                        
-            
-            
-                
-                    
-                        
-                        
-                    
                 
                 
 
@@ -456,6 +401,23 @@ gapminder %&gt;%
             
         
                     
+                        
+            
+            
+                
+                    
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
             
         
         
@@ -463,10 +425,10 @@ gapminder %&gt;%
 
 
         
-            <a class="nav nav-prev" href="../ui/" title="User Interface design"> <i class="fa fa-chevron-left"></i></a>
+            <a class="nav nav-prev" href="../deploy/" title="Deploying Shiny apps"> <i class="fa fa-chevron-left"></i></a>
         
         
-            <a class="nav nav-next" href="../together/" title="Putting it all together" style="margin-right: 0px;"><i class="fa fa-chevron-right"></i></a>
+            <a class="nav nav-next" href="../basics/" title="Getting started" style="margin-right: 0px;"><i class="fa fa-chevron-right"></i></a>
         
     </div>
 

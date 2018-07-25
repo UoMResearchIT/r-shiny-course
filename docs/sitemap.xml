@@ -15,6 +15,18 @@
   </url>
   
   <url>
+    <loc>/together/</loc>
+  </url>
+  
+  <url>
+    <loc>/deploy/</loc>
+  </url>
+  
+  <url>
+    <loc>/reactive/</loc>
+  </url>
+  
+  <url>
     <loc>/categories/</loc>
     <priority>0</priority>
   </url>

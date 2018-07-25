@@ -9,7 +9,7 @@
 
     <link rel="shortcut icon" href="../images/favicon.png" type="image/x-icon" />
 <link rel="icon" href="../images/favicon.png" type="image/x-icon" />
-    <title>Producing plots :: Introduction to Shiny</title>
+    <title>Putting it all together :: Introduction to Shiny</title>
     
     
     <link href="../css/nucleus.css?1532516397" rel="stylesheet">
@@ -36,7 +36,7 @@
     </style>
     
   </head>
-  <body class="" data-url="/plotting/">
+  <body class="" data-url="/together/">
     <nav id="sidebar" class="">
 
 
@@ -105,8 +105,8 @@
   
     
     <li data-nav-id="/plotting/" title="Producing plots" class="dd-item 
-        parent
-        active
+        
+        
         
         ">
       <a href="../plotting/">
@@ -127,8 +127,8 @@
   
     
     <li data-nav-id="/together/" title="Putting it all together" class="dd-item 
-        
-        
+        parent
+        active
         
         ">
       <a href="../together/">
@@ -227,7 +227,7 @@
             
           
           
-            <a href='../'>Introduction to Shiny</a> > Producing plots
+            <a href='../'>Introduction to Shiny</a> > Putting it all together
           
          
           
@@ -250,75 +250,43 @@
 
 
 
-<h3 id="chapter-3">Chapter 3</h3>
+<h3 id="chapter-4">Chapter 4</h3>
 
-<h1 id="producing-plots">Producing plots</h1>
+<h1 id="putting-it-all-together">Putting it all together</h1>
 
-<h2 id="plotting-a-gapminder-graph">Plotting a &ldquo;gapminder&rdquo; graph</h2>
+<h2 id="back-to-shiny">Back to Shiny</h2>
 
-<p>In order to avoid getting bogged down on the syntax of ggplot2, a function to produce a &ldquo;gapminder&rdquo; plot is provided in the <code>plottingFunctions.R</code> file.  This uses ggplot2 to produce a graph, deals with setting fixed axes, consistent colours etc.</p>
+<p>The example app doesn&rsquo;t load any external data or functions (The <code>faithful</code> dataset is provided with R).  When we run an app, it sets its location as the working directory.  When we deploy an app it is much easier if all its dependencies are in the same directory.</p>
 
-<p>Stepping aside from Shiny, we can produce a gapminder plot in R using the following code:</p>
+<ul>
+<li><p>Copy the data (<code>gapminder.rds</code>) and plotting functions (<code>plottingFunctions.R</code>) into your app directory.</p></li>
 
-<pre><code class="language-r">getwd()
-</code></pre>
+<li><p>Modify the example app to load the <code>ggplot2</code> and <code>dplyr</code> libraries, the gapminder data from <code>gapminder.rds</code> and the plotting functions in <code>plottingFunctions.R</code></p></li>
+</ul>
 
-<pre><code>## [1] &quot;/home/zzalsdme/Dropbox (The University of Manchester)/Talks/1809ShinyWorkshop/content/plotting&quot;
-</code></pre>
+<h2 id="exercises">Exercises</h2>
 
-<pre><code class="language-r"># Load the required libraries
-library(ggplot2)
-library(dplyr)
-</code></pre>
+<ul>
+<li><p>Modify the Shiny app to produce a gapminder plot instead of the histogram.   Note that the <code>produceGapminderPlot()</code> requires a single year of data, so you will need to <code>filter()</code> the data to a single year before passing it to the function.</p></li>
 
-<pre><code>## 
-## Attaching package: 'dplyr'
-</code></pre>
+<li><p>Use the widget you created earlier to only show data for the selected continents</p></li>
 
-<pre><code>## The following objects are masked from 'package:stats':
-## 
-##     filter, lag
-</code></pre>
+<li><p>Create a new widget (or modify the <code>bins</code> widget) to let the user choose the year of data to plot. You might want to check out the <code>sep</code> option to deal with the thousand separator commas.</p></li>
 
-<pre><code>## The following objects are masked from 'package:base':
-## 
-##     intersect, setdiff, setequal, union
-</code></pre>
+<li><p>(optional) check out the options for the <code>sliderInput()</code> widget and add an animation button.</p></li>
 
-<pre><code class="language-r">library(shiny)
-</code></pre>
+<li><p>If you created a new widget, you can delete the <code>bins</code> widget as we are no longer using this.</p></li>
+</ul>
 
-<pre><code>## Loading required package: methods
-</code></pre>
+<p>We&rsquo;ve now created a working app, which lets us explore the data by year and filter by continent.  To summarise:</p>
 
-<pre><code class="language-r"># Load the gapminder data 
-#gapminder &lt;- readRDS(&quot;gapminder.rds&quot;)
-
-# Load the plotting functions
-#source(&quot;plottingFunctions.R&quot;)
-
-# Produce a plot for a year of data
-# produceGapminderPlot expects a single year of data
-gapminder %&gt;% 
-  filter(year == 2000) %&gt;% 
-  produceGapminderPlot()
-</code></pre>
-
-<p><img src="figure/unnamed-chunk-3-1.png" alt="plot of chunk unnamed-chunk-3" /></p>
-
-<h2 id="exercise">Exercise:</h2>
-
-<p>Add another <code>filter</code> to the example to only show countries that are in Europe and Africa</p>
-
-<h2 id="solution">Solution:</h2>
-
-<pre><code class="language-r">gapminder %&gt;% 
-  filter(year == 2000) %&gt;% 
-  filter(continent %in% c(&quot;Europe&quot;, &quot;Africa&quot;)) %&gt;% 
-  produceGapminderPlot()
-</code></pre>
-
-<p><img src="figure/unnamed-chunk-4-1.png" alt="plot of chunk unnamed-chunk-4" /></p>
+<ul>
+<li>Define your server function and user interface</li>
+<li>Create graphs in the server function  using <code>renderPlot()</code>, and other types of output using <code>render....()</code> functions</li>
+<li>Display graphs using <code>plotOutput()</code> (or <code>...Output()</code> for other types of output) in your user interface</li>
+<li>Connect widgets to outputs using <code>input$inputID</code></li>
+<li>Shiny takes care of updating outputs when inputs change (recative programming)</li>
+</ul>
 
 
 <footer class=" footline" >
@@ -393,6 +361,22 @@ gapminder %&gt;%
             
                 
                     
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
                     
                 
                 
@@ -440,22 +424,6 @@ gapminder %&gt;%
             
         
                     
-                        
-            
-            
-                
-                    
-                
-                
-
-                    
-                    
-                    
-
-                    
-            
-        
-                    
             
         
         
@@ -463,10 +431,10 @@ gapminder %&gt;%
 
 
         
-            <a class="nav nav-prev" href="../ui/" title="User Interface design"> <i class="fa fa-chevron-left"></i></a>
+            <a class="nav nav-prev" href="../plotting/" title="Producing plots"> <i class="fa fa-chevron-left"></i></a>
         
         
-            <a class="nav nav-next" href="../together/" title="Putting it all together" style="margin-right: 0px;"><i class="fa fa-chevron-right"></i></a>
+            <a class="nav nav-next" href="../deploy/" title="Deploying Shiny apps" style="margin-right: 0px;"><i class="fa fa-chevron-right"></i></a>
         
     </div>
 

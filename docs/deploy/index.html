@@ -9,7 +9,7 @@
 
     <link rel="shortcut icon" href="../images/favicon.png" type="image/x-icon" />
 <link rel="icon" href="../images/favicon.png" type="image/x-icon" />
-    <title>Producing plots :: Introduction to Shiny</title>
+    <title>Deploying Shiny apps :: Introduction to Shiny</title>
     
     
     <link href="../css/nucleus.css?1532516397" rel="stylesheet">
@@ -36,7 +36,7 @@
     </style>
     
   </head>
-  <body class="" data-url="/plotting/">
+  <body class="" data-url="/deploy/">
     <nav id="sidebar" class="">
 
 
@@ -105,8 +105,8 @@
   
     
     <li data-nav-id="/plotting/" title="Producing plots" class="dd-item 
-        parent
-        active
+        
+        
         
         ">
       <a href="../plotting/">
@@ -149,8 +149,8 @@
   
     
     <li data-nav-id="/deploy/" title="Deploying Shiny apps" class="dd-item 
-        
-        
+        parent
+        active
         
         ">
       <a href="../deploy/">
@@ -227,7 +227,7 @@
             
           
           
-            <a href='../'>Introduction to Shiny</a> > Producing plots
+            <a href='../'>Introduction to Shiny</a> > Deploying Shiny apps
           
          
           
@@ -250,75 +250,29 @@
 
 
 
-<h3 id="chapter-3">Chapter 3</h3>
+<h3 id="chapter-5">Chapter 5</h3>
 
-<h1 id="producing-plots">Producing plots</h1>
+<h1 id="deploying-shiny-apps">Deploying Shiny apps</h1>
 
-<h2 id="plotting-a-gapminder-graph">Plotting a &ldquo;gapminder&rdquo; graph</h2>
+<p>If we want to use our app out of R Studio we will need to deploy it to a Shiny Server.  There are a number of options for doing this:</p>
 
-<p>In order to avoid getting bogged down on the syntax of ggplot2, a function to produce a &ldquo;gapminder&rdquo; plot is provided in the <code>plottingFunctions.R</code> file.  This uses ggplot2 to produce a graph, deals with setting fixed axes, consistent colours etc.</p>
+<ul>
+<li>Host a <a href="https://www.rstudio.com/products/shiny/shiny-server/">Shiny Server instance</a>.   Shiny Server comes in both open source and commercial editions.<br />
+*See also <a href="https://www.shinyproxy.io/">Shinyproxy</a> to extend the features of the open source version (authentication, containerisation)</li>
+<li>Deploy the app to shinyapps.io
 
-<p>Stepping aside from Shiny, we can produce a gapminder plot in R using the following code:</p>
+<ul>
+<li>Free and paid for versions</li>
+</ul></li>
+</ul>
 
-<pre><code class="language-r">getwd()
-</code></pre>
+<p>Setting up a Shiny Server is beyond the scope of this workshop.   Instead we&rsquo;ll deploy our apps to shinyapps.io</p>
 
-<pre><code>## [1] &quot;/home/zzalsdme/Dropbox (The University of Manchester)/Talks/1809ShinyWorkshop/content/plotting&quot;
-</code></pre>
+<p>Create an account on shinyapps.io via [<a href="https://www.shinyapps.io/admin/#/signup">https://www.shinyapps.io/admin/#/signup</a>]  You can do this using a Google or Github account, or using a username/password.</p>
 
-<pre><code class="language-r"># Load the required libraries
-library(ggplot2)
-library(dplyr)
-</code></pre>
+<p>Having created an account, we can deploy the app directly from R Studio. To do this, click the blue publish icon (to the right of the run button).   You will be prompted to enter your account token.  This can be obtained from the dashboard for your shinyapps.io account.  Click the account menu (on the left) then select tokens.  Click &ldquo;show&rdquo;, &ldquo;show secret&rdquo; and then copy the token to the clipboard.  This can be pasted into the box in Studio.</p>
 
-<pre><code>## 
-## Attaching package: 'dplyr'
-</code></pre>
-
-<pre><code>## The following objects are masked from 'package:stats':
-## 
-##     filter, lag
-</code></pre>
-
-<pre><code>## The following objects are masked from 'package:base':
-## 
-##     intersect, setdiff, setequal, union
-</code></pre>
-
-<pre><code class="language-r">library(shiny)
-</code></pre>
-
-<pre><code>## Loading required package: methods
-</code></pre>
-
-<pre><code class="language-r"># Load the gapminder data 
-#gapminder &lt;- readRDS(&quot;gapminder.rds&quot;)
-
-# Load the plotting functions
-#source(&quot;plottingFunctions.R&quot;)
-
-# Produce a plot for a year of data
-# produceGapminderPlot expects a single year of data
-gapminder %&gt;% 
-  filter(year == 2000) %&gt;% 
-  produceGapminderPlot()
-</code></pre>
-
-<p><img src="figure/unnamed-chunk-3-1.png" alt="plot of chunk unnamed-chunk-3" /></p>
-
-<h2 id="exercise">Exercise:</h2>
-
-<p>Add another <code>filter</code> to the example to only show countries that are in Europe and Africa</p>
-
-<h2 id="solution">Solution:</h2>
-
-<pre><code class="language-r">gapminder %&gt;% 
-  filter(year == 2000) %&gt;% 
-  filter(continent %in% c(&quot;Europe&quot;, &quot;Africa&quot;)) %&gt;% 
-  produceGapminderPlot()
-</code></pre>
-
-<p><img src="figure/unnamed-chunk-4-1.png" alt="plot of chunk unnamed-chunk-4" /></p>
+<p>Having connected your account, check that the <code>app.R</code> file and all its dependencies (<code>plottingFunctions.R</code> and <code>gapminder.rds</code>) are selected and then choose publish.  The app will be packaged and uploaded to shinyapps.io</p>
 
 
 <footer class=" footline" >
@@ -393,26 +347,6 @@ gapminder %&gt;%
             
                 
                     
-                    
-                
-                
-
-                    
-                    
-                    
-
-                    
-            
-        
-                    
-                        
-            
-            
-                
-                    
-                        
-                        
-                    
                 
                 
 
@@ -445,6 +379,26 @@ gapminder %&gt;%
             
                 
                     
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                        
+                        
+                    
                 
                 
 
@@ -463,10 +417,10 @@ gapminder %&gt;%
 
 
         
-            <a class="nav nav-prev" href="../ui/" title="User Interface design"> <i class="fa fa-chevron-left"></i></a>
+            <a class="nav nav-prev" href="../together/" title="Putting it all together"> <i class="fa fa-chevron-left"></i></a>
         
         
-            <a class="nav nav-next" href="../together/" title="Putting it all together" style="margin-right: 0px;"><i class="fa fa-chevron-right"></i></a>
+            <a class="nav nav-next" href="../reactive/" title="Reactive Data" style="margin-right: 0px;"><i class="fa fa-chevron-right"></i></a>
         
     </div>
 
