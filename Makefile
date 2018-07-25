@@ -8,7 +8,16 @@ notesname=courseNotes
 .INTERMEDIATE: $(presentationname)_annote.Rmd $(notesname)_annote.Rmd
 sourcedata = $(wildcard sourcedata/*)
 
+contentrmd = $(shell find content/ -name '*.Rmd' -print)
+contentmd = $(patsubst %.Rmd,%.md,$(contentrmd))
+
+sitecontent: $(contentmd)
+	
+%.md: %.Rmd
+	Rscript -e "knitr::knit('$(patsubst %.md,%.Rmd,$@)', output='$@')"
+
 all: slides notes
+
 
 notes: $(notesname).md
 

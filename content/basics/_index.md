@@ -14,7 +14,10 @@ Lorem Ipsum.
 
 Why isn't this working?
 
-```{r}
+
+```r
 plot(cars)
 ```
+
+![plot of chunk unnamed-chunk-1](figure/unnamed-chunk-1-1.png)
 
