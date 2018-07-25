@@ -3,12 +3,21 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
-    <loc>/categories/</loc>
-    <priority>0</priority>
+    <loc>/basics/</loc>
+    <lastmod>2018-07-25T09:25:03+01:00</lastmod>
   </url>
   
   <url>
-    <loc>/</loc>
+    <loc>/basics2/</loc>
+    <lastmod>2018-07-25T09:25:03+01:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/basics/howworkshopworks/</loc>
+  </url>
+  
+  <url>
+    <loc>/categories/</loc>
     <priority>0</priority>
   </url>
   
