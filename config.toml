@@ -9,6 +9,9 @@ relativeURLs = true
 baseURL = "/"
 
 [[menu.shortcuts]]
+    name = "Home"
+    url = "/"
+[[menu.shortcuts]]
     name = "About"
     url = "/about/"
 [[menu.shortcuts]]

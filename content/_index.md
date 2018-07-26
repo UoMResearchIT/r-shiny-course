@@ -11,8 +11,12 @@ R studio provide a gallery of other Shiny apps: https://shiny.rstudio.com/galler
 Shiny works well with many widely used R packages, such as [ggplot2](https://ggplot2.tidyverse.org/), and [Leaflet for R](https://rstudio.github.io/leaflet/).  
 
 In this workshop, we're going to use data from the [Gapminder project](https://www.gapminder.org) to visualise how GDP per capita and life expectancy have changed over time.   This takes one of Hans Rosling's 
-[innovative visualisations](https://youtu.be/jbkSRLYSojo?t=90) and puts it into Shiny. The app we'll produce can be found here: https://mawds.shinyapps.io/worked_example/
+innovative visualisations and puts it into Shiny. 
+{{< youtube id="jbkSRLYSojo" start="90" >}}
 
+We'll replicate this in Shiny (albeit without the smooth animation between years):
+
+<iframe src="https://mawds.shinyapps.io/worked_example/" style="border:none; width:100%;  height:700px"></iframe>
 
 {{% notice info %}}
 I've tried to minimise the amount of non-Shiny material in this workshop, but we will need to do some manipulation of the data. I've adopted a [tidyverse](https://www.tidyverse.org/) based approach to doing this, using pipes and filters.  If you're more comfortable using base R you're very welcome to use that approach.   If you need a quick refresher on using the tidyverse to manipulate tabular data, [this episode](https://uomresearchit.github.io/r-tidyverse-intro/04-dplyr/) of the [Data Analysis using R course](https://uomresearchit.github.io/r-tidyverse-intro/), which we teach at the University of Manchester may be useful.

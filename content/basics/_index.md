@@ -23,7 +23,6 @@ When we create a new Shiny app in R Studio, it creates an example app that allow
 We can run the app by pressing the "Run App" button in the toolbar (or by pressing Ctrl+Shift+Enter).  This will launch an browser window within R Studio where we can interact with our app.  
 {{% /notice %}}
 
-
 {{% notice tip %}}
 There is a cheat sheet for Shiny included with RStudio.  This can be accessed from the menu: Help, Cheatsheets, Web Applications with shiny.
 {{% /notice %}}
