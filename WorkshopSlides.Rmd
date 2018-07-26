@@ -28,8 +28,10 @@ source("coursematerial/workshopFunctions.R")
 - Deploying Shiny apps
 
 ## Introduction to Shiny
-- Interactive visualisation using R
-  -[Shiny gallery](https://shiny.rstudio.com/gallery/)
+- Shiny lets us easily and quickly build web apps using R
+- Can use pretty much any output from R within our app
+- And control it using widgets
+-[Shiny gallery](https://shiny.rstudio.com/gallery/)
   
 ## Why (not?) use Shiny
 
@@ -40,6 +42,11 @@ source("coursematerial/workshopFunctions.R")
 <p>
 - Awkward to scale
 - Non-free pro version needed for some features
+
+##
+
+
+<iframe src="https://mawds.shinyapps.io/worked_example/" style="border:none; width:100%;  height:700px"></iframe>
 
 ## [Gapminder](https://www.gapminder.org) 
 
