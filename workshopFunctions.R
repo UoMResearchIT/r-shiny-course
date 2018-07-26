@@ -1,1 +1,1 @@
-coursematerial/plottingFunctions.R
+coursematerial/workshopFunctions.R
