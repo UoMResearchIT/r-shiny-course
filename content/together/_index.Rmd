@@ -32,7 +32,7 @@ The `outputId` of the plot in the default app is `distPlot` - you should change 
  
 [git:05_yearwidget]()
  
-* Use the outputs of the year and contienent widgets to make the graph interactive
+* Use the outputs of the year and continent widgets to make the graph interactive
 
 ### Solution 
 
@@ -46,6 +46,6 @@ We've now built a Shiny app.  To recap:
 * Create graphs in the server function  using `renderPlot()`, and other types of output using `render....()` functions
 * Display graphs using `plotOutput()` (or `...Output()` for other types of output) in your user interface
 * Connect widgets to outputs using `input$inputID` 
-* Shiny takes care of updating outputs when inputs change (recative programming)
+* Shiny takes care of updating outputs when inputs change (reactive programming)
 
 In the next section we'll look at options for deploying our app.

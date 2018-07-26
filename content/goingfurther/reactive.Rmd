@@ -8,7 +8,7 @@ In this example we only use the filtered gapminder data in a single place - to p
 
 Let's add another output to the app; we'll show which country is the richest displayed on the graph, and what its GDP per capita is. This means that we'll be using the gapminder data filtered by year and country in two places; on the graph itself and in the logic where we work out what the richest country is.   
 
-To do this, we'll make the a reactive expression, which contains the data we want to plot.  A rective expression is an expression whose value can change during the running of the app.   As mentioned previously, the reactive programming approach means that Shiny will keep track of when reactive expressions have become invalid (for example, if their inputs have changed - in this example if `year` or `continent` change), and will then recalculate them automatically.  
+To do this, we'll make the a reactive expression, which contains the data we want to plot.  A reactive expression is an expression whose value can change during the running of the app.   As mentioned previously, the reactive programming approach means that Shiny will keep track of when reactive expressions have become invalid (for example, if their inputs have changed - in this example if `year` or `continent` change), and will then recalculate them automatically.  
 
 Schematically, we have:
 
@@ -43,7 +43,7 @@ Reactive expressions return a function, so we refer to the data we're plotting a
 
 ```
 
-The app will behave in the same way as before, but by definining the reactive expression `plotData()` we can use the data that we're plotting on the graph elsewhere in the app.
+The app will behave in the same way as before, but by defining the reactive expression `plotData()` we can use the data that we're plotting on the graph elsewhere in the app.
 
 ## Exercise
 
