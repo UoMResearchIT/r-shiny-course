@@ -1,12 +1,12 @@
 ---
-title: "Reactive Data"
-chapter: true
-weight: 50
-pre: "<b>6. </b>"
+title: "Reactive data"
+weight: 51
 ---
-### Chapter 6
 
-# Going further - reactive data
+
+### Chapter 6.1
+
+# Reactive data
 
 In this example we only use the filtered gapminder data in a single place - to plot the graph.   For this reason we did the filtering within the `renderPlot()` function.   
 
@@ -25,26 +25,23 @@ graph LR;
 
 Let's make the plotted data a reactive expression. We add the following code to the `server()` function:
 
-```{r, eval = FALSE}
- 
+
+```r
    # The data we wish to plot
    plotData <- reactive({
      gapminder %>% 
        filter(year == input$year) %>% 
        filter(continent %in% input$continent)
    })
-
-
 ```
 
 Reactive expressions return a function, so we refer to the data we're plotting as `plotData()`.  We can use this in our `renderPlot()` function:
 
-```{r, eval = FALSE}
 
+```r
    output$gapminderPlot <- renderPlot({
       plotData() %>% 
          produceGapminderPlot() })
-
 ```
 
 The app will behave in the same way as before, but by definining the reactive expression `plotData()` we can use the data that we're plotting on the graph elsewhere in the app.

@@ -23,7 +23,11 @@
   </url>
   
   <url>
-    <loc>/reactive/</loc>
+    <loc>/goingfurther/</loc>
+  </url>
+  
+  <url>
+    <loc>/goingfurther/reactive/</loc>
   </url>
   
   <url>
