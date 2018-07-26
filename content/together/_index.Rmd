@@ -6,34 +6,46 @@ pre: "<b>4. </b>"
 ---
 ### Chapter 4
 
-# Putting it all together
-## Back to Shiny
+## Putting it all together
 
-The example app doesn't load any external data or functions (The `faithful` dataset is provided with R).  When we run an app, it sets its location as the working directory.  When we deploy an app it is much easier if all its dependencies are in the same directory.  
+We've now covered everything we need to make our app.  We'll first replace the histogram with a (non interactive) gapminder plot.  We'll then create a widget to let us select the year. We'll then wire everything together to make the app interactive.
 
-* Copy the data (`gapminder.rds`) and plotting functions (`plottingFunctions.R`) into your app directory.  
-
-* Modify the example app to load the `ggplot2` and `dplyr` libraries, the gapminder data from `gapminder.rds` and the plotting functions in `plottingFunctions.R`
-
-
-## Exercises
+### Exercises
 
 * Modify the Shiny app to produce a gapminder plot instead of the histogram.   Note that the `produceGapminderPlot()` requires a single year of data, so you will need to `filter()` the data to a single year before passing it to the function.
 
-* Use the widget you created earlier to only show data for the selected continents
+{{% notice tip %}}
+The `outputId` of the plot in the default app is `distPlot` - you should change this to something more descriptive, e.g. `gapminderPlot`.  Remember to change this in both the server function, and in the user interface.
+{{% /notice %}}
 
-* Create a new widget (or modify the `bins` widget) to let the user choose the year of data to plot. You might want to check out the `sep` option to deal with the thousand separator commas.  
+### Solution 
+
+[git:04_gapminderplot]()
+
+* Create a new widget, with `inputId="year"` (or modify the `bins` widget) to let the user choose the year of data to plot. You might want to check out the `sep` option to deal with the thousand separator commas, and `step` to alter the "resolution" of the slider.  
 
 * (optional) check out the options for the `sliderInput()` widget and add an animation button.
 
 * If you created a new widget, you can delete the `bins` widget as we are no longer using this.
+ 
+### Solution
+ 
+[git:05_yearwidget]()
+ 
+* Use the outputs of the year and contienent widgets to make the graph interactive
 
+### Solution 
 
-We've now created a working app, which lets us explore the data by year and filter by continent.  To summarise:
+[git:06_interactive]()
 
+##  Summary
+
+We've now built a Shiny app.  To recap:
+ 
 * Define your server function and user interface 
 * Create graphs in the server function  using `renderPlot()`, and other types of output using `render....()` functions
 * Display graphs using `plotOutput()` (or `...Output()` for other types of output) in your user interface
 * Connect widgets to outputs using `input$inputID` 
 * Shiny takes care of updating outputs when inputs change (recative programming)
 
+In the next section we'll look at options for deploying our app.

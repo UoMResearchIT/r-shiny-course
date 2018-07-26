@@ -12,17 +12,17 @@
     <title>Getting started :: Introduction to Shiny</title>
     
     
-    <link href="../css/nucleus.css?1532593018" rel="stylesheet">
-    <link href="../css/font-awesome.min.css?1532593018" rel="stylesheet">
-    <link href="../css/hybrid.css?1532593018" rel="stylesheet">
-    <link href="../css/featherlight.min.css?1532593018" rel="stylesheet">
-    <link href="../css/perfect-scrollbar.min.css?1532593018" rel="stylesheet">
-    <link href="../css/auto-complete.css?1532593018" rel="stylesheet">
-    <link href="../css/theme.css?1532593018" rel="stylesheet">
-    <link href="../css/hugo-theme.css?1532593018" rel="stylesheet">
+    <link href="../css/nucleus.css?1532597458" rel="stylesheet">
+    <link href="../css/font-awesome.min.css?1532597458" rel="stylesheet">
+    <link href="../css/hybrid.css?1532597458" rel="stylesheet">
+    <link href="../css/featherlight.min.css?1532597458" rel="stylesheet">
+    <link href="../css/perfect-scrollbar.min.css?1532597458" rel="stylesheet">
+    <link href="../css/auto-complete.css?1532597458" rel="stylesheet">
+    <link href="../css/theme.css?1532597458" rel="stylesheet">
+    <link href="../css/hugo-theme.css?1532597458" rel="stylesheet">
     
 
-    <script src="../js/jquery-2.x.min.js?1532593018"></script>
+    <script src="../js/jquery-2.x.min.js?1532597458"></script>
     
     <style type="text/css">
       :root #header + #content > #left > #rlblock_left{ 
@@ -314,7 +314,7 @@
 
 <p>The most straightforward way of creating a new Shiny app is to use R Studio.  From the menu, choose, File, New, Shiny Web App.</p>
 
-<p>Choose a suitable name for your app (e.g. &ldquo;gapminder&rdquo;).   Leave the other options as their defaults (&ldquo;Single File&rdquo;, and Create within directory: <code>~/mawdsley</code>).</p>
+<p>Choose a suitable name for your app (e.g. &ldquo;gapminder&rdquo;).   Leave the other options as their defaults (&ldquo;Single File&rdquo;, and Create within directory: <code>~/mawdsley</code>).  [git:01_defaultapp]()</p>
 
 <div class="notices info" ><p>When we create a new Shiny app we can create a single file (<code>app.R</code>), or as two separate files (<code>ui.R</code> and <code>server.R</code>).   The latter format used to be the only method of definining an Shiny app, but can still be useful when building a more complicated app, as it allows us to separate the user interface (<code>ui.R</code>) from the server logic (<code>server.R</code>).  As we will be building a relatively small app, we&rsquo;ll use the single file approach.</p>
 
@@ -324,9 +324,35 @@
 
 <p>We can run the app by pressing the &ldquo;Run App&rdquo; button in the toolbar (or by pressing Ctrl+Shift+Enter).  This will launch an browser window within R Studio where we can interact with our app.</p>
 
-<p><div class="notices tip" ><p>There is a cheat sheet for Shiny included with RStudio.  This can be accessed from the menu: Help, Cheatsheets, Web Applications with shiny.</p>
+<div class="notices tip" ><p>There is a cheat sheet for Shiny included with RStudio.  This can be accessed from the menu: Help, Cheatsheets, Web Applications with shiny.</p>
 </div>
-</p>
+
+
+<h2 id="loading-our-libraries-and-functions">Loading our libraries and functions</h2>
+
+<p>The default app doesn&rsquo;t use any additional libraries, functions or external data.  Before going any further we&rsquo;ll add these to the example app.</p>
+
+<div class="notices tip" ><p>The working directory of your R session is probably the project&rsquo;s directory (i.e. <code>~/mawdsley</code> - this is displayed at the top of the console window).  When you run the app, it runs in its own working directory (i.e. <code>~/mawdsley/gapminder</code>).   If you&rsquo;re interactively running bits of your code you may find it helpful to set the working directory to your app&rsquo;s directory. You can do this by typing <code>setwd(&quot;~/mawdsley/gapminder&quot;)</code></p>
+</div>
+
+
+<h3 id="exercise">Exercise</h3>
+
+<ul>
+<li>Copy the <code>gapminder.rds</code> and <code>workshopFunctions.R</code> files into your app directory.</li>
+<li>load the <code>ggplot2</code> and <code>dplyr</code> libraries at the start of the app</li>
+<li>Modify the app to load the <code>gapminder.rds</code> into an object called <code>gapminder</code> using the <code>readRDS()</code> function</li>
+<li><code>source()</code> the <code>workshopFunctions.R</code> file to make the functions</li>
+<li>Check your app still works - the output will be unchanged at this stage, but if there are any errors loading the functions or data we&rsquo;ll see them now.</li>
+</ul>
+
+<div class="notices tip" ><p>You may wish to look at the <code>codeExample.R</code> file, which contains examples of loading libraries and functions</p>
+</div>
+
+
+<h3 id="solution">Solution</h3>
+
+<p>[git:02_loaddata]()</p>
 
 
 <footer class=" footline" >
@@ -496,20 +522,20 @@
     <div style="left: -1000px; overflow: scroll; position: absolute; top: -1000px; border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;">
       <div style="border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;"></div>
     </div>
-    <script src="../js/clipboard.min.js?1532593018"></script>
-    <script src="../js/perfect-scrollbar.min.js?1532593018"></script>
-    <script src="../js/perfect-scrollbar.jquery.min.js?1532593018"></script>
-    <script src="../js/jquery.sticky.js?1532593018"></script>
-    <script src="../js/featherlight.min.js?1532593018"></script>
-    <script src="../js/html5shiv-printshiv.min.js?1532593018"></script>
-    <script src="../js/highlight.pack.js?1532593018"></script>
+    <script src="../js/clipboard.min.js?1532597458"></script>
+    <script src="../js/perfect-scrollbar.min.js?1532597458"></script>
+    <script src="../js/perfect-scrollbar.jquery.min.js?1532597458"></script>
+    <script src="../js/jquery.sticky.js?1532597458"></script>
+    <script src="../js/featherlight.min.js?1532597458"></script>
+    <script src="../js/html5shiv-printshiv.min.js?1532597458"></script>
+    <script src="../js/highlight.pack.js?1532597458"></script>
     <script>hljs.initHighlightingOnLoad();</script>
-    <script src="../js/modernizr.custom.71422.js?1532593018"></script>
-    <script src="../js/learn.js?1532593018"></script>
-    <script src="../js/hugo-learn.js?1532593018"></script>
+    <script src="../js/modernizr.custom.71422.js?1532597458"></script>
+    <script src="../js/learn.js?1532597458"></script>
+    <script src="../js/hugo-learn.js?1532597458"></script>
 
-    <link href="../mermaid/mermaid.css?1532593018" type="text/css" rel="stylesheet" />
-    <script src="../mermaid/mermaid.js?1532593018"></script>
+    <link href="../mermaid/mermaid.css?1532597458" type="text/css" rel="stylesheet" />
+    <script src="../mermaid/mermaid.js?1532597458"></script>
     <script>
         mermaid.initialize({ startOnLoad: true });
     </script>

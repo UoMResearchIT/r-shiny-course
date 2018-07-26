@@ -4,10 +4,6 @@ weight: 51
 ---
 
 
-### Chapter 6.1
-
-# Reactive data
-
 In this example we only use the filtered gapminder data in a single place - to plot the graph.   For this reason we did the filtering within the `renderPlot()` function.   
 
 Let's add another output to the app; we'll show which country is the richest displayed on the graph, and what its GDP per capita is. This means that we'll be using the gapminder data filtered by year and country in two places; on the graph itself and in the logic where we work out what the richest country is.   

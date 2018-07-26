@@ -11,33 +11,23 @@ pre: "<b>3. </b>"
 
 ## Plotting a "gapminder" graph
 
-In order to avoid getting bogged down on the syntax of ggplot2, a function to produce a "gapminder" plot is provided in the `plottingFunctions.R` file.  This uses ggplot2 to produce a graph, deals with setting fixed axes, consistent colours etc.
+In order to avoid getting bogged down on the syntax of ggplot2, a function to produce a "gapminder" plot is provided in the `workshopFunctions.R` file, which we load at the start of our app (See [git:02_loaddata]() ).  This uses ggplot2 to produce a graph, deals with setting fixed axes, consistent colours etc.
 
-Stepping aside from Shiny, we can produce a gapminder plot in R using the following code:
-```{r}
-getwd()
-```
+Having loaded the data, libraries and functions, we can produce a gapminder plot in R using the following code:
 
-```{r, echo=FALSE}
-gapminder <- readRDS("../../gapminder.rds")
-source("../../plottingFunctions.R")
-```
-
-
-```{r}
+```{r, include=FALSE}
 # Load the required libraries
 library(ggplot2)
 library(dplyr)
 library(shiny)
 
-# Load the gapminder data 
-#gapminder <- readRDS("gapminder.rds")
+gapminder <- readRDS("../../gapminder.rds")
+source("../../workshopFunctions.R")
 
-# Load the plotting functions
-#source("plottingFunctions.R")
+```
 
-# Produce a plot for a year of data
-# produceGapminderPlot expects a single year of data
+
+```{r}
 gapminder %>% 
   filter(year == 2000) %>% 
   produceGapminderPlot()
@@ -50,7 +40,7 @@ gapminder %>%
 Add another `filter` to the example to only show countries that are in Europe and Africa
 
 ## Solution:
-
+{{%expand "Click here" %}}
 ```{r}
 
 gapminder %>% 
@@ -60,3 +50,8 @@ gapminder %>%
 ```
 
 
+{{% /expand%}}
+
+{{% notice tip %}}
+Further examples of using the plotting functions are given in the `codeExamples.R` file, which is in `~/mawdsley`
+{{% /notice %}}

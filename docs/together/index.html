@@ -12,17 +12,17 @@
     <title>Putting it all together :: Introduction to Shiny</title>
     
     
-    <link href="../css/nucleus.css?1532593018" rel="stylesheet">
-    <link href="../css/font-awesome.min.css?1532593018" rel="stylesheet">
-    <link href="../css/hybrid.css?1532593018" rel="stylesheet">
-    <link href="../css/featherlight.min.css?1532593018" rel="stylesheet">
-    <link href="../css/perfect-scrollbar.min.css?1532593018" rel="stylesheet">
-    <link href="../css/auto-complete.css?1532593018" rel="stylesheet">
-    <link href="../css/theme.css?1532593018" rel="stylesheet">
-    <link href="../css/hugo-theme.css?1532593018" rel="stylesheet">
+    <link href="../css/nucleus.css?1532597458" rel="stylesheet">
+    <link href="../css/font-awesome.min.css?1532597458" rel="stylesheet">
+    <link href="../css/hybrid.css?1532597458" rel="stylesheet">
+    <link href="../css/featherlight.min.css?1532597458" rel="stylesheet">
+    <link href="../css/perfect-scrollbar.min.css?1532597458" rel="stylesheet">
+    <link href="../css/auto-complete.css?1532597458" rel="stylesheet">
+    <link href="../css/theme.css?1532597458" rel="stylesheet">
+    <link href="../css/hugo-theme.css?1532597458" rel="stylesheet">
     
 
-    <script src="../js/jquery-2.x.min.js?1532593018"></script>
+    <script src="../js/jquery-2.x.min.js?1532597458"></script>
     
     <style type="text/css">
       :root #header + #content > #left > #rlblock_left{ 
@@ -308,33 +308,47 @@
 
 <h3 id="chapter-4">Chapter 4</h3>
 
-<h1 id="putting-it-all-together">Putting it all together</h1>
+<h2 id="putting-it-all-together">Putting it all together</h2>
 
-<h2 id="back-to-shiny">Back to Shiny</h2>
+<p>We&rsquo;ve now covered everything we need to make our app.  We&rsquo;ll first replace the histogram with a (non interactive) gapminder plot.  We&rsquo;ll then create a widget to let us select the year. We&rsquo;ll then wire everything together to make the app interactive.</p>
 
-<p>The example app doesn&rsquo;t load any external data or functions (The <code>faithful</code> dataset is provided with R).  When we run an app, it sets its location as the working directory.  When we deploy an app it is much easier if all its dependencies are in the same directory.</p>
+<h3 id="exercises">Exercises</h3>
 
 <ul>
-<li><p>Copy the data (<code>gapminder.rds</code>) and plotting functions (<code>plottingFunctions.R</code>) into your app directory.</p></li>
-
-<li><p>Modify the example app to load the <code>ggplot2</code> and <code>dplyr</code> libraries, the gapminder data from <code>gapminder.rds</code> and the plotting functions in <code>plottingFunctions.R</code></p></li>
+<li>Modify the Shiny app to produce a gapminder plot instead of the histogram.   Note that the <code>produceGapminderPlot()</code> requires a single year of data, so you will need to <code>filter()</code> the data to a single year before passing it to the function.</li>
 </ul>
 
-<h2 id="exercises">Exercises</h2>
+<div class="notices tip" ><p>The <code>outputId</code> of the plot in the default app is <code>distPlot</code> - you should change this to something more descriptive, e.g. <code>gapminderPlot</code>.  Remember to change this in both the server function, and in the user interface.</p>
+</div>
+
+
+<h3 id="solution">Solution</h3>
+
+<p>[git:04_gapminderplot]()</p>
 
 <ul>
-<li><p>Modify the Shiny app to produce a gapminder plot instead of the histogram.   Note that the <code>produceGapminderPlot()</code> requires a single year of data, so you will need to <code>filter()</code> the data to a single year before passing it to the function.</p></li>
-
-<li><p>Use the widget you created earlier to only show data for the selected continents</p></li>
-
-<li><p>Create a new widget (or modify the <code>bins</code> widget) to let the user choose the year of data to plot. You might want to check out the <code>sep</code> option to deal with the thousand separator commas.</p></li>
+<li><p>Create a new widget, with <code>inputId=&quot;year&quot;</code> (or modify the <code>bins</code> widget) to let the user choose the year of data to plot. You might want to check out the <code>sep</code> option to deal with the thousand separator commas, and <code>step</code> to alter the &ldquo;resolution&rdquo; of the slider.</p></li>
 
 <li><p>(optional) check out the options for the <code>sliderInput()</code> widget and add an animation button.</p></li>
 
 <li><p>If you created a new widget, you can delete the <code>bins</code> widget as we are no longer using this.</p></li>
 </ul>
 
-<p>We&rsquo;ve now created a working app, which lets us explore the data by year and filter by continent.  To summarise:</p>
+<h3 id="solution-1">Solution</h3>
+
+<p>[git:05_yearwidget]()</p>
+
+<ul>
+<li>Use the outputs of the year and contienent widgets to make the graph interactive</li>
+</ul>
+
+<h3 id="solution-2">Solution</h3>
+
+<p>[git:06_interactive]()</p>
+
+<h2 id="summary">Summary</h2>
+
+<p>We&rsquo;ve now built a Shiny app.  To recap:</p>
 
 <ul>
 <li>Define your server function and user interface</li>
@@ -343,6 +357,8 @@
 <li>Connect widgets to outputs using <code>input$inputID</code></li>
 <li>Shiny takes care of updating outputs when inputs change (recative programming)</li>
 </ul>
+
+<p>In the next section we&rsquo;ll look at options for deploying our app.</p>
 
 
 <footer class=" footline" >
@@ -515,20 +531,20 @@
     <div style="left: -1000px; overflow: scroll; position: absolute; top: -1000px; border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;">
       <div style="border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;"></div>
     </div>
-    <script src="../js/clipboard.min.js?1532593018"></script>
-    <script src="../js/perfect-scrollbar.min.js?1532593018"></script>
-    <script src="../js/perfect-scrollbar.jquery.min.js?1532593018"></script>
-    <script src="../js/jquery.sticky.js?1532593018"></script>
-    <script src="../js/featherlight.min.js?1532593018"></script>
-    <script src="../js/html5shiv-printshiv.min.js?1532593018"></script>
-    <script src="../js/highlight.pack.js?1532593018"></script>
+    <script src="../js/clipboard.min.js?1532597458"></script>
+    <script src="../js/perfect-scrollbar.min.js?1532597458"></script>
+    <script src="../js/perfect-scrollbar.jquery.min.js?1532597458"></script>
+    <script src="../js/jquery.sticky.js?1532597458"></script>
+    <script src="../js/featherlight.min.js?1532597458"></script>
+    <script src="../js/html5shiv-printshiv.min.js?1532597458"></script>
+    <script src="../js/highlight.pack.js?1532597458"></script>
     <script>hljs.initHighlightingOnLoad();</script>
-    <script src="../js/modernizr.custom.71422.js?1532593018"></script>
-    <script src="../js/learn.js?1532593018"></script>
-    <script src="../js/hugo-learn.js?1532593018"></script>
+    <script src="../js/modernizr.custom.71422.js?1532597458"></script>
+    <script src="../js/learn.js?1532597458"></script>
+    <script src="../js/hugo-learn.js?1532597458"></script>
 
-    <link href="../mermaid/mermaid.css?1532593018" type="text/css" rel="stylesheet" />
-    <script src="../mermaid/mermaid.js?1532593018"></script>
+    <link href="../mermaid/mermaid.css?1532597458" type="text/css" rel="stylesheet" />
+    <script src="../mermaid/mermaid.js?1532597458"></script>
     <script>
         mermaid.initialize({ startOnLoad: true });
     </script>
