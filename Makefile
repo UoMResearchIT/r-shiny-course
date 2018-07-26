@@ -1,6 +1,11 @@
 # Build the artefacts required for the RSE 2018 Workshop on Shiny
 #
 # David Mawdsley
+#
+
+
+.NOTPARALLEL: sitecontent
+
 presentationname=WorkshopSlides
 
 contentrmd = $(shell find content/ -name '*.Rmd' -print)
