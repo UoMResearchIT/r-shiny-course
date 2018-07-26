@@ -12,7 +12,11 @@ sourcedata = $(wildcard sourcedata/*)
 
 .INTERMEDIATE: $(presentationname)_annote.Rmd
 
-all: slides sitecontent
+all: slides site
+
+site: sitecontent
+	hugo
+
 
 sitecontent: $(contentmd)
 	
