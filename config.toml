@@ -8,6 +8,7 @@ publishDir = "docs"
 relativeURLs = true
 baseURL = "/"
 
+
 [[menu.shortcuts]]
     name = "Home"
     url = "/"
@@ -39,5 +40,6 @@ baseURL = "/"
     author = "David Mawdsley"
     disableSearch = true
     disableInlineCopyToClipBoard = true
+    editURL = "https://github.com/UoMResearchIT/RSE18-shiny-workshop/edit/master/content/"
 
 
