@@ -17,7 +17,7 @@ knitr::opts_chunk$set(echo = FALSE)
 library(tidyverse)
 library(igraph)
 gapminder <- readRDS("coursematerial/gapminder.rds")
-source("coursematerial/plottingFunctions.R")
+source("coursematerial/workshopFunctions.R")
 ```
 
 ## Shiny for R

@@ -590,7 +590,7 @@ gapminder <span class="op">%&gt;%</span><span class="st"> </span>
 <li>The <code>coursematerial</code> folder is a git repository</li>
 <li>Solutions are stored as tagged commits for code in the <code>worked_example</code> directory
 <ul>
-<li>e.g <a href="https://github.com/UoMResearchIT/RSE18-shiny-workshop-materials/commit/ffe945ba4943bef378d744e941bea6f46f9970c0">git:01_helloworld</a></li>
+<li>e.g <a href>git:01_helloworld</a></li>
 <li>Link takes you to github’s commit page</li>
 <li>Checkout versions with <code>git checkout helloworld</code></li>
 </ul></li>
@@ -600,7 +600,7 @@ gapminder <span class="op">%&gt;%</span><span class="st"> </span>
 <section id="getting-started-1" class="slide level2">
 <h2>Getting started</h2>
 <ul>
-<li>Make a new Shiny app and check it works: <a href="https://github.com/UoMResearchIT/RSE18-shiny-workshop-materials/commit/ffe945ba4943bef378d744e941bea6f46f9970c0">git:01_helloworld</a>
+<li>Make a new Shiny app and check it works: <a href>git:01_helloworld</a>
 <ul>
 <li>File, New File, Shiny Web App</li>
 <li>Name: gapminder</li>
@@ -658,7 +658,7 @@ gapminder <span class="op">%&gt;%</span><span class="st"> </span>
 </ul></li>
 <li>Change the title of the app to something sensible</li>
 </ul>
-<p><a href="https://github.com/UoMResearchIT/RSE18-shiny-workshop-materials/commit/3d01b93168c345225763dbea27b94b6bbb8a801d">git:02_loadresources</a></p>
+<p><a href>git:02_loadresources</a></p>
 </section>
 <section id="exercise" class="slide level2">
 <h2>Exercise</h2>
@@ -675,18 +675,18 @@ gapminder <span class="op">%&gt;%</span><span class="st"> </span>
 <section id="exercise-1" class="slide level2">
 <h2>Exercise</h2>
 <ul>
-<li>Modify the <code>sliderInput</code>; change <code>inputId</code> to “year” and use this to select a year. <a href="https://github.com/UoMResearchIT/RSE18-shiny-workshop-materials/commit/5203b1ed28fe178ebd164e292d6e3db151a262b3">git:03_yearslider</a>
+<li>Modify the <code>sliderInput</code>; change <code>inputId</code> to “year” and use this to select a year. <a href>git:03_yearslider</a>
 <ul>
 <li>The <code>sep</code> option will let you deal with the “,”s in the years.</li>
 <li><code>step</code> contols the interval between selectable values.</li>
 </ul></li>
-<li>Use the <code>animate</code> option to allow this to run through the years <a href="https://github.com/UoMResearchIT/RSE18-shiny-workshop-materials/commit/beb091d077a86f98ba02324456d287b260d4069a">git:04_animate</a>
+<li>Use the <code>animate</code> option to allow this to run through the years <a href>git:04_animate</a>
 <ul>
 <li>You may wish to explore <code>animationOptions()</code> to control the animation speed</li>
 </ul></li>
 <li>Use the slider to make the graph interactive.
 <ul>
-<li><code>input$year</code> will contain the value of the year <a href="https://github.com/UoMResearchIT/RSE18-shiny-workshop-materials/commit/61fd96effe38be73073b088b6c6aaefcf4a4b988">git:05_baseplot</a></li>
+<li><code>input$year</code> will contain the value of the year <a href>git:05_baseplot</a></li>
 </ul></li>
 </ul>
 </section>
@@ -714,12 +714,12 @@ gapminder <span class="op">%&gt;%</span><span class="st"> </span>
 <h2>Exercise</h2>
 <ul>
 <li><a href="https://shiny.rstudio.com/gallery/widget-gallery.html">The Shiny Widget Gallery</a> lists built in widgets</li>
-<li>Use a <code>checkboxGroupInput</code> to select continents. <a href="https://github.com/UoMResearchIT/RSE18-shiny-workshop-materials/commit/7e7deea628a02cae403a2e8d14d8190f8bbd441d">git:06_continentUI</a>
+<li>Use a <code>checkboxGroupInput</code> to select continents. <a href>git:06_continentUI</a>
 <ul>
 <li><code>levels(gapminder$continent)</code> will return a vector of the continents in the data.</li>
 <li>The <code>selected</code> option controls which elements are selected at the start</li>
 </ul></li>
-<li>Modify your server function to filter the data so that only the selected continents are shown. <a href="https://github.com/UoMResearchIT/RSE18-shiny-workshop-materials/commit/c160b6e7b3cb0eabf08a09b5d8c8fa18ccf3c3f4">git:07_continent</a></li>
+<li>Modify your server function to filter the data so that only the selected continents are shown. <a href>git:07_continent</a></li>
 </ul>
 </section>
 <section id="making-the-graph-interactive" class="slide level2">
@@ -739,7 +739,7 @@ gapminder <span class="op">%&gt;%</span><span class="st"> </span>
 <ul>
 <li><code>plotOutput(&quot;plotname&quot;, click = &quot;clickName&quot;)</code> will output information about mouse clicks within a plot to the server.</li>
 <li>To see the output of this we need to use <code>renderPrint()</code> to capture the output (cf. <code>renderPlot()</code>)</li>
-<li>Which we then need to display in our user interface using <code>textOutput()</code> (cf. <code>plotOutput()</code>) <a href="https://github.com/UoMResearchIT/RSE18-shiny-workshop-materials/commit/007f76d2822b6d5c44b4b0c0f1b4ec25ea665058">git:08_clickdata</a></li>
+<li>Which we then need to display in our user interface using <code>textOutput()</code> (cf. <code>plotOutput()</code>) <a href>git:08_clickdata</a></li>
 </ul>
 </section>
 <section id="working-with-click-data" class="slide level2">
@@ -747,7 +747,7 @@ gapminder <span class="op">%&gt;%</span><span class="st"> </span>
 <ul>
 <li>Click output is in mapped coordinates (dependent on graph package)</li>
 <li>Need to map coordinates to an entry in the data - <code>nearPoints()</code> does this for us</li>
-<li>We can look at the output of <code>nearPoints()</code> (optionally using <code>renderTable()</code> and <code>tableOutput()</code> to format things nicely) <a href="https://github.com/UoMResearchIT/RSE18-shiny-workshop-materials/commit/52ace8db23b87a89dfe016f0a44f4361c82d51d6">git:09_nearpoints</a></li>
+<li>We can look at the output of <code>nearPoints()</code> (optionally using <code>renderTable()</code> and <code>tableOutput()</code> to format things nicely) <a href>git:09_nearpoints</a></li>
 </ul>
 </section>
 <section id="working-with-click-data-1" class="slide level2">
@@ -768,7 +768,7 @@ gapminder <span class="op">%&gt;%</span><span class="st"> </span>
 <section id="solving-problem-1" class="slide level2">
 <h2>Solving problem 1</h2>
 <ul>
-<li>We make the filtered data <em>reactive</em> <a href="https://github.com/UoMResearchIT/RSE18-shiny-workshop-materials/commit/dc9b66a861f9da2452925e218c0b58547fee473e">git:10_reactivedata</a>
+<li>We make the filtered data <em>reactive</em> <a href>git:10_reactivedata</a>
 <ul>
 <li>Data which changes over time</li>
 <li>We need the active data in two places - for the graph and as input to <code>nearpoints()</code>.</li>
@@ -784,7 +784,7 @@ gapminder <span class="op">%&gt;%</span><span class="st"> </span>
 <ul>
 <li>The <code>plotClick</code> becomes invalid every time the graph updates</li>
 <li>We use <code>observeEvent()</code> to observe when a click happens, and store the click information</li>
-<li>And only then do we update the active country <a href="https://github.com/UoMResearchIT/RSE18-shiny-workshop-materials/commit/d6b75dabaf3d5b713ce1e73641be07ef6850f508">git:11_showselected</a></li>
+<li>And only then do we update the active country <a href>git:11_showselected</a></li>
 </ul>
 </section>
 <section id="section-2" class="slide level2">
@@ -810,7 +810,7 @@ gapminder <span class="op">%&gt;%</span><span class="st"> </span>
 <li>We need to make another reactive data-set containing the historic data for the selected country</li>
 <li>We need to add this to the plot, if a country is selected.</li>
 </ul>
-<p><a href="https://github.com/UoMResearchIT/RSE18-shiny-workshop-materials/commit/1cd1e78d942ee2f07eb07c35c6a9b8fc45283d7f">git:12_showtrace</a></p>
+<p><a href>git:12_showtrace</a></p>
 </section>
 <section id="section-4" class="slide level2">
 <h2></h2>
@@ -849,8 +849,8 @@ gapminder <span class="op">%&gt;%</span><span class="st"> </span>
 <ul>
 <li>The <code>shinythemes</code> package lets us select readymade themes for our app</li>
 <li>Can write our own css for more control</li>
-<li><code>shinythemes::themeSelector()</code> widget lets us interactively exeriment with themes <a href="https://github.com/UoMResearchIT/RSE18-shiny-workshop-materials/commit/edcbbb9dd42949648c6cde8a150810ef036f6c4d">git:13_themeselector</a></li>
-<li>Use the option <code>theme = shinytheme(&quot;themename&quot;)</code> on your user interface function (<code>fluidPage</code>) in our example <a href="https://github.com/UoMResearchIT/RSE18-shiny-workshop-materials/commit/ffff560ad12f355cf4563ba52ee87558e1ea654f">git:14_changetheme</a></li>
+<li><code>shinythemes::themeSelector()</code> widget lets us interactively exeriment with themes <a href>git:13_themeselector</a></li>
+<li>Use the option <code>theme = shinytheme(&quot;themename&quot;)</code> on your user interface function (<code>fluidPage</code>) in our example <a href>git:14_changetheme</a></li>
 </ul>
 </section>
 <section id="app-layout" class="slide level2">
@@ -872,7 +872,7 @@ gapminder <span class="op">%&gt;%</span><span class="st"> </span>
   )
 )</code></pre></div>
 <ul>
-<li>The widths of each row of columns should sum to 12 <a href="https://github.com/UoMResearchIT/RSE18-shiny-workshop-materials/commit/1e384eaa8ecca903bac4ca3bcbd105ee9180385e">git:15_fluidpage</a></li>
+<li>The widths of each row of columns should sum to 12 <a href>git:15_fluidpage</a></li>
 </ul>
 </section>
     </div>

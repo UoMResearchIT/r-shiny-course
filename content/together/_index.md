@@ -20,7 +20,7 @@ The `outputId` of the plot in the default app is `distPlot` - you should change 
 
 ### Solution 
 
-[git:04_gapminderplot]()
+[git:04_gapminderplot](https://github.com/UoMResearchIT/RSE18-shiny-workshop-materials/commit/82e3f5c7ad7817bbeb9048acebdc1ff5f2851cbb)
 
 * Create a new widget, with `inputId="year"` (or modify the `bins` widget) to let the user choose the year of data to plot. You might want to check out the `sep` option to deal with the thousand separator commas, and `step` to alter the "resolution" of the slider.  
 
@@ -30,13 +30,13 @@ The `outputId` of the plot in the default app is `distPlot` - you should change 
  
 ### Solution
  
-[git:05_yearwidget]()
+[git:05_yearwidget](https://github.com/UoMResearchIT/RSE18-shiny-workshop-materials/commit/e89c9a1c78b3bd60bb9e5444b4b3616defefc60f)
  
 * Use the outputs of the year and contienent widgets to make the graph interactive
 
 ### Solution 
 
-[git:06_interactive]()
+[git:06_interactive](https://github.com/UoMResearchIT/RSE18-shiny-workshop-materials/commit/7f6c74d7c70ae0127dd042c1bbf6c9483c9df5ce)
 
 ##  Summary
 

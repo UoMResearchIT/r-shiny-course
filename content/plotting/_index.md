@@ -11,7 +11,7 @@ pre: "<b>3. </b>"
 
 ## Plotting a "gapminder" graph
 
-In order to avoid getting bogged down on the syntax of ggplot2, a function to produce a "gapminder" plot is provided in the `workshopFunctions.R` file, which we load at the start of our app (See [git:02_loaddata]() ).  This uses ggplot2 to produce a graph, deals with setting fixed axes, consistent colours etc.
+In order to avoid getting bogged down on the syntax of ggplot2, a function to produce a "gapminder" plot is provided in the `workshopFunctions.R` file, which we load at the start of our app (See [git:02_loaddata](https://github.com/UoMResearchIT/RSE18-shiny-workshop-materials/commit/7f3298332b887b2015d8b6636e46b4a37bb15906) ).  This uses ggplot2 to produce a graph, deals with setting fixed axes, consistent colours etc.
 
 Having loaded the data, libraries and functions, we can produce a gapminder plot in R using the following code:
 
