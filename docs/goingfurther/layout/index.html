@@ -12,17 +12,17 @@
     <title>App layout :: Introduction to Shiny</title>
     
     
-    <link href="../../css/nucleus.css?1532684694" rel="stylesheet">
-    <link href="../../css/font-awesome.min.css?1532684694" rel="stylesheet">
-    <link href="../../css/hybrid.css?1532684694" rel="stylesheet">
-    <link href="../../css/featherlight.min.css?1532684694" rel="stylesheet">
-    <link href="../../css/perfect-scrollbar.min.css?1532684694" rel="stylesheet">
-    <link href="../../css/auto-complete.css?1532684694" rel="stylesheet">
-    <link href="../../css/theme.css?1532684694" rel="stylesheet">
-    <link href="../../css/hugo-theme.css?1532684694" rel="stylesheet">
+    <link href="../../css/nucleus.css?1532701656" rel="stylesheet">
+    <link href="../../css/font-awesome.min.css?1532701656" rel="stylesheet">
+    <link href="../../css/hybrid.css?1532701656" rel="stylesheet">
+    <link href="../../css/featherlight.min.css?1532701656" rel="stylesheet">
+    <link href="../../css/perfect-scrollbar.min.css?1532701656" rel="stylesheet">
+    <link href="../../css/auto-complete.css?1532701656" rel="stylesheet">
+    <link href="../../css/theme.css?1532701656" rel="stylesheet">
+    <link href="../../css/hugo-theme.css?1532701656" rel="stylesheet">
     
 
-    <script src="../../js/jquery-2.x.min.js?1532684694"></script>
+    <script src="../../js/jquery-2.x.min.js?1532701656"></script>
     
     <style type="text/css">
       :root #header + #content > #left > #rlblock_left{ 
@@ -362,7 +362,18 @@
                 
                     <div class="progress">
     <div class="wrapper">
-
+<nav id="TableOfContents">
+<ul>
+<li>
+<ul>
+<li><a href="#page-layout">Page layout</a>
+<ul>
+<li><a href="#exercise">Exercise</a></li>
+<li><a href="#solution">Solution</a></li>
+</ul></li>
+</ul></li>
+</ul>
+</nav>
     </div>
 </div>
 
@@ -380,7 +391,47 @@
         
 
 
-<p>Placeholder</p>
+
+
+<p>This lesson looks at how we can alter the layout of the page elements.</p>
+
+<h2 id="page-layout">Page layout</h2>
+
+<p>In the main part of this workshop we used the <code>fluidPage()</code> layout, with a <code>sidebarLayout()</code>.  This gives us a sidebar (<code>sidebarPanel()</code>) and a <code>mainPanel()</code>.   This is often (roughly) what we need; a small panel to set the controls for the app, and a large panel to display the app&rsquo;s output (though what you put in each panel is up to you).</p>
+
+<p>We can construct more flexible <code>fluidPage()</code> layout using the <code>fluidRow()</code> and <code>column()</code> functions.  These let us define our app on a grid, placing page elements within each cell.  The structure of UI using this approach is:</p>
+
+<pre><code class="language-r">ui &lt;- fluidPage(
+  fluidRow(
+    column(4,
+
+    ),
+    column(8,
+
+    )
+  ),
+  fluidRow(
+    column(4,
+           &lt;&lt;page elements&gt;&gt;),
+    column(4,
+           &lt;&lt;page elements&gt;&gt;),
+    column(4,
+           &lt;&lt;page elements&gt;&gt;)
+  )
+)
+</code></pre>
+
+<p>The digits give the (relative) width of each column; these should sum to 12 for each row.</p>
+
+<h3 id="exercise">Exercise</h3>
+
+<p>Modify your app to display the graph across the whole width of the screen, with any of the outputs you may have created in the <a href="../../goingfurther/reactive/">reactive data</a> or <a href="../../goingfurther/graphs/">interacting with graphs</a> lessons below.</p>
+
+<p>Place the continent and year widgets side-by-side below the graph.</p>
+
+<h3 id="solution">Solution</h3>
+
+<p><a href="https://github.com/UoMResearchIT/RSE18-shiny-workshop-materials/commit/7b4cf329c9ad851f60b2bfe3daaa22487bbc318c">git:14_layout</a></p>
 
 
 <footer class=" footline" >
@@ -586,20 +637,20 @@
     <div style="left: -1000px; overflow: scroll; position: absolute; top: -1000px; border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;">
       <div style="border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;"></div>
     </div>
-    <script src="../../js/clipboard.min.js?1532684694"></script>
-    <script src="../../js/perfect-scrollbar.min.js?1532684694"></script>
-    <script src="../../js/perfect-scrollbar.jquery.min.js?1532684694"></script>
-    <script src="../../js/jquery.sticky.js?1532684694"></script>
-    <script src="../../js/featherlight.min.js?1532684694"></script>
-    <script src="../../js/html5shiv-printshiv.min.js?1532684694"></script>
-    <script src="../../js/highlight.pack.js?1532684694"></script>
+    <script src="../../js/clipboard.min.js?1532701656"></script>
+    <script src="../../js/perfect-scrollbar.min.js?1532701656"></script>
+    <script src="../../js/perfect-scrollbar.jquery.min.js?1532701656"></script>
+    <script src="../../js/jquery.sticky.js?1532701656"></script>
+    <script src="../../js/featherlight.min.js?1532701656"></script>
+    <script src="../../js/html5shiv-printshiv.min.js?1532701656"></script>
+    <script src="../../js/highlight.pack.js?1532701656"></script>
     <script>hljs.initHighlightingOnLoad();</script>
-    <script src="../../js/modernizr.custom.71422.js?1532684694"></script>
-    <script src="../../js/learn.js?1532684694"></script>
-    <script src="../../js/hugo-learn.js?1532684694"></script>
+    <script src="../../js/modernizr.custom.71422.js?1532701656"></script>
+    <script src="../../js/learn.js?1532701656"></script>
+    <script src="../../js/hugo-learn.js?1532701656"></script>
 
-    <link href="../../mermaid/mermaid.css?1532684694" type="text/css" rel="stylesheet" />
-    <script src="../../mermaid/mermaid.js?1532684694"></script>
+    <link href="../../mermaid/mermaid.css?1532701656" type="text/css" rel="stylesheet" />
+    <script src="../../mermaid/mermaid.js?1532701656"></script>
     <script>
         mermaid.initialize({ startOnLoad: true });
     </script>
