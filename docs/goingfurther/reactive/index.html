@@ -12,17 +12,17 @@
     <title>Reactive data :: Introduction to Shiny</title>
     
     
-    <link href="../../css/nucleus.css?1532701656" rel="stylesheet">
-    <link href="../../css/font-awesome.min.css?1532701656" rel="stylesheet">
-    <link href="../../css/hybrid.css?1532701656" rel="stylesheet">
-    <link href="../../css/featherlight.min.css?1532701656" rel="stylesheet">
-    <link href="../../css/perfect-scrollbar.min.css?1532701656" rel="stylesheet">
-    <link href="../../css/auto-complete.css?1532701656" rel="stylesheet">
-    <link href="../../css/theme.css?1532701656" rel="stylesheet">
-    <link href="../../css/hugo-theme.css?1532701656" rel="stylesheet">
+    <link href="../../css/nucleus.css?1532701923" rel="stylesheet">
+    <link href="../../css/font-awesome.min.css?1532701923" rel="stylesheet">
+    <link href="../../css/hybrid.css?1532701923" rel="stylesheet">
+    <link href="../../css/featherlight.min.css?1532701923" rel="stylesheet">
+    <link href="../../css/perfect-scrollbar.min.css?1532701923" rel="stylesheet">
+    <link href="../../css/auto-complete.css?1532701923" rel="stylesheet">
+    <link href="../../css/theme.css?1532701923" rel="stylesheet">
+    <link href="../../css/hugo-theme.css?1532701923" rel="stylesheet">
     
 
-    <script src="../../js/jquery-2.x.min.js?1532701656"></script>
+    <script src="../../js/jquery-2.x.min.js?1532701923"></script>
     
     <style type="text/css">
       :root #header + #content > #left > #rlblock_left{ 
@@ -411,22 +411,16 @@ graph LR;
 
 
 <p>Let&rsquo;s make the plotted data a reactive expression. We add the following code to the <code>server()</code> function:</p>
-
-<pre><code class="language-r">   # The data we wish to plot
-   plotData &lt;- reactive({
-     gapminder %&gt;% 
-       filter(year == input$year) %&gt;% 
-       filter(continent %in% input$continent)
-   })
-</code></pre>
-
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-r" data-lang="r">   <span style="color:#75715e"># The data we wish to plot</span>
+   plotData <span style="color:#f92672">&lt;-</span> reactive({
+     gapminder <span style="color:#f92672">%&gt;%</span> 
+       filter(year <span style="color:#f92672">==</span> input<span style="color:#f92672">$</span>year) <span style="color:#f92672">%&gt;%</span> 
+       filter(continent <span style="color:#f92672">%in%</span> input<span style="color:#f92672">$</span>continent)
+   })</code></pre></div>
 <p>Reactive expressions return a function, so we refer to the data we&rsquo;re plotting as <code>plotData()</code>.  We can use this in our <code>renderPlot()</code> function:</p>
-
-<pre><code class="language-r">   output$gapminderPlot &lt;- renderPlot({
-      plotData() %&gt;% 
-         produceGapminderPlot() })
-</code></pre>
-
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-r" data-lang="r">   output<span style="color:#f92672">$</span>gapminderPlot <span style="color:#f92672">&lt;-</span> renderPlot({
+      plotData() <span style="color:#f92672">%&gt;%</span> 
+         produceGapminderPlot() })</code></pre></div>
 <p>The app will behave in the same way as before, but by defining the reactive expression <code>plotData()</code> we can use the data that we&rsquo;re plotting on the graph elsewhere in the app. <a href="https://github.com/UoMResearchIT/RSE18-shiny-workshop-materials/commit/b0ed66f0bbe354c7ced39a4a5d5827751b45e64a">git:07_reactivedata</a></p>
 
 <h3 id="exercise">Exercise</h3>
@@ -656,20 +650,20 @@ graph LR;
     <div style="left: -1000px; overflow: scroll; position: absolute; top: -1000px; border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;">
       <div style="border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;"></div>
     </div>
-    <script src="../../js/clipboard.min.js?1532701656"></script>
-    <script src="../../js/perfect-scrollbar.min.js?1532701656"></script>
-    <script src="../../js/perfect-scrollbar.jquery.min.js?1532701656"></script>
-    <script src="../../js/jquery.sticky.js?1532701656"></script>
-    <script src="../../js/featherlight.min.js?1532701656"></script>
-    <script src="../../js/html5shiv-printshiv.min.js?1532701656"></script>
-    <script src="../../js/highlight.pack.js?1532701656"></script>
+    <script src="../../js/clipboard.min.js?1532701923"></script>
+    <script src="../../js/perfect-scrollbar.min.js?1532701923"></script>
+    <script src="../../js/perfect-scrollbar.jquery.min.js?1532701923"></script>
+    <script src="../../js/jquery.sticky.js?1532701923"></script>
+    <script src="../../js/featherlight.min.js?1532701923"></script>
+    <script src="../../js/html5shiv-printshiv.min.js?1532701923"></script>
+    <script src="../../js/highlight.pack.js?1532701923"></script>
     <script>hljs.initHighlightingOnLoad();</script>
-    <script src="../../js/modernizr.custom.71422.js?1532701656"></script>
-    <script src="../../js/learn.js?1532701656"></script>
-    <script src="../../js/hugo-learn.js?1532701656"></script>
+    <script src="../../js/modernizr.custom.71422.js?1532701923"></script>
+    <script src="../../js/learn.js?1532701923"></script>
+    <script src="../../js/hugo-learn.js?1532701923"></script>
 
-    <link href="../../mermaid/mermaid.css?1532701656" type="text/css" rel="stylesheet" />
-    <script src="../../mermaid/mermaid.js?1532701656"></script>
+    <link href="../../mermaid/mermaid.css?1532701923" type="text/css" rel="stylesheet" />
+    <script src="../../mermaid/mermaid.js?1532701923"></script>
     <script>
         mermaid.initialize({ startOnLoad: true });
     </script>

@@ -7,7 +7,7 @@ ignoreFiles = ["\\.Rmd$", "\\.Rmarkdown$", "_files$", "_cache$"]
 publishDir = "docs"
 relativeURLs = true
 baseURL = "/"
-
+pygmentsCodeFences = true
 
 [[menu.shortcuts]]
     name = "Home"

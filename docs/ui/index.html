@@ -12,17 +12,17 @@
     <title>User Interface design :: Introduction to Shiny</title>
     
     
-    <link href="../css/nucleus.css?1532701656" rel="stylesheet">
-    <link href="../css/font-awesome.min.css?1532701656" rel="stylesheet">
-    <link href="../css/hybrid.css?1532701656" rel="stylesheet">
-    <link href="../css/featherlight.min.css?1532701656" rel="stylesheet">
-    <link href="../css/perfect-scrollbar.min.css?1532701656" rel="stylesheet">
-    <link href="../css/auto-complete.css?1532701656" rel="stylesheet">
-    <link href="../css/theme.css?1532701656" rel="stylesheet">
-    <link href="../css/hugo-theme.css?1532701656" rel="stylesheet">
+    <link href="../css/nucleus.css?1532701923" rel="stylesheet">
+    <link href="../css/font-awesome.min.css?1532701923" rel="stylesheet">
+    <link href="../css/hybrid.css?1532701923" rel="stylesheet">
+    <link href="../css/featherlight.min.css?1532701923" rel="stylesheet">
+    <link href="../css/perfect-scrollbar.min.css?1532701923" rel="stylesheet">
+    <link href="../css/auto-complete.css?1532701923" rel="stylesheet">
+    <link href="../css/theme.css?1532701923" rel="stylesheet">
+    <link href="../css/hugo-theme.css?1532701923" rel="stylesheet">
     
 
-    <script src="../js/jquery-2.x.min.js?1532701656"></script>
+    <script src="../js/jquery-2.x.min.js?1532701923"></script>
     
     <style type="text/css">
       :root #header + #content > #left > #rlblock_left{ 
@@ -380,25 +380,19 @@
 <p>More flexible, but complex layout options are available, such as <code>navBarPage()</code>, to produce a page with a navigation bar.  It&rsquo;s also possible to build a <a href="https://shiny.rstudio.com/articles/html-ui.html">user interface from scratch</a>, using HTML, CSS etc.</p>
 
 <p>For this tutorial we&rsquo;ll stick with the <code>fluidPage()</code> approach.  Most common html tags have a builder function associated with them.  So to add a paragraph of text to the app, we can pass another argument to the <code>fluidPage()</code> function:</p>
-
-<pre><code class="language-r">ui &lt;- fluidPage(
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-r" data-lang="r">ui <span style="color:#f92672">&lt;-</span> fluidPage(
    
-   # Application title
-   titlePanel(&quot;Old Faithful Geyser Data&quot;),
-   p(&quot;Here is some text&quot;),
-   # Sidebar with a slider input for number of bins 
-   sidebarLayout(....
-</code></pre>
-
+   <span style="color:#75715e"># Application title</span>
+   titlePanel(<span style="color:#e6db74">&#34;Old Faithful Geyser Data&#34;</span>),
+   p(<span style="color:#e6db74">&#34;Here is some text&#34;</span>),
+   <span style="color:#75715e"># Sidebar with a slider input for number of bins </span>
+   sidebarLayout(<span style="color:#ae81ff">.</span><span style="color:#66d9ef">...</span></code></pre></div>
 <p>A very important type of element we can add to the app is a widget.  This provides a control that lets us interact with our app.  The default app has a single widget - the slider that  lets us select the number of bins we want the histogram to have:</p>
-
-<pre><code class="language-r">sliderInput(&quot;bins&quot;,
-            &quot;Number of bins:&quot;,
-            min = 1,
-            max = 50,
-            value = 30)
-</code></pre>
-
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-r" data-lang="r">sliderInput(<span style="color:#e6db74">&#34;bins&#34;</span>,
+            <span style="color:#e6db74">&#34;Number of bins:&#34;</span>,
+            min <span style="color:#f92672">=</span> <span style="color:#ae81ff">1</span>,
+            max <span style="color:#f92672">=</span> <span style="color:#ae81ff">50</span>,
+            value <span style="color:#f92672">=</span> <span style="color:#ae81ff">30</span>)</code></pre></div>
 <p>The first argument of the function defines the inputId - essentially this is the name of the variable that the widget&rsquo;s output (in this case the selected number of bins) is assigned to.  The second argument defines the label for widget.  The other arguments are widget specific; in this case they define the scale of the widget and its default value.</p>
 
 <p>Shiny comes with a number of built in widgets that give different ways of interacting with our app. <a href="https://shiny.rstudio.com/gallery/widget-gallery.html">The Shiny Widget Gallery</a> lists built in widgets, along with example code to use them.</p>
@@ -436,17 +430,14 @@
 <p>The server function contains the code behind the webapp.   Each <code>...Output()</code> function in the user interface has a corresponding <code>render...()</code> function.   The first argument of the <code>render...()</code> function contains the R code to generate the thing we want to render.  For example, in the example app, the <code>renderPlot()</code> function contains the code that will generate a histogram.  As this neeeds to b a single expression this will typically be contained in <code>{}</code>s</p>
 
 <p>Let&rsquo;s briefly look at the example code that generates the histogram:</p>
-
-<pre><code class="language-r">   output$distPlot &lt;- renderPlot({
-      # generate bins based on input$bins from ui.R
-      x    &lt;- faithful[, 2] 
-      bins &lt;- seq(min(x), max(x), length.out = input$bins + 1)
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-r" data-lang="r">   output<span style="color:#f92672">$</span>distPlot <span style="color:#f92672">&lt;-</span> renderPlot({
+      <span style="color:#75715e"># generate bins based on input$bins from ui.R</span>
+      x    <span style="color:#f92672">&lt;-</span> faithful[, <span style="color:#ae81ff">2</span>] 
+      bins <span style="color:#f92672">&lt;-</span> <span style="color:#66d9ef">seq</span>(<span style="color:#66d9ef">min</span>(x), <span style="color:#66d9ef">max</span>(x), length.out <span style="color:#f92672">=</span> input<span style="color:#f92672">$</span>bins <span style="color:#f92672">+</span> <span style="color:#ae81ff">1</span>)
       
-      # draw the histogram with the specified number of bins
-      hist(x, breaks = bins, col = 'darkgray', border = 'white')
-   })
-</code></pre>
-
+      <span style="color:#75715e"># draw the histogram with the specified number of bins</span>
+      hist(x, breaks <span style="color:#f92672">=</span> bins, col <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;darkgray&#39;</span>, border <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;white&#39;</span>)
+   })</code></pre></div>
 <p><code>input$bins</code> will contain the value of the slider which was defined in the user interface (which was called <code>bins</code>).   This is how we connect elements of the user interface to the the server logic.</p>
 
 <p>The first argument of <code>renderPlot()</code> returns a graph; <em>how</em> we make that graph is up to us.  In the example app, base R graphic are used.  We&rsquo;ll be using ggplot2 in this workshop, as it&rsquo;s easier to make nice looking graphs with it.  To simplify things I&rsquo;ve put the ggplot functions within a wrapper function, which we loaded earlier ( <a href="https://github.com/UoMResearchIT/RSE18-shiny-workshop-materials/commit/7f3298332b887b2015d8b6636e46b4a37bb15906">git:02_loaddata</a> ) .  The important thing is that the first (and in the example, only) argument returns a graph object.   We can also pass arguments to manually control the width and height of the plot, etc.</p>
@@ -664,20 +655,20 @@
     <div style="left: -1000px; overflow: scroll; position: absolute; top: -1000px; border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;">
       <div style="border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;"></div>
     </div>
-    <script src="../js/clipboard.min.js?1532701656"></script>
-    <script src="../js/perfect-scrollbar.min.js?1532701656"></script>
-    <script src="../js/perfect-scrollbar.jquery.min.js?1532701656"></script>
-    <script src="../js/jquery.sticky.js?1532701656"></script>
-    <script src="../js/featherlight.min.js?1532701656"></script>
-    <script src="../js/html5shiv-printshiv.min.js?1532701656"></script>
-    <script src="../js/highlight.pack.js?1532701656"></script>
+    <script src="../js/clipboard.min.js?1532701923"></script>
+    <script src="../js/perfect-scrollbar.min.js?1532701923"></script>
+    <script src="../js/perfect-scrollbar.jquery.min.js?1532701923"></script>
+    <script src="../js/jquery.sticky.js?1532701923"></script>
+    <script src="../js/featherlight.min.js?1532701923"></script>
+    <script src="../js/html5shiv-printshiv.min.js?1532701923"></script>
+    <script src="../js/highlight.pack.js?1532701923"></script>
     <script>hljs.initHighlightingOnLoad();</script>
-    <script src="../js/modernizr.custom.71422.js?1532701656"></script>
-    <script src="../js/learn.js?1532701656"></script>
-    <script src="../js/hugo-learn.js?1532701656"></script>
+    <script src="../js/modernizr.custom.71422.js?1532701923"></script>
+    <script src="../js/learn.js?1532701923"></script>
+    <script src="../js/hugo-learn.js?1532701923"></script>
 
-    <link href="../mermaid/mermaid.css?1532701656" type="text/css" rel="stylesheet" />
-    <script src="../mermaid/mermaid.js?1532701656"></script>
+    <link href="../mermaid/mermaid.css?1532701923" type="text/css" rel="stylesheet" />
+    <script src="../mermaid/mermaid.js?1532701923"></script>
     <script>
         mermaid.initialize({ startOnLoad: true });
     </script>
