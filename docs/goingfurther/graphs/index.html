@@ -12,17 +12,17 @@
     <title>Interacting with graphs :: Introduction to Shiny</title>
     
     
-    <link href="../../css/nucleus.css?1532677642" rel="stylesheet">
-    <link href="../../css/font-awesome.min.css?1532677642" rel="stylesheet">
-    <link href="../../css/hybrid.css?1532677642" rel="stylesheet">
-    <link href="../../css/featherlight.min.css?1532677642" rel="stylesheet">
-    <link href="../../css/perfect-scrollbar.min.css?1532677642" rel="stylesheet">
-    <link href="../../css/auto-complete.css?1532677642" rel="stylesheet">
-    <link href="../../css/theme.css?1532677642" rel="stylesheet">
-    <link href="../../css/hugo-theme.css?1532677642" rel="stylesheet">
+    <link href="../../css/nucleus.css?1532684694" rel="stylesheet">
+    <link href="../../css/font-awesome.min.css?1532684694" rel="stylesheet">
+    <link href="../../css/hybrid.css?1532684694" rel="stylesheet">
+    <link href="../../css/featherlight.min.css?1532684694" rel="stylesheet">
+    <link href="../../css/perfect-scrollbar.min.css?1532684694" rel="stylesheet">
+    <link href="../../css/auto-complete.css?1532684694" rel="stylesheet">
+    <link href="../../css/theme.css?1532684694" rel="stylesheet">
+    <link href="../../css/hugo-theme.css?1532684694" rel="stylesheet">
     
 
-    <script src="../../js/jquery-2.x.min.js?1532677642"></script>
+    <script src="../../js/jquery-2.x.min.js?1532684694"></script>
     
     <style type="text/css">
       :root #header + #content > #left > #rlblock_left{ 
@@ -366,7 +366,24 @@
 <ul>
 <li>
 <ul>
-<li><a href="#getting-the-graph-co-ordinates">Getting the graph co-ordinates</a></li>
+<li><a href="#getting-the-graph-co-ordinates">Getting the graph co-ordinates</a>
+<ul>
+<li><a href="#exercise">Exercise</a></li>
+<li><a href="#solution">Solution</a></li>
+</ul></li>
+<li><a href="#which-points-are-close-to-the-data">Which points are close to the data</a>
+<ul>
+<li><a href="#exercise-1">Exercise</a></li>
+<li><a href="#solution-1">Solution</a></li>
+</ul></li>
+<li><a href="#retaining-the-click-data">Retaining the click data</a></li>
+<li><a href="#showing-the-country-s-historic-data">Showing the country&rsquo;s historic data</a>
+<ul>
+<li><a href="#exercise-2">Exercise</a></li>
+<li><a href="#solution-2">Solution</a></li>
+<li><a href="#exercise-3">Exercise</a></li>
+<li><a href="#solution-3">Solution</a></li>
+</ul></li>
 </ul></li>
 </ul>
 </nav>
@@ -396,21 +413,24 @@
   filter(country == &quot;United Kingdom&quot;)
 
 # addHistoricPlot() will add a trace showing the trajectory of a country
-# to an existing plot:
+# to an existing plot: (makeSemiTransParent will make the points semi-transparent
+# so that the historic data is more obvious)
 gapminder %&gt;% 
   filter(year == 2000) %&gt;% 
-  produceGapminderPlot() %&gt;% 
+  produceGapminderPlot(makeSemiTransparent = TRUE) %&gt;% 
   addHistoricPlot(historicdata)
 </code></pre>
 
 <p><img src="figure/unnamed-chunk-2-1.png" alt="plot of chunk unnamed-chunk-2" /></p>
 
-<p>You should complete the <a href="../../goingfurther/reactive/">reactive data</a></p>
+<div class="notices note" ><p>You should complete the <a href="../../goingfurther/reactive/">reactive data</a> lesson before this lesson.</p>
+</div>
+
 
 <p>There are a number of steps to go through to get to this point:</p>
 
 <ol>
-<li>Returning the co-ordinates of the graph when we click on it</li>
+<li>Returning the co-ordinates of the graph (only) when we click on it</li>
 <li>Working out which point (i.e. country) is closest to where we clicked</li>
 <li>Generating the <code>historicdata</code> set, to show the &ldquo;trace&rdquo;</li>
 <li>Adding the historic data to the plot.</li>
@@ -418,7 +438,84 @@ gapminder %&gt;%
 
 <h2 id="getting-the-graph-co-ordinates">Getting the graph co-ordinates</h2>
 
-<p>The <code>plotOutput()</code> function (in the user interface) takes a <code>click</code> option, which will return the co-ordinates of the graph when it is selected.</p>
+<p>The <code>plotOutput()</code> function (in the user interface) takes a <code>click</code> option, which will return the co-ordinates of the graph when it is selected:</p>
+
+<pre><code class="language-r"> plotOutput(&quot;gapminderPlot&quot;, click = &quot;plotClick&quot;)
+</code></pre>
+
+<p>We can access the value of <code>plotClick</code> using <code>input$plotClick</code>.  The click data is returned as a list.</p>
+
+<div class="notices tip" ><p>You can also capture double click, hover and brush (e.g. selecting an area) events - see <code>?plotOutput()</code> for more details.</p>
+</div>
+
+
+<h3 id="exercise">Exercise</h3>
+
+<p>Capture click data from the graph, by setting the <code>click=</code> option.   Use <code>renderPrint()</code> in the server function, and <code>verbatimTextOuput()</code> in the UI to show the captured data.   Having clicked on the graph and obtained click data, try selecting another year or continent.  You will find that the click data disappears; as soon as the graph is redrawn the click event is invalidated (this is also the case if the graph is resized).  We&rsquo;ll deal with this issue later</p>
+
+<h3 id="solution">Solution</h3>
+
+<p><a href="https://github.com/UoMResearchIT/RSE18-shiny-workshop-materials/commit/0b5f38e58454f3a622c87681abfd6d3418fbb7ae">git:10_clickdata</a></p>
+
+<h2 id="which-points-are-close-to-the-data">Which points are close to the data</h2>
+
+<p>You may have noticed that the click data contains the x and y coordinates of where we clicked.  Shiny provides a function, <code>nearPoints(df, coordinfo)</code> which, given a tibble of input data and the clickdata returns a tibble the rows of data for points near the click (you can adjust the definition of &ldquo;near&rdquo; using the <code>threshold</code> option, and the maximum number of points returned using the <code>maxpoints</code> option)</p>
+
+<h3 id="exercise-1">Exercise</h3>
+
+<p>Modify your <code>renderPrint()</code> function to return information on the country nearest the click.</p>
+
+<h3 id="solution-1">Solution</h3>
+
+<p><a href="https://github.com/UoMResearchIT/RSE18-shiny-workshop-materials/commit/f8a7f98601c1f8eb64b4cde76f5e5566990be349">git:11_nearpoints</a></p>
+
+<h2 id="retaining-the-click-data">Retaining the click data</h2>
+
+<p>As soon as the graph is redrawn, the click event becomes invalidated.  Because of the reactive programming approach this means that Shiny recalulates all the clicks dependencies (such as the output), and returns no country information.  We need to store the country information, and only update this when a new click event is detected.  We need to do two things:</p>
+
+<ol>
+<li>Create a reactive value to store the currently selected country</li>
+<li>use the <code>observeEvent()</code> function to observe when a click occurs, and only then put the output of that click into the reactive value we created above.</li>
+</ol>
+
+<p>To do this, we modify the server function as follows <a href="https://github.com/UoMResearchIT/RSE18-shiny-workshop-materials/commit/b75c56ad83e6574f33dce44f51da2551bb55418a">git:11_observeevent</a>:</p>
+
+<pre><code class="language-r"># Create a reactive value to store the country we seleect
+activeCountry &lt;- reactiveVal(value = NA)
+
+# Update the value of activeCountry() when we detect an input$plotClick event
+# (Note how we update a reactiveVal() )
+observeEvent(input$plotClick, 
+             {
+               nearCountry &lt;- nearPoints(plotData(), input$plotClick, maxpoints = 1)
+               activeCountry(as.character(nearCountry$country))
+             })
+
+# Display the active country
+output$clickData &lt;- renderPrint(({
+  activeCountry()
+}))
+</code></pre>
+
+<h2 id="showing-the-country-s-historic-data">Showing the country&rsquo;s historic data</h2>
+
+<p><code>codeExample.R</code>, and the example at the top of this lesson show how to add the historic &ldquo;trace&rdquo; data for a country.  We need to create a tibble containing this historic data, and then add this to the plot.</p>
+
+<h3 id="exercise-2">Exercise</h3>
+
+<p>Create a reactive data set, using <code>reactive()</code> which contains the historic data (i.e. for all years up to and including the selected year) for the currently selected country.  If no country is selected this will have 0 rows.</p>
+
+<h3 id="solution-2">Solution</h3>
+
+<p><a href="https://github.com/UoMResearchIT/RSE18-shiny-workshop-materials/commit/0d40fea1001b8a38152d6408e39f63985d083241">git:12_historic</a></p>
+
+<h3 id="exercise-3">Exercise</h3>
+
+<p>The final thing to do is to add the historic data to the plot, if a country is selected. Modify the <code>renderPlot()</code> to produce the regular graph if <code>is.na(activeCountry())</code> is <code>TRUE</code>, and to produce the  plot including the historic data otherwise (the code example at the start of the episode shows how to add historic data to a plot).</p>
+
+<h3 id="solution-3">Solution</h3>
+
+<p><a href="https://github.com/UoMResearchIT/RSE18-shiny-workshop-materials/commit/d98f43ee7c0a59cd4e4cf819b2d8bd5b3c30f10c">git:13_showhistoric</a></p>
 
 
 <footer class=" footline" >
@@ -627,20 +724,20 @@ gapminder %&gt;%
     <div style="left: -1000px; overflow: scroll; position: absolute; top: -1000px; border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;">
       <div style="border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;"></div>
     </div>
-    <script src="../../js/clipboard.min.js?1532677642"></script>
-    <script src="../../js/perfect-scrollbar.min.js?1532677642"></script>
-    <script src="../../js/perfect-scrollbar.jquery.min.js?1532677642"></script>
-    <script src="../../js/jquery.sticky.js?1532677642"></script>
-    <script src="../../js/featherlight.min.js?1532677642"></script>
-    <script src="../../js/html5shiv-printshiv.min.js?1532677642"></script>
-    <script src="../../js/highlight.pack.js?1532677642"></script>
+    <script src="../../js/clipboard.min.js?1532684694"></script>
+    <script src="../../js/perfect-scrollbar.min.js?1532684694"></script>
+    <script src="../../js/perfect-scrollbar.jquery.min.js?1532684694"></script>
+    <script src="../../js/jquery.sticky.js?1532684694"></script>
+    <script src="../../js/featherlight.min.js?1532684694"></script>
+    <script src="../../js/html5shiv-printshiv.min.js?1532684694"></script>
+    <script src="../../js/highlight.pack.js?1532684694"></script>
     <script>hljs.initHighlightingOnLoad();</script>
-    <script src="../../js/modernizr.custom.71422.js?1532677642"></script>
-    <script src="../../js/learn.js?1532677642"></script>
-    <script src="../../js/hugo-learn.js?1532677642"></script>
+    <script src="../../js/modernizr.custom.71422.js?1532684694"></script>
+    <script src="../../js/learn.js?1532684694"></script>
+    <script src="../../js/hugo-learn.js?1532684694"></script>
 
-    <link href="../../mermaid/mermaid.css?1532677642" type="text/css" rel="stylesheet" />
-    <script src="../../mermaid/mermaid.js?1532677642"></script>
+    <link href="../../mermaid/mermaid.css?1532684694" type="text/css" rel="stylesheet" />
+    <script src="../../mermaid/mermaid.js?1532684694"></script>
     <script>
         mermaid.initialize({ startOnLoad: true });
     </script>

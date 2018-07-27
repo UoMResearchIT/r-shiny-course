@@ -38,6 +38,7 @@ The `outputId` of the plot in the default app is `distPlot` - you should change 
 
 [git:06_interactive]()
 
+
 ##  Summary
 
 We've now built a Shiny app.  To recap:
