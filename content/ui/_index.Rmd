@@ -66,6 +66,8 @@ For now the check boxes won't do anything; we've not made use of the widget's va
 The `mainPanel()` of the user interface contains a single element in the example app.  The `plotOutput()` displays a plot - in the example app called `distPlot`.  We'll come to how that plot is defined in a moment.  For now, note that there are several `...Output()` functions for displaying various types of output from R, such as `renderTable()` and `renderText
 
 
+There is more information on altering the layout of Shiny apps, and altering the theme of the apps in the extra [app layout]({{<ref "goingfurther/layout" >}}) lesson.
+
 ## The server function
 
 The server function contains the code behind the webapp.   Each `...Output()` function in the user interface has a corresponding `render...()` function.   The first argument of the `render...()` function contains the R code to generate the thing we want to render.  For example, in the example app, the `renderPlot()` function contains the code that will generate a histogram.  As this neeeds to b a single expression this will typically be contained in `{}`s 
