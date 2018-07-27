@@ -37,6 +37,7 @@ slides: $(presentationname).html
 
 $(presentationname).html: $(presentationname)_annote.Rmd coursematerial/workshopFunctions.R coursematerial/gapminder.rds  .gitmodules
 	Rscript -e "rmarkdown::render('$<', output_file='$@')"
+	touch content/slides.html
 
 
 $(presentationname)_annote.Rmd: $(presentationname).Rmd
