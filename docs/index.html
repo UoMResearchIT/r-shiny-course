@@ -12,17 +12,17 @@
     <title>Introduction to Shiny :: Introduction to Shiny</title>
     
     
-    <link href="./css/nucleus.css?1532676970" rel="stylesheet">
-    <link href="./css/font-awesome.min.css?1532676970" rel="stylesheet">
-    <link href="./css/hybrid.css?1532676970" rel="stylesheet">
-    <link href="./css/featherlight.min.css?1532676970" rel="stylesheet">
-    <link href="./css/perfect-scrollbar.min.css?1532676970" rel="stylesheet">
-    <link href="./css/auto-complete.css?1532676970" rel="stylesheet">
-    <link href="./css/theme.css?1532676970" rel="stylesheet">
-    <link href="./css/hugo-theme.css?1532676970" rel="stylesheet">
+    <link href="./css/nucleus.css?1532677642" rel="stylesheet">
+    <link href="./css/font-awesome.min.css?1532677642" rel="stylesheet">
+    <link href="./css/hybrid.css?1532677642" rel="stylesheet">
+    <link href="./css/featherlight.min.css?1532677642" rel="stylesheet">
+    <link href="./css/perfect-scrollbar.min.css?1532677642" rel="stylesheet">
+    <link href="./css/auto-complete.css?1532677642" rel="stylesheet">
+    <link href="./css/theme.css?1532677642" rel="stylesheet">
+    <link href="./css/hugo-theme.css?1532677642" rel="stylesheet">
     
 
-    <script src="./js/jquery-2.x.min.js?1532676970"></script>
+    <script src="./js/jquery-2.x.min.js?1532677642"></script>
     
     <style type="text/css">
       :root #header + #content > #left > #rlblock_left{ 
@@ -328,7 +328,9 @@
  
 
 
-<h1 id="introduction-to-shiny">Introduction to Shiny</h1>
+<p>This is the &ldquo;Data Visualization Using Shiny&rdquo; workshop for the 2018 <a href="http://rse.ac.uk/conf2018/">Research Software Engineers&rsquo; Conference</a></p>
+
+<h1 id="introduction">Introduction</h1>
 
 <p>Shiny lets us build interactive web apps, using R.   This means we can use (pretty much) all of R&rsquo;s extensive (and extensible) data analysis and visualisation features in our app.  Essentially, we can take almost any analysis we&rsquo;ve done in R, and then make it interactive.   We can run our apps locally, within R Studio (this is what we&rsquo;ll do most of today), make them standalone, either by deploying them to a <a href="https://www.rstudio.com/products/shiny/shiny-server/">Shiny Server</a>, or to a hosting service, such as <a href="https://shinyapps.io">https://shinyapps.io</a> (we&rsquo;ll do this today), or even including them in a Markdown document.</p>
 
@@ -358,7 +360,16 @@ innovative visualisations and puts it into Shiny.
 
 <p>The material we&rsquo;ll use for this workshop are in the <code>~/mawdsley</code> directory.  This contains the gapminder data we&rsquo;ll be plotting (<code>gapminder.rds</code>), the Shiny app we&rsquo;re going to be making (a deployed version of this is at <a href="https://mawds.shinyapps.io/worked_example/">https://mawds.shinyapps.io/worked_example/</a>) (in <code>worked_example/</code>) and some example code showing how to produce (static) graphs of the gapminder data (in <code>codeExample.R</code>).  The example code uses the functions in <code>plottingFunctions.R</code> to produce the graphs; this is to reduce the time we spend dealing with the intricacies of ggplot2.</p>
 
-<p>The directory is a git repository.  Each commit is tagged, and represents the solution to an exercise.  (Not sure how best to do this part - either the user makes a <em>new</em> git repo in another directory and puts their exercise under version control <em>or</em> creates the app within <code>~/mawdsley</code> and leaves their app out of version control, and checks out the various steps).  You can look at the diff for a commit within R Studio, or you can view it on github by clicking the link within the solution, e.g. <a href="https://github.com/UoMResearchIT/RSE18-shiny-workshop-materials/commit/65f7be7dc0b2c9d908b558130107db8d1f483178">git:01_defaultapp</a>.</p>
+<p>The directory is a git repository.  Each commit is tagged, and represents the solution to an exercise, or a &ldquo;checkpoint&rdquo; in the workshop.   We&rsquo;ll start at the initial commit, <a href="https://github.com/UoMResearchIT/RSE18-shiny-workshop-materials/commit/c1cd846edab03830d7530fd5f4cdf5db31aa9607">git:00_workshopdata</a>, which contains the data and functions we&rsquo;ll be using.   Links to the commits are clickable, and will show you the diff of that commit on github.</p>
+
+<p>You should try the exercises in your own directory (outside of <code>~/mawdsley</code>). If you get stuck, or your code gets horribly broken you can checkout the appropriate commit in <code>~/mawdsley</code> by changing to that directory and using:</p>
+
+<pre><code class="language-bash">git checkout tagname
+</code></pre>
+
+<p>(For example, <code>git checkout 09_richcountry</code> will take you to the finished app.)</p>
+
+<p>You can then copy the working code to your directory and carry on from there.</p>
 	
   
         
@@ -553,20 +564,20 @@ innovative visualisations and puts it into Shiny.
     <div style="left: -1000px; overflow: scroll; position: absolute; top: -1000px; border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;">
       <div style="border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;"></div>
     </div>
-    <script src="./js/clipboard.min.js?1532676970"></script>
-    <script src="./js/perfect-scrollbar.min.js?1532676970"></script>
-    <script src="./js/perfect-scrollbar.jquery.min.js?1532676970"></script>
-    <script src="./js/jquery.sticky.js?1532676970"></script>
-    <script src="./js/featherlight.min.js?1532676970"></script>
-    <script src="./js/html5shiv-printshiv.min.js?1532676970"></script>
-    <script src="./js/highlight.pack.js?1532676970"></script>
+    <script src="./js/clipboard.min.js?1532677642"></script>
+    <script src="./js/perfect-scrollbar.min.js?1532677642"></script>
+    <script src="./js/perfect-scrollbar.jquery.min.js?1532677642"></script>
+    <script src="./js/jquery.sticky.js?1532677642"></script>
+    <script src="./js/featherlight.min.js?1532677642"></script>
+    <script src="./js/html5shiv-printshiv.min.js?1532677642"></script>
+    <script src="./js/highlight.pack.js?1532677642"></script>
     <script>hljs.initHighlightingOnLoad();</script>
-    <script src="./js/modernizr.custom.71422.js?1532676970"></script>
-    <script src="./js/learn.js?1532676970"></script>
-    <script src="./js/hugo-learn.js?1532676970"></script>
+    <script src="./js/modernizr.custom.71422.js?1532677642"></script>
+    <script src="./js/learn.js?1532677642"></script>
+    <script src="./js/hugo-learn.js?1532677642"></script>
 
-    <link href="./mermaid/mermaid.css?1532676970" type="text/css" rel="stylesheet" />
-    <script src="./mermaid/mermaid.js?1532676970"></script>
+    <link href="./mermaid/mermaid.css?1532677642" type="text/css" rel="stylesheet" />
+    <script src="./mermaid/mermaid.js?1532677642"></script>
     <script>
         mermaid.initialize({ startOnLoad: true });
     </script>
