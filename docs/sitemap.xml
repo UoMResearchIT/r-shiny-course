@@ -31,11 +31,19 @@
   </url>
   
   <url>
+    <loc>/goingfurther/graphs/</loc>
+  </url>
+  
+  <url>
     <loc>/slides/</loc>
   </url>
   
   <url>
     <loc>/about/</loc>
+  </url>
+  
+  <url>
+    <loc>/goingfurther/layout/</loc>
   </url>
   
   <url>

@@ -40,13 +40,27 @@ Reactive expressions return a function, so we refer to the data we're plotting a
          produceGapminderPlot() })
 ```
 
-The app will behave in the same way as before, but by defining the reactive expression `plotData()` we can use the data that we're plotting on the graph elsewhere in the app.
+The app will behave in the same way as before, but by defining the reactive expression `plotData()` we can use the data that we're plotting on the graph elsewhere in the app. [git:07_reactivedata](https://github.com/UoMResearchIT/RSE18-shiny-workshop-materials/commit/b0ed66f0bbe354c7ced39a4a5d5827751b45e64a)
 
-## Exercise
+###  Exercise
 
-The `renderTable()` function will render a tibble, and `tableOutput()` will display it.   Use these functions, with the reactive data to display a (long) table containing the data displayed on the graph.
-  
-The `getRichestCountry()` function in `plottingFunctions.R` will return a tibble containing the name of the richest country in a tibble, and the country's GDP per capita. Modify your `renderTable()` function to only display this information for the displayed graph.
+- The `renderTable()` function will render a tibble, and `tableOutput()` will display it.   Use these functions, with the reactive data to display a (long) table containing the data displayed on the graph.
+
+### Solution
+
+[git:08_showplotdata](https://github.com/UoMResearchIT/RSE18-shiny-workshop-materials/commit/3afa9cf14b8fc63aff0ffc4b6dcdf1972a56493c)
+
+
+{{% notice tip %}}
+There are two ways of displaying tabular data in Shiny.  `renderTable()` and `tableOutput()` will show a non-interactive tibble.  You can also use `renderDataTable()` and `dataTableOutput()` to give an interactive table that can be sorted, filtered etc.
+{{% /notice %}}
+
+
+- The `getRichestCountry()` function in `plottingFunctions.R` will return a tibble containing the name of the richest country in a tibble, and the country's GDP per capita. Modify your `renderTable()` function to only display this information for the displayed graph.
+
+### Solution
+
+[git:09_richcountry](https://github.com/UoMResearchIT/RSE18-shiny-workshop-materials/commit/69738bd7ffb74f020ab7109b8e7d002a370b5080)
 
 
 

@@ -35,7 +35,8 @@ Let&amp;rsquo;s add another output to the app; we&amp;rsquo;ll show which countr
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>/about/</guid>
-      <description>This site is written using Hugo, the learn theme, and hosted on github.</description>
+      <description>This site is for the RSE 2018 conference workshop on Shiny.
+This site is written using Hugo, the learn theme, and hosted on github.</description>
     </item>
     
   </channel>

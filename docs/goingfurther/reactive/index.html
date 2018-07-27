@@ -12,17 +12,17 @@
     <title>Reactive data :: Introduction to Shiny</title>
     
     
-    <link href="../../css/nucleus.css?1532613917" rel="stylesheet">
-    <link href="../../css/font-awesome.min.css?1532613917" rel="stylesheet">
-    <link href="../../css/hybrid.css?1532613917" rel="stylesheet">
-    <link href="../../css/featherlight.min.css?1532613917" rel="stylesheet">
-    <link href="../../css/perfect-scrollbar.min.css?1532613917" rel="stylesheet">
-    <link href="../../css/auto-complete.css?1532613917" rel="stylesheet">
-    <link href="../../css/theme.css?1532613917" rel="stylesheet">
-    <link href="../../css/hugo-theme.css?1532613917" rel="stylesheet">
+    <link href="../../css/nucleus.css?1532675495" rel="stylesheet">
+    <link href="../../css/font-awesome.min.css?1532675495" rel="stylesheet">
+    <link href="../../css/hybrid.css?1532675495" rel="stylesheet">
+    <link href="../../css/featherlight.min.css?1532675495" rel="stylesheet">
+    <link href="../../css/perfect-scrollbar.min.css?1532675495" rel="stylesheet">
+    <link href="../../css/auto-complete.css?1532675495" rel="stylesheet">
+    <link href="../../css/theme.css?1532675495" rel="stylesheet">
+    <link href="../../css/hugo-theme.css?1532675495" rel="stylesheet">
     
 
-    <script src="../../js/jquery-2.x.min.js?1532613917"></script>
+    <script src="../../js/jquery-2.x.min.js?1532675495"></script>
     
     <style type="text/css">
       :root #header + #content > #left > #rlblock_left{ 
@@ -184,6 +184,8 @@
         <ul>
           
           
+            
+          
           
           
         
@@ -202,6 +204,54 @@
         </a>
     </li>
      
+  
+ 
+
+            
+          
+            
+            
+
+
+ 
+  
+    
+    <li data-nav-id="/goingfurther/graphs/" title="Interacting with graphs" class="dd-item 
+        
+        
+        
+        ">
+      <a href="../../goingfurther/graphs/">
+          Interacting with graphs
+          
+      </a>
+      
+              
+    </li>
+  
+ 
+
+            
+          
+            
+            
+
+
+ 
+  
+    
+    <li data-nav-id="/goingfurther/layout/" title="App layout" class="dd-item 
+        
+        
+        
+        ">
+      <a href="../../goingfurther/layout/">
+          App layout
+          
+      </a>
+      
+              
+    </li>
   
  
 
@@ -316,7 +366,12 @@
 <ul>
 <li>
 <ul>
+<li>
+<ul>
 <li><a href="#exercise">Exercise</a></li>
+<li><a href="#solution">Solution</a></li>
+<li><a href="#solution-1">Solution</a></li>
+</ul></li>
 </ul></li>
 </ul>
 </nav>
@@ -372,13 +427,29 @@ graph LR;
          produceGapminderPlot() })
 </code></pre>
 
-<p>The app will behave in the same way as before, but by defining the reactive expression <code>plotData()</code> we can use the data that we&rsquo;re plotting on the graph elsewhere in the app.</p>
+<p>The app will behave in the same way as before, but by defining the reactive expression <code>plotData()</code> we can use the data that we&rsquo;re plotting on the graph elsewhere in the app. <a href="https://github.com/UoMResearchIT/RSE18-shiny-workshop-materials/commit/b0ed66f0bbe354c7ced39a4a5d5827751b45e64a">git:07_reactivedata</a></p>
 
-<h2 id="exercise">Exercise</h2>
+<h3 id="exercise">Exercise</h3>
 
-<p>The <code>renderTable()</code> function will render a tibble, and <code>tableOutput()</code> will display it.   Use these functions, with the reactive data to display a (long) table containing the data displayed on the graph.</p>
+<ul>
+<li>The <code>renderTable()</code> function will render a tibble, and <code>tableOutput()</code> will display it.   Use these functions, with the reactive data to display a (long) table containing the data displayed on the graph.</li>
+</ul>
 
-<p>The <code>getRichestCountry()</code> function in <code>plottingFunctions.R</code> will return a tibble containing the name of the richest country in a tibble, and the country&rsquo;s GDP per capita. Modify your <code>renderTable()</code> function to only display this information for the displayed graph.</p>
+<h3 id="solution">Solution</h3>
+
+<p><a href="https://github.com/UoMResearchIT/RSE18-shiny-workshop-materials/commit/3afa9cf14b8fc63aff0ffc4b6dcdf1972a56493c">git:08_showplotdata</a></p>
+
+<div class="notices tip" ><p>There are two ways of displaying tabular data in Shiny.  <code>renderTable()</code> and <code>tableOutput()</code> will show a non-interactive tibble.  You can also use <code>renderDataTable()</code> and <code>dataTableOutput()</code> to give an interactive table that can be sorted, filtered etc.</p>
+</div>
+
+
+<ul>
+<li>The <code>getRichestCountry()</code> function in <code>plottingFunctions.R</code> will return a tibble containing the name of the richest country in a tibble, and the country&rsquo;s GDP per capita. Modify your <code>renderTable()</code> function to only display this information for the displayed graph.</li>
+</ul>
+
+<h3 id="solution-1">Solution</h3>
+
+<p><a href="https://github.com/UoMResearchIT/RSE18-shiny-workshop-materials/commit/69738bd7ffb74f020ab7109b8e7d002a370b5080">git:09_richcountry</a></p>
 
 
 <footer class=" footline" >
@@ -506,6 +577,8 @@ graph LR;
 
                     
                     
+                        
+                    
                     
 
                     
@@ -514,6 +587,41 @@ graph LR;
             
                 
                     
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                        
+                        
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
                     
                 
                 
@@ -539,7 +647,7 @@ graph LR;
             <a class="nav nav-prev" href="../../goingfurther/" title="Going further"> <i class="fa fa-chevron-left"></i></a>
         
         
-            <a class="nav nav-next" href="../../basics/" title="Getting started" style="margin-right: 0px;"><i class="fa fa-chevron-right"></i></a>
+            <a class="nav nav-next" href="../../goingfurther/graphs/" title="Interacting with graphs" style="margin-right: 0px;"><i class="fa fa-chevron-right"></i></a>
         
     </div>
 
@@ -548,20 +656,20 @@ graph LR;
     <div style="left: -1000px; overflow: scroll; position: absolute; top: -1000px; border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;">
       <div style="border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;"></div>
     </div>
-    <script src="../../js/clipboard.min.js?1532613917"></script>
-    <script src="../../js/perfect-scrollbar.min.js?1532613917"></script>
-    <script src="../../js/perfect-scrollbar.jquery.min.js?1532613917"></script>
-    <script src="../../js/jquery.sticky.js?1532613917"></script>
-    <script src="../../js/featherlight.min.js?1532613917"></script>
-    <script src="../../js/html5shiv-printshiv.min.js?1532613917"></script>
-    <script src="../../js/highlight.pack.js?1532613917"></script>
+    <script src="../../js/clipboard.min.js?1532675495"></script>
+    <script src="../../js/perfect-scrollbar.min.js?1532675495"></script>
+    <script src="../../js/perfect-scrollbar.jquery.min.js?1532675495"></script>
+    <script src="../../js/jquery.sticky.js?1532675495"></script>
+    <script src="../../js/featherlight.min.js?1532675495"></script>
+    <script src="../../js/html5shiv-printshiv.min.js?1532675495"></script>
+    <script src="../../js/highlight.pack.js?1532675495"></script>
     <script>hljs.initHighlightingOnLoad();</script>
-    <script src="../../js/modernizr.custom.71422.js?1532613917"></script>
-    <script src="../../js/learn.js?1532613917"></script>
-    <script src="../../js/hugo-learn.js?1532613917"></script>
+    <script src="../../js/modernizr.custom.71422.js?1532675495"></script>
+    <script src="../../js/learn.js?1532675495"></script>
+    <script src="../../js/hugo-learn.js?1532675495"></script>
 
-    <link href="../../mermaid/mermaid.css?1532613917" type="text/css" rel="stylesheet" />
-    <script src="../../mermaid/mermaid.js?1532613917"></script>
+    <link href="../../mermaid/mermaid.css?1532675495" type="text/css" rel="stylesheet" />
+    <script src="../../mermaid/mermaid.js?1532675495"></script>
     <script>
         mermaid.initialize({ startOnLoad: true });
     </script>
