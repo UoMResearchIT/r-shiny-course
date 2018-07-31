@@ -16,9 +16,9 @@ In this workshop, we're going to use data from the [Gapminder project](https://w
 innovative visualisations and puts it into Shiny. 
 {{< youtube id="jbkSRLYSojo" start="90" >}}
 
-We'll replicate this in Shiny (albeit without the smooth animation between years):
+We'll replicate this in Shiny (albeit without the smooth animation between years). A deployed version of the app is at https://mawds.shinyapps.io/worked_example/
 
-<iframe src="https://mawds.shinyapps.io/worked_example/" style="border:none; width:100%;  height:700px"></iframe>
+<!-- <iframe src="https://mawds.shinyapps.io/worked_example/" style="border:none; width:100%;  height:700px"></iframe> -->
 
 {{% notice info %}}
 I've tried to minimise the amount of non-Shiny material in this workshop, but we will need to do some manipulation of the data. I've adopted a [tidyverse](https://www.tidyverse.org/) based approach to doing this, using pipes and filters.  If you're more comfortable using base R you're very welcome to use that approach.   If you need a quick refresher on using the tidyverse to manipulate tabular data, [this episode](https://uomresearchit.github.io/r-tidyverse-intro/04-dplyr/) of the [Data Analysis using R course](https://uomresearchit.github.io/r-tidyverse-intro/), which we teach at the University of Manchester may be useful.
@@ -29,9 +29,9 @@ To minimise the amount of formatting of graphs etc, I've provided functions that
 
 ## How the workshop materials work
 
-The material we'll use for this workshop are in the `~/mawdsley` directory.  This contains the gapminder data we'll be plotting (`gapminder.rds`), the Shiny app we're going to be making (a deployed version of this is at https://mawds.shinyapps.io/worked_example/) (in `worked_example/`) and some example code showing how to produce (static) graphs of the gapminder data (in `codeExample.R`).  The example code uses the functions in `plottingFunctions.R` to produce the graphs; this is to reduce the time we spend dealing with the intricacies of ggplot2.
+The material we'll use for this workshop are in the `~/mawdsley` directory.  This contains the gapminder data we'll be plotting (`gapminder.rds`), the Shiny app we're going to be making  (in `worked_example/`) and some example code showing how to produce (static) graphs of the gapminder data (in `codeExample.R`).  The example code uses the functions in `plottingFunctions.R` to produce the graphs; this is to reduce the time we spend dealing with the intricacies of ggplot2.
 
-The directory is a git repository.  Each commit is tagged, and represents the solution to an exercise, or a "checkpoint" in the workshop.   We'll start at the initial commit, [git:00_workshopdata](https://github.com/UoMResearchIT/RSE18-shiny-workshop-materials/commit/c1cd846edab03830d7530fd5f4cdf5db31aa9607), which contains the data and functions we'll be using.   Links to the commits are clickable, and will show you the diff of that commit on github.  
+The directory is a git repository.  Each commit is tagged, and represents the solution to an exercise, or a "checkpoint" in the workshop.   The workshop VM is configured so that the initial commit, [git:00_workshopdata](https://github.com/UoMResearchIT/RSE18-shiny-workshop-materials/commit/c1cd846edab03830d7530fd5f4cdf5db31aa9607), is checked out.  This contains the data and functions we'll be using.   Within this website, links to the commits are clickable, and will show you the diff of that commit on github.  
 
 You should try the exercises in your own directory (outside of `~/mawdsley`). If you get stuck, or your code gets horribly broken you can checkout the appropriate commit in `~/mawdsley` by changing to that directory and using:
 
@@ -42,3 +42,5 @@ git checkout tagname
 (For example, `git checkout 09_richcountry` will take you to the finished app.)
 
 You can then copy the working code to your directory and carry on from there.
+
+
