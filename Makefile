@@ -22,6 +22,10 @@ all: slides site
 site: sitecontent
 	hugo
 
+# Remove generated markdown from site 
+cleancontent:
+	rm  $$(find content -name "*.md" -print)
+
 
 sitecontent: $(contentmd)
 	
