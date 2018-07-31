@@ -12,17 +12,17 @@
     <title>User Interface design :: Introduction to Shiny</title>
     
     
-    <link href="../css/nucleus.css?1533024005" rel="stylesheet">
-    <link href="../css/font-awesome.min.css?1533024005" rel="stylesheet">
-    <link href="../css/hybrid.css?1533024005" rel="stylesheet">
-    <link href="../css/featherlight.min.css?1533024005" rel="stylesheet">
-    <link href="../css/perfect-scrollbar.min.css?1533024005" rel="stylesheet">
-    <link href="../css/auto-complete.css?1533024005" rel="stylesheet">
-    <link href="../css/theme.css?1533024005" rel="stylesheet">
-    <link href="../css/hugo-theme.css?1533024005" rel="stylesheet">
+    <link href="../css/nucleus.css?1533029267" rel="stylesheet">
+    <link href="../css/font-awesome.min.css?1533029267" rel="stylesheet">
+    <link href="../css/hybrid.css?1533029267" rel="stylesheet">
+    <link href="../css/featherlight.min.css?1533029267" rel="stylesheet">
+    <link href="../css/perfect-scrollbar.min.css?1533029267" rel="stylesheet">
+    <link href="../css/auto-complete.css?1533029267" rel="stylesheet">
+    <link href="../css/theme.css?1533029267" rel="stylesheet">
+    <link href="../css/hugo-theme.css?1533029267" rel="stylesheet">
     
 
-    <script src="../js/jquery-2.x.min.js?1533024005"></script>
+    <script src="../js/jquery-2.x.min.js?1533029267"></script>
     
     <style type="text/css">
       :root #header + #content > #left > #rlblock_left{ 
@@ -375,11 +375,13 @@
 
 <h2 id="the-ui-section">The UI section</h2>
 
-<p>The user interface of the default app uses the <code>fluidPage()</code> to create the app&rsquo;s layout. The fluidPage layout will automatically respond to changes in browser size.  Within the <code>fluidPage()</code>, we use a <code>sidebarLayout()</code> to split the page into two sections; the <code>sidebarPanel()</code> which contain (in the example) the app&rsquo;s input (the slider) and the <code>mainPanel()</code> which in the example app contains the histogram output.   This is a fairly typical layout for a Shiny app (note that there&rsquo;s nothing stopping us putting more output above the <code>sidebarLayout()</code> - for example the <code>titlePanel()</code>, or after it - we could, for example use a <code>p()</code> tag to include further text, or add further widgets, outputs etc.).   Each element of the page is an argument to a function, with <code>fluidPage()</code> at the top level.  It&rsquo;s easy to forget this when building an interface, and to forget to place the commas between arguments.</p>
+<p>The user interface of the default app uses the <code>fluidPage()</code> to create the app&rsquo;s layout. The fluidPage layout will automatically respond to changes in browser size.  Within the <code>fluidPage()</code>, we use a <code>sidebarLayout()</code> to split the page into two sections; the <code>sidebarPanel()</code> which contain (in the example) the app&rsquo;s input (the slider) and the <code>mainPanel()</code> which in the example app contains the histogram output.   This is a fairly typical layout for a Shiny app (note that there&rsquo;s nothing stopping us putting more output above the <code>sidebarLayout()</code> - for example the <code>titlePanel()</code>, or after it).   Each element of the page is an argument to a function, with <code>fluidPage()</code> at the top level.  It&rsquo;s easy to forget this when building an interface, and to forget to place the commas between arguments.</p>
 
-<p>More flexible, but complex layout options are available, such as <code>navBarPage()</code>, to produce a page with a navigation bar.  It&rsquo;s also possible to build a <a href="https://shiny.rstudio.com/articles/html-ui.html">user interface from scratch</a>, using HTML, CSS etc.</p>
+<p>More flexible, but complex layout options are available, such as <code>navBarPage()</code>, to <a href="https://shiny.rstudio.com/gallery/navbar-example.html" target="_blank">produce a page with a navigation bar</a>.  It&rsquo;s also possible to build a <a href="https://shiny.rstudio.com/articles/html-ui.html" target="_blank">user interface from scratch</a>, using HTML, CSS etc.</p>
 
-<p>For this tutorial we&rsquo;ll stick with the <code>fluidPage()</code> approach.  Most common html tags have a builder function associated with them.  So to add a paragraph of text to the app, we can pass another argument to the <code>fluidPage()</code> function:</p>
+<p>For this tutorial we&rsquo;ll stick with the <code>fluidPage()</code> approach.</p>
+
+<p>Most common html tags have a builder function associated with them.  So to add a paragraph of text to the app, we can pass another argument to the <code>fluidPage()</code> function:</p>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-r" data-lang="r">ui <span style="color:#f92672">&lt;-</span> fluidPage(
    
    <span style="color:#75715e"># Application title</span>
@@ -393,9 +395,13 @@
             min <span style="color:#f92672">=</span> <span style="color:#ae81ff">1</span>,
             max <span style="color:#f92672">=</span> <span style="color:#ae81ff">50</span>,
             value <span style="color:#f92672">=</span> <span style="color:#ae81ff">30</span>)</code></pre></div>
-<p>The first argument of the function defines the inputId - essentially this is the name of the variable that the widget&rsquo;s output (in this case the selected number of bins) is assigned to.  The second argument defines the label for widget.  The other arguments are widget specific; in this case they define the scale of the widget and its default value.</p>
+<p>The first argument of the function defines the <code>inputId</code> - essentially this is the name of the variable that the widget&rsquo;s output (in this case the selected number of bins) is assigned to.  The second argument defines the label for widget.  The other arguments are widget specific; in this case they define the scale of the widget and its default value.</p>
 
-<p>Shiny comes with a number of built in widgets that give different ways of interacting with our app. <a href="https://shiny.rstudio.com/gallery/widget-gallery.html">The Shiny Widget Gallery</a> lists built in widgets, along with example code to use them.</p>
+<div class="notices tip" ><p>You can get help on any of the widget&rsquo;s paramters (or on any R function) by typing <code>?functionName</code>.</p>
+</div>
+
+
+<p>Shiny comes with a number of built in widgets that give different ways of interacting with our app. <a href="https://shiny.rstudio.com/gallery/widget-gallery.html" target="_blank">The Shiny Widget Gallery</a> lists built in widgets, along with example code to use them.</p>
 
 <h3 id="exercise">Exercise:</h3>
 
@@ -417,13 +423,13 @@
 
 <h3 id="solution">Solution:</h3>
 
-<p><a href="https://github.com/UoMResearchIT/RSE18-shiny-workshop-materials/commit/c384dd124d40709a4d3000cbc16c89aaa67f0845">git:03_continentwidget</a></p>
+<p><a href="https://github.com/UoMResearchIT/RSE18-shiny-workshop-materials/commit/c384dd124d40709a4d3000cbc16c89aaa67f0845" target="_blank">git:03_continentwidget</a></p>
 
 <h2 id="displaying-r-outputs">Displaying R outputs</h2>
 
-<p>The <code>mainPanel()</code> of the user interface contains a single element in the example app.  The <code>plotOutput()</code> displays a plot - in the example app called <code>distPlot</code>.  We&rsquo;ll come to how that plot is defined in a moment.  For now, note that there are several <code>...Output()</code> functions for displaying various types of output from R, such as <code>renderTable()</code> and `renderText</p>
+<p>The <code>mainPanel()</code> of the user interface contains a single element in the example app.  The <code>plotOutput()</code> displays a plot - in the example app called <code>distPlot</code>.  We&rsquo;ll come to how that plot is defined in a moment.  For now, note that there are several <code>...Output()</code> functions for displaying various types of output from R.  The actual production of each peice of <code>....Output()</code> takes place in the server function.</p>
 
-<p>There is more information on altering the layout of Shiny apps, and altering the theme of the apps in the extra <a href="../goingfurther/layout/">app layout</a> lesson.</p>
+<p>There is more information on altering the layout of Shiny apps, and altering the theme of the apps in the extra <a href="../goingfurther/layout/" target="_blank">app layout</a> lesson.</p>
 
 <h2 id="the-server-function">The server function</h2>
 
@@ -440,7 +446,7 @@
    })</code></pre></div>
 <p><code>input$bins</code> will contain the value of the slider which was defined in the user interface (which was called <code>bins</code>).   This is how we connect elements of the user interface to the the server logic.</p>
 
-<p>The first argument of <code>renderPlot()</code> returns a graph; <em>how</em> we make that graph is up to us.  In the example app, base R graphic are used.  We&rsquo;ll be using ggplot2 in this workshop, as it&rsquo;s easier to make nice looking graphs with it.  To simplify things I&rsquo;ve put the ggplot functions within a wrapper function, which we loaded earlier ( <a href="https://github.com/UoMResearchIT/RSE18-shiny-workshop-materials/commit/7f3298332b887b2015d8b6636e46b4a37bb15906">git:02_loaddata</a> ) .  The important thing is that the first (and in the example, only) argument returns a graph object.   We can also pass arguments to manually control the width and height of the plot, etc.</p>
+<p>The first argument of <code>renderPlot()</code> returns a graph; <em>how</em> we make that graph is up to us.  In the example app, base R graphic are used.  We&rsquo;ll be using ggplot2 in this workshop, as it&rsquo;s easier to make nice looking graphs with it.  To simplify things I&rsquo;ve put the ggplot functions within a wrapper function, which we loaded earlier ( <a href="https://github.com/UoMResearchIT/RSE18-shiny-workshop-materials/commit/7f3298332b887b2015d8b6636e46b4a37bb15906" target="_blank">git:02_loaddata</a> ) .  The important thing is that the first (and in the example, only) argument returns a graph object.   We can also pass arguments to manually control the width and height of the plot, etc.</p>
 
 <h2 id="reactivity-how-shiny-responds-to-events">Reactivity (How Shiny responds to events)</h2>
 
@@ -448,7 +454,7 @@
 
 <p>The graph also depends on some other properties of the app, which we can&rsquo;t see directly, such as the window size.  If we resize the window, Shiny knows that the graph depends on that property of the app, and so will redraw the graph.</p>
 
-<p>Shiny automatically takes care of the dependencies between the various elements, and only updates what is needed.  This is covered in more detail in the section on <a href="../goingfurther/reactive/">reactivity</a>.</p>
+<p>Shiny automatically takes care of the dependencies between the various elements, and only updates what is needed.  This is covered in more detail in the section on <a href="../goingfurther/reactive/" target="_blank">reactivity</a>.</p>
 
 
 <footer class=" footline" >
@@ -655,20 +661,20 @@
     <div style="left: -1000px; overflow: scroll; position: absolute; top: -1000px; border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;">
       <div style="border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;"></div>
     </div>
-    <script src="../js/clipboard.min.js?1533024005"></script>
-    <script src="../js/perfect-scrollbar.min.js?1533024005"></script>
-    <script src="../js/perfect-scrollbar.jquery.min.js?1533024005"></script>
-    <script src="../js/jquery.sticky.js?1533024005"></script>
-    <script src="../js/featherlight.min.js?1533024005"></script>
-    <script src="../js/html5shiv-printshiv.min.js?1533024005"></script>
-    <script src="../js/highlight.pack.js?1533024005"></script>
+    <script src="../js/clipboard.min.js?1533029267"></script>
+    <script src="../js/perfect-scrollbar.min.js?1533029267"></script>
+    <script src="../js/perfect-scrollbar.jquery.min.js?1533029267"></script>
+    <script src="../js/jquery.sticky.js?1533029267"></script>
+    <script src="../js/featherlight.min.js?1533029267"></script>
+    <script src="../js/html5shiv-printshiv.min.js?1533029267"></script>
+    <script src="../js/highlight.pack.js?1533029267"></script>
     <script>hljs.initHighlightingOnLoad();</script>
-    <script src="../js/modernizr.custom.71422.js?1533024005"></script>
-    <script src="../js/learn.js?1533024005"></script>
-    <script src="../js/hugo-learn.js?1533024005"></script>
+    <script src="../js/modernizr.custom.71422.js?1533029267"></script>
+    <script src="../js/learn.js?1533029267"></script>
+    <script src="../js/hugo-learn.js?1533029267"></script>
 
-    <link href="../mermaid/mermaid.css?1533024005" type="text/css" rel="stylesheet" />
-    <script src="../mermaid/mermaid.js?1533024005"></script>
+    <link href="../mermaid/mermaid.css?1533029267" type="text/css" rel="stylesheet" />
+    <script src="../mermaid/mermaid.js?1533029267"></script>
     <script>
         mermaid.initialize({ startOnLoad: true });
     </script>

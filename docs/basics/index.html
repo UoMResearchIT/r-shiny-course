@@ -12,17 +12,17 @@
     <title>Getting started :: Introduction to Shiny</title>
     
     
-    <link href="../css/nucleus.css?1533024005" rel="stylesheet">
-    <link href="../css/font-awesome.min.css?1533024005" rel="stylesheet">
-    <link href="../css/hybrid.css?1533024005" rel="stylesheet">
-    <link href="../css/featherlight.min.css?1533024005" rel="stylesheet">
-    <link href="../css/perfect-scrollbar.min.css?1533024005" rel="stylesheet">
-    <link href="../css/auto-complete.css?1533024005" rel="stylesheet">
-    <link href="../css/theme.css?1533024005" rel="stylesheet">
-    <link href="../css/hugo-theme.css?1533024005" rel="stylesheet">
+    <link href="../css/nucleus.css?1533029267" rel="stylesheet">
+    <link href="../css/font-awesome.min.css?1533029267" rel="stylesheet">
+    <link href="../css/hybrid.css?1533029267" rel="stylesheet">
+    <link href="../css/featherlight.min.css?1533029267" rel="stylesheet">
+    <link href="../css/perfect-scrollbar.min.css?1533029267" rel="stylesheet">
+    <link href="../css/auto-complete.css?1533029267" rel="stylesheet">
+    <link href="../css/theme.css?1533029267" rel="stylesheet">
+    <link href="../css/hugo-theme.css?1533029267" rel="stylesheet">
     
 
-    <script src="../js/jquery-2.x.min.js?1533024005"></script>
+    <script src="../js/jquery-2.x.min.js?1533029267"></script>
     
     <style type="text/css">
       :root #header + #content > #left > #rlblock_left{ 
@@ -375,13 +375,13 @@
 
 <p>The most straightforward way of creating a new Shiny app is to use R Studio.  From the menu, choose, File, New, Shiny Web App.</p>
 
-<p>Choose a suitable name for your app (e.g. &ldquo;gapminder&rdquo;).   Leave the other options as their defaults (&ldquo;Single File&rdquo;, and Create within directory: <code>~/mawdsley</code>).  <a href="https://github.com/UoMResearchIT/RSE18-shiny-workshop-materials/commit/65f7be7dc0b2c9d908b558130107db8d1f483178">git:01_defaultapp</a></p>
+<p>Choose a suitable name for your app (e.g. &ldquo;gapminder&rdquo;).   Leave the other options as their defaults (&ldquo;Single File&rdquo;, and Create within directory: <code>~/mawdsley</code>).  <a href="https://github.com/UoMResearchIT/RSE18-shiny-workshop-materials/commit/65f7be7dc0b2c9d908b558130107db8d1f483178" target="_blank">git:01_defaultapp</a></p>
 
 <div class="notices info" ><p>When we create a new Shiny app we can create a single file (<code>app.R</code>), or as two separate files (<code>ui.R</code> and <code>server.R</code>).   The latter format used to be the only method of defining an Shiny app, but can still be useful when building a more complicated app, as it allows us to separate the user interface (<code>ui.R</code>) from the server logic (<code>server.R</code>).  As we will be building a relatively small app, we&rsquo;ll use the single file approach.</p>
-
-<p>When we create a new Shiny app in R Studio, it creates an example app that allows us to alter the number of bins in a histogram.  This uses an example data-set that is provided with R of the waiting times for the eruption of the &ldquo;Old Faithful&rdquo; geyser.</p>
 </div>
 
+
+<p>When we create a new Shiny app in R Studio, it creates an example app that allows us to alter the number of bins in a histogram.  This uses an example data-set that is provided with R of the waiting times for the eruption of the &ldquo;Old Faithful&rdquo; geyser.</p>
 
 <p>We can run the app by pressing the &ldquo;Run App&rdquo; button in the tool-bar (or by pressing Ctrl+Shift+Enter).  This will launch an browser window within R Studio where we can interact with our app.</p>
 
@@ -393,7 +393,7 @@
 
 <p>The default app doesn&rsquo;t use any additional libraries, functions or external data.  Before going any further we&rsquo;ll add these to the example app.</p>
 
-<div class="notices tip" ><p>The working directory of your R session is probably the project&rsquo;s directory (i.e. <code>~/mawdsley</code> - this is displayed at the top of the console window).  When you run the app, it runs in its own working directory (i.e. <code>~/mawdsley/gapminder</code>).   If you&rsquo;re interactively running bits of your code you may find it helpful to set the working directory to your app&rsquo;s directory. You can do this by typing <code>setwd(&quot;~/mawdsley/gapminder&quot;)</code></p>
+<div class="notices tip" ><p>The working directory of your R session is probably the project&rsquo;s directory (i.e. <code>~/mawdsley</code> - this is displayed at the top of the console window).  When you run the app, it runs in its own working directory (e.g. <code>~/myworkshop/gapminder</code>).   If you&rsquo;re interactively running bits of your code you may find it helpful to set the working directory to your app&rsquo;s directory. You can do this by typing <code>setwd(&quot;~/myworkshop/gapminder&quot;)</code></p>
 </div>
 
 
@@ -404,7 +404,7 @@
 <li>load the <code>ggplot2</code> and <code>dplyr</code> libraries at the start of the app</li>
 <li>Modify the app to load the <code>gapminder.rds</code> into an object called <code>gapminder</code> using the <code>readRDS()</code> function</li>
 <li><code>source()</code> the <code>workshopFunctions.R</code> file to make the functions</li>
-<li>Check your app still works - the output will be unchanged at this stage, but if there are any errors loading the functions or data we&rsquo;ll see them now.</li>
+<li>Check your app still works - the output will be unchanged at this stage, but if there are any errors loading the functions or data you will see these in RStudio&rsquo;s console window.</li>
 </ul>
 
 <div class="notices tip" ><p>You may wish to look at the <code>codeExample.R</code> file, which contains examples of loading libraries and functions</p>
@@ -413,7 +413,7 @@
 
 <h3 id="solution">Solution</h3>
 
-<p><a href="https://github.com/UoMResearchIT/RSE18-shiny-workshop-materials/commit/7f3298332b887b2015d8b6636e46b4a37bb15906">git:02_loaddata</a></p>
+<p><a href="https://github.com/UoMResearchIT/RSE18-shiny-workshop-materials/commit/7f3298332b887b2015d8b6636e46b4a37bb15906" target="_blank">git:02_loaddata</a></p>
 
 
 <footer class=" footline" >
@@ -617,20 +617,20 @@
     <div style="left: -1000px; overflow: scroll; position: absolute; top: -1000px; border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;">
       <div style="border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;"></div>
     </div>
-    <script src="../js/clipboard.min.js?1533024005"></script>
-    <script src="../js/perfect-scrollbar.min.js?1533024005"></script>
-    <script src="../js/perfect-scrollbar.jquery.min.js?1533024005"></script>
-    <script src="../js/jquery.sticky.js?1533024005"></script>
-    <script src="../js/featherlight.min.js?1533024005"></script>
-    <script src="../js/html5shiv-printshiv.min.js?1533024005"></script>
-    <script src="../js/highlight.pack.js?1533024005"></script>
+    <script src="../js/clipboard.min.js?1533029267"></script>
+    <script src="../js/perfect-scrollbar.min.js?1533029267"></script>
+    <script src="../js/perfect-scrollbar.jquery.min.js?1533029267"></script>
+    <script src="../js/jquery.sticky.js?1533029267"></script>
+    <script src="../js/featherlight.min.js?1533029267"></script>
+    <script src="../js/html5shiv-printshiv.min.js?1533029267"></script>
+    <script src="../js/highlight.pack.js?1533029267"></script>
     <script>hljs.initHighlightingOnLoad();</script>
-    <script src="../js/modernizr.custom.71422.js?1533024005"></script>
-    <script src="../js/learn.js?1533024005"></script>
-    <script src="../js/hugo-learn.js?1533024005"></script>
+    <script src="../js/modernizr.custom.71422.js?1533029267"></script>
+    <script src="../js/learn.js?1533029267"></script>
+    <script src="../js/hugo-learn.js?1533029267"></script>
 
-    <link href="../mermaid/mermaid.css?1533024005" type="text/css" rel="stylesheet" />
-    <script src="../mermaid/mermaid.js?1533024005"></script>
+    <link href="../mermaid/mermaid.css?1533029267" type="text/css" rel="stylesheet" />
+    <script src="../mermaid/mermaid.js?1533029267"></script>
     <script>
         mermaid.initialize({ startOnLoad: true });
     </script>

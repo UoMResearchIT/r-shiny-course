@@ -12,17 +12,17 @@
     <title>Interacting with graphs :: Introduction to Shiny</title>
     
     
-    <link href="../../css/nucleus.css?1533024005" rel="stylesheet">
-    <link href="../../css/font-awesome.min.css?1533024005" rel="stylesheet">
-    <link href="../../css/hybrid.css?1533024005" rel="stylesheet">
-    <link href="../../css/featherlight.min.css?1533024005" rel="stylesheet">
-    <link href="../../css/perfect-scrollbar.min.css?1533024005" rel="stylesheet">
-    <link href="../../css/auto-complete.css?1533024005" rel="stylesheet">
-    <link href="../../css/theme.css?1533024005" rel="stylesheet">
-    <link href="../../css/hugo-theme.css?1533024005" rel="stylesheet">
+    <link href="../../css/nucleus.css?1533029267" rel="stylesheet">
+    <link href="../../css/font-awesome.min.css?1533029267" rel="stylesheet">
+    <link href="../../css/hybrid.css?1533029267" rel="stylesheet">
+    <link href="../../css/featherlight.min.css?1533029267" rel="stylesheet">
+    <link href="../../css/perfect-scrollbar.min.css?1533029267" rel="stylesheet">
+    <link href="../../css/auto-complete.css?1533029267" rel="stylesheet">
+    <link href="../../css/theme.css?1533029267" rel="stylesheet">
+    <link href="../../css/hugo-theme.css?1533029267" rel="stylesheet">
     
 
-    <script src="../../js/jquery-2.x.min.js?1533024005"></script>
+    <script src="../../js/jquery-2.x.min.js?1533029267"></script>
     
     <style type="text/css">
       :root #header + #content > #left > #rlblock_left{ 
@@ -449,7 +449,7 @@ gapminder <span style="color:#f92672">%&gt;%</span>
 
 <h3 id="solution">Solution</h3>
 
-<p><a href="https://github.com/UoMResearchIT/RSE18-shiny-workshop-materials/commit/0b5f38e58454f3a622c87681abfd6d3418fbb7ae">git:10_clickdata</a></p>
+<p><a href="https://github.com/UoMResearchIT/RSE18-shiny-workshop-materials/commit/0b5f38e58454f3a622c87681abfd6d3418fbb7ae" target="_blank">git:10_clickdata</a></p>
 
 <h2 id="which-points-are-close-to-the-data">Which points are close to the data</h2>
 
@@ -461,7 +461,7 @@ gapminder <span style="color:#f92672">%&gt;%</span>
 
 <h3 id="solution-1">Solution</h3>
 
-<p><a href="https://github.com/UoMResearchIT/RSE18-shiny-workshop-materials/commit/f8a7f98601c1f8eb64b4cde76f5e5566990be349">git:11_nearpoints</a></p>
+<p><a href="https://github.com/UoMResearchIT/RSE18-shiny-workshop-materials/commit/f8a7f98601c1f8eb64b4cde76f5e5566990be349" target="_blank">git:11_nearpoints</a></p>
 
 <h2 id="retaining-the-click-data">Retaining the click data</h2>
 
@@ -472,7 +472,7 @@ gapminder <span style="color:#f92672">%&gt;%</span>
 <li>use the <code>observeEvent()</code> function to observe when a click occurs, and only then put the output of that click into the reactive value we created above.</li>
 </ol>
 
-<p>To do this, we modify the server function as follows <a href="https://github.com/UoMResearchIT/RSE18-shiny-workshop-materials/commit/b75c56ad83e6574f33dce44f51da2551bb55418a">git:11_observeevent</a>:</p>
+<p>To do this, we modify the server function as follows <a href="https://github.com/UoMResearchIT/RSE18-shiny-workshop-materials/commit/b75c56ad83e6574f33dce44f51da2551bb55418a" target="_blank">git:11_observeevent</a>:</p>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-r" data-lang="r"><span style="color:#75715e"># Create a reactive value to store the country we seleect</span>
 activeCountry <span style="color:#f92672">&lt;-</span> reactiveVal(value <span style="color:#f92672">=</span> <span style="color:#66d9ef">NA</span>)
 
@@ -498,7 +498,7 @@ output<span style="color:#f92672">$</span>clickData <span style="color:#f92672">
 
 <h3 id="solution-2">Solution</h3>
 
-<p><a href="https://github.com/UoMResearchIT/RSE18-shiny-workshop-materials/commit/0d40fea1001b8a38152d6408e39f63985d083241">git:12_historic</a></p>
+<p><a href="https://github.com/UoMResearchIT/RSE18-shiny-workshop-materials/commit/0d40fea1001b8a38152d6408e39f63985d083241" target="_blank">git:12_historic</a></p>
 
 <h3 id="exercise-3">Exercise</h3>
 
@@ -506,7 +506,7 @@ output<span style="color:#f92672">$</span>clickData <span style="color:#f92672">
 
 <h3 id="solution-3">Solution</h3>
 
-<p><a href="https://github.com/UoMResearchIT/RSE18-shiny-workshop-materials/commit/d98f43ee7c0a59cd4e4cf819b2d8bd5b3c30f10c">git:13_showhistoric</a></p>
+<p><a href="https://github.com/UoMResearchIT/RSE18-shiny-workshop-materials/commit/d98f43ee7c0a59cd4e4cf819b2d8bd5b3c30f10c" target="_blank">git:13_showhistoric</a></p>
 
 
 <footer class=" footline" >
@@ -715,20 +715,20 @@ output<span style="color:#f92672">$</span>clickData <span style="color:#f92672">
     <div style="left: -1000px; overflow: scroll; position: absolute; top: -1000px; border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;">
       <div style="border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;"></div>
     </div>
-    <script src="../../js/clipboard.min.js?1533024005"></script>
-    <script src="../../js/perfect-scrollbar.min.js?1533024005"></script>
-    <script src="../../js/perfect-scrollbar.jquery.min.js?1533024005"></script>
-    <script src="../../js/jquery.sticky.js?1533024005"></script>
-    <script src="../../js/featherlight.min.js?1533024005"></script>
-    <script src="../../js/html5shiv-printshiv.min.js?1533024005"></script>
-    <script src="../../js/highlight.pack.js?1533024005"></script>
+    <script src="../../js/clipboard.min.js?1533029267"></script>
+    <script src="../../js/perfect-scrollbar.min.js?1533029267"></script>
+    <script src="../../js/perfect-scrollbar.jquery.min.js?1533029267"></script>
+    <script src="../../js/jquery.sticky.js?1533029267"></script>
+    <script src="../../js/featherlight.min.js?1533029267"></script>
+    <script src="../../js/html5shiv-printshiv.min.js?1533029267"></script>
+    <script src="../../js/highlight.pack.js?1533029267"></script>
     <script>hljs.initHighlightingOnLoad();</script>
-    <script src="../../js/modernizr.custom.71422.js?1533024005"></script>
-    <script src="../../js/learn.js?1533024005"></script>
-    <script src="../../js/hugo-learn.js?1533024005"></script>
+    <script src="../../js/modernizr.custom.71422.js?1533029267"></script>
+    <script src="../../js/learn.js?1533029267"></script>
+    <script src="../../js/hugo-learn.js?1533029267"></script>
 
-    <link href="../../mermaid/mermaid.css?1533024005" type="text/css" rel="stylesheet" />
-    <script src="../../mermaid/mermaid.js?1533024005"></script>
+    <link href="../../mermaid/mermaid.css?1533029267" type="text/css" rel="stylesheet" />
+    <script src="../../mermaid/mermaid.js?1533029267"></script>
     <script>
         mermaid.initialize({ startOnLoad: true });
     </script>

@@ -12,11 +12,13 @@ We can see in the example app that it is split into two sections; the user inter
 
 ## The UI section
 
-The user interface of the default app uses the `fluidPage()` to create the app's layout. The fluidPage layout will automatically respond to changes in browser size.  Within the `fluidPage()`, we use a `sidebarLayout()` to split the page into two sections; the `sidebarPanel()` which contain (in the example) the app's input (the slider) and the `mainPanel()` which in the example app contains the histogram output.   This is a fairly typical layout for a Shiny app (note that there's nothing stopping us putting more output above the `sidebarLayout()` - for example the `titlePanel()`, or after it - we could, for example use a `p()` tag to include further text, or add further widgets, outputs etc.).   Each element of the page is an argument to a function, with `fluidPage()` at the top level.  It's easy to forget this when building an interface, and to forget to place the commas between arguments.  
+The user interface of the default app uses the `fluidPage()` to create the app's layout. The fluidPage layout will automatically respond to changes in browser size.  Within the `fluidPage()`, we use a `sidebarLayout()` to split the page into two sections; the `sidebarPanel()` which contain (in the example) the app's input (the slider) and the `mainPanel()` which in the example app contains the histogram output.   This is a fairly typical layout for a Shiny app (note that there's nothing stopping us putting more output above the `sidebarLayout()` - for example the `titlePanel()`, or after it).   Each element of the page is an argument to a function, with `fluidPage()` at the top level.  It's easy to forget this when building an interface, and to forget to place the commas between arguments.  
 
-More flexible, but complex layout options are available, such as `navBarPage()`, to produce a page with a navigation bar.  It's also possible to build a [user interface from scratch](https://shiny.rstudio.com/articles/html-ui.html), using HTML, CSS etc.
+More flexible, but complex layout options are available, such as `navBarPage()`, to [produce a page with a navigation bar](https://shiny.rstudio.com/gallery/navbar-example.html).  It's also possible to build a [user interface from scratch](https://shiny.rstudio.com/articles/html-ui.html), using HTML, CSS etc.
 
-For this tutorial we'll stick with the `fluidPage()` approach.  Most common html tags have a builder function associated with them.  So to add a paragraph of text to the app, we can pass another argument to the `fluidPage()` function:
+For this tutorial we'll stick with the `fluidPage()` approach.
+
+Most common html tags have a builder function associated with them.  So to add a paragraph of text to the app, we can pass another argument to the `fluidPage()` function:
 
 
 ```r
@@ -40,7 +42,12 @@ sliderInput("bins",
             value = 30)
 ```
 
-The first argument of the function defines the inputId - essentially this is the name of the variable that the widget's output (in this case the selected number of bins) is assigned to.  The second argument defines the label for widget.  The other arguments are widget specific; in this case they define the scale of the widget and its default value.   
+The first argument of the function defines the `inputId` - essentially this is the name of the variable that the widget's output (in this case the selected number of bins) is assigned to.  The second argument defines the label for widget.  The other arguments are widget specific; in this case they define the scale of the widget and its default value.   
+
+{{% notice tip %}}
+You can get help on any of the widget's paramters (or on any R function) by typing `?functionName`.
+{{% /notice %}}
+
 
 Shiny comes with a number of built in widgets that give different ways of interacting with our app. [The Shiny Widget Gallery](https://shiny.rstudio.com/gallery/widget-gallery.html) lists built in widgets, along with example code to use them.
 
@@ -64,8 +71,7 @@ For now the check boxes won't do anything; we've not made use of the widget's va
 
 ## Displaying R outputs
 
-The `mainPanel()` of the user interface contains a single element in the example app.  The `plotOutput()` displays a plot - in the example app called `distPlot`.  We'll come to how that plot is defined in a moment.  For now, note that there are several `...Output()` functions for displaying various types of output from R, such as `renderTable()` and `renderText
-
+The `mainPanel()` of the user interface contains a single element in the example app.  The `plotOutput()` displays a plot - in the example app called `distPlot`.  We'll come to how that plot is defined in a moment.  For now, note that there are several `...Output()` functions for displaying various types of output from R.  The actual production of each peice of `....Output()` takes place in the server function. 
 
 There is more information on altering the layout of Shiny apps, and altering the theme of the apps in the extra [app layout]({{<ref "goingfurther/layout" >}}) lesson.
 
@@ -97,4 +103,4 @@ Shiny uses a reactive programming model.  This means that when something changes
 
 The graph also depends on some other properties of the app, which we can't see directly, such as the window size.  If we resize the window, Shiny knows that the graph depends on that property of the app, and so will redraw the graph.
 
-Shiny automatically takes care of the dependencies between the various elements, and only updates what is needed.  This is covered in more detail in the section on [reactivity]({{< ref "reactive" >}}).
+Shiny automatically takes care of the dependencies between the various elements, and only updates what is needed.  This is covered in more detail in the section on [reactivity]({{< ref "../goingfurther/reactive" >}}).
