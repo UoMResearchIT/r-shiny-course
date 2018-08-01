@@ -192,12 +192,6 @@ server <- function(input, output) {
 
 ## Extra Slides
 
-## Cutomising how our app looks
-
-- The `shinythemes` package lets us select readymade themes for our app
-- Can write our own css for more control
-- `shinythemes::themeSelector()` widget lets us interactively exeriment with themes [git:13_themeselector]()
-- Use the option `theme = shinytheme("themename")` on your user interface function (`fluidPage`) in our example [git:14_changetheme]()
 
     
 ## App layout
@@ -220,5 +214,5 @@ ui <- fluidPage(
 )
 ```
 
-- The widths of each row of columns should sum to 12 [git:15_fluidpage]()
+- The widths of each row of columns should sum to 12 [git:14_layout]()
 
