@@ -12,17 +12,17 @@
     <title>Producing plots :: Introduction to Shiny</title>
     
     
-    <link href="../css/nucleus.css?1533213373" rel="stylesheet">
-    <link href="../css/font-awesome.min.css?1533213373" rel="stylesheet">
-    <link href="../css/hybrid.css?1533213373" rel="stylesheet">
-    <link href="../css/featherlight.min.css?1533213373" rel="stylesheet">
-    <link href="../css/perfect-scrollbar.min.css?1533213373" rel="stylesheet">
-    <link href="../css/auto-complete.css?1533213373" rel="stylesheet">
-    <link href="../css/theme.css?1533213373" rel="stylesheet">
-    <link href="../css/hugo-theme.css?1533213373" rel="stylesheet">
+    <link href="../css/nucleus.css?1533213847" rel="stylesheet">
+    <link href="../css/font-awesome.min.css?1533213847" rel="stylesheet">
+    <link href="../css/hybrid.css?1533213847" rel="stylesheet">
+    <link href="../css/featherlight.min.css?1533213847" rel="stylesheet">
+    <link href="../css/perfect-scrollbar.min.css?1533213847" rel="stylesheet">
+    <link href="../css/auto-complete.css?1533213847" rel="stylesheet">
+    <link href="../css/theme.css?1533213847" rel="stylesheet">
+    <link href="../css/hugo-theme.css?1533213847" rel="stylesheet">
     
 
-    <script src="../js/jquery-2.x.min.js?1533213373"></script>
+    <script src="../js/jquery-2.x.min.js?1533213847"></script>
     
     <style type="text/css">
       :root #header + #content > #left > #rlblock_left{ 
@@ -378,8 +378,8 @@
 <p>If you haven&rsquo;t already, set R&rsquo;s working directory to that of your app (<code>setwd(&quot;~/myworkshop/gapminder)</code>).  Then manually execute the lines of code that load the libraries, data and code by selecting them and pressing Ctrl+Enter.</p>
 
 <p>Having loaded the data, libraries and functions, we can produce a gapminder plot in R using the following code:</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-r" data-lang="r">gapminder <span style="color:#f92672">%&gt;%</span> 
-  filter(year <span style="color:#f92672">==</span> <span style="color:#ae81ff">2000</span>) <span style="color:#f92672">%&gt;%</span> 
+<div class="highlight"><pre style="color:#d0d0d0;background-color:#202020;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-r" data-lang="r">gapminder %&gt;% 
+  filter(year == <span style="color:#3677a9">2000</span>) %&gt;% 
   produceGapminderPlot()</code></pre></div>
 <p><img src="figure/unnamed-chunk-2-1.png" alt="plot of chunk unnamed-chunk-2" /></p>
 
@@ -400,9 +400,9 @@
     	</span>
     </div>
     <div class="expand-content" style="display: none;">
-        <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-r" data-lang="r">gapminder <span style="color:#f92672">%&gt;%</span> 
-  filter(year <span style="color:#f92672">==</span> <span style="color:#ae81ff">2000</span>) <span style="color:#f92672">%&gt;%</span> 
-  filter(continent <span style="color:#f92672">%in%</span> <span style="color:#66d9ef">c</span>(<span style="color:#e6db74">&#34;Europe&#34;</span>, <span style="color:#e6db74">&#34;Africa&#34;</span>)) <span style="color:#f92672">%&gt;%</span> 
+        <div class="highlight"><pre style="color:#d0d0d0;background-color:#202020;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-r" data-lang="r">gapminder %&gt;% 
+  filter(year == <span style="color:#3677a9">2000</span>) %&gt;% 
+  filter(continent %in% <span style="color:#6ab825;font-weight:bold">c</span>(<span style="color:#ed9d13">&#34;Europe&#34;</span>, <span style="color:#ed9d13">&#34;Africa&#34;</span>)) %&gt;% 
   produceGapminderPlot()</code></pre></div>
 <p><img src="figure/unnamed-chunk-3-1.png" alt="plot of chunk unnamed-chunk-3" /></p>
 
@@ -618,20 +618,20 @@
     <div style="left: -1000px; overflow: scroll; position: absolute; top: -1000px; border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;">
       <div style="border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;"></div>
     </div>
-    <script src="../js/clipboard.min.js?1533213373"></script>
-    <script src="../js/perfect-scrollbar.min.js?1533213373"></script>
-    <script src="../js/perfect-scrollbar.jquery.min.js?1533213373"></script>
-    <script src="../js/jquery.sticky.js?1533213373"></script>
-    <script src="../js/featherlight.min.js?1533213373"></script>
-    <script src="../js/html5shiv-printshiv.min.js?1533213373"></script>
-    <script src="../js/highlight.pack.js?1533213373"></script>
+    <script src="../js/clipboard.min.js?1533213847"></script>
+    <script src="../js/perfect-scrollbar.min.js?1533213847"></script>
+    <script src="../js/perfect-scrollbar.jquery.min.js?1533213847"></script>
+    <script src="../js/jquery.sticky.js?1533213847"></script>
+    <script src="../js/featherlight.min.js?1533213847"></script>
+    <script src="../js/html5shiv-printshiv.min.js?1533213847"></script>
+    <script src="../js/highlight.pack.js?1533213847"></script>
     <script>hljs.initHighlightingOnLoad();</script>
-    <script src="../js/modernizr.custom.71422.js?1533213373"></script>
-    <script src="../js/learn.js?1533213373"></script>
-    <script src="../js/hugo-learn.js?1533213373"></script>
+    <script src="../js/modernizr.custom.71422.js?1533213847"></script>
+    <script src="../js/learn.js?1533213847"></script>
+    <script src="../js/hugo-learn.js?1533213847"></script>
 
-    <link href="../mermaid/mermaid.css?1533213373" type="text/css" rel="stylesheet" />
-    <script src="../mermaid/mermaid.js?1533213373"></script>
+    <link href="../mermaid/mermaid.css?1533213847" type="text/css" rel="stylesheet" />
+    <script src="../mermaid/mermaid.js?1533213847"></script>
     <script>
         mermaid.initialize({ startOnLoad: true });
     </script>

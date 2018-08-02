@@ -12,17 +12,17 @@
     <title>Interacting with graphs :: Introduction to Shiny</title>
     
     
-    <link href="../../css/nucleus.css?1533213373" rel="stylesheet">
-    <link href="../../css/font-awesome.min.css?1533213373" rel="stylesheet">
-    <link href="../../css/hybrid.css?1533213373" rel="stylesheet">
-    <link href="../../css/featherlight.min.css?1533213373" rel="stylesheet">
-    <link href="../../css/perfect-scrollbar.min.css?1533213373" rel="stylesheet">
-    <link href="../../css/auto-complete.css?1533213373" rel="stylesheet">
-    <link href="../../css/theme.css?1533213373" rel="stylesheet">
-    <link href="../../css/hugo-theme.css?1533213373" rel="stylesheet">
+    <link href="../../css/nucleus.css?1533213847" rel="stylesheet">
+    <link href="../../css/font-awesome.min.css?1533213847" rel="stylesheet">
+    <link href="../../css/hybrid.css?1533213847" rel="stylesheet">
+    <link href="../../css/featherlight.min.css?1533213847" rel="stylesheet">
+    <link href="../../css/perfect-scrollbar.min.css?1533213847" rel="stylesheet">
+    <link href="../../css/auto-complete.css?1533213847" rel="stylesheet">
+    <link href="../../css/theme.css?1533213847" rel="stylesheet">
+    <link href="../../css/hugo-theme.css?1533213847" rel="stylesheet">
     
 
-    <script src="../../js/jquery-2.x.min.js?1533213373"></script>
+    <script src="../../js/jquery-2.x.min.js?1533213847"></script>
     
     <style type="text/css">
       :root #header + #content > #left > #rlblock_left{ 
@@ -407,16 +407,16 @@
 
 
 <p>In this section we&rsquo;ll look at how to interact with the graph.  When we click on a graph we will show the name of the country that has been selected, and show this historic data for the country on the graph. For example:</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-r" data-lang="r">historicdata <span style="color:#f92672">&lt;-</span> gapminder <span style="color:#f92672">%&gt;%</span> 
-  filter(year <span style="color:#f92672">&lt;=</span> <span style="color:#ae81ff">2000</span>) <span style="color:#f92672">%&gt;%</span> 
-  filter(country <span style="color:#f92672">==</span> <span style="color:#e6db74">&#34;United Kingdom&#34;</span>)
+<div class="highlight"><pre style="color:#d0d0d0;background-color:#202020;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-r" data-lang="r">historicdata &lt;- gapminder %&gt;% 
+  filter(year &lt;= <span style="color:#3677a9">2000</span>) %&gt;% 
+  filter(country == <span style="color:#ed9d13">&#34;United Kingdom&#34;</span>)
 
-<span style="color:#75715e"># addHistoricPlot() will add a trace showing the trajectory of a country</span>
-<span style="color:#75715e"># to an existing plot: (makeSemiTransParent will make the points semi-transparent</span>
-<span style="color:#75715e"># so that the historic data is more obvious)</span>
-gapminder <span style="color:#f92672">%&gt;%</span> 
-  filter(year <span style="color:#f92672">==</span> <span style="color:#ae81ff">2000</span>) <span style="color:#f92672">%&gt;%</span> 
-  produceGapminderPlot(makeSemiTransparent <span style="color:#f92672">=</span> <span style="color:#66d9ef">TRUE</span>) <span style="color:#f92672">%&gt;%</span> 
+<span style="color:#999;font-style:italic"># addHistoricPlot() will add a trace showing the trajectory of a country</span>
+<span style="color:#999;font-style:italic"># to an existing plot: (makeSemiTransParent will make the points semi-transparent</span>
+<span style="color:#999;font-style:italic"># so that the historic data is more obvious)</span>
+gapminder %&gt;% 
+  filter(year == <span style="color:#3677a9">2000</span>) %&gt;% 
+  produceGapminderPlot(makeSemiTransparent = <span style="color:#6ab825;font-weight:bold">TRUE</span>) %&gt;% 
   addHistoricPlot(historicdata)</code></pre></div>
 <p><img src="figure/unnamed-chunk-2-1.png" alt="plot of chunk unnamed-chunk-2" /></p>
 
@@ -436,7 +436,7 @@ gapminder <span style="color:#f92672">%&gt;%</span>
 <h2 id="getting-the-graph-co-ordinates">Getting the graph co-ordinates</h2>
 
 <p>The <code>plotOutput()</code> function (in the user interface) takes a <code>click</code> option, which will return the co-ordinates of the graph when it is selected:</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-r" data-lang="r"> plotOutput(<span style="color:#e6db74">&#34;gapminderPlot&#34;</span>, click <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;plotClick&#34;</span>)</code></pre></div>
+<div class="highlight"><pre style="color:#d0d0d0;background-color:#202020;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-r" data-lang="r"> plotOutput(<span style="color:#ed9d13">&#34;gapminderPlot&#34;</span>, click = <span style="color:#ed9d13">&#34;plotClick&#34;</span>)</code></pre></div>
 <p>We can access the value of <code>plotClick</code> using <code>input$plotClick</code>.  The click data is returned as a list.</p>
 
 <div class="notices tip" ><p>You can also capture double click, hover and brush (e.g. selecting an area) events - see <code>?plotOutput()</code> for more details.</p>
@@ -473,19 +473,19 @@ gapminder <span style="color:#f92672">%&gt;%</span>
 </ol>
 
 <p>To do this, we modify the server function as follows <a href="https://github.com/UoMResearchIT/RSE18-shiny-workshop-materials/commit/b75c56ad83e6574f33dce44f51da2551bb55418a" target="_blank">git:11_observeevent</a>:</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-r" data-lang="r"><span style="color:#75715e"># Create a reactive value to store the country we seleect</span>
-activeCountry <span style="color:#f92672">&lt;-</span> reactiveVal(value <span style="color:#f92672">=</span> <span style="color:#66d9ef">NA</span>)
+<div class="highlight"><pre style="color:#d0d0d0;background-color:#202020;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-r" data-lang="r"><span style="color:#999;font-style:italic"># Create a reactive value to store the country we seleect</span>
+activeCountry &lt;- reactiveVal(value = <span style="color:#6ab825;font-weight:bold">NA</span>)
 
-<span style="color:#75715e"># Update the value of activeCountry() when we detect an input$plotClick event</span>
-<span style="color:#75715e"># (Note how we update a reactiveVal() )</span>
-observeEvent(input<span style="color:#f92672">$</span>plotClick, 
+<span style="color:#999;font-style:italic"># Update the value of activeCountry() when we detect an input$plotClick event</span>
+<span style="color:#999;font-style:italic"># (Note how we update a reactiveVal() )</span>
+observeEvent(input$plotClick, 
              {
-               nearCountry <span style="color:#f92672">&lt;-</span> nearPoints(plotData(), input<span style="color:#f92672">$</span>plotClick, maxpoints <span style="color:#f92672">=</span> <span style="color:#ae81ff">1</span>)
-               activeCountry(<span style="color:#66d9ef">as.character</span>(nearCountry<span style="color:#f92672">$</span>country))
+               nearCountry &lt;- nearPoints(plotData(), input$plotClick, maxpoints = <span style="color:#3677a9">1</span>)
+               activeCountry(<span style="color:#6ab825">as.character</span>(nearCountry$country))
              })
 
-<span style="color:#75715e"># Display the active country</span>
-output<span style="color:#f92672">$</span>clickData <span style="color:#f92672">&lt;-</span> renderPrint(({
+<span style="color:#999;font-style:italic"># Display the active country</span>
+output$clickData &lt;- renderPrint(({
   activeCountry()
 }))</code></pre></div>
 <h2 id="showing-the-country-s-historic-data">Showing the country&rsquo;s historic data</h2>
@@ -715,20 +715,20 @@ output<span style="color:#f92672">$</span>clickData <span style="color:#f92672">
     <div style="left: -1000px; overflow: scroll; position: absolute; top: -1000px; border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;">
       <div style="border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;"></div>
     </div>
-    <script src="../../js/clipboard.min.js?1533213373"></script>
-    <script src="../../js/perfect-scrollbar.min.js?1533213373"></script>
-    <script src="../../js/perfect-scrollbar.jquery.min.js?1533213373"></script>
-    <script src="../../js/jquery.sticky.js?1533213373"></script>
-    <script src="../../js/featherlight.min.js?1533213373"></script>
-    <script src="../../js/html5shiv-printshiv.min.js?1533213373"></script>
-    <script src="../../js/highlight.pack.js?1533213373"></script>
+    <script src="../../js/clipboard.min.js?1533213847"></script>
+    <script src="../../js/perfect-scrollbar.min.js?1533213847"></script>
+    <script src="../../js/perfect-scrollbar.jquery.min.js?1533213847"></script>
+    <script src="../../js/jquery.sticky.js?1533213847"></script>
+    <script src="../../js/featherlight.min.js?1533213847"></script>
+    <script src="../../js/html5shiv-printshiv.min.js?1533213847"></script>
+    <script src="../../js/highlight.pack.js?1533213847"></script>
     <script>hljs.initHighlightingOnLoad();</script>
-    <script src="../../js/modernizr.custom.71422.js?1533213373"></script>
-    <script src="../../js/learn.js?1533213373"></script>
-    <script src="../../js/hugo-learn.js?1533213373"></script>
+    <script src="../../js/modernizr.custom.71422.js?1533213847"></script>
+    <script src="../../js/learn.js?1533213847"></script>
+    <script src="../../js/hugo-learn.js?1533213847"></script>
 
-    <link href="../../mermaid/mermaid.css?1533213373" type="text/css" rel="stylesheet" />
-    <script src="../../mermaid/mermaid.js?1533213373"></script>
+    <link href="../../mermaid/mermaid.css?1533213847" type="text/css" rel="stylesheet" />
+    <script src="../../mermaid/mermaid.js?1533213847"></script>
     <script>
         mermaid.initialize({ startOnLoad: true });
     </script>

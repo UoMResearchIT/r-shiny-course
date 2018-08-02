@@ -12,17 +12,17 @@
     <title>App layout :: Introduction to Shiny</title>
     
     
-    <link href="../../css/nucleus.css?1533213373" rel="stylesheet">
-    <link href="../../css/font-awesome.min.css?1533213373" rel="stylesheet">
-    <link href="../../css/hybrid.css?1533213373" rel="stylesheet">
-    <link href="../../css/featherlight.min.css?1533213373" rel="stylesheet">
-    <link href="../../css/perfect-scrollbar.min.css?1533213373" rel="stylesheet">
-    <link href="../../css/auto-complete.css?1533213373" rel="stylesheet">
-    <link href="../../css/theme.css?1533213373" rel="stylesheet">
-    <link href="../../css/hugo-theme.css?1533213373" rel="stylesheet">
+    <link href="../../css/nucleus.css?1533213847" rel="stylesheet">
+    <link href="../../css/font-awesome.min.css?1533213847" rel="stylesheet">
+    <link href="../../css/hybrid.css?1533213847" rel="stylesheet">
+    <link href="../../css/featherlight.min.css?1533213847" rel="stylesheet">
+    <link href="../../css/perfect-scrollbar.min.css?1533213847" rel="stylesheet">
+    <link href="../../css/auto-complete.css?1533213847" rel="stylesheet">
+    <link href="../../css/theme.css?1533213847" rel="stylesheet">
+    <link href="../../css/hugo-theme.css?1533213847" rel="stylesheet">
     
 
-    <script src="../../js/jquery-2.x.min.js?1533213373"></script>
+    <script src="../../js/jquery-2.x.min.js?1533213847"></script>
     
     <style type="text/css">
       :root #header + #content > #left > #rlblock_left{ 
@@ -400,22 +400,22 @@
 <p>In the main part of this workshop we used the <code>fluidPage()</code> layout, with a <code>sidebarLayout()</code>.  This gives us a sidebar (<code>sidebarPanel()</code>) and a <code>mainPanel()</code>.   This is often (roughly) what we need; a small panel to set the controls for the app, and a large panel to display the app&rsquo;s output (though what you put in each panel is up to you).</p>
 
 <p>We can construct more flexible <code>fluidPage()</code> layout using the <code>fluidRow()</code> and <code>column()</code> functions.  These let us define our app on a grid, placing page elements within each cell.  The structure of UI using this approach is:</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-r" data-lang="r">ui <span style="color:#f92672">&lt;-</span> fluidPage(
+<div class="highlight"><pre style="color:#d0d0d0;background-color:#202020;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-r" data-lang="r">ui &lt;- fluidPage(
   fluidRow(
-    column(<span style="color:#ae81ff">4</span>,
+    column(<span style="color:#3677a9">4</span>,
 
     ),
-    column(<span style="color:#ae81ff">8</span>,
+    column(<span style="color:#3677a9">8</span>,
 
     )
   ),
   fluidRow(
-    column(<span style="color:#ae81ff">4</span>,
-           <span style="color:#f92672">&lt;&lt;</span>page elements<span style="color:#f92672">&gt;&gt;</span>),
-    column(<span style="color:#ae81ff">4</span>,
-           <span style="color:#f92672">&lt;&lt;</span>page elements<span style="color:#f92672">&gt;&gt;</span>),
-    column(<span style="color:#ae81ff">4</span>,
-           <span style="color:#f92672">&lt;&lt;</span>page elements<span style="color:#f92672">&gt;&gt;</span>)
+    column(<span style="color:#3677a9">4</span>,
+           &lt;&lt;page elements&gt;&gt;),
+    column(<span style="color:#3677a9">4</span>,
+           &lt;&lt;page elements&gt;&gt;),
+    column(<span style="color:#3677a9">4</span>,
+           &lt;&lt;page elements&gt;&gt;)
   )
 )</code></pre></div>
 <p>The digits give the (relative) width of each column; these should sum to 12 for each row.</p>
@@ -634,20 +634,20 @@
     <div style="left: -1000px; overflow: scroll; position: absolute; top: -1000px; border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;">
       <div style="border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;"></div>
     </div>
-    <script src="../../js/clipboard.min.js?1533213373"></script>
-    <script src="../../js/perfect-scrollbar.min.js?1533213373"></script>
-    <script src="../../js/perfect-scrollbar.jquery.min.js?1533213373"></script>
-    <script src="../../js/jquery.sticky.js?1533213373"></script>
-    <script src="../../js/featherlight.min.js?1533213373"></script>
-    <script src="../../js/html5shiv-printshiv.min.js?1533213373"></script>
-    <script src="../../js/highlight.pack.js?1533213373"></script>
+    <script src="../../js/clipboard.min.js?1533213847"></script>
+    <script src="../../js/perfect-scrollbar.min.js?1533213847"></script>
+    <script src="../../js/perfect-scrollbar.jquery.min.js?1533213847"></script>
+    <script src="../../js/jquery.sticky.js?1533213847"></script>
+    <script src="../../js/featherlight.min.js?1533213847"></script>
+    <script src="../../js/html5shiv-printshiv.min.js?1533213847"></script>
+    <script src="../../js/highlight.pack.js?1533213847"></script>
     <script>hljs.initHighlightingOnLoad();</script>
-    <script src="../../js/modernizr.custom.71422.js?1533213373"></script>
-    <script src="../../js/learn.js?1533213373"></script>
-    <script src="../../js/hugo-learn.js?1533213373"></script>
+    <script src="../../js/modernizr.custom.71422.js?1533213847"></script>
+    <script src="../../js/learn.js?1533213847"></script>
+    <script src="../../js/hugo-learn.js?1533213847"></script>
 
-    <link href="../../mermaid/mermaid.css?1533213373" type="text/css" rel="stylesheet" />
-    <script src="../../mermaid/mermaid.js?1533213373"></script>
+    <link href="../../mermaid/mermaid.css?1533213847" type="text/css" rel="stylesheet" />
+    <script src="../../mermaid/mermaid.js?1533213847"></script>
     <script>
         mermaid.initialize({ startOnLoad: true });
     </script>
