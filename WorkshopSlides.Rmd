@@ -45,7 +45,7 @@ source("coursematerial/workshopFunctions.R")
 
 ## [Gapminder](https://www.gapminder.org) 
 
-[![Gapminder Video](http://img.youtube.com/vi/jbkSRLYSojo/0.jpg)](https://youtu.be/jbkSRLYSojo?t=90)
+[![Gapminder Video](http://img.youtube.com/vi/jbkSRLYSojo/0.jpg)](https://www.youtube.com/tv#/watch?v=jbkSRLYSojo)
 
 ##
 
