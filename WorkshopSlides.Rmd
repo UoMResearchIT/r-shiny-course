@@ -20,20 +20,6 @@ gapminder <- readRDS("coursematerial/gapminder.rds")
 source("coursematerial/workshopFunctions.R")
 ```
 
-## One off pilot instructions
-
-Workshop website:
-
-https://uomresearchit.github.io/RSE18-shiny-workshop/
-    
-```
-rm -rf mawdsley
-git clone https://github.com/UoMResearchIT/
-  RSE18-shiny-workshop-materials.git mawdsley
-cd mawdsley
-git checkout 00_workshopdata 
-```
-
 ## Shiny for R
 
 - Introduction to Shiny
