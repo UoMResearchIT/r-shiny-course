@@ -40,7 +40,7 @@ The working directory of your R session is probably the project's directory (i.e
 * Copy the `gapminder.rds` and `workshopFunctions.R` files into your app directory.
 * load the `ggplot2` and `dplyr` libraries at the start of the app
 * Modify the app to load the `gapminder.rds` into an object called `gapminder` using the `readRDS()` function
-* `source()` the `workshopFunctions.R` file to make the functions
+* `source()` the `workshopFunctions.R` file in the app to make the functions available to the app
 * Check your app still works - the output will be unchanged at this stage, but if there are any errors loading the functions or data you will see these in RStudio's console window.
 
 {{% notice tip %}}

@@ -97,12 +97,14 @@ rstudio
 
 ## Exercise - getting ready for the rest of the course.
 
-* Copy the gapminder data and `workshopFunctions.R` to the app directory
-* Modify the app to load the ggplot2 and dplyr libraries, gapminder data and `workshopFunctions.R` 
+* Copy the gapminder data (`gapminder.rds`) and `workshopFunctions.R` to the app directory
+* Modify the app to load the ggplot2 and dplyr libraries, gapminder data, and `workshopFunctions.R` 
 
 * Check your app still works
 
 [git:02_loaddata]()
+
+(Course notes: [Getting started](https://uomresearchit.github.io/RSE18-shiny-workshop/basics/))
 
 ## Anatomy of a Shiny App - user interface
 
@@ -164,12 +166,16 @@ server <- function(input, output) {
 
 [git:03_continentwidget]()
 
+(Course notes: [User interface design](https://uomresearchit.github.io/RSE18-shiny-workshop/ui/))
+
 ## Exercises - Putting it all together
 
 - Replace the histogram with a gapminder plot, using `produceGapminderPlot()` [git:04_gapminderplot]()
   - See `codeExample.R`
 - Replace the bins widget with a widget to select the year [git:05_yearwidget]()
 - Use the outputs of the widgets to make the graph interactive [git:06_interactive]()
+
+(Course notes: [Putting it all together](https://uomresearchit.github.io/RSE18-shiny-workshop/together/))
 
 ## Deploying Shiny apps
 
@@ -183,6 +189,8 @@ server <- function(input, output) {
     - Free and commercial versions
     - Authentication requires commercial version
     
+(Course notes: [Deploying Shiny apps](https://uomresearchit.github.io/RSE18-shiny-workshop/deploy/))
+
 ## Summary
 
 - Define the UI and server functions
