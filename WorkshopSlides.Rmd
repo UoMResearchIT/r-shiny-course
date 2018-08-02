@@ -1,9 +1,10 @@
 ---
 title: "Shiny Workshop"
 author: "David Mawdsley, Louise Lever, Joshua Woodcock"
-date: "RSE 2018 Conference<p><a href='https://uomresearchit.github.io/RSE18-shiny-workshop/'>https://uomresearchit.github.io/RSE18-shiny-workshop/</a></p><p><img src='http://assets.manchester.ac.uk/logos/hi-res/TAB_UNI_MAIN_logo/White_backgrounds/TAB_col_white_background.png' style='border:0px solid black' width='25%'></p>"
+date: "RSE 2018 Conference<p><a class='url' href='https://uomresearchit.github.io/RSE18-shiny-workshop/'>https://uomresearchit.github.io/RSE18-shiny-workshop/</a></span></p><p><img src='http://assets.manchester.ac.uk/logos/hi-res/TAB_UNI_MAIN_logo/White_backgrounds/TAB_col_white_background.png' style='border:0px solid black' width='25%'></p>"
 output: 
   revealjs::revealjs_presentation:
+    css: presentstyle.css 
     transition: fade
     theme: solarize
     fig_height: 6
