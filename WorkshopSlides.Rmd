@@ -20,6 +20,20 @@ gapminder <- readRDS("coursematerial/gapminder.rds")
 source("coursematerial/workshopFunctions.R")
 ```
 
+## One off pilot instructions
+
+Workshop website:
+
+https://uomresearchit.github.io/RSE18-shiny-workshop/
+    
+```
+rm -rf mawdsley
+git clone https://github.com/UoMResearchIT/
+  RSE18-shiny-workshop-materials.git mawdsley
+cd mawdsley
+git checkout 00_workshopdata 
+```
+
 ## Shiny for R
 
 - Introduction to Shiny
@@ -99,7 +113,7 @@ rstudio
 * Copy the gapminder data and `workshopFunctions.R` to the app directory
 * Modify the app to load the ggplot2 and dplyr libraries, gapminder data and `workshopFunctions.R` 
 
-* Check your app still works.
+* Check your app still works
 
 [git:02_loaddata]()
 

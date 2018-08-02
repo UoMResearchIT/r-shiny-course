@@ -4,6 +4,19 @@ title: "Introduction to Shiny"
 
 This is the "Data Visualization Using Shiny" workshop for the 2018 [Research Software Engineers' Conference](http://rse.ac.uk/conf2018/)
 
+
+
+# One off pilot instructions
+(This won't be needed in the actual workshop)
+
+```
+rm -rf mawdsley
+git clone https://github.com/UoMResearchIT/RSE18-shiny-workshop-materials.git mawdsley
+cd mawdsley
+git checkout 00_workshopdata 
+```
+
+
 # Introduction
 
 Shiny lets us build interactive web apps, using R.   This means we can use (pretty much) all of R's extensive (and extensible) data analysis and visualisation features in our app.  Essentially, we can take almost any analysis we've done in R, and then make it interactive.   We can run our apps locally, within R Studio (this is what we'll do most of today), make them standalone, either by deploying them to a [Shiny Server](https://www.rstudio.com/products/shiny/shiny-server/), or to a hosting service, such as https://shinyapps.io (we'll do this today), or even including them in a Markdown document.
