@@ -91,7 +91,6 @@ rstudio
     * File, New File, Shiny Web App
     * Name: gapminder
     * Single file
-    * Create within directory: `~/mawdsley`
   
 * Run App using toolbar or <kbd>Ctrl</kbd>+<kbd>Shift</kbd>+<kbd>Enter</kbd>
 
