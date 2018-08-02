@@ -58,7 +58,7 @@ source("coursematerial/workshopFunctions.R")
     - Select / animate the year
     - Only plot data for selected continents
     - Deploy the app to shinyapps.io
-    - (Show the richest country on the gaph and its GDP)
+    - (Show the richest country on the graph and its GDP)
 
 ## Getting started
 

@@ -39,7 +39,7 @@ sitecontent: $(contentmd)
 
 slides: $(presentationname).html
 
-$(presentationname).html: $(presentationname)_annote.Rmd coursematerial/workshopFunctions.R coursematerial/gapminder.rds  .gitmodules
+$(presentationname).html: $(presentationname)_annote.Rmd coursematerial/workshopFunctions.R coursematerial/gapminder.rds  .gitmodules presentstyle.css
 	Rscript -e "rmarkdown::render('$<', output_file='$@')"
 	touch content/slides.html
 
