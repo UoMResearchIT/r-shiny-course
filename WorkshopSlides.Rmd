@@ -73,8 +73,9 @@ rstudio
 * `workshopFunctions.R` contains the functions we will use.
     * These are mostly to make it easier to make the plots, and to avoid this turning into a ggplot workshop.
 
-
 * `codeExample.R` shows how to use the plotting functions.
+
+* The course website https://uomresearchit.github.io/RSE18-shiny-workshop/ contains all the exercises, links to solutions and more detail than these slides. 
 
 ## Interactive exercises
 
