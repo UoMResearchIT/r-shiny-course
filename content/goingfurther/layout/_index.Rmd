@@ -47,5 +47,5 @@ Place the continent and year widgets side-by-side below the graph.
 
 ### Solution
 
-[git:14_layout]()
+[git:15_layout]()
 

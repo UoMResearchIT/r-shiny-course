@@ -54,13 +54,13 @@ You can also capture double click, hover and brush (e.g. selecting an area) even
 
 ### Exercise
 
-Capture click data from the graph, by setting the `click=` option.   Use `renderPrint()` in the server function, and `verbatimTextOuput()` in the UI to show the captured data.   Having clicked on the graph and obtained click data, try selecting another year or continent.  You will find that the click data disappears; as soon as the graph is redrawn the click event is invalidated (this is also the case if the graph is resized).  We'll deal with this issue later
+Capture click data from the graph, by setting the `click=` option.   Use `renderPrint()` in the server function, and `verbatimTextOuput()` in the UI to show the captured data.   Having clicked on the graph and obtained click data, try selecting another year or continent.  You will find that the click data disappears; as soon as the graph is redrawn the click event is invalidated (this is also the case if the graph is resized).  We'll deal with this issue later.
 
 ### Solution
 
 [git:10_clickdata](https://github.com/UoMResearchIT/RSE18-shiny-workshop-materials/commit/0b5f38e58454f3a622c87681abfd6d3418fbb7ae)
 
-## Which points are close to the data
+## Which points are close to the data?
 
 You may have noticed that the click data contains the x and y coordinates of where we clicked.  Shiny provides a function, `nearPoints(df, coordinfo)` which, given a tibble of input data and the clickdata returns a tibble the rows of data for points near the click (you can adjust the definition of "near" using the `threshold` option, and the maximum number of points returned using the `maxpoints` option)
 
@@ -77,28 +77,38 @@ Modify your `renderPrint()` function to return information on the country neares
 As soon as the graph is redrawn, the click event becomes invalidated.  Because of the reactive programming approach this means that Shiny recalulates all the clicks dependencies (such as the output), and returns no country information.  We need to store the country information, and only update this when a new click event is detected.  We need to do two things:
 
 1. Create a reactive value to store the currently selected country
-2. use the `observeEvent()` function to observe when a click occurs, and only then put the output of that click into the reactive value we created above.
+2. use the `observeEvent()` function to observe when a click occurs, and only *then* put the output of that click into the reactive value we created above.
 
-To do this, we modify the server function as follows [git:11_observeevent](https://github.com/UoMResearchIT/RSE18-shiny-workshop-materials/commit/b75c56ad83e6574f33dce44f51da2551bb55418a):
+To do this, we modify the server function as follows [git:12_observeevent](https://github.com/UoMResearchIT/RSE18-shiny-workshop-materials/commit/c11da00e265838c91ede4134fc006437ae850f90):
 
 
 ```r
 # Create a reactive value to store the country we seleect
-activeCountry <- reactiveVal(value = NA)
+activeCountry <- reactiveVal()
 
 # Update the value of activeCountry() when we detect an input$plotClick event
 # (Note how we update a reactiveVal() )
 observeEvent(input$plotClick, 
              {
                nearCountry <- nearPoints(plotData(), input$plotClick, maxpoints = 1)
-               activeCountry(as.character(nearCountry$country))
+               activeCountry(as.character(nearCountry$country)) # Extract just the country name and assign it to activeCountry()
              })
 
-# Display the active country
+
+# Create a reactive value to store the country we seleect
+activeCountry <- reactiveVal(value = NA)
+```
+
+We'll also modify `output$clickData` to only display the active country:
+
+
+```r
 output$clickData <- renderPrint(({
   activeCountry()
 }))
 ```
+
+Run your app and check everything works.  Notice that `activeCountry()` is initalised to `NULL`.  If we click on the graph where there isn't a visible country, `nearPoints()` will, as we saw earlier, return a tibble with 0 rows.  When we extract the country from the tibble, using the `$` operator, it will return a character vector of length 0.
 
 ## Showing the country's historic data
 
@@ -110,15 +120,15 @@ Create a reactive data set, using `reactive()` which contains the historic data 
 
 ### Solution
 
-[git:12_historic](https://github.com/UoMResearchIT/RSE18-shiny-workshop-materials/commit/0d40fea1001b8a38152d6408e39f63985d083241)
+[git:13_historic](https://github.com/UoMResearchIT/RSE18-shiny-workshop-materials/commit/3d57d64ac7eb87cb79967053da461870820e8963)
 
 ### Exercise
 
-The final thing to do is to add the historic data to the plot, if a country is selected. Modify the `renderPlot()` to produce the regular graph if `is.na(activeCountry())` is `TRUE`, and to produce the  plot including the historic data otherwise (the code example at the start of the episode shows how to add historic data to a plot). 
+The final thing to do is to add the historic data to the plot, if a country is selected. Modify the `renderPlot()` to produce the regular graph if the length of `activeCountry()` is 0 (i.e. no country is selected), and to produce the  plot including the historic data otherwise (the code example at the start of the episode shows how to add historic data to a plot). 
 
 ### Solution
 
-[git:13_showhistoric](https://github.com/UoMResearchIT/RSE18-shiny-workshop-materials/commit/d98f43ee7c0a59cd4e4cf819b2d8bd5b3c30f10c)
+[git:14_showhistoric](https://github.com/UoMResearchIT/RSE18-shiny-workshop-materials/commit/48c010441c4341c06f6ccc96b1424a06700ade8e)
 
 
 
