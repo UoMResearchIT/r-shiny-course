@@ -16,9 +16,25 @@ To edit the webpage or slide show, edit the relavant `.Rmd` file.  **Do not edit
 
 2. The `.Rmd` files will be "knitted" to `.md` files ready for Hugo.  R code snippets within them will be executed and the output included in the `.md` file.
 
-`hugo serve` will let you locally preview the changes (Although this auto updates when files change, you will need to manually run `make` to generate the `.md` file after editing the `.Rmd` file)
+`hugo serve` will let you locally preview the changes.  `make cleancontent` will delete all the generated `.md` files.  It's safer to stop the local server before running this and regenerating the content if needed; otherwise the left hand menu isn't generated reliably.
 
 Push the repo to github to deploy.
+
+## Modifying the exercises
+
+The aim is to keep a clean commit history in the workshop-materials repoistory, with each commit corresponding to a solution to an exercise, or a check point in the lesson.  If you find a bug in the code, or need to modify something,  the basic procedure is:
+
+1. Checkout the commit where the issue is introduced
+2. Create a new branch `git checkout -b bugfix`
+3. Fix the bug
+4. `git rebase bugfix master`
+5. `git branch -d bugfix` (At this point you should have a linear sequence of commits, including the extra commit where the bug was fixed, plus a (buggy) branch with the tagged commits)
+5. `git rebase -i --root` to interatively rebase the (good) branch.  Squash the bugfix commit with its parent
+6. Re-tag the commits on the new branch (`git tag -d tagname`, `git tag tagname commitid`).  This is manual at the moment (TODO automate this - should be possible to match on commit messages, as these will be identical on the buggy and good branch)
+7. Check you have a linear commit history with (all) the commits tagged
+7. Regenerate the website / slides to use the new commitids: `make cleancontent`, `make`
+8. Force push the coursematerial website (at this point the old commits will no longer be visible in the log since nothing points to them)
+9. Push the main website.
 
 ### Editing the gapminder data
 
