@@ -12,17 +12,17 @@
     <title>Reactive data :: Introduction to Shiny</title>
     
     
-    <link href="../../css/nucleus.css?1533815083" rel="stylesheet">
-    <link href="../../css/font-awesome.min.css?1533815083" rel="stylesheet">
-    <link href="../../css/hybrid.css?1533815083" rel="stylesheet">
-    <link href="../../css/featherlight.min.css?1533815083" rel="stylesheet">
-    <link href="../../css/perfect-scrollbar.min.css?1533815083" rel="stylesheet">
-    <link href="../../css/auto-complete.css?1533815083" rel="stylesheet">
-    <link href="../../css/theme.css?1533815083" rel="stylesheet">
-    <link href="../../css/hugo-theme.css?1533815083" rel="stylesheet">
+    <link href="../../css/nucleus.css?1533821075" rel="stylesheet">
+    <link href="../../css/font-awesome.min.css?1533821075" rel="stylesheet">
+    <link href="../../css/hybrid.css?1533821075" rel="stylesheet">
+    <link href="../../css/featherlight.min.css?1533821075" rel="stylesheet">
+    <link href="../../css/perfect-scrollbar.min.css?1533821075" rel="stylesheet">
+    <link href="../../css/auto-complete.css?1533821075" rel="stylesheet">
+    <link href="../../css/theme.css?1533821075" rel="stylesheet">
+    <link href="../../css/hugo-theme.css?1533821075" rel="stylesheet">
     
 
-    <script src="../../js/jquery-2.x.min.js?1533815083"></script>
+    <script src="../../js/jquery-2.x.min.js?1533821075"></script>
     
     <style type="text/css">
       :root #header + #content > #left > #rlblock_left{ 
@@ -372,6 +372,10 @@
 <li><a href="#solution">Solution</a></li>
 <li><a href="#solution-1">Solution</a></li>
 </ul></li>
+<li><a href="#debugging-with-reactive-objects">Debugging with reactive objects</a>
+<ul>
+<li><a href="#other-approaches-to-debugging">Other approaches to debugging</a></li>
+</ul></li>
 </ul></li>
 </ul>
 </nav>
@@ -444,6 +448,35 @@ graph LR;
 <h3 id="solution-1">Solution</h3>
 
 <p><a href="https://github.com/UoMResearchIT/RSE18-shiny-workshop-materials/commit/c48240c18327612d9228e7f8255f53cb131b6d1a" target="_blank">git:09_richcountry</a></p>
+
+<h2 id="debugging-with-reactive-objects">Debugging with reactive objects</h2>
+
+<p>If something goes wrong, Shiny apps can be more complicted to debug than regular R code.  Because code runs in response to events, rather than our script running linearly, it can be complicated to work out the state of your code at a given moment. Printing the values of variables, using, e.g. <code>print(myvar)</code>,  is one of the most straightfoward ways of trying to work out what&rsquo;s going on, but this is a bit more complex when we&rsquo;re working with reactive objects and data.</p>
+
+<p>You can only &ldquo;see&rdquo; reactive objects, such as <code>input$year</code> or <code>plotData()</code> from within a reactive context.  This means that we have to access reactive object within a reactive expression, such as <code>renderPlot()</code>, or using an observer (which we&rsquo;ll cover in a moment).  This means that we can&rsquo;t inspect the value of, e.g. <code>input$year</code> by putting a <code>print(input$year)</code> as free code within our server function.</p>
+
+<p>There are two ways around this:</p>
+
+<ul>
+<li>Put your debug <code>print()</code> statement within a reactive expression.  For example, we could print the value of <code>input$year</code> whenever the graph is updated using:</li>
+</ul>
+<div class="highlight"><pre style="color:#d0d0d0;background-color:#202020;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-r" data-lang="r">output$gapminderPlot &lt;- renderPlot({
+   <span style="color:#6ab825">print</span>(input$year)
+   
+   plotData() %&gt;% 
+      produceGapminderPlot()
+})</code></pre></div>
+<ul>
+<li>Use the <code>observe()</code> function to observe the value of a reactive expression.  The expression in the observe function will be updated whenever its dependencies change.  If we add the expression:</li>
+</ul>
+<div class="highlight"><pre style="color:#d0d0d0;background-color:#202020;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-r" data-lang="r">observe(<span style="color:#6ab825">print</span>(input$year))</code></pre></div>
+<p>to our server function, the <code>print()</code> function will be executed whenever the value of <code>input$year</code> changes.</p>
+
+<p>There is a subtle difference between these two approaches.  The <code>observe()</code> function will run whenever its value changes.  The code in the <code>renderPlot()</code> function is only executed when the plot is updated.</p>
+
+<h3 id="other-approaches-to-debugging">Other approaches to debugging</h3>
+
+<p><a href="https://shiny.rstudio.com/articles/debugging.html" target="_blank">Rstudio provide a helpful guide to other approaches to debugging Shiny apps</a>.  If parts of your app aren&rsquo;t updating when you think they should be (or are updating when you don&rsquo;t think they should be), I&rsquo;ve found the reactive log approach they describe very helpful.  This shows you a graph illustrating the relationship between the various events occuring in the app.</p>
 
 
 <footer class=" footline" >
@@ -650,20 +683,20 @@ graph LR;
     <div style="left: -1000px; overflow: scroll; position: absolute; top: -1000px; border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;">
       <div style="border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;"></div>
     </div>
-    <script src="../../js/clipboard.min.js?1533815083"></script>
-    <script src="../../js/perfect-scrollbar.min.js?1533815083"></script>
-    <script src="../../js/perfect-scrollbar.jquery.min.js?1533815083"></script>
-    <script src="../../js/jquery.sticky.js?1533815083"></script>
-    <script src="../../js/featherlight.min.js?1533815083"></script>
-    <script src="../../js/html5shiv-printshiv.min.js?1533815083"></script>
-    <script src="../../js/highlight.pack.js?1533815083"></script>
+    <script src="../../js/clipboard.min.js?1533821075"></script>
+    <script src="../../js/perfect-scrollbar.min.js?1533821075"></script>
+    <script src="../../js/perfect-scrollbar.jquery.min.js?1533821075"></script>
+    <script src="../../js/jquery.sticky.js?1533821075"></script>
+    <script src="../../js/featherlight.min.js?1533821075"></script>
+    <script src="../../js/html5shiv-printshiv.min.js?1533821075"></script>
+    <script src="../../js/highlight.pack.js?1533821075"></script>
     <script>hljs.initHighlightingOnLoad();</script>
-    <script src="../../js/modernizr.custom.71422.js?1533815083"></script>
-    <script src="../../js/learn.js?1533815083"></script>
-    <script src="../../js/hugo-learn.js?1533815083"></script>
+    <script src="../../js/modernizr.custom.71422.js?1533821075"></script>
+    <script src="../../js/learn.js?1533821075"></script>
+    <script src="../../js/hugo-learn.js?1533821075"></script>
 
-    <link href="../../mermaid/mermaid.css?1533815083" type="text/css" rel="stylesheet" />
-    <script src="../../mermaid/mermaid.js?1533815083"></script>
+    <link href="../../mermaid/mermaid.css?1533821075" type="text/css" rel="stylesheet" />
+    <script src="../../mermaid/mermaid.js?1533821075"></script>
     <script>
         mermaid.initialize({ startOnLoad: true });
     </script>

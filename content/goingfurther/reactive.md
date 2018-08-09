@@ -63,6 +63,40 @@ There are two ways of displaying tabular data in Shiny.  `renderTable()` and `ta
 [git:09_richcountry](https://github.com/UoMResearchIT/RSE18-shiny-workshop-materials/commit/c48240c18327612d9228e7f8255f53cb131b6d1a)
 
 
+## Debugging with reactive objects
+
+If something goes wrong, Shiny apps can be more complicted to debug than regular R code.  Because code runs in response to events, rather than our script running linearly, it can be complicated to work out the state of your code at a given moment. Printing the values of variables, using, e.g. `print(myvar)`,  is one of the most straightfoward ways of trying to work out what's going on, but this is a bit more complex when we're working with reactive objects and data.
+
+You can only "see" reactive objects, such as `input$year` or `plotData()` from within a reactive context.  This means that we have to access reactive object within a reactive expression, such as `renderPlot()`, or using an observer (which we'll cover in a moment).  This means that we can't inspect the value of, e.g. `input$year` by putting a `print(input$year)` as free code within our server function.
+
+There are two ways around this:
+
+* Put your debug `print()` statement within a reactive expression.  For example, we could print the value of `input$year` whenever the graph is updated using:
+
+
+```r
+output$gapminderPlot <- renderPlot({
+   print(input$year)
+   
+   plotData() %>% 
+      produceGapminderPlot()
+})
+```
+
+* Use the `observe()` function to observe the value of a reactive expression.  The expression in the observe function will be updated whenever its dependencies change.  If we add the expression:
+
+
+```r
+observe(print(input$year))
+```
+
+to our server function, the `print()` function will be executed whenever the value of `input$year` changes.  
+
+There is a subtle difference between these two approaches.  The `observe()` function will run whenever its value changes.  The code in the `renderPlot()` function is only executed when the plot is updated.
+
+### Other approaches to debugging
+
+[Rstudio provide a helpful guide to other approaches to debugging Shiny apps](https://shiny.rstudio.com/articles/debugging.html).  If parts of your app aren't updating when you think they should be (or are updating when you don't think they should be), I've found the reactive log approach they describe very helpful.  This shows you a graph illustrating the relationship between the various events occuring in the app.  
 
 
 
