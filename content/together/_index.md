@@ -8,11 +8,11 @@ pre: "<b>4. </b>"
 
 ## Putting it all together
 
-We've now covered everything we need to make our app.  We'll first replace the histogram with a (non interactive) gapminder plot.  We'll then create a widget to let us select the year. We'll then wire everything together to make the app interactive.
+We've now covered everything we need to make our app.  We'll first replace the histogram with a (non interactive) gapminder plot.  We'll then create a widget to let us select the year. Finally, we'll wire everything together to make the app interactive.
 
 ### Exercises
 
-* Modify the Shiny app to produce a gapminder plot instead of the histogram.   Note that the `produceGapminderPlot()` requires a single year of data, so you will need to `filter()` the data to a single year before passing it to the function.
+* Modify the Shiny app to produce a static gapminder plot instead of the histogram.   Note that the `produceGapminderPlot()` requires a single year of data, so you will need to `filter()` the data to a single year before passing it to the function.
 
 {{% notice tip %}}
 The `outputId` of the plot in the default app is `distPlot` - you should change this to something more descriptive, e.g. `gapminderPlot`.  Remember to change this in both the server function, and in the user interface.
@@ -25,6 +25,10 @@ The `outputId` of the plot in the default app is `distPlot` - you should change 
 * Create a new widget, with `inputId="year"` (or modify the `bins` widget) to let the user choose the year of data to plot. You might want to check out the `sep` option to deal with the thousand separator commas, and `step` to alter the "resolution" of the slider.  
 
 * (optional) check out the options for the `sliderInput()` widget and add an animation button.
+
+{{% notice note %}}
+The performance of the app isn't great in the virtual machine. You may need to set the `interval` option to reduce the frame rate and prevent the animation lagging.
+{{% /notice %}}
 
 * If you created a new widget, you can delete the `bins` widget as we are no longer using this.
  
@@ -41,8 +45,8 @@ The `outputId` of the plot in the default app is `distPlot` - you should change 
 
 ##  Summary
 
-We've now built a Shiny app.  To recap:
- 
+We've now built our Shiny app.  To recap:
+
 * Define your server function and user interface 
 * Create graphs in the server function  using `renderPlot()`, and other types of output using `render....()` functions
 * Display graphs using `plotOutput()` (or `...Output()` for other types of output) in your user interface

@@ -12,17 +12,17 @@
     <title>Putting it all together :: Introduction to Shiny</title>
     
     
-    <link href="../css/nucleus.css?1533717057" rel="stylesheet">
-    <link href="../css/font-awesome.min.css?1533717057" rel="stylesheet">
-    <link href="../css/hybrid.css?1533717057" rel="stylesheet">
-    <link href="../css/featherlight.min.css?1533717057" rel="stylesheet">
-    <link href="../css/perfect-scrollbar.min.css?1533717057" rel="stylesheet">
-    <link href="../css/auto-complete.css?1533717057" rel="stylesheet">
-    <link href="../css/theme.css?1533717057" rel="stylesheet">
-    <link href="../css/hugo-theme.css?1533717057" rel="stylesheet">
+    <link href="../css/nucleus.css?1533805121" rel="stylesheet">
+    <link href="../css/font-awesome.min.css?1533805121" rel="stylesheet">
+    <link href="../css/hybrid.css?1533805121" rel="stylesheet">
+    <link href="../css/featherlight.min.css?1533805121" rel="stylesheet">
+    <link href="../css/perfect-scrollbar.min.css?1533805121" rel="stylesheet">
+    <link href="../css/auto-complete.css?1533805121" rel="stylesheet">
+    <link href="../css/theme.css?1533805121" rel="stylesheet">
+    <link href="../css/hugo-theme.css?1533805121" rel="stylesheet">
     
 
-    <script src="../js/jquery-2.x.min.js?1533717057"></script>
+    <script src="../js/jquery-2.x.min.js?1533805121"></script>
     
     <style type="text/css">
       :root #header + #content > #left > #rlblock_left{ 
@@ -371,12 +371,12 @@
 
 <h2 id="putting-it-all-together">Putting it all together</h2>
 
-<p>We&rsquo;ve now covered everything we need to make our app.  We&rsquo;ll first replace the histogram with a (non interactive) gapminder plot.  We&rsquo;ll then create a widget to let us select the year. We&rsquo;ll then wire everything together to make the app interactive.</p>
+<p>We&rsquo;ve now covered everything we need to make our app.  We&rsquo;ll first replace the histogram with a (non interactive) gapminder plot.  We&rsquo;ll then create a widget to let us select the year. Finally, we&rsquo;ll wire everything together to make the app interactive.</p>
 
 <h3 id="exercises">Exercises</h3>
 
 <ul>
-<li>Modify the Shiny app to produce a gapminder plot instead of the histogram.   Note that the <code>produceGapminderPlot()</code> requires a single year of data, so you will need to <code>filter()</code> the data to a single year before passing it to the function.</li>
+<li>Modify the Shiny app to produce a static gapminder plot instead of the histogram.   Note that the <code>produceGapminderPlot()</code> requires a single year of data, so you will need to <code>filter()</code> the data to a single year before passing it to the function.</li>
 </ul>
 
 <div class="notices tip" ><p>The <code>outputId</code> of the plot in the default app is <code>distPlot</code> - you should change this to something more descriptive, e.g. <code>gapminderPlot</code>.  Remember to change this in both the server function, and in the user interface.</p>
@@ -391,8 +391,14 @@
 <li><p>Create a new widget, with <code>inputId=&quot;year&quot;</code> (or modify the <code>bins</code> widget) to let the user choose the year of data to plot. You might want to check out the <code>sep</code> option to deal with the thousand separator commas, and <code>step</code> to alter the &ldquo;resolution&rdquo; of the slider.</p></li>
 
 <li><p>(optional) check out the options for the <code>sliderInput()</code> widget and add an animation button.</p></li>
+</ul>
 
-<li><p>If you created a new widget, you can delete the <code>bins</code> widget as we are no longer using this.</p></li>
+<div class="notices note" ><p>The performance of the app isn&rsquo;t great in the virtual machine. You may need to set the <code>interval</code> option to reduce the frame rate and prevent the animation lagging.</p>
+</div>
+
+
+<ul>
+<li>If you created a new widget, you can delete the <code>bins</code> widget as we are no longer using this.</li>
 </ul>
 
 <h3 id="solution-1">Solution</h3>
@@ -409,7 +415,7 @@
 
 <h2 id="summary">Summary</h2>
 
-<p>We&rsquo;ve now built a Shiny app.  To recap:</p>
+<p>We&rsquo;ve now built our Shiny app.  To recap:</p>
 
 <ul>
 <li>Define your server function and user interface</li>
@@ -626,20 +632,20 @@
     <div style="left: -1000px; overflow: scroll; position: absolute; top: -1000px; border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;">
       <div style="border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;"></div>
     </div>
-    <script src="../js/clipboard.min.js?1533717057"></script>
-    <script src="../js/perfect-scrollbar.min.js?1533717057"></script>
-    <script src="../js/perfect-scrollbar.jquery.min.js?1533717057"></script>
-    <script src="../js/jquery.sticky.js?1533717057"></script>
-    <script src="../js/featherlight.min.js?1533717057"></script>
-    <script src="../js/html5shiv-printshiv.min.js?1533717057"></script>
-    <script src="../js/highlight.pack.js?1533717057"></script>
+    <script src="../js/clipboard.min.js?1533805121"></script>
+    <script src="../js/perfect-scrollbar.min.js?1533805121"></script>
+    <script src="../js/perfect-scrollbar.jquery.min.js?1533805121"></script>
+    <script src="../js/jquery.sticky.js?1533805121"></script>
+    <script src="../js/featherlight.min.js?1533805121"></script>
+    <script src="../js/html5shiv-printshiv.min.js?1533805121"></script>
+    <script src="../js/highlight.pack.js?1533805121"></script>
     <script>hljs.initHighlightingOnLoad();</script>
-    <script src="../js/modernizr.custom.71422.js?1533717057"></script>
-    <script src="../js/learn.js?1533717057"></script>
-    <script src="../js/hugo-learn.js?1533717057"></script>
+    <script src="../js/modernizr.custom.71422.js?1533805121"></script>
+    <script src="../js/learn.js?1533805121"></script>
+    <script src="../js/hugo-learn.js?1533805121"></script>
 
-    <link href="../mermaid/mermaid.css?1533717057" type="text/css" rel="stylesheet" />
-    <script src="../mermaid/mermaid.js?1533717057"></script>
+    <link href="../mermaid/mermaid.css?1533805121" type="text/css" rel="stylesheet" />
+    <script src="../mermaid/mermaid.js?1533805121"></script>
     <script>
         mermaid.initialize({ startOnLoad: true });
     </script>
