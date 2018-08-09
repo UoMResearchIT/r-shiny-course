@@ -34,7 +34,9 @@ The aim is to keep a clean commit history in the workshop-materials repoistory, 
 7. Check you have a linear commit history with (all) the commits tagged
 7. Regenerate the website / slides to use the new commitids: `make cleancontent`, `make`
 8. Force push the coursematerial website (at this point the old commits will no longer be visible in the log since nothing points to them)
-9. Push the main repository.
+9.  Force push the (new) tags to the coursematerial repo: `git push --tags --force`
+10. If you've ended up with tags you're no longer using on the remote repository, delete these on the remote with `git tag -d oldtag`, `git push origin :refs/tags/oldtag` (see https://nathanhoad.net/how-to-delete-a-remote-git-tag)
+11. Push the main repository.
 
 ### Editing the gapminder data
 
