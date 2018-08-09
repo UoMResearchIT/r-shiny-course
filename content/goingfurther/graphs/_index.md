@@ -58,7 +58,7 @@ Capture click data from the graph, by setting the `click=` option.   Use `render
 
 ### Solution
 
-[git:10_clickdata](https://github.com/UoMResearchIT/RSE18-shiny-workshop-materials/commit/0b5f38e58454f3a622c87681abfd6d3418fbb7ae)
+[git:10_clickdata](https://github.com/UoMResearchIT/RSE18-shiny-workshop-materials/commit/f44d98ccf9574ac8684f2ca8faa8cd09ac9a6c01)
 
 ## Which points are close to the data?
 
@@ -70,7 +70,7 @@ Modify your `renderPrint()` function to return information on the country neares
 
 ### Solution
 
-[git:11_nearpoints](https://github.com/UoMResearchIT/RSE18-shiny-workshop-materials/commit/f8a7f98601c1f8eb64b4cde76f5e5566990be349)
+[git:11_nearpoints](https://github.com/UoMResearchIT/RSE18-shiny-workshop-materials/commit/ee34c67388e004696870d446e3e51b05b43c858e)
 
 ##  Retaining the click data
 
@@ -79,7 +79,7 @@ As soon as the graph is redrawn, the click event becomes invalidated.  Because o
 1. Create a reactive value to store the currently selected country
 2. use the `observeEvent()` function to observe when a click occurs, and only *then* put the output of that click into the reactive value we created above.
 
-To do this, we modify the server function as follows [git:12_observeevent](https://github.com/UoMResearchIT/RSE18-shiny-workshop-materials/commit/c11da00e265838c91ede4134fc006437ae850f90):
+To do this, we modify the server function as follows [git:12_observeevent](https://github.com/UoMResearchIT/RSE18-shiny-workshop-materials/commit/d3fc11f305c9d0a4e163c82d549ccb88644b55bf):
 
 
 ```r
@@ -120,7 +120,7 @@ Create a reactive data set, using `reactive()` which contains the historic data 
 
 ### Solution
 
-[git:13_historic](https://github.com/UoMResearchIT/RSE18-shiny-workshop-materials/commit/3d57d64ac7eb87cb79967053da461870820e8963)
+[git:13_historic](https://github.com/UoMResearchIT/RSE18-shiny-workshop-materials/commit/be7716137481d0c46b87b01d43bf0ebaff48328a)
 
 ### Exercise
 
@@ -128,7 +128,7 @@ The final thing to do is to add the historic data to the plot, if a country is s
 
 ### Solution
 
-[git:14_showhistoric](https://github.com/UoMResearchIT/RSE18-shiny-workshop-materials/commit/48c010441c4341c06f6ccc96b1424a06700ade8e)
+[git:14_showhistoric](https://github.com/UoMResearchIT/RSE18-shiny-workshop-materials/commit/89c591b10256f7bc7ad0a6cee6c258f1482137a3)
 
 
 

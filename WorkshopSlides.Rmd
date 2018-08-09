@@ -223,5 +223,5 @@ ui <- fluidPage(
 )
 ```
 
-- The widths of each row of columns should sum to 12 [git:14_layout]()
+- The widths of each row of columns should sum to 12 [git:15_layout]()
 

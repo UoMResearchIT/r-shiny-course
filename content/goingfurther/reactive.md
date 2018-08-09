@@ -40,7 +40,7 @@ Reactive expressions return a function, so we refer to the data we're plotting a
          produceGapminderPlot() })
 ```
 
-The app will behave in the same way as before, but by defining the reactive expression `plotData()` we can use the data that we're plotting on the graph elsewhere in the app. [git:07_reactivedata](https://github.com/UoMResearchIT/RSE18-shiny-workshop-materials/commit/b0ed66f0bbe354c7ced39a4a5d5827751b45e64a)
+The app will behave in the same way as before, but by defining the reactive expression `plotData()` we can use the data that we're plotting on the graph elsewhere in the app. [git:07_reactivedata](https://github.com/UoMResearchIT/RSE18-shiny-workshop-materials/commit/4ee4c74ebc63242c13fa772992a0de067f1a1622)
 
 ###  Exercise
 
@@ -48,7 +48,7 @@ The app will behave in the same way as before, but by defining the reactive expr
 
 ### Solution
 
-[git:08_showplotdata](https://github.com/UoMResearchIT/RSE18-shiny-workshop-materials/commit/3afa9cf14b8fc63aff0ffc4b6dcdf1972a56493c)
+[git:08_showplotdata](https://github.com/UoMResearchIT/RSE18-shiny-workshop-materials/commit/b373f1f596296184f7bc2f98b28bf87e3de52522)
 
 
 {{% notice tip %}}
@@ -60,7 +60,7 @@ There are two ways of displaying tabular data in Shiny.  `renderTable()` and `ta
 
 ### Solution
 
-[git:09_richcountry](https://github.com/UoMResearchIT/RSE18-shiny-workshop-materials/commit/69738bd7ffb74f020ab7109b8e7d002a370b5080)
+[git:09_richcountry](https://github.com/UoMResearchIT/RSE18-shiny-workshop-materials/commit/c48240c18327612d9228e7f8255f53cb131b6d1a)
 
 
 

@@ -13,7 +13,7 @@ pre: "<b>1. </b>"
 
 The most straightforward way of creating a new Shiny app is to use R Studio.  From the menu, choose, File, New, Shiny Web App.  
 
-Choose a suitable name for your app (e.g. "gapminder").   Leave the other options as their defaults ("Single File", and Create within directory: `~/mawdsley`).  [git:01_defaultapp](https://github.com/UoMResearchIT/RSE18-shiny-workshop-materials/commit/65f7be7dc0b2c9d908b558130107db8d1f483178)
+Choose a suitable name for your app (e.g. "gapminder").   Leave the other options as their defaults ("Single File", and Create within directory: `~/mawdsley`).  [git:01_defaultapp](https://github.com/UoMResearchIT/RSE18-shiny-workshop-materials/commit/630e15f29031d4ac180423251fd8324e36ee9a2f)
 
 {{% notice info %}}
 When we create a new Shiny app we can create a single file (`app.R`), or as two separate files (`ui.R` and `server.R`).   The latter format used to be the only method of defining an Shiny app, but can still be useful when building a more complicated app, as it allows us to separate the user interface (`ui.R`) from the server logic (`server.R`).  As we will be building a relatively small app, we'll use the single file approach.  
@@ -49,4 +49,4 @@ You may wish to look at the `codeExample.R` file, which contains examples of loa
 
 ### Solution
 
-[git:02_loaddata](https://github.com/UoMResearchIT/RSE18-shiny-workshop-materials/commit/7f3298332b887b2015d8b6636e46b4a37bb15906)
+[git:02_loaddata](https://github.com/UoMResearchIT/RSE18-shiny-workshop-materials/commit/f634302b6cdcc46c7d543ccb90f0cad49f7a32ab)
