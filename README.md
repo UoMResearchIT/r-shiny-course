@@ -22,7 +22,7 @@ Push the repo to github to deploy.
 
 ## Modifying the exercises
 
-The aim is to keep a clean commit history in the workshop-materials repoistory, with each commit corresponding to a solution to an exercise, or a check point in the lesson.  If you find a bug in the code, or need to modify something,  the basic procedure is:
+The aim is to keep a clean commit history in the workshop-materials repoistory, with each commit corresponding to a solution to an exercise, or a check point in the lesson.   If you find a bug in the code, or need to modify something, we rewrite the history to make it look like the bug was never there. The basic procedure is:
 
 1. Checkout the commit where the issue is introduced
 2. Create a new branch `git checkout -b bugfix`
@@ -34,7 +34,7 @@ The aim is to keep a clean commit history in the workshop-materials repoistory, 
 7. Check you have a linear commit history with (all) the commits tagged
 7. Regenerate the website / slides to use the new commitids: `make cleancontent`, `make`
 8. Force push the coursematerial website (at this point the old commits will no longer be visible in the log since nothing points to them)
-9. Push the main website.
+9. Push the main repository.
 
 ### Editing the gapminder data
 
