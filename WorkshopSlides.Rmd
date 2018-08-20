@@ -50,7 +50,7 @@ source("coursematerial/workshopFunctions.R")
 
 ##
 
-<iframe src="https://mawds.shinyapps.io/worked_example/" style="border:none; width:100%;  height:700px"></iframe>
+<iframe src="http://130.88.96.181/app/worked_example/" style="border:none; width:100%;  height:700px"></iframe>
 
 ## Workshop Aims
 
@@ -185,7 +185,6 @@ server <- function(input, output) {
 - https://shinyapps.io 
     - Easy deployment from RStudio
     - Various pricing tiers (inc. free)
-    - https://mawds.shinyapps.io/worked_example/
 - Shiny server
     - Free and commercial versions
     - Authentication requires commercial version
