@@ -11,10 +11,10 @@ pre: "<b>5. </b>"
 If we want to use our app out of R Studio we will need to deploy it to a Shiny Server.  There are a number of options for doing this:
 
 * Host a [Shiny Server instance](https://www.rstudio.com/products/shiny/shiny-server/).   Shiny Server comes in both open source and commercial editions.   
-* Deploy the app to [shinyapps.io](https://shinyapps.io)
+* Deploy the app to [shinyapps.io](https://www.shinyapps.io)
    * Free and paid for versions
 
-Setting up a Shiny Server is beyond the scope of this workshop (though there are some brief notes on the options for doing this in [going further]({{< ref "goingfurther" >}}).   In this workshop we'll deploy our app to [shinyapps.io](https://shinyapps.io).
+Setting up a Shiny Server is beyond the scope of this workshop (though there are some brief notes on the options for doing this in [going further]({{< ref "goingfurther" >}}).   In this workshop we'll deploy our app to [shinyapps.io](https://www.shinyapps.io).
 
 Create an account on shinyapps.io via https://www.shinyapps.io/admin/#/signup  You can do this using a Google or Github account, or using a username/password.
 
