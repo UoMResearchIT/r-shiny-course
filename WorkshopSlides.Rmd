@@ -105,16 +105,6 @@ rstudio
   
 * Run App using toolbar or <kbd>Ctrl</kbd>+<kbd>Shift</kbd>+<kbd>Enter</kbd>
 
-## Exercise - getting ready for the rest of the course.
-
-* Copy the gapminder data (`gapminder.rds`) and `workshopFunctions.R` to the app directory
-* Modify the app to load the ggplot2 and dplyr libraries, gapminder data, and `workshopFunctions.R` 
-
-* Check your app still works
-
-[git:02_loaddata]()
-
-(Course notes: [Getting started](https://uomresearchit.github.io/RSE18-shiny-workshop/basics/))
 
 ## Anatomy of a Shiny App - user interface
 
@@ -158,6 +148,16 @@ server <- function(input, output) {
 
 ```
 
+## Exercise - getting ready for the rest of the course.
+
+* Copy the gapminder data (`gapminder.rds`) and `workshopFunctions.R` to the app directory
+* Modify the app to load the ggplot2 and dplyr libraries, gapminder data, and `workshopFunctions.R` 
+
+* Check your app still works
+
+[git:02_loaddata]()
+
+(Course notes: [Getting started](https://uomresearchit.github.io/RSE18-shiny-workshop/basics/))
 
 ## More widgets
 
