@@ -32,12 +32,19 @@ source("coursematerial/workshopFunctions.R")
 - Shiny lets us easily and quickly build web apps using R
 - Can use pretty much any output from R within our app
 - And control it using widgets
+<p>
+For example:
+- [Movie explorer](https://shiny.rstudio.com/gallery/movie-explorer.html)
+- [Bus dashboard](https://shiny.rstudio.com/gallery/bus-dashboard.html)
+- [PK modelling](http://shiny.webpopix.org/dashboard/pkmodel/)  
+<p>
 - [Shiny gallery](https://shiny.rstudio.com/gallery/)
   
 ## Why (not?) use Shiny
 
 - Fast to develop
 - Use R's libraries easily
+    -including e.g. leaflet for mapping 
 - Many built in widgets
     - And packages for others
 <p>
@@ -58,7 +65,7 @@ source("coursematerial/workshopFunctions.R")
     - Select / animate the year
     - Only plot data for selected continents
     - Deploy the app to shinyapps.io
-    - (Show the richest country on the graph and its GDP)
+    - (Possible extensions included in "going further")
 
 ## Getting started
 
