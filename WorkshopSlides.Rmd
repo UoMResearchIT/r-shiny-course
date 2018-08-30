@@ -148,9 +148,11 @@ server <- function(input, output) {
 
 ```
 
+Shiny handles the dependencies between sources and endpoints, and only updates what is needed - Reactive programming. 
+
 ## Exercise - getting ready for the rest of the course.
 
-* Copy the gapminder data (`gapminder.rds`) and `workshopFunctions.R` to the app directory
+* Copy the gapminder data (`gapminder.rds`) and `workshopFunctions.R` to your app directory
 * Modify the app to load the ggplot2 and dplyr libraries, gapminder data, and `workshopFunctions.R` 
 
 * Check your app still works
