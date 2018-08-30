@@ -5,6 +5,8 @@ date: "RSE 2018 Conference<p><a class='url' href='https://uomresearchit.github.i
 output: 
   revealjs::revealjs_presentation:
     css: presentstyle.css 
+    includes:
+      in_header:  headerfooter.html 
     transition: fade
     theme: solarize
     fig_height: 6
