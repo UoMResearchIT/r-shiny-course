@@ -88,7 +88,7 @@ rstudio
 
 ## Interactive exercises
 
-* The `coursematerial` folder is a git repository
+* The `mawdsley` folder is a git repository
 * Solutions are stored as tagged commits for code in the `worked_example` directory
     * e.g [git:01_defaultapp]() 
     * Link takes you to github's commit page
