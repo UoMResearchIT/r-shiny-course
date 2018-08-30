@@ -45,7 +45,7 @@ sliderInput("bins",
 The first argument of the function defines the `inputId` - essentially this is the name of the variable that the widget's output (in this case the selected number of bins) is assigned to.  The second argument defines the label for widget.  The other arguments are widget specific; in this case they define the scale of the widget and its default value.   
 
 {{% notice tip %}}
-You can get help on any of the widget's paramters (or on any R function) by typing `?functionName`.
+You can get help on any of the widget's parameters (or on any R function) by typing `?functionName`.
 {{% /notice %}}
 
 
