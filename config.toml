@@ -41,7 +41,6 @@ pygmentsStyle = "native"
     author = "David Mawdsley"
     disableSearch = true
     disableInlineCopyToClipBoard = true
-    editURL = "https://github.com/UoMResearchIT/RSE18-shiny-workshop/edit/master/content/"
 
 [blackfriday] 
     hrefTargetBlank = true
