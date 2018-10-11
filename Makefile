@@ -13,7 +13,7 @@ contentmd = $(patsubst %.Rmd,%.md,$(contentrmd))
 
 sourcedata = $(wildcard sourcedata/*)
 
-.PHONEY: runrstudio stoprstudio dockerimage
+.PHONEY: runrstudio stoprstudio dockerimage 
 
 .INTERMEDIATE: $(presentationname)_annote.Rmd
 
@@ -36,12 +36,14 @@ sitecontent: $(contentmd)
 	cd $(dir $@) && Rscript -e "knitr::knit('$(patsubst %.md,%_gitlink.Rmd,$(notdir $@))', output='$(notdir $@)')"
 	rm $(patsubst %.md, %_gitlink.Rmd,$@)
 
-
-runningexample:
+runningexample: 
 	./unwraprepo.sh
+	zip -r runningExample.zip runningExample/*
+	rm -r runningExample
+
 
 cleanrunning:
-	rm -r runningExample
+	rm -r runningExample.zip
 
 slides: $(presentationname).html
 
