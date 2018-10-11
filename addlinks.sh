@@ -1,8 +1,14 @@
 #!/bin/bash
 
-gitrepoprefix=https://github.com/UoMResearchIT/RSE18-shiny-workshop-materials/commit/
+gitrepoprefix=https://github.com/UoMResearchIT/r-shiny-course-materials/commit/
 
 taglist=$(git -C coursematerial/ tag)
+
+if [ ${#taglist} -eq 0 ]; then
+	echo "No tags found in repo"
+	exit 1
+fi
+
 
 regex=""
 
