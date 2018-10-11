@@ -21,13 +21,13 @@ pygmentsStyle = "native"
     url = "/slides/"
 [[menu.shortcuts]]
     name = "GitHub"
-    url = "https://github.com/uomresearchit/RSE18-shiny-workshop/"
+    url = "https://github.com/uomresearchit/r-shiny-course/"
 [[menu.shortcuts]]
     name = "Twitter"
     url = "https://twitter.com/davemawdsley"
 
 [params]
-    description = "An introduction to Shiny, for the Research Software Engineering conference 2018"
+    description = "An introduction to Shiny"
 
     # options for highlight.js (version, additional languages, and theme)
     highlightjsVersion = "9.11.0"
