@@ -67,7 +67,7 @@ For now the check boxes won't do anything; we've not made use of the widget's va
 
 ###  Solution:
  
-[git:03_continentwidget](https://github.com/UoMResearchIT/RSE18-shiny-workshop-materials/commit/1966cbfbf977956c82944ac11241e57d96e664c7)
+[git:03_continentwidget](https://github.com/UoMResearchIT/r-shiny-course-materials/commit/1966cbfbf977956c82944ac11241e57d96e664c7)
 
 ## Displaying R outputs
 
@@ -95,7 +95,7 @@ Let's briefly look at the example code that generates the histogram:
 
 `input$bins` will contain the value of the slider which was defined in the user interface (which was called `bins`).   This is how we connect elements of the user interface to the the server logic.
 
-The first argument of `renderPlot()` returns a graph; _how_ we make that graph is up to us.  In the example app, base R graphic are used.  We'll be using ggplot2 in this workshop, as it's easier to make nice looking graphs with it.  To simplify things I've put the ggplot functions within a wrapper function, which we loaded earlier ( [git:02_loaddata](https://github.com/UoMResearchIT/RSE18-shiny-workshop-materials/commit/f634302b6cdcc46c7d543ccb90f0cad49f7a32ab) ) .  The important thing is that the first (and in the example, only) argument returns a graph object.   We can also pass arguments to manually control the width and height of the plot, etc.
+The first argument of `renderPlot()` returns a graph; _how_ we make that graph is up to us.  In the example app, base R graphic are used.  We'll be using ggplot2 in this workshop, as it's easier to make nice looking graphs with it.  To simplify things I've put the ggplot functions within a wrapper function, which we loaded earlier ( [git:02_loaddata](https://github.com/UoMResearchIT/r-shiny-course-materials/commit/f634302b6cdcc46c7d543ccb90f0cad49f7a32ab) ) .  The important thing is that the first (and in the example, only) argument returns a graph object.   We can also pass arguments to manually control the width and height of the plot, etc.
 
 ## Reactivity (How Shiny responds to events) 
 

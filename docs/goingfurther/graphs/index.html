@@ -2,30 +2,30 @@
 <html lang="en" class="js csstransforms3d">
   <head>
     <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="generator" content="Hugo 0.45" />
-    <meta name="description" content="An introduction to Shiny, for the Research Software Engineering conference 2018">
+    <meta name="description" content="An introduction to Shiny">
 <meta name="author" content="David Mawdsley">
 
     <link rel="shortcut icon" href="../../images/favicon.png" type="image/x-icon" />
 <link rel="icon" href="../../images/favicon.png" type="image/x-icon" />
     <title>Interacting with graphs :: Introduction to Shiny</title>
+
     
-    
-    <link href="../../css/nucleus.css?1536141203" rel="stylesheet">
-    <link href="../../css/font-awesome.min.css?1536141203" rel="stylesheet">
-    <link href="../../css/hybrid.css?1536141203" rel="stylesheet">
-    <link href="../../css/featherlight.min.css?1536141203" rel="stylesheet">
-    <link href="../../css/perfect-scrollbar.min.css?1536141203" rel="stylesheet">
-    <link href="../../css/auto-complete.css?1536141203" rel="stylesheet">
-    <link href="../../css/theme.css?1536141203" rel="stylesheet">
-    <link href="../../css/hugo-theme.css?1536141203" rel="stylesheet">
+    <link href="../../css/nucleus.css?1539252890" rel="stylesheet">
+    <link href="../../css/fontawesome-all.min.css?1539252890" rel="stylesheet">
+    <link href="../../css/hybrid.css?1539252890" rel="stylesheet">
+    <link href="../../css/featherlight.min.css?1539252890" rel="stylesheet">
+    <link href="../../css/perfect-scrollbar.min.css?1539252890" rel="stylesheet">
+    <link href="../../css/auto-complete.css?1539252890" rel="stylesheet">
+    <link href="../../css/theme.css?1539252890" rel="stylesheet">
+    <link href="../../css/hugo-theme.css?1539252890" rel="stylesheet">
     
 
-    <script src="../../js/jquery-2.x.min.js?1536141203"></script>
-    
+    <script src="../../js/jquery-2.x.min.js?1539252890"></script>
+
     <style type="text/css">
-      :root #header + #content > #left > #rlblock_left{ 
+      :root #header + #content > #left > #rlblock_left{
           display:none !important;
       }
       
@@ -279,7 +279,7 @@
               </li>
           
               <li> 
-                  <a class="padding" href="https://github.com/uomresearchit/RSE18-shiny-workshop/">GitHub</a>
+                  <a class="padding" href="https://github.com/uomresearchit/r-shiny-course/">GitHub</a>
               </li>
           
               <li> 
@@ -300,7 +300,7 @@
 
     
     <section id="footer">
-      <p>Built with <a href="https://github.com/matcornic/hugo-theme-learn"><i class="fa fa-heart"></i></a> from <a href="http://getgrav.org">Grav</a> and <a href="http://gohugo.io/">Hugo</a></p>
+      <p>Built with <a href="https://github.com/matcornic/hugo-theme-learn"><i class="fas fa-heart"></i></a> from <a href="http://getgrav.org">Grav</a> and <a href="http://gohugo.io/">Hugo</a></p>
 
     </section>
   </div>
@@ -321,11 +321,11 @@
                 <div id="breadcrumbs" itemscope="" itemtype="http://data-vocabulary.org/Breadcrumb">
                     <span id="sidebar-toggle-span">
                         <a href="#" id="sidebar-toggle" data-sidebar-toggle="">
-                          <i class="fa fa-bars"></i>
+                          <i class="fas fa-bars"></i>
                         </a>
                     </span>
                   
-                  <span id="toc-menu"><i class="fa fa-list-alt"></i></span>
+                  <span id="toc-menu"><i class="fas fa-list-alt"></i></span>
                   
                   <span class="links">
                     
@@ -438,7 +438,7 @@ gapminder %&gt;%
 
 <h3 id="solution">Solution</h3>
 
-<p><a href="https://github.com/UoMResearchIT/RSE18-shiny-workshop-materials/commit/f44d98ccf9574ac8684f2ca8faa8cd09ac9a6c01" target="_blank">git:10_clickdata</a></p>
+<p><a href="https://github.com/UoMResearchIT/r-shiny-course-materials/commit/f44d98ccf9574ac8684f2ca8faa8cd09ac9a6c01" target="_blank">git:10_clickdata</a></p>
 
 <h2 id="which-points-are-close-to-the-data">Which points are close to the data?</h2>
 
@@ -450,7 +450,7 @@ gapminder %&gt;%
 
 <h3 id="solution-1">Solution</h3>
 
-<p><a href="https://github.com/UoMResearchIT/RSE18-shiny-workshop-materials/commit/ee34c67388e004696870d446e3e51b05b43c858e" target="_blank">git:11_nearpoints</a></p>
+<p><a href="https://github.com/UoMResearchIT/r-shiny-course-materials/commit/ee34c67388e004696870d446e3e51b05b43c858e" target="_blank">git:11_nearpoints</a></p>
 
 <h2 id="retaining-the-click-data">Retaining the click data</h2>
 
@@ -461,7 +461,7 @@ gapminder %&gt;%
 <li>use the <code>observeEvent()</code> function to observe when a click occurs, and only <em>then</em> put the output of that click into the reactive value we created above.</li>
 </ol>
 
-<p>To do this, we modify the server function as follows <a href="https://github.com/UoMResearchIT/RSE18-shiny-workshop-materials/commit/d3fc11f305c9d0a4e163c82d549ccb88644b55bf" target="_blank">git:12_observeevent</a>:</p>
+<p>To do this, we modify the server function as follows <a href="https://github.com/UoMResearchIT/r-shiny-course-materials/commit/d3fc11f305c9d0a4e163c82d549ccb88644b55bf" target="_blank">git:12_observeevent</a>:</p>
 <div class="highlight"><pre style="color:#d0d0d0;background-color:#202020;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-r" data-lang="r"><span style="color:#999;font-style:italic"># Create a reactive value to store the country we seleect</span>
 activeCountry &lt;- reactiveVal()
 
@@ -492,7 +492,7 @@ activeCountry &lt;- reactiveVal(value = <span style="color:#6ab825;font-weight:b
 
 <h3 id="solution-2">Solution</h3>
 
-<p><a href="https://github.com/UoMResearchIT/RSE18-shiny-workshop-materials/commit/be7716137481d0c46b87b01d43bf0ebaff48328a" target="_blank">git:13_historic</a></p>
+<p><a href="https://github.com/UoMResearchIT/r-shiny-course-materials/commit/be7716137481d0c46b87b01d43bf0ebaff48328a" target="_blank">git:13_historic</a></p>
 
 <h3 id="exercise-3">Exercise</h3>
 
@@ -500,7 +500,7 @@ activeCountry &lt;- reactiveVal(value = <span style="color:#6ab825;font-weight:b
 
 <h3 id="solution-3">Solution</h3>
 
-<p><a href="https://github.com/UoMResearchIT/RSE18-shiny-workshop-materials/commit/89c591b10256f7bc7ad0a6cee6c258f1482137a3" target="_blank">git:14_showhistoric</a></p>
+<p><a href="https://github.com/UoMResearchIT/r-shiny-course-materials/commit/89c591b10256f7bc7ad0a6cee6c258f1482137a3" target="_blank">git:14_showhistoric</a></p>
 
 
 <footer class=" footline" >
@@ -697,10 +697,10 @@ activeCountry &lt;- reactiveVal(value = <span style="color:#6ab825;font-weight:b
 
 
         
-            <a class="nav nav-prev" href="../../goingfurther/reactive/" title="Reactive data"> <i class="fa fa-chevron-left"></i></a>
+            <a class="nav nav-prev" href="../../goingfurther/reactive/" title="Reactive data"> <i class="fas fa-chevron-left"></i></a>
         
         
-            <a class="nav nav-next" href="../../goingfurther/layout/" title="App layout" style="margin-right: 0px;"><i class="fa fa-chevron-right"></i></a>
+            <a class="nav nav-next" href="../../goingfurther/layout/" title="App layout" style="margin-right: 0px;"><i class="fas fa-chevron-right"></i></a>
         
     </div>
 
@@ -709,20 +709,20 @@ activeCountry &lt;- reactiveVal(value = <span style="color:#6ab825;font-weight:b
     <div style="left: -1000px; overflow: scroll; position: absolute; top: -1000px; border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;">
       <div style="border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;"></div>
     </div>
-    <script src="../../js/clipboard.min.js?1536141203"></script>
-    <script src="../../js/perfect-scrollbar.min.js?1536141203"></script>
-    <script src="../../js/perfect-scrollbar.jquery.min.js?1536141203"></script>
-    <script src="../../js/jquery.sticky.js?1536141203"></script>
-    <script src="../../js/featherlight.min.js?1536141203"></script>
-    <script src="../../js/html5shiv-printshiv.min.js?1536141203"></script>
-    <script src="../../js/highlight.pack.js?1536141203"></script>
+    <script src="../../js/clipboard.min.js?1539252890"></script>
+    <script src="../../js/perfect-scrollbar.min.js?1539252890"></script>
+    <script src="../../js/perfect-scrollbar.jquery.min.js?1539252890"></script>
+    <script src="../../js/jquery.sticky.js?1539252890"></script>
+    <script src="../../js/featherlight.min.js?1539252890"></script>
+    <script src="../../js/html5shiv-printshiv.min.js?1539252890"></script>
+    <script src="../../js/highlight.pack.js?1539252890"></script>
     <script>hljs.initHighlightingOnLoad();</script>
-    <script src="../../js/modernizr.custom.71422.js?1536141203"></script>
-    <script src="../../js/learn.js?1536141203"></script>
-    <script src="../../js/hugo-learn.js?1536141203"></script>
+    <script src="../../js/modernizr.custom.71422.js?1539252890"></script>
+    <script src="../../js/learn.js?1539252890"></script>
+    <script src="../../js/hugo-learn.js?1539252890"></script>
 
-    <link href="../../mermaid/mermaid.css?1536141203" type="text/css" rel="stylesheet" />
-    <script src="../../mermaid/mermaid.js?1536141203"></script>
+    <link href="../../mermaid/mermaid.css?1539252890" type="text/css" rel="stylesheet" />
+    <script src="../../mermaid/mermaid.js?1539252890"></script>
     <script>
         mermaid.initialize({ startOnLoad: true });
     </script>

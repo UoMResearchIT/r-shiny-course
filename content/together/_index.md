@@ -20,7 +20,7 @@ The `outputId` of the plot in the default app is `distPlot` - you should change 
 
 ### Solution 
 
-[git:04_gapminderplot](https://github.com/UoMResearchIT/RSE18-shiny-workshop-materials/commit/4e65d595767b89352159626a9866a9138c937ad2)
+[git:04_gapminderplot](https://github.com/UoMResearchIT/r-shiny-course-materials/commit/4e65d595767b89352159626a9866a9138c937ad2)
 
 * Create a new widget, with `inputId="year"` (or modify the `bins` widget) to let the user choose the year of data to plot. You might want to check out the `sep` option to deal with the thousand separator commas, and `step` to alter the "resolution" of the slider.  
 
@@ -34,13 +34,13 @@ The performance of the app isn't great in the virtual machine. You may need to s
  
 ### Solution
  
-[git:05_yearwidget](https://github.com/UoMResearchIT/RSE18-shiny-workshop-materials/commit/06e341bf142320efe21b1164ded07e83ac494e5d)
+[git:05_yearwidget](https://github.com/UoMResearchIT/r-shiny-course-materials/commit/06e341bf142320efe21b1164ded07e83ac494e5d)
  
 * Use the outputs of the year and continent widgets to make the graph interactive
 
 ### Solution 
 
-[git:06_interactive](https://github.com/UoMResearchIT/RSE18-shiny-workshop-materials/commit/6c8aa4be34deb51218af55541789f48e4790018c)
+[git:06_interactive](https://github.com/UoMResearchIT/r-shiny-course-materials/commit/6c8aa4be34deb51218af55541789f48e4790018c)
 
 
 ##  Summary

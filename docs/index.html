@@ -2,30 +2,30 @@
 <html lang="en" class="js csstransforms3d">
   <head>
     <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="generator" content="Hugo 0.45" />
-    <meta name="description" content="An introduction to Shiny, for the Research Software Engineering conference 2018">
+    <meta name="description" content="An introduction to Shiny">
 <meta name="author" content="David Mawdsley">
 
     <link rel="shortcut icon" href="./images/favicon.png" type="image/x-icon" />
 <link rel="icon" href="./images/favicon.png" type="image/x-icon" />
     <title>Introduction to Shiny :: Introduction to Shiny</title>
+
     
-    
-    <link href="./css/nucleus.css?1536141203" rel="stylesheet">
-    <link href="./css/font-awesome.min.css?1536141203" rel="stylesheet">
-    <link href="./css/hybrid.css?1536141203" rel="stylesheet">
-    <link href="./css/featherlight.min.css?1536141203" rel="stylesheet">
-    <link href="./css/perfect-scrollbar.min.css?1536141203" rel="stylesheet">
-    <link href="./css/auto-complete.css?1536141203" rel="stylesheet">
-    <link href="./css/theme.css?1536141203" rel="stylesheet">
-    <link href="./css/hugo-theme.css?1536141203" rel="stylesheet">
+    <link href="./css/nucleus.css?1539252890" rel="stylesheet">
+    <link href="./css/fontawesome-all.min.css?1539252890" rel="stylesheet">
+    <link href="./css/hybrid.css?1539252890" rel="stylesheet">
+    <link href="./css/featherlight.min.css?1539252890" rel="stylesheet">
+    <link href="./css/perfect-scrollbar.min.css?1539252890" rel="stylesheet">
+    <link href="./css/auto-complete.css?1539252890" rel="stylesheet">
+    <link href="./css/theme.css?1539252890" rel="stylesheet">
+    <link href="./css/hugo-theme.css?1539252890" rel="stylesheet">
     
 
-    <script src="./js/jquery-2.x.min.js?1536141203"></script>
-    
+    <script src="./js/jquery-2.x.min.js?1539252890"></script>
+
     <style type="text/css">
-      :root #header + #content > #left > #rlblock_left{ 
+      :root #header + #content > #left > #rlblock_left{
           display:none !important;
       }
       
@@ -279,7 +279,7 @@
               </li>
           
               <li> 
-                  <a class="padding" href="https://github.com/uomresearchit/RSE18-shiny-workshop/">GitHub</a>
+                  <a class="padding" href="https://github.com/uomresearchit/r-shiny-course/">GitHub</a>
               </li>
           
               <li> 
@@ -300,7 +300,7 @@
 
     
     <section id="footer">
-      <p>Built with <a href="https://github.com/matcornic/hugo-theme-learn"><i class="fa fa-heart"></i></a> from <a href="http://getgrav.org">Grav</a> and <a href="http://gohugo.io/">Hugo</a></p>
+      <p>Built with <a href="https://github.com/matcornic/hugo-theme-learn"><i class="fas fa-heart"></i></a> from <a href="http://getgrav.org">Grav</a> and <a href="http://gohugo.io/">Hugo</a></p>
 
     </section>
   </div>
@@ -322,7 +322,7 @@
         
 
 <span id="sidebar-toggle-span">
-<a href="#" id="sidebar-toggle" data-sidebar-toggle=""><i class="fa fa-bars"></i> navigation</a>
+<a href="#" id="sidebar-toggle" data-sidebar-toggle=""><i class="fas fa-bars"></i> navigation</a>
 </span>
 
  
@@ -361,7 +361,7 @@ innovative visualisations and puts it into Shiny.
 
 <p>The material we&rsquo;ll use for this workshop are in the <code>~/mawdsley</code> directory.  This contains the gapminder data we&rsquo;ll be plotting (<code>gapminder.rds</code>), the Shiny app we&rsquo;re going to be making  (in <code>worked_example/</code>) and some example code showing how to produce (static) graphs of the gapminder data (in <code>codeExample.R</code>).  The example code uses the functions in <code>plottingFunctions.R</code> to produce the graphs; this is to reduce the time we spend dealing with the intricacies of ggplot2.</p>
 
-<p>The directory is a git repository.  Each commit is tagged, and represents the solution to an exercise, or a &ldquo;checkpoint&rdquo; in the workshop.   The workshop VM is configured so that the initial commit, <a href="https://github.com/UoMResearchIT/RSE18-shiny-workshop-materials/commit/c24d957e61c1fcc90bee9cad7204a89a1cab882b" target="_blank">git:00_workshopdata</a>, is checked out.  This contains the data and functions we&rsquo;ll be using.   Within this website, links to the commits are clickable, and will show you the diff of that commit on github.</p>
+<p>The directory is a git repository.  Each commit is tagged, and represents the solution to an exercise, or a &ldquo;checkpoint&rdquo; in the workshop.   The workshop VM is configured so that the initial commit, <a href="https://github.com/UoMResearchIT/r-shiny-course-materials/commit/c24d957e61c1fcc90bee9cad7204a89a1cab882b" target="_blank">git:00_workshopdata</a>, is checked out.  This contains the data and functions we&rsquo;ll be using.   Within this website, links to the commits are clickable, and will show you the diff of that commit on github.</p>
 
 <p>You should try the exercises in your own directory (outside of <code>~/mawdsley</code>). If you get stuck, or your code gets horribly broken you can checkout the appropriate commit in <code>~/mawdsley</code> by changing to that directory and using:</p>
 <div class="highlight"><pre style="color:#d0d0d0;background-color:#202020;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">git checkout tagname</code></pre></div>
@@ -553,7 +553,7 @@ innovative visualisations and puts it into Shiny.
 
         
         
-            <a class="nav nav-next" href="./basics/" title="Getting started" style="margin-right: 0px;"><i class="fa fa-chevron-right"></i></a>
+            <a class="nav nav-next" href="./basics/" title="Getting started" style="margin-right: 0px;"><i class="fas fa-chevron-right"></i></a>
         
     </div>
 
@@ -562,20 +562,20 @@ innovative visualisations and puts it into Shiny.
     <div style="left: -1000px; overflow: scroll; position: absolute; top: -1000px; border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;">
       <div style="border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;"></div>
     </div>
-    <script src="./js/clipboard.min.js?1536141203"></script>
-    <script src="./js/perfect-scrollbar.min.js?1536141203"></script>
-    <script src="./js/perfect-scrollbar.jquery.min.js?1536141203"></script>
-    <script src="./js/jquery.sticky.js?1536141203"></script>
-    <script src="./js/featherlight.min.js?1536141203"></script>
-    <script src="./js/html5shiv-printshiv.min.js?1536141203"></script>
-    <script src="./js/highlight.pack.js?1536141203"></script>
+    <script src="./js/clipboard.min.js?1539252890"></script>
+    <script src="./js/perfect-scrollbar.min.js?1539252890"></script>
+    <script src="./js/perfect-scrollbar.jquery.min.js?1539252890"></script>
+    <script src="./js/jquery.sticky.js?1539252890"></script>
+    <script src="./js/featherlight.min.js?1539252890"></script>
+    <script src="./js/html5shiv-printshiv.min.js?1539252890"></script>
+    <script src="./js/highlight.pack.js?1539252890"></script>
     <script>hljs.initHighlightingOnLoad();</script>
-    <script src="./js/modernizr.custom.71422.js?1536141203"></script>
-    <script src="./js/learn.js?1536141203"></script>
-    <script src="./js/hugo-learn.js?1536141203"></script>
+    <script src="./js/modernizr.custom.71422.js?1539252890"></script>
+    <script src="./js/learn.js?1539252890"></script>
+    <script src="./js/hugo-learn.js?1539252890"></script>
 
-    <link href="./mermaid/mermaid.css?1536141203" type="text/css" rel="stylesheet" />
-    <script src="./mermaid/mermaid.js?1536141203"></script>
+    <link href="./mermaid/mermaid.css?1539252890" type="text/css" rel="stylesheet" />
+    <script src="./mermaid/mermaid.js?1539252890"></script>
     <script>
         mermaid.initialize({ startOnLoad: true });
     </script>
