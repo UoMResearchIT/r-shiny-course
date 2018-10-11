@@ -12,17 +12,17 @@
     <title>Introduction to Shiny :: Introduction to Shiny</title>
 
     
-    <link href="./css/nucleus.css?1539252890" rel="stylesheet">
-    <link href="./css/fontawesome-all.min.css?1539252890" rel="stylesheet">
-    <link href="./css/hybrid.css?1539252890" rel="stylesheet">
-    <link href="./css/featherlight.min.css?1539252890" rel="stylesheet">
-    <link href="./css/perfect-scrollbar.min.css?1539252890" rel="stylesheet">
-    <link href="./css/auto-complete.css?1539252890" rel="stylesheet">
-    <link href="./css/theme.css?1539252890" rel="stylesheet">
-    <link href="./css/hugo-theme.css?1539252890" rel="stylesheet">
+    <link href="./css/nucleus.css?1539253387" rel="stylesheet">
+    <link href="./css/fontawesome-all.min.css?1539253387" rel="stylesheet">
+    <link href="./css/hybrid.css?1539253387" rel="stylesheet">
+    <link href="./css/featherlight.min.css?1539253387" rel="stylesheet">
+    <link href="./css/perfect-scrollbar.min.css?1539253387" rel="stylesheet">
+    <link href="./css/auto-complete.css?1539253387" rel="stylesheet">
+    <link href="./css/theme.css?1539253387" rel="stylesheet">
+    <link href="./css/hugo-theme.css?1539253387" rel="stylesheet">
     
 
-    <script src="./js/jquery-2.x.min.js?1539252890"></script>
+    <script src="./js/jquery-2.x.min.js?1539253387"></script>
 
     <style type="text/css">
       :root #header + #content > #left > #rlblock_left{
@@ -328,8 +328,6 @@
  
 
 
-<p>This is the &ldquo;Data Visualization Using Shiny&rdquo; workshop for the 2018 <a href="http://rse.ac.uk/conf2018/" target="_blank">Research Software Engineers&rsquo; Conference</a></p>
-
 <h1 id="introduction">Introduction</h1>
 
 <p>Shiny lets us build interactive web apps, using R.   This means we can use (pretty much) all of R&rsquo;s extensive (and extensible) data analysis and visualisation features in our app.  Essentially, we can take almost any analysis we&rsquo;ve done in R, and then make it interactive.   We can run our apps locally, within R Studio (this is what we&rsquo;ll do most of today), make them standalone, either by deploying them to a <a href="https://www.rstudio.com/products/shiny/shiny-server/" target="_blank">Shiny Server</a>, or to a hosting service, such as <a href="https://shinyapps.io" target="_blank">https://shinyapps.io</a> (we&rsquo;ll do this today), or even including them in a Markdown document.</p>
@@ -357,7 +355,11 @@ innovative visualisations and puts it into Shiny.
 </div>
 
 
-<h2 id="how-the-workshop-materials-work">How the workshop materials work</h2>
+<h2 id="how-the-course-materials-work">How the course materials work</h2>
+
+<p>The bulk of the course consists of a single running example.  We start with a &ldquo;hello world&rdquo; Shiny app, and gradually add features to it over the course. As you will be building on previous steps it&rsquo;s possible that you will break your app, and be unable to fix it.  If this happens, <em>don&rsquo;t panic</em>; use your red sticky note to ask for help from one of the helpers.</p>
+
+<p>You can download the course material as a zip file from <a href="https://github.com/UoMResearchIT/r-shiny-course/raw/master/runningExample.zip" target="_blank">here</a>.  You should decompress the zip file on your computer.  It contains a series of numbered subdirectories.  Each subdirectory corresponds to a &ldquo;checkpoint&rdquo; within the course.</p>
 
 <p>The material we&rsquo;ll use for this workshop are in the <code>~/mawdsley</code> directory.  This contains the gapminder data we&rsquo;ll be plotting (<code>gapminder.rds</code>), the Shiny app we&rsquo;re going to be making  (in <code>worked_example/</code>) and some example code showing how to produce (static) graphs of the gapminder data (in <code>codeExample.R</code>).  The example code uses the functions in <code>plottingFunctions.R</code> to produce the graphs; this is to reduce the time we spend dealing with the intricacies of ggplot2.</p>
 
@@ -562,20 +564,20 @@ innovative visualisations and puts it into Shiny.
     <div style="left: -1000px; overflow: scroll; position: absolute; top: -1000px; border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;">
       <div style="border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;"></div>
     </div>
-    <script src="./js/clipboard.min.js?1539252890"></script>
-    <script src="./js/perfect-scrollbar.min.js?1539252890"></script>
-    <script src="./js/perfect-scrollbar.jquery.min.js?1539252890"></script>
-    <script src="./js/jquery.sticky.js?1539252890"></script>
-    <script src="./js/featherlight.min.js?1539252890"></script>
-    <script src="./js/html5shiv-printshiv.min.js?1539252890"></script>
-    <script src="./js/highlight.pack.js?1539252890"></script>
+    <script src="./js/clipboard.min.js?1539253387"></script>
+    <script src="./js/perfect-scrollbar.min.js?1539253387"></script>
+    <script src="./js/perfect-scrollbar.jquery.min.js?1539253387"></script>
+    <script src="./js/jquery.sticky.js?1539253387"></script>
+    <script src="./js/featherlight.min.js?1539253387"></script>
+    <script src="./js/html5shiv-printshiv.min.js?1539253387"></script>
+    <script src="./js/highlight.pack.js?1539253387"></script>
     <script>hljs.initHighlightingOnLoad();</script>
-    <script src="./js/modernizr.custom.71422.js?1539252890"></script>
-    <script src="./js/learn.js?1539252890"></script>
-    <script src="./js/hugo-learn.js?1539252890"></script>
+    <script src="./js/modernizr.custom.71422.js?1539253387"></script>
+    <script src="./js/learn.js?1539253387"></script>
+    <script src="./js/hugo-learn.js?1539253387"></script>
 
-    <link href="./mermaid/mermaid.css?1539252890" type="text/css" rel="stylesheet" />
-    <script src="./mermaid/mermaid.js?1539252890"></script>
+    <link href="./mermaid/mermaid.css?1539253387" type="text/css" rel="stylesheet" />
+    <script src="./mermaid/mermaid.js?1539253387"></script>
     <script>
         mermaid.initialize({ startOnLoad: true });
     </script>

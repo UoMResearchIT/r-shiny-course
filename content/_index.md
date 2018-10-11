@@ -2,9 +2,6 @@
 title: "Introduction to Shiny"
 ---
 
-This is the "Data Visualization Using Shiny" workshop for the 2018 [Research Software Engineers' Conference](http://rse.ac.uk/conf2018/)
-
-
 
 # Introduction
 
@@ -30,7 +27,12 @@ To minimise the amount of formatting of graphs etc, I've provided functions that
 {{% /notice %}}
 
 
-## How the workshop materials work
+## How the course materials work
+
+The bulk of the course consists of a single running example.  We start with a "hello world" Shiny app, and gradually add features to it over the course. As you will be building on previous steps it's possible that you will break your app, and be unable to fix it.  If this happens, *don't panic*; use your red sticky note to ask for help from one of the helpers.  
+
+You can download the course material as a zip file from [here](https://github.com/UoMResearchIT/r-shiny-course/raw/master/runningExample.zip).  You should decompress the zip file on your computer.  It contains a series of numbered subdirectories.  Each subdirectory corresponds to a "checkpoint" within the course.
+
 
 The material we'll use for this workshop are in the `~/mawdsley` directory.  This contains the gapminder data we'll be plotting (`gapminder.rds`), the Shiny app we're going to be making  (in `worked_example/`) and some example code showing how to produce (static) graphs of the gapminder data (in `codeExample.R`).  The example code uses the functions in `plottingFunctions.R` to produce the graphs; this is to reduce the time we spend dealing with the intricacies of ggplot2.
 
