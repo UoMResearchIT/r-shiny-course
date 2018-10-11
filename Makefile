@@ -17,7 +17,9 @@ sourcedata = $(wildcard sourcedata/*)
 
 .INTERMEDIATE: $(presentationname)_annote.Rmd
 
-all: slides site
+all: slides site runningexample
+
+clean: cleancontent cleanrunning
 
 site: sitecontent
 	hugo
@@ -35,7 +37,11 @@ sitecontent: $(contentmd)
 	rm $(patsubst %.md, %_gitlink.Rmd,$@)
 
 
+runningexample:
+	./unwraprepo.sh
 
+cleanrunning:
+	rm -r runningExample
 
 slides: $(presentationname).html
 
