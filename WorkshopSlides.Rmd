@@ -37,6 +37,7 @@ source("coursematerial/workshopFunctions.R")
 - And control it using widgets
 <p>
 For example:
+- [Trafford Data Lab Ward Profiles](https://trafforddatalab.shinyapps.io/ward_profiler/)
 - [Movie explorer](https://shiny.rstudio.com/gallery/movie-explorer.html)
 - [Bus dashboard](https://shiny.rstudio.com/gallery/bus-dashboard.html)
 - [PK modelling](http://shiny.webpopix.org/dashboard/pkmodel/)  
