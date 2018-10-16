@@ -11,6 +11,17 @@
     
     
     <item>
+      <title>Getting started</title>
+      <link>/basics/_index_gitlink/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/basics/_index_gitlink/</guid>
+      <description>Chapter 1 Getting started with Shiny Creating a Shiny app The most straightforward way of creating a new Shiny app is to use R Studio. From the menu, choose, File, New, Shiny Web App.
+Choose a suitable name for your app (e.g. &amp;ldquo;gapminder&amp;rdquo;). Leave the other options as their defaults (&amp;ldquo;Single File&amp;rdquo;, and Create within directory: ~/mawdsley). 01_defaultapp
+When we create a new Shiny app we can create a single file (app.</description>
+    </item>
+    
+    <item>
       <title>Reactive data</title>
       <link>/goingfurther/reactive/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>

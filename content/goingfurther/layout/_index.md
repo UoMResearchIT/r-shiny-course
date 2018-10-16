@@ -46,5 +46,5 @@ Place the continent and year widgets side-by-side below the graph.
 
 ### Solution
 
-[git:15_layout](https://github.com/UoMResearchIT/r-shiny-course-materials/commit/01a9bb7435bbe75a870c8720adbb7b7df308efda)
+[15_layout](https://github.com/UoMResearchIT/r-shiny-course-materials/commit/01a9bb7435bbe75a870c8720adbb7b7df308efda)
 

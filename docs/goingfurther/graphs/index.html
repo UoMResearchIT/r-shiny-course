@@ -12,17 +12,17 @@
     <title>Interacting with graphs :: Introduction to Shiny</title>
 
     
-    <link href="../../css/nucleus.css?1539691719" rel="stylesheet">
-    <link href="../../css/fontawesome-all.min.css?1539691719" rel="stylesheet">
-    <link href="../../css/hybrid.css?1539691719" rel="stylesheet">
-    <link href="../../css/featherlight.min.css?1539691719" rel="stylesheet">
-    <link href="../../css/perfect-scrollbar.min.css?1539691719" rel="stylesheet">
-    <link href="../../css/auto-complete.css?1539691719" rel="stylesheet">
-    <link href="../../css/theme.css?1539691719" rel="stylesheet">
-    <link href="../../css/hugo-theme.css?1539691719" rel="stylesheet">
+    <link href="../../css/nucleus.css?1539691995" rel="stylesheet">
+    <link href="../../css/fontawesome-all.min.css?1539691995" rel="stylesheet">
+    <link href="../../css/hybrid.css?1539691995" rel="stylesheet">
+    <link href="../../css/featherlight.min.css?1539691995" rel="stylesheet">
+    <link href="../../css/perfect-scrollbar.min.css?1539691995" rel="stylesheet">
+    <link href="../../css/auto-complete.css?1539691995" rel="stylesheet">
+    <link href="../../css/theme.css?1539691995" rel="stylesheet">
+    <link href="../../css/hugo-theme.css?1539691995" rel="stylesheet">
     
 
-    <script src="../../js/jquery-2.x.min.js?1539691719"></script>
+    <script src="../../js/jquery-2.x.min.js?1539691995"></script>
 
     <style type="text/css">
       :root #header + #content > #left > #rlblock_left{
@@ -70,6 +70,35 @@
           
       </a>
       
+      
+        <ul>
+          
+          
+          
+          
+        
+          
+            
+            
+
+
+ 
+  
+    
+      <li data-nav-id="/basics/_index_gitlink/" title="Getting started" class="dd-item ">
+        <a href="../../basics/_index_gitlink/">
+        <b>1. </b>Getting started
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+        
+        </ul>
               
     </li>
   
@@ -438,7 +467,7 @@ gapminder %&gt;%
 
 <h3 id="solution">Solution</h3>
 
-<p><a href="https://github.com/UoMResearchIT/r-shiny-course-materials/commit/f44d98ccf9574ac8684f2ca8faa8cd09ac9a6c01" target="_blank">git:10_clickdata</a></p>
+<p><a href="https://github.com/UoMResearchIT/r-shiny-course-materials/commit/f44d98ccf9574ac8684f2ca8faa8cd09ac9a6c01" target="_blank">10_clickdata</a></p>
 
 <h2 id="which-points-are-close-to-the-data">Which points are close to the data?</h2>
 
@@ -450,7 +479,7 @@ gapminder %&gt;%
 
 <h3 id="solution-1">Solution</h3>
 
-<p><a href="https://github.com/UoMResearchIT/r-shiny-course-materials/commit/ee34c67388e004696870d446e3e51b05b43c858e" target="_blank">git:11_nearpoints</a></p>
+<p><a href="https://github.com/UoMResearchIT/r-shiny-course-materials/commit/ee34c67388e004696870d446e3e51b05b43c858e" target="_blank">11_nearpoints</a></p>
 
 <h2 id="retaining-the-click-data">Retaining the click data</h2>
 
@@ -461,7 +490,7 @@ gapminder %&gt;%
 <li>use the <code>observeEvent()</code> function to observe when a click occurs, and only <em>then</em> put the output of that click into the reactive value we created above.</li>
 </ol>
 
-<p>To do this, we modify the server function as follows <a href="https://github.com/UoMResearchIT/r-shiny-course-materials/commit/d3fc11f305c9d0a4e163c82d549ccb88644b55bf" target="_blank">git:12_observeevent</a>:</p>
+<p>To do this, we modify the server function as follows <a href="https://github.com/UoMResearchIT/r-shiny-course-materials/commit/d3fc11f305c9d0a4e163c82d549ccb88644b55bf" target="_blank">12_observeevent</a>:</p>
 <div class="highlight"><pre style="color:#d0d0d0;background-color:#202020;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-r" data-lang="r"><span style="color:#999;font-style:italic"># Create a reactive value to store the country we seleect</span>
 activeCountry &lt;- reactiveVal()
 
@@ -492,7 +521,7 @@ activeCountry &lt;- reactiveVal(value = <span style="color:#6ab825;font-weight:b
 
 <h3 id="solution-2">Solution</h3>
 
-<p><a href="https://github.com/UoMResearchIT/r-shiny-course-materials/commit/be7716137481d0c46b87b01d43bf0ebaff48328a" target="_blank">git:13_historic</a></p>
+<p><a href="https://github.com/UoMResearchIT/r-shiny-course-materials/commit/be7716137481d0c46b87b01d43bf0ebaff48328a" target="_blank">13_historic</a></p>
 
 <h3 id="exercise-3">Exercise</h3>
 
@@ -500,7 +529,7 @@ activeCountry &lt;- reactiveVal(value = <span style="color:#6ab825;font-weight:b
 
 <h3 id="solution-3">Solution</h3>
 
-<p><a href="https://github.com/UoMResearchIT/r-shiny-course-materials/commit/89c591b10256f7bc7ad0a6cee6c258f1482137a3" target="_blank">git:14_showhistoric</a></p>
+<p><a href="https://github.com/UoMResearchIT/r-shiny-course-materials/commit/89c591b10256f7bc7ad0a6cee6c258f1482137a3" target="_blank">14_showhistoric</a></p>
 
 
 <footer class=" footline" >
@@ -548,6 +577,22 @@ activeCountry &lt;- reactiveVal(value = <span style="color:#6ab825;font-weight:b
                     
                     
 
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
                     
             
         
@@ -709,20 +754,20 @@ activeCountry &lt;- reactiveVal(value = <span style="color:#6ab825;font-weight:b
     <div style="left: -1000px; overflow: scroll; position: absolute; top: -1000px; border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;">
       <div style="border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;"></div>
     </div>
-    <script src="../../js/clipboard.min.js?1539691719"></script>
-    <script src="../../js/perfect-scrollbar.min.js?1539691719"></script>
-    <script src="../../js/perfect-scrollbar.jquery.min.js?1539691719"></script>
-    <script src="../../js/jquery.sticky.js?1539691719"></script>
-    <script src="../../js/featherlight.min.js?1539691719"></script>
-    <script src="../../js/html5shiv-printshiv.min.js?1539691719"></script>
-    <script src="../../js/highlight.pack.js?1539691719"></script>
+    <script src="../../js/clipboard.min.js?1539691995"></script>
+    <script src="../../js/perfect-scrollbar.min.js?1539691995"></script>
+    <script src="../../js/perfect-scrollbar.jquery.min.js?1539691995"></script>
+    <script src="../../js/jquery.sticky.js?1539691995"></script>
+    <script src="../../js/featherlight.min.js?1539691995"></script>
+    <script src="../../js/html5shiv-printshiv.min.js?1539691995"></script>
+    <script src="../../js/highlight.pack.js?1539691995"></script>
     <script>hljs.initHighlightingOnLoad();</script>
-    <script src="../../js/modernizr.custom.71422.js?1539691719"></script>
-    <script src="../../js/learn.js?1539691719"></script>
-    <script src="../../js/hugo-learn.js?1539691719"></script>
+    <script src="../../js/modernizr.custom.71422.js?1539691995"></script>
+    <script src="../../js/learn.js?1539691995"></script>
+    <script src="../../js/hugo-learn.js?1539691995"></script>
 
-    <link href="../../mermaid/mermaid.css?1539691719" type="text/css" rel="stylesheet" />
-    <script src="../../mermaid/mermaid.js?1539691719"></script>
+    <link href="../../mermaid/mermaid.css?1539691995" type="text/css" rel="stylesheet" />
+    <script src="../../mermaid/mermaid.js?1539691995"></script>
     <script>
         mermaid.initialize({ startOnLoad: true });
     </script>

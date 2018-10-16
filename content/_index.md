@@ -46,7 +46,7 @@ git checkout tagname
 
 (For example, `git checkout 09_richcountry` will take you to the finished app.)
 
-You should checkout the initial commit, [git:00_workshopdata](https://github.com/UoMResearchIT/r-shiny-course-materials/commit/c24d957e61c1fcc90bee9cad7204a89a1cab882b).  This contains the data and functions we'll be using.
+You should checkout the initial commit, [00_workshopdata](https://github.com/UoMResearchIT/r-shiny-course-materials/commit/c24d957e61c1fcc90bee9cad7204a89a1cab882b).  This contains the data and functions we'll be using.
 
 Within this website, links to the commits are clickable, and will show you the diff of that commit on github.  
 

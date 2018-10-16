@@ -58,7 +58,7 @@ Capture click data from the graph, by setting the `click=` option.   Use `render
 
 ### Solution
 
-[git:10_clickdata](https://github.com/UoMResearchIT/r-shiny-course-materials/commit/f44d98ccf9574ac8684f2ca8faa8cd09ac9a6c01)
+[10_clickdata](https://github.com/UoMResearchIT/r-shiny-course-materials/commit/f44d98ccf9574ac8684f2ca8faa8cd09ac9a6c01)
 
 ## Which points are close to the data?
 
@@ -70,7 +70,7 @@ Modify your `renderPrint()` function to return information on the country neares
 
 ### Solution
 
-[git:11_nearpoints](https://github.com/UoMResearchIT/r-shiny-course-materials/commit/ee34c67388e004696870d446e3e51b05b43c858e)
+[11_nearpoints](https://github.com/UoMResearchIT/r-shiny-course-materials/commit/ee34c67388e004696870d446e3e51b05b43c858e)
 
 ##  Retaining the click data
 
@@ -79,7 +79,7 @@ As soon as the graph is redrawn, the click event becomes invalidated.  Because o
 1. Create a reactive value to store the currently selected country
 2. use the `observeEvent()` function to observe when a click occurs, and only *then* put the output of that click into the reactive value we created above.
 
-To do this, we modify the server function as follows [git:12_observeevent](https://github.com/UoMResearchIT/r-shiny-course-materials/commit/d3fc11f305c9d0a4e163c82d549ccb88644b55bf):
+To do this, we modify the server function as follows [12_observeevent](https://github.com/UoMResearchIT/r-shiny-course-materials/commit/d3fc11f305c9d0a4e163c82d549ccb88644b55bf):
 
 
 ```r
@@ -120,7 +120,7 @@ Create a reactive data set, using `reactive()` which contains the historic data 
 
 ### Solution
 
-[git:13_historic](https://github.com/UoMResearchIT/r-shiny-course-materials/commit/be7716137481d0c46b87b01d43bf0ebaff48328a)
+[13_historic](https://github.com/UoMResearchIT/r-shiny-course-materials/commit/be7716137481d0c46b87b01d43bf0ebaff48328a)
 
 ### Exercise
 
@@ -128,7 +128,7 @@ The final thing to do is to add the historic data to the plot, if a country is s
 
 ### Solution
 
-[git:14_showhistoric](https://github.com/UoMResearchIT/r-shiny-course-materials/commit/89c591b10256f7bc7ad0a6cee6c258f1482137a3)
+[14_showhistoric](https://github.com/UoMResearchIT/r-shiny-course-materials/commit/89c591b10256f7bc7ad0a6cee6c258f1482137a3)
 
 
 
