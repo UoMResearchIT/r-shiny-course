@@ -1,7 +1,7 @@
 ---
-title: "Shiny Workshop"
+title: "Introduction to Shiny Workshop"
 author: "David Mawdsley, Louise Lever, Joshua Woodcock"
-date: "RSE 2018 Conference<p><a class='url' href='https://uomresearchit.github.io/RSE18-shiny-workshop/'>https://uomresearchit.github.io/RSE18-shiny-workshop/</a></span></p><p><img src='https://assets.manchester.ac.uk/logos/hi-res/TAB_UNI_MAIN_logo/White_backgrounds/TAB_col_white_background.png' style='border:0px solid black' width='25%'></p>"
+date: "<a class='url' href='https://uomresearchit.github.io/r-shiny-course/'>https://uomresearchit.github.io/r-shiny-course/</a></span></p><p><img src='https://assets.manchester.ac.uk/logos/hi-res/TAB_UNI_MAIN_logo/White_backgrounds/TAB_col_white_background.png' style='border:0px solid black' width='25%'></p>"
 output: 
   revealjs::revealjs_presentation:
     css: presentstyle.css 
@@ -22,6 +22,7 @@ library(igraph)
 gapminder <- readRDS("coursematerial/gapminder.rds")
 source("coursematerial/workshopFunctions.R")
 ```
+
 
 ## Shiny for R
 
@@ -84,7 +85,7 @@ rstudio
 
 * `codeExample.R` shows how to use the plotting functions.
 
-* The course website https://uomresearchit.github.io/RSE18-shiny-workshop/ contains all the exercises, links to solutions and more detail than these slides. 
+* The course website https://uomresearchit.github.io/r-shiny-course/ contains all the exercises, links to solutions and more detail than these slides. 
 
 ## Interactive exercises
 
@@ -159,7 +160,7 @@ Shiny handles the dependencies between sources and endpoints, and only updates w
 
 [git:02_loaddata]()
 
-(Course notes: [Getting started](https://uomresearchit.github.io/RSE18-shiny-workshop/basics/))
+(Course notes: [Getting started](https://uomresearchit.github.io/r-shiny-course/basics/))
 
 ## More widgets
 
@@ -178,7 +179,7 @@ Shiny handles the dependencies between sources and endpoints, and only updates w
 
 [git:03_continentwidget]()
 
-(Course notes: [User interface design](https://uomresearchit.github.io/RSE18-shiny-workshop/ui/))
+(Course notes: [User interface design](https://uomresearchit.github.io/ui/))
 
 ## Exercises - Putting it all together
 
@@ -187,7 +188,7 @@ Shiny handles the dependencies between sources and endpoints, and only updates w
 - Replace the bins widget with a widget to select the year [git:05_yearwidget]()
 - Use the outputs of the widgets to make the graph interactive [git:06_interactive]()
 
-(Course notes: [Putting it all together](https://uomresearchit.github.io/RSE18-shiny-workshop/together/))
+(Course notes: [Putting it all together](https://uomresearchit.github.io/r-shiny-course/together/))
 
 ## Deploying Shiny apps
 
@@ -200,7 +201,7 @@ Shiny handles the dependencies between sources and endpoints, and only updates w
     - Free and commercial versions
     - Authentication requires commercial version
     
-(Course notes: [Deploying Shiny apps](https://uomresearchit.github.io/RSE18-shiny-workshop/deploy/))
+(Course notes: [Deploying Shiny apps](https://uomresearchit.github.io/r-shiny-course/deploy/))
 
 ## Summary
 
