@@ -3,7 +3,6 @@
 # David Mawdsley
 #
 
-
 .NOTPARALLEL: sitecontent
 
 presentationname=WorkshopSlides
@@ -17,7 +16,7 @@ sourcedata = $(wildcard sourcedata/*)
 
 .INTERMEDIATE: $(presentationname)_annote.Rmd
 
-all: slides site runningexample
+all: slides site runningExample.zip
 
 clean: cleancontent cleanrunning
 
@@ -36,11 +35,28 @@ sitecontent: $(contentmd)
 	cd $(dir $@) && Rscript -e "knitr::knit('$(patsubst %.md,%_gitlink.Rmd,$(notdir $@))', output='$(notdir $@)')"
 	rm $(patsubst %.md, %_gitlink.Rmd,$@)
 
-runningexample: 
-	./unwraprepo.sh
-	zip -r runningExample.zip runningExample/*
-	rm -r runningExample
+# Dummy rule we use to force the submodules SHA1 to be 
+# extracted on every run
+FORCE:
 
+# This rule will detect when the commit ID of course material
+# changes
+#
+# Based on https://www.cmcrossroads.com/article/rebuilding-when-files-checksum-changes
+# This will always write the head commit of the course material
+coursematerialHead.txt: FORCE
+	cd coursematerial && git rev-parse  HEAD > $@  && mv $@ ..  && cd ..
+
+# This will only write to coursematerialHead2.txt if 
+# the previous run's head commit is different
+coursematerialHead2.txt: coursematerialHead.txt
+	$(if $(filter-out $(shell cat $@ 2>/dev/null),$(shell cat $<)),$(shell cp $< $@))
+
+
+runningExample.zip: coursematerialHead2.txt
+	./unwraprepo.sh
+	zip -r $@ runningExample/*
+	rm -r runningExample
 
 cleanrunning:
 	rm -r runningExample.zip
