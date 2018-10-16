@@ -30,7 +30,7 @@ cleancontent:
 
 sitecontent: $(contentmd)
 	
-%.md: %.Rmd
+%.md: %.Rmd addlinks.sh
 	./addlinks.sh $(patsubst %.md,%.Rmd,$@) $(patsubst %.md,%_gitlink.Rmd,$@) 
 	cd $(dir $@) && Rscript -e "knitr::knit('$(patsubst %.md,%_gitlink.Rmd,$(notdir $@))', output='$(notdir $@)')"
 	rm $(patsubst %.md, %_gitlink.Rmd,$@)

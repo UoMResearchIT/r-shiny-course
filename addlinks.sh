@@ -16,7 +16,7 @@ regex=""
 for t in $taglist;
 do
 	commitid=$(git -C coursematerial/ rev-list -n 1 $t)
-	regex="${regex}s!(\[git:$t\])\(\)!\1\($gitrepoprefix$commitid\)!g;"
+	regex="${regex}s!\[git:($t)\]\(\)!\[\1\]\($gitrepoprefix$commitid\)!g;"
 done
 
 # Do the replacement 
