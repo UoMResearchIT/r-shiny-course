@@ -34,11 +34,11 @@ The bulk of the course consists of a single running example.  We start with a "h
 You can download the course material as a zip file from [here](https://github.com/UoMResearchIT/r-shiny-course/raw/master/runningExample.zip).  You should decompress the zip file on your computer.  It contains a series of numbered subdirectories.  Each subdirectory corresponds to a "checkpoint" within the course.
 
 
-The material we'll use for this workshop are in the `~/mawdsley` directory.  This contains the gapminder data we'll be plotting (`gapminder.rds`), the Shiny app we're going to be making  (in `worked_example/`) and some example code showing how to produce (static) graphs of the gapminder data (in `codeExample.R`).  The example code uses the functions in `plottingFunctions.R` to produce the graphs; this is to reduce the time we spend dealing with the intricacies of ggplot2.
+{{% notice tip %}}
+If you are familiar with the git version control system, you may prefer to use this to navigate through the worked example.   You can download the repository from https://github.com/UoMResearchIT/r-shiny-course-materials
 
-The directory is a git repository.  Each commit is tagged, and represents the solution to an exercise, or a "checkpoint" in the workshop.   The workshop VM is configured so that the initial commit, [git:00_workshopdata](https://github.com/UoMResearchIT/r-shiny-course-materials/commit/c24d957e61c1fcc90bee9cad7204a89a1cab882b), is checked out.  This contains the data and functions we'll be using.   Within this website, links to the commits are clickable, and will show you the diff of that commit on github.  
+Each checkpoint is a tagged commit, which you can checkout with:
 
-You should try the exercises in your own directory (outside of `~/mawdsley`). If you get stuck, or your code gets horribly broken you can checkout the appropriate commit in `~/mawdsley` by changing to that directory and using:
 
 ```bash
 git checkout tagname
@@ -46,6 +46,10 @@ git checkout tagname
 
 (For example, `git checkout 09_richcountry` will take you to the finished app.)
 
-You can then copy the working code to your directory and carry on from there.
+You should checkout the initial commit, [git:00_workshopdata](https://github.com/UoMResearchIT/r-shiny-course-materials/commit/c24d957e61c1fcc90bee9cad7204a89a1cab882b).  This contains the data and functions we'll be using.
 
+Within this website, links to the commits are clickable, and will show you the diff of that commit on github.  
 
+*If you would like to learn how to use git for version control, [we offer a course on this](https://app.manchester.ac.uk/rgit).  It makes managing your code much easier*
+
+{{% /notice %}}
