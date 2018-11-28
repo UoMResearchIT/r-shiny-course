@@ -581,20 +581,29 @@ For example:</li>
 <section id="interactive-exercises" class="slide level2">
 <h2>Interactive exercises</h2>
 <ul>
-<li>The <code>mawdsley</code> folder is a git repository</li>
-<li>Solutions are stored as tagged commits for code in the <code>worked_example</code> directory
+<li>The course builds on a single worked example.</li>
+<li>Download the <a href="../runningExample.zip">zip file</a></li>
+<li><p>Each step is separate labelled folder, which is cross referenced in the notes, e.g. <a href="https://github.com/UoMResearchIT/r-shiny-course-materials/commit/630e15f29031d4ac180423251fd8324e36ee9a2f">01_defaultapp</a>.</p></li>
+<li><p>Make your own Shiny app in another directory</p></li>
+</ul>
+</section>
+<section id="interactive-exercises-with-git" class="slide level2">
+<h2>Interactive exercises with git</h2>
 <ul>
-<li>e.g <a href="https://github.com/UoMResearchIT/r-shiny-course-materials/commit/630e15f29031d4ac180423251fd8324e36ee9a2f">git:01_defaultapp</a></li>
+<li><p>If you’re happy using git:</p></li>
+<li>Solutions are stored as tagged commits.
+<ul>
+<li>e.g <a href="https://github.com/UoMResearchIT/r-shiny-course-materials/commit/630e15f29031d4ac180423251fd8324e36ee9a2f">01_defaultapp</a></li>
 <li>Link takes you to github’s commit page</li>
 <li>Checkout versions with <code>git checkout 01_defaultapp</code></li>
 </ul></li>
-<li>Make your own Shiny app in another directory</li>
+<li><p>Make your own Shiny app in another directory</p></li>
 </ul>
 </section>
 <section id="getting-started-1" class="slide level2">
 <h2>Getting started</h2>
 <ul>
-<li>Make a new Shiny app and check it works: <a href="https://github.com/UoMResearchIT/r-shiny-course-materials/commit/630e15f29031d4ac180423251fd8324e36ee9a2f">git:01_defaultapp</a>
+<li>Make a new Shiny app and check it works: <a href="https://github.com/UoMResearchIT/r-shiny-course-materials/commit/630e15f29031d4ac180423251fd8324e36ee9a2f">01_defaultapp</a>
 <ul>
 <li>File, New File, Shiny Web App</li>
 <li>Name: gapminder</li>
@@ -648,7 +657,7 @@ For example:</li>
 <li><p>Modify the app to load the ggplot2 and dplyr libraries, gapminder data, and <code>workshopFunctions.R</code></p></li>
 <li><p>Check your app still works</p></li>
 </ul>
-<p><a href="https://github.com/UoMResearchIT/r-shiny-course-materials/commit/f634302b6cdcc46c7d543ccb90f0cad49f7a32ab">git:02_loaddata</a></p>
+<p><a href="https://github.com/UoMResearchIT/r-shiny-course-materials/commit/f634302b6cdcc46c7d543ccb90f0cad49f7a32ab">02_loaddata</a></p>
 <p>(Course notes: <a href="https://uomresearchit.github.io/r-shiny-course/basics/">Getting started</a>)</p>
 </section>
 <section id="more-widgets" class="slide level2">
@@ -666,16 +675,16 @@ For example:</li>
 <li>Change the title of the app in <code>titlePanel()</code> to something sensible</li>
 </ul>
 <p>(This won’t do anything yet - we’ll connect it to the graph shortly)</p>
-<p><a href="https://github.com/UoMResearchIT/r-shiny-course-materials/commit/1966cbfbf977956c82944ac11241e57d96e664c7">git:03_continentwidget</a></p>
+<p><a href="https://github.com/UoMResearchIT/r-shiny-course-materials/commit/1966cbfbf977956c82944ac11241e57d96e664c7">03_continentwidget</a></p>
 <p>(Course notes: <a href="https://uomresearchit.github.io/ui/">User interface design</a>)</p>
 </section>
 <section id="exercises---putting-it-all-together" class="slide level2">
 <h2>Exercises - Putting it all together</h2>
 <ul>
-<li>Replace the histogram with a gapminder plot, using <code>produceGapminderPlot()</code> <a href="https://github.com/UoMResearchIT/r-shiny-course-materials/commit/4e65d595767b89352159626a9866a9138c937ad2">git:04_gapminderplot</a></li>
+<li>Replace the histogram with a gapminder plot, using <code>produceGapminderPlot()</code> <a href="https://github.com/UoMResearchIT/r-shiny-course-materials/commit/4e65d595767b89352159626a9866a9138c937ad2">04_gapminderplot</a></li>
 <li>See <code>codeExample.R</code></li>
-<li>Replace the bins widget with a widget to select the year <a href="https://github.com/UoMResearchIT/r-shiny-course-materials/commit/06e341bf142320efe21b1164ded07e83ac494e5d">git:05_yearwidget</a></li>
-<li>Use the outputs of the widgets to make the graph interactive <a href="https://github.com/UoMResearchIT/r-shiny-course-materials/commit/6c8aa4be34deb51218af55541789f48e4790018c">git:06_interactive</a></li>
+<li>Replace the bins widget with a widget to select the year <a href="https://github.com/UoMResearchIT/r-shiny-course-materials/commit/06e341bf142320efe21b1164ded07e83ac494e5d">05_yearwidget</a></li>
+<li>Use the outputs of the widgets to make the graph interactive <a href="https://github.com/UoMResearchIT/r-shiny-course-materials/commit/6c8aa4be34deb51218af55541789f48e4790018c">06_interactive</a></li>
 </ul>
 <p>(Course notes: <a href="https://uomresearchit.github.io/r-shiny-course/together/">Putting it all together</a>)</p>
 </section>
@@ -726,7 +735,7 @@ For example:</li>
   )
 )</code></pre></div>
 <ul>
-<li>The widths of each row of columns should sum to 12 <a href="https://github.com/UoMResearchIT/r-shiny-course-materials/commit/01a9bb7435bbe75a870c8720adbb7b7df308efda">git:15_layout</a></li>
+<li>The widths of each row of columns should sum to 12 <a href="https://github.com/UoMResearchIT/r-shiny-course-materials/commit/01a9bb7435bbe75a870c8720adbb7b7df308efda">15_layout</a></li>
 </ul>
 </section>
     </div>

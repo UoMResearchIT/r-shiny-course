@@ -90,8 +90,20 @@ rstudio
 
 ## Interactive exercises
 
-* The `mawdsley` folder is a git repository
-* Solutions are stored as tagged commits for code in the `worked_example` directory
+* The course builds on a single worked example.
+* Download the [zip file](../runningExample.zip)
+* Each step is separate labelled folder, which is cross referenced in the notes, e.g. [git:01_defaultapp]().
+
+* Make your own Shiny app in another directory
+
+## Interactive exercises with git
+
+* If you're happy using git:
+```{shell}
+git clone https://github.com/UoMResearchIT/r-shiny-course-materials.git
+```
+
+* Solutions are stored as tagged commits.
     * e.g [git:01_defaultapp]() 
     * Link takes you to github's commit page
     * Checkout versions with `git checkout 01_defaultapp`
