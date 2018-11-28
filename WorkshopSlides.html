@@ -565,52 +565,56 @@ For example:</li>
 <section id="getting-started" class="slide level2">
 <h2>Getting started</h2>
 <ul>
-<li>Run rstudio:</li>
-</ul>
-<pre><code>rstudio</code></pre>
-<ul>
-<li><p><code>gapminder.rds</code> contains the gapminder data</p></li>
-<li><code>workshopFunctions.R</code> contains the functions we will use.
-<ul>
-<li>These are mostly to make it easier to make the plots, and to avoid this turning into a ggplot workshop.</li>
-</ul></li>
-<li><p><code>codeExample.R</code> shows how to use the plotting functions.</p></li>
-<li><p>The course website <a href="https://uomresearchit.github.io/r-shiny-course/" class="uri">https://uomresearchit.github.io/r-shiny-course/</a> contains all the exercises, links to solutions and more detail than these slides.</p></li>
-</ul>
-</section>
-<section id="interactive-exercises" class="slide level2">
-<h2>Interactive exercises</h2>
-<ul>
 <li>The course builds on a single worked example.</li>
-<li>Download the <a href="../runningExample.zip">zip file</a></li>
+<li>Download the <a href="https://github.com/UoMResearchIT/r-shiny-course/raw/master/runningExample.zip">zip file</a></li>
+<li>Decompress this to a directory within <code>C:\work</code></li>
 <li><p>Each step is separate labelled folder, which is cross referenced in the notes, e.g. <a href="https://github.com/UoMResearchIT/r-shiny-course-materials/commit/630e15f29031d4ac180423251fd8324e36ee9a2f">01_defaultapp</a>.</p></li>
-<li><p>Make your own Shiny app in another directory</p></li>
+<li><p>The course website <a href="https://uomresearchit.github.io/r-shiny-course/" class="uri">https://uomresearchit.github.io/r-shiny-course/</a> contains all the exercises, links to solutions and more detail than these slides.</p></li>
 </ul>
 </section>
 <section id="interactive-exercises-with-git" class="slide level2">
 <h2>Interactive exercises with git</h2>
+<p>If you’re happy using git:</p>
+<pre><code>git clone https://github.com/UoMResearchIT/r-shiny-course-materials.git</code></pre>
 <ul>
-<li><p>If you’re happy using git:</p></li>
 <li>Solutions are stored as tagged commits.
 <ul>
 <li>e.g <a href="https://github.com/UoMResearchIT/r-shiny-course-materials/commit/630e15f29031d4ac180423251fd8324e36ee9a2f">01_defaultapp</a></li>
 <li>Link takes you to github’s commit page</li>
 <li>Checkout versions with <code>git checkout 01_defaultapp</code></li>
 </ul></li>
-<li><p>Make your own Shiny app in another directory</p></li>
+<li>Make your own Shiny app in another directory</li>
 </ul>
 </section>
-<section id="getting-started-1" class="slide level2">
-<h2>Getting started</h2>
+<section id="getting-started-2" class="slide level2">
+<h2>Getting started (2)</h2>
 <ul>
-<li>Make a new Shiny app and check it works: <a href="https://github.com/UoMResearchIT/r-shiny-course-materials/commit/630e15f29031d4ac180423251fd8324e36ee9a2f">01_defaultapp</a>
-<ul>
-<li>File, New File, Shiny Web App</li>
-<li>Name: gapminder</li>
-<li>Single file</li>
-</ul></li>
-<li>Run App using toolbar or <kbd>Ctrl</kbd>+<kbd>Shift</kbd>+<kbd>Enter</kbd></li>
+<li>Run rstudio:</li>
 </ul>
+<pre><code>rstudio</code></pre>
+<ul>
+<li>We’ll make a new project for our app
+<ul>
+<li>Make this in <code>C:/work</code> and copy to your P drive at the end of the course</li>
+<li>When we make a Shiny Web Application project, we get a simple Shiny app for free.</li>
+</ul></li>
+</ul>
+</section>
+<section id="getting-started-3" class="slide level2">
+<h2>Getting started (3)</h2>
+<ul>
+<li>Copy the following files from the zip file to your project directory:
+<ul>
+<li><code>gapminder.rds</code> contains the gapminder data</li>
+<li><code>workshopFunctions.R</code> contains the functions we will use.
+<ul>
+<li>These are mostly to make it easier to make the plots, and to avoid this turning into a ggplot workshop.</li>
+</ul></li>
+<li><code>codeExample.R</code> shows how to use the plotting functions.</li>
+</ul></li>
+<li>Run App using the toolbar or <kbd>Ctrl</kbd>+<kbd>Shift</kbd>+<kbd>Enter</kbd></li>
+</ul>
+<p><a href="https://github.com/UoMResearchIT/r-shiny-course-materials/commit/630e15f29031d4ac180423251fd8324e36ee9a2f">01_defaultapp</a></p>
 </section>
 <section id="anatomy-of-a-shiny-app---user-interface" class="slide level2">
 <h2>Anatomy of a Shiny App - user interface</h2>

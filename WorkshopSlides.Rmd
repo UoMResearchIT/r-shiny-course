@@ -71,35 +71,20 @@ For example:
     - Deploy the app to shinyapps.io
     - (Possible extensions included in "going further")
 
-## Getting started
-
-* Run rstudio:
-
-```
-rstudio
-```
-
-* `gapminder.rds` contains the gapminder data
-
-* `workshopFunctions.R` contains the functions we will use.
-    * These are mostly to make it easier to make the plots, and to avoid this turning into a ggplot workshop.
-
-* `codeExample.R` shows how to use the plotting functions.
-
-* The course website https://uomresearchit.github.io/r-shiny-course/ contains all the exercises, links to solutions and more detail than these slides. 
-
-## Interactive exercises
+## Getting started 
 
 * The course builds on a single worked example.
 * Download the [zip file](https://github.com/UoMResearchIT/r-shiny-course/raw/master/runningExample.zip)
+* Decompress this to a directory within `C:\work`
 * Each step is separate labelled folder, which is cross referenced in the notes, e.g. [git:01_defaultapp]().
 
-* Make your own Shiny app in another directory
-
+* The course website https://uomresearchit.github.io/r-shiny-course/ contains all the exercises, links to solutions and more detail than these slides. 
+  
 ## Interactive exercises with git
 
-* If you're happy using git:
-```{shell}
+If you're happy using git:
+
+```
 git clone https://github.com/UoMResearchIT/r-shiny-course-materials.git
 ```
 
@@ -109,15 +94,31 @@ git clone https://github.com/UoMResearchIT/r-shiny-course-materials.git
     * Checkout versions with `git checkout 01_defaultapp`
 
 * Make your own Shiny app in another directory
+ 
+## Getting started (2)
 
-## Getting started
+* Run rstudio:
 
-* Make a new Shiny app and check it works: [git:01_defaultapp]()
-    * File, New File, Shiny Web App
-    * Name: gapminder
-    * Single file
+```
+rstudio
+```
+
+* We'll make a new project for our app
+  	* Make this in `C:/work` and copy to your P drive at the end of the course
+	* When we make a Shiny Web Application project, we get a simple Shiny app for free.
+
+
+## Getting started (3)
+
+* Copy the following files from the zip file to your project directory:
+	* `gapminder.rds` contains the gapminder data
+	* `workshopFunctions.R` contains the functions we will use.
+	    * These are mostly to make it easier to make the plots, and to avoid this turning into a ggplot workshop.
+	* `codeExample.R` shows how to use the plotting functions.
   
-* Run App using toolbar or <kbd>Ctrl</kbd>+<kbd>Shift</kbd>+<kbd>Enter</kbd>
+* Run App using the toolbar or <kbd>Ctrl</kbd>+<kbd>Shift</kbd>+<kbd>Enter</kbd>
+
+[git:01_defaultapp]()
 
 
 ## Anatomy of a Shiny App - user interface
