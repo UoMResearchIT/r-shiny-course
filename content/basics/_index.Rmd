@@ -11,9 +11,9 @@ pre: "<b>1. </b>"
 
 ## Creating a Shiny app
 
-The most straightforward way of creating a new Shiny app is to use R Studio.  From the menu, choose, File, New, Shiny Web App.  
+We'll start by making a new project to contain our app.   We suggest making this in `C:\work`.  From RStudio, choose File, New Project, New Directory, Shiny Web Application.
 
-Choose a suitable name for your app (e.g. "gapminder").   Leave the other options as their defaults ("Single File", and Create within directory: `~/mawdsley`).  [git:01_defaultapp]()
+Choose a suitable name for the directory (e.g. "gapminder").   For "Creat project a subdirectory of:" we suggest using `c:\work`.  At the end of the course, you can copy your project directory to your P drive.  [git:01_defaultapp]()
 
 {{% notice info %}}
 When we create a new Shiny app we can create a single file (`app.R`), or as two separate files (`ui.R` and `server.R`).   The latter format used to be the only method of defining an Shiny app, but can still be useful when building a more complicated app, as it allows us to separate the user interface (`ui.R`) from the server logic (`server.R`).  As we will be building a relatively small app, we'll use the single file approach.  
@@ -32,7 +32,7 @@ There is a cheat sheet for Shiny included with R Studio.  This can be accessed f
 The default app doesn't use any additional libraries, functions or external data.  Before going any further we'll add these to the example app.
 
 {{% notice tip %}}
-The working directory of your R session is probably the project's directory (i.e. `~/mawdsley` - this is displayed at the top of the console window).  When you run the app, it runs in its own working directory (e.g. `~/myworkshop/gapminder`).   If you're interactively running bits of your code you may find it helpful to set the working directory to your app's directory. You can do this by typing `setwd("~/myworkshop/gapminder")`
+The working directory of your R session is probably your `P:/` (this is displayed at the top of the console window).  When you run the app, it runs in its own working directory (e.g. `c:/work/gapminder`).   If you're interactively running bits of your code you may find it helpful to set the working directory to your app's directory. You can do this by typing `setwd("c:/work/gapminder")`
 {{% /notice %}}
 
 ### Exercise

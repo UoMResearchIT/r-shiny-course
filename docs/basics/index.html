@@ -12,17 +12,17 @@
     <title>Getting started :: Introduction to Shiny</title>
 
     
-    <link href="../css/nucleus.css?1543398740" rel="stylesheet">
-    <link href="../css/fontawesome-all.min.css?1543398740" rel="stylesheet">
-    <link href="../css/hybrid.css?1543398740" rel="stylesheet">
-    <link href="../css/featherlight.min.css?1543398740" rel="stylesheet">
-    <link href="../css/perfect-scrollbar.min.css?1543398740" rel="stylesheet">
-    <link href="../css/auto-complete.css?1543398740" rel="stylesheet">
-    <link href="../css/theme.css?1543398740" rel="stylesheet">
-    <link href="../css/hugo-theme.css?1543398740" rel="stylesheet">
+    <link href="../css/nucleus.css?1543400851" rel="stylesheet">
+    <link href="../css/fontawesome-all.min.css?1543400851" rel="stylesheet">
+    <link href="../css/hybrid.css?1543400851" rel="stylesheet">
+    <link href="../css/featherlight.min.css?1543400851" rel="stylesheet">
+    <link href="../css/perfect-scrollbar.min.css?1543400851" rel="stylesheet">
+    <link href="../css/auto-complete.css?1543400851" rel="stylesheet">
+    <link href="../css/theme.css?1543400851" rel="stylesheet">
+    <link href="../css/hugo-theme.css?1543400851" rel="stylesheet">
     
 
-    <script src="../js/jquery-2.x.min.js?1543398740"></script>
+    <script src="../js/jquery-2.x.min.js?1543400851"></script>
 
     <style type="text/css">
       :root #header + #content > #left > #rlblock_left{
@@ -362,9 +362,9 @@
 
 <h2 id="creating-a-shiny-app">Creating a Shiny app</h2>
 
-<p>The most straightforward way of creating a new Shiny app is to use R Studio.  From the menu, choose, File, New, Shiny Web App.</p>
+<p>We&rsquo;ll start by making a new project to contain our app.   We suggest making this in <code>C:\work</code>.  From RStudio, choose File, New Project, New Directory, Shiny Web Application.</p>
 
-<p>Choose a suitable name for your app (e.g. &ldquo;gapminder&rdquo;).   Leave the other options as their defaults (&ldquo;Single File&rdquo;, and Create within directory: <code>~/mawdsley</code>).  <a href="https://github.com/UoMResearchIT/r-shiny-course-materials/commit/630e15f29031d4ac180423251fd8324e36ee9a2f" target="_blank">01_defaultapp</a></p>
+<p>Choose a suitable name for the directory (e.g. &ldquo;gapminder&rdquo;).   For &ldquo;Creat project a subdirectory of:&rdquo; we suggest using <code>c:\work</code>.  At the end of the course, you can copy your project directory to your P drive.  <a href="https://github.com/UoMResearchIT/r-shiny-course-materials/commit/630e15f29031d4ac180423251fd8324e36ee9a2f" target="_blank">01_defaultapp</a></p>
 
 <div class="notices info" ><p>When we create a new Shiny app we can create a single file (<code>app.R</code>), or as two separate files (<code>ui.R</code> and <code>server.R</code>).   The latter format used to be the only method of defining an Shiny app, but can still be useful when building a more complicated app, as it allows us to separate the user interface (<code>ui.R</code>) from the server logic (<code>server.R</code>).  As we will be building a relatively small app, we&rsquo;ll use the single file approach.</p>
 </div>
@@ -382,7 +382,7 @@
 
 <p>The default app doesn&rsquo;t use any additional libraries, functions or external data.  Before going any further we&rsquo;ll add these to the example app.</p>
 
-<div class="notices tip" ><p>The working directory of your R session is probably the project&rsquo;s directory (i.e. <code>~/mawdsley</code> - this is displayed at the top of the console window).  When you run the app, it runs in its own working directory (e.g. <code>~/myworkshop/gapminder</code>).   If you&rsquo;re interactively running bits of your code you may find it helpful to set the working directory to your app&rsquo;s directory. You can do this by typing <code>setwd(&quot;~/myworkshop/gapminder&quot;)</code></p>
+<div class="notices tip" ><p>The working directory of your R session is probably your <code>P:/</code> (this is displayed at the top of the console window).  When you run the app, it runs in its own working directory (e.g. <code>c:/work/gapminder</code>).   If you&rsquo;re interactively running bits of your code you may find it helpful to set the working directory to your app&rsquo;s directory. You can do this by typing <code>setwd(&quot;c:/work/gapminder&quot;)</code></p>
 </div>
 
 
@@ -606,20 +606,20 @@
     <div style="left: -1000px; overflow: scroll; position: absolute; top: -1000px; border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;">
       <div style="border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;"></div>
     </div>
-    <script src="../js/clipboard.min.js?1543398740"></script>
-    <script src="../js/perfect-scrollbar.min.js?1543398740"></script>
-    <script src="../js/perfect-scrollbar.jquery.min.js?1543398740"></script>
-    <script src="../js/jquery.sticky.js?1543398740"></script>
-    <script src="../js/featherlight.min.js?1543398740"></script>
-    <script src="../js/html5shiv-printshiv.min.js?1543398740"></script>
-    <script src="../js/highlight.pack.js?1543398740"></script>
+    <script src="../js/clipboard.min.js?1543400851"></script>
+    <script src="../js/perfect-scrollbar.min.js?1543400851"></script>
+    <script src="../js/perfect-scrollbar.jquery.min.js?1543400851"></script>
+    <script src="../js/jquery.sticky.js?1543400851"></script>
+    <script src="../js/featherlight.min.js?1543400851"></script>
+    <script src="../js/html5shiv-printshiv.min.js?1543400851"></script>
+    <script src="../js/highlight.pack.js?1543400851"></script>
     <script>hljs.initHighlightingOnLoad();</script>
-    <script src="../js/modernizr.custom.71422.js?1543398740"></script>
-    <script src="../js/learn.js?1543398740"></script>
-    <script src="../js/hugo-learn.js?1543398740"></script>
+    <script src="../js/modernizr.custom.71422.js?1543400851"></script>
+    <script src="../js/learn.js?1543400851"></script>
+    <script src="../js/hugo-learn.js?1543400851"></script>
 
-    <link href="../mermaid/mermaid.css?1543398740" type="text/css" rel="stylesheet" />
-    <script src="../mermaid/mermaid.js?1543398740"></script>
+    <link href="../mermaid/mermaid.css?1543400851" type="text/css" rel="stylesheet" />
+    <script src="../mermaid/mermaid.js?1543400851"></script>
     <script>
         mermaid.initialize({ startOnLoad: true });
     </script>
