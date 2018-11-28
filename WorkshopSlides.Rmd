@@ -91,7 +91,7 @@ rstudio
 ## Interactive exercises
 
 * The course builds on a single worked example.
-* Download the [zip file](../runningExample.zip)
+* Download the [zip file](https://github.com/UoMResearchIT/r-shiny-course/raw/master/runningExample.zip)
 * Each step is separate labelled folder, which is cross referenced in the notes, e.g. [git:01_defaultapp]().
 
 * Make your own Shiny app in another directory

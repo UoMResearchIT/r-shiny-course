@@ -55,5 +55,5 @@ gapminder %>%
 {{% /expand%}}
 
 {{% notice tip %}}
-Further examples of using the plotting functions are given in the `codeExamples.R` file, which is in the [course materials zip file](../runningExample.zip).
+Further examples of using the plotting functions are given in the `codeExamples.R` file, which is in the [course materials zip file](https://github.com/UoMResearchIT/r-shiny-course/raw/master/runningExample.zip).
 {{% /notice %}}
