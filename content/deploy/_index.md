@@ -24,9 +24,26 @@ There is an issue with the package versions installed on the machines in G11.  B
 
 Create an account on shinyapps.io via https://www.shinyapps.io/admin/#/signup  You can do this using a Google or Github account, or using a username/password.
 
-Having created an account, we can deploy the app directly from R Studio. To do this, click the blue publish icon (to the right of the run button).   You will be prompted to enter your account token.  This can be obtained from the dashboard for your shinyapps.io account.  Click the account menu (on the left) then select tokens.  Click "show", "show secret" and then copy the token to the clipboard.  This can be pasted into the box in Studio.
+Having created an account, we can deploy the app directly from R Studio. To do this, click the blue publish icon (to the right of the run button).  You may be prompted to install newer versions of some R packages; you should do this if prompted.
+
+You will be prompted to enter your account token.  This can be obtained from the dashboard for your shinyapps.io account.  Click the account menu (on the left) then select tokens.  Click "show", "show secret" and then copy the token to the clipboard.  This can be pasted into the box in Studio.
 
 Having connected your account, check that the `app.R` file and all its dependencies (`plottingFunctions.R` and `gapminder.rds`) are selected and then choose publish.  The app will be packaged and uploaded to shinyapps.io.  The deployment process automatically handles packaging the libraries we've used in our app.
+
+
+{{% notice info %}}
+If you are using a university machine you may find that the deployment fails.  If this happens, first check that your working directory is the one containing your `app.R` file (the working directory is visible above the console window.  You can change it by navigating to the appropriate directory using the "Files" tab in the lower right, and then selecting "More", "Set as working directory).
+
+Having done this, type the following commands in the console window:
+
+
+```r
+options(rsconnect.check.certificate = FALSE)
+rsconnect::deployApp()
+```
+
+This will deploy the app manually.
+{{% /notice %}}
 
 
 

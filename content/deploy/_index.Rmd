@@ -36,11 +36,12 @@ If you are using a university machine you may find that the deployment fails.  I
 
 Having done this, type the following commands in the console window:
 
-```{r}
+```{r, eval=FALSE}
 options(rsconnect.check.certificate = FALSE)
 rsconnect::deployApp()
 ```
 
+This will deploy the app manually.
 {{% /notice %}}
 
 

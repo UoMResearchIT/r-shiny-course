@@ -12,17 +12,17 @@
     <title>Deploying Shiny apps :: Introduction to Shiny</title>
 
     
-    <link href="../css/nucleus.css?1543933058" rel="stylesheet">
-    <link href="../css/fontawesome-all.min.css?1543933058" rel="stylesheet">
-    <link href="../css/hybrid.css?1543933058" rel="stylesheet">
-    <link href="../css/featherlight.min.css?1543933058" rel="stylesheet">
-    <link href="../css/perfect-scrollbar.min.css?1543933058" rel="stylesheet">
-    <link href="../css/auto-complete.css?1543933058" rel="stylesheet">
-    <link href="../css/theme.css?1543933058" rel="stylesheet">
-    <link href="../css/hugo-theme.css?1543933058" rel="stylesheet">
+    <link href="../css/nucleus.css?1543936003" rel="stylesheet">
+    <link href="../css/fontawesome-all.min.css?1543936003" rel="stylesheet">
+    <link href="../css/hybrid.css?1543936003" rel="stylesheet">
+    <link href="../css/featherlight.min.css?1543936003" rel="stylesheet">
+    <link href="../css/perfect-scrollbar.min.css?1543936003" rel="stylesheet">
+    <link href="../css/auto-complete.css?1543936003" rel="stylesheet">
+    <link href="../css/theme.css?1543936003" rel="stylesheet">
+    <link href="../css/hugo-theme.css?1543936003" rel="stylesheet">
     
 
-    <script src="../js/jquery-2.x.min.js?1543933058"></script>
+    <script src="../js/jquery-2.x.min.js?1543936003"></script>
 
     <style type="text/css">
       :root #header + #content > #left > #rlblock_left{
@@ -383,9 +383,20 @@
 
 <p>Create an account on shinyapps.io via <a href="https://www.shinyapps.io/admin/#/signup" target="_blank">https://www.shinyapps.io/admin/#/signup</a>  You can do this using a Google or Github account, or using a username/password.</p>
 
-<p>Having created an account, we can deploy the app directly from R Studio. To do this, click the blue publish icon (to the right of the run button).   You will be prompted to enter your account token.  This can be obtained from the dashboard for your shinyapps.io account.  Click the account menu (on the left) then select tokens.  Click &ldquo;show&rdquo;, &ldquo;show secret&rdquo; and then copy the token to the clipboard.  This can be pasted into the box in Studio.</p>
+<p>Having created an account, we can deploy the app directly from R Studio. To do this, click the blue publish icon (to the right of the run button).  You may be prompted to install newer versions of some R packages; you should do this if prompted.</p>
+
+<p>You will be prompted to enter your account token.  This can be obtained from the dashboard for your shinyapps.io account.  Click the account menu (on the left) then select tokens.  Click &ldquo;show&rdquo;, &ldquo;show secret&rdquo; and then copy the token to the clipboard.  This can be pasted into the box in Studio.</p>
 
 <p>Having connected your account, check that the <code>app.R</code> file and all its dependencies (<code>plottingFunctions.R</code> and <code>gapminder.rds</code>) are selected and then choose publish.  The app will be packaged and uploaded to shinyapps.io.  The deployment process automatically handles packaging the libraries we&rsquo;ve used in our app.</p>
+
+<div class="notices info" ><p>If you are using a university machine you may find that the deployment fails.  If this happens, first check that your working directory is the one containing your <code>app.R</code> file (the working directory is visible above the console window.  You can change it by navigating to the appropriate directory using the &ldquo;Files&rdquo; tab in the lower right, and then selecting &ldquo;More&rdquo;, &ldquo;Set as working directory).</p>
+
+<p>Having done this, type the following commands in the console window:</p>
+<div class="highlight"><pre style="color:#d0d0d0;background-color:#202020;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-r" data-lang="r"><span style="color:#6ab825">options</span>(rsconnect.check.certificate = <span style="color:#6ab825;font-weight:bold">FALSE</span>)
+rsconnect::deployApp()</code></pre></div>
+<p>This will deploy the app manually.</p>
+</div>
+
 
 
 <footer class=" footline" >
@@ -592,20 +603,20 @@
     <div style="left: -1000px; overflow: scroll; position: absolute; top: -1000px; border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;">
       <div style="border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;"></div>
     </div>
-    <script src="../js/clipboard.min.js?1543933058"></script>
-    <script src="../js/perfect-scrollbar.min.js?1543933058"></script>
-    <script src="../js/perfect-scrollbar.jquery.min.js?1543933058"></script>
-    <script src="../js/jquery.sticky.js?1543933058"></script>
-    <script src="../js/featherlight.min.js?1543933058"></script>
-    <script src="../js/html5shiv-printshiv.min.js?1543933058"></script>
-    <script src="../js/highlight.pack.js?1543933058"></script>
+    <script src="../js/clipboard.min.js?1543936003"></script>
+    <script src="../js/perfect-scrollbar.min.js?1543936003"></script>
+    <script src="../js/perfect-scrollbar.jquery.min.js?1543936003"></script>
+    <script src="../js/jquery.sticky.js?1543936003"></script>
+    <script src="../js/featherlight.min.js?1543936003"></script>
+    <script src="../js/html5shiv-printshiv.min.js?1543936003"></script>
+    <script src="../js/highlight.pack.js?1543936003"></script>
     <script>hljs.initHighlightingOnLoad();</script>
-    <script src="../js/modernizr.custom.71422.js?1543933058"></script>
-    <script src="../js/learn.js?1543933058"></script>
-    <script src="../js/hugo-learn.js?1543933058"></script>
+    <script src="../js/modernizr.custom.71422.js?1543936003"></script>
+    <script src="../js/learn.js?1543936003"></script>
+    <script src="../js/hugo-learn.js?1543936003"></script>
 
-    <link href="../mermaid/mermaid.css?1543933058" type="text/css" rel="stylesheet" />
-    <script src="../mermaid/mermaid.js?1543933058"></script>
+    <link href="../mermaid/mermaid.css?1543936003" type="text/css" rel="stylesheet" />
+    <script src="../mermaid/mermaid.js?1543936003"></script>
     <script>
         mermaid.initialize({ startOnLoad: true });
     </script>
