@@ -26,8 +26,9 @@ pygmentsStyle = "native"
     name = "GitHub materials"
     url = "https://github.com/uomresearchit/r-shiny-course-materials/"
 [[menu.shortcuts]]
-    name = "Twitter"
-    url = "https://twitter.com/davemawdsley"
+    name = "Feedback"
+    url = "http://bit.ly/2xP95Ef"
+
 
 [params]
     description = "An introduction to Shiny"
