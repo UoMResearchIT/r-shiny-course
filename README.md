@@ -8,6 +8,13 @@ The RSE workshop assumed knowledge of git as a prerequisite.  This was used to m
 
 ## Build/modification process
 
+To build the site from scratch, clone this repo, and submodules (`git clone --recurse-submodules ...`). You will also need to clone the [learn theme](https://github.com/matcornic/hugo-theme-learn) to the `themes` directory:
+
+```
+$ cd themes
+$ git clone https://github.com/matcornic/hugo-theme-learn.git
+```
+
 To edit the webpage or slide show, edit the relavant `.Rmd` file.  **Do not edit the `.md` files - these are automatically generated**.  `make` will build the site and slideshow as required.  The build process for the `.Rmd` files is:
 
 1. Resolve links of the form `[git:tagname]()` to the appropriate page on github.  This step will fail by design if there are any unresolved links (i.e. there isn't a commit with tag "tagname" in the coursematerial repository)
