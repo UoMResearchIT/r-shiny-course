@@ -18,7 +18,9 @@ innovative visualisations and puts it into Shiny.
 We'll replicate this in Shiny (albeit without the smooth animation between years):
 <!--. A deployed version of the app is at https://mawds.shinyapps.io/worked_example/ -->
 
-<iframe src="https://shiny.its.manchester.ac.uk/zzalsdme/mindthegap/" style="border:none; width:100%;  height:700px"></iframe> 
+<!-- <iframe src="https://shiny.its.manchester.ac.uk/zzalsdme/mindthegap/" style="border:none; width:100%;  height:700px"></iframe> -->
+
+{{< myiframe "https://shiny.its.manchester.ac.uk/zzalsdme/mindthegap/" >}}
 
 {{% notice info %}}
 I've tried to minimise the amount of non-Shiny material in this workshop, but we will need to do some manipulation of the data. I've adopted a [tidyverse](https://www.tidyverse.org/) based approach to doing this, using pipes and filters.  If you're more comfortable using base R you're very welcome to use that approach.   If you need a quick refresher on using the tidyverse to manipulate tabular data, [this episode](https://uomresearchit.github.io/r-tidyverse-intro/04-dplyr/) of the [Data Analysis using R course](https://uomresearchit.github.io/r-tidyverse-intro/), which we teach at the University of Manchester may be useful.
