@@ -3,28 +3,31 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="generator" content="Hugo 0.45" />
+    <meta name="generator" content="Hugo 0.80.0" />
     <meta name="description" content="An introduction to Shiny">
 <meta name="author" content="David Mawdsley">
 
-    <link rel="shortcut icon" href="../images/favicon.png" type="image/x-icon" />
-<link rel="icon" href="../images/favicon.png" type="image/x-icon" />
+    <link rel="icon" href="../images/favicon.png" type="image/png">
+
     <title>User Interface design :: Introduction to Shiny</title>
 
     
-    <link href="../css/nucleus.css?1544000441" rel="stylesheet">
-    <link href="../css/fontawesome-all.min.css?1544000441" rel="stylesheet">
-    <link href="../css/hybrid.css?1544000441" rel="stylesheet">
-    <link href="../css/featherlight.min.css?1544000441" rel="stylesheet">
-    <link href="../css/perfect-scrollbar.min.css?1544000441" rel="stylesheet">
-    <link href="../css/auto-complete.css?1544000441" rel="stylesheet">
-    <link href="../css/theme.css?1544000441" rel="stylesheet">
-    <link href="../css/hugo-theme.css?1544000441" rel="stylesheet">
+    <link href="../css/nucleus.css?1634552042" rel="stylesheet">
+    <link href="../css/fontawesome-all.min.css?1634552042" rel="stylesheet">
+    <link href="../css/hybrid.css?1634552042" rel="stylesheet">
+    <link href="../css/featherlight.min.css?1634552042" rel="stylesheet">
+    <link href="../css/perfect-scrollbar.min.css?1634552042" rel="stylesheet">
+    <link href="../css/auto-complete.css?1634552042" rel="stylesheet">
+    <link href="../css/atom-one-dark-reasonable.css?1634552042" rel="stylesheet">
+    <link href="../css/theme.css?1634552042" rel="stylesheet">
+    <link href="../css/tabs.css?1634552042" rel="stylesheet">
+    <link href="../css/hugo-theme.css?1634552042" rel="stylesheet">
+    
     
 
-    <script src="../js/jquery-2.x.min.js?1544000441"></script>
+    <script src="../js/jquery-3.3.1.min.js?1634552042"></script>
 
-    <style type="text/css">
+    <style>
       :root #header + #content > #left > #rlblock_left{
           display:none !important;
       }
@@ -36,7 +39,7 @@
     </style>
     
   </head>
-  <body class="" data-url="/ui/">
+  <body class="" data-url="../ui/">
     <nav id="sidebar" class="">
 
 
@@ -48,6 +51,15 @@
     </div>
     
   </div>
+  
+    <section id="homelinks">
+      <ul>
+        <li>
+            <a class="padding" href='../'><i class='fas fa-home'></i> Home</a>
+        </li>
+      </ul>
+    </section>
+  
 
     <div class="highlightable">
     <ul class="topics">
@@ -57,10 +69,12 @@
           
 
 
+
+
  
   
     
-    <li data-nav-id="/basics/" title="Getting started" class="dd-item 
+    <li data-nav-id="/basics/" title="Getting started" class="dd-item
         
         
         
@@ -70,7 +84,7 @@
           
       </a>
       
-              
+      
     </li>
   
  
@@ -79,10 +93,12 @@
           
 
 
+
+
  
   
     
-    <li data-nav-id="/ui/" title="User Interface design" class="dd-item 
+    <li data-nav-id="/ui/" title="User Interface design" class="dd-item
         parent
         active
         
@@ -92,7 +108,7 @@
           
       </a>
       
-              
+      
     </li>
   
  
@@ -101,10 +117,12 @@
           
 
 
+
+
  
   
     
-    <li data-nav-id="/plotting/" title="Producing plots" class="dd-item 
+    <li data-nav-id="/plotting/" title="Producing plots" class="dd-item
         
         
         
@@ -114,7 +132,7 @@
           
       </a>
       
-              
+      
     </li>
   
  
@@ -123,10 +141,12 @@
           
 
 
+
+
  
   
     
-    <li data-nav-id="/together/" title="Putting it all together" class="dd-item 
+    <li data-nav-id="/together/" title="Putting it all together" class="dd-item
         
         
         
@@ -136,7 +156,7 @@
           
       </a>
       
-              
+      
     </li>
   
  
@@ -145,10 +165,12 @@
           
 
 
+
+
  
   
     
-    <li data-nav-id="/deploy/" title="Deploying Shiny apps" class="dd-item 
+    <li data-nav-id="/deploy/" title="Deploying Shiny apps" class="dd-item
         
         
         
@@ -158,7 +180,7 @@
           
       </a>
       
-              
+      
     </li>
   
  
@@ -167,10 +189,12 @@
           
 
 
+
+
  
   
     
-    <li data-nav-id="/goingfurther/" title="Going further" class="dd-item 
+    <li data-nav-id="/goingfurther/" title="Going further" class="dd-item
         
         
         
@@ -187,11 +211,13 @@
             
           
           
-          
+
         
           
             
             
+
+
 
 
  
@@ -213,10 +239,12 @@
             
 
 
+
+
  
   
     
-    <li data-nav-id="/goingfurther/graphs/" title="Interacting with graphs" class="dd-item 
+    <li data-nav-id="/goingfurther/graphs/" title="Interacting with graphs" class="dd-item
         
         
         
@@ -226,7 +254,7 @@
           
       </a>
       
-              
+      
     </li>
   
  
@@ -237,10 +265,12 @@
             
 
 
+
+
  
   
     
-    <li data-nav-id="/goingfurther/layout/" title="App layout" class="dd-item 
+    <li data-nav-id="/goingfurther/layout/" title="App layout" class="dd-item
         
         
         
@@ -250,7 +280,7 @@
           
       </a>
       
-              
+      
     </li>
   
  
@@ -259,13 +289,13 @@
           
         
         </ul>
-              
+      
     </li>
   
  
 
           
-         
+        
     </ul>
 
     
@@ -274,27 +304,27 @@
         <h3>More</h3>
         <ul>
           
-              <li> 
+              <li>
                   <a class="padding" href="../about/">About</a>
               </li>
           
-              <li> 
+              <li>
                   <a class="padding" href="https://github.com/UoMResearchIT/r-shiny-course/raw/master/runningExample.zip">Download materials</a>
               </li>
           
-              <li> 
+              <li>
                   <a class="padding" href="http://bit.ly/2xP95Ef">Feedback</a>
               </li>
           
-              <li> 
+              <li>
                   <a class="padding" href="https://github.com/uomresearchit/r-shiny-course-materials/">GitHub materials</a>
               </li>
           
-              <li> 
+              <li>
                   <a class="padding" href="../">Home</a>
               </li>
           
-              <li> 
+              <li>
                   <a class="padding" href="../slides/">Slides</a>
               </li>
           
@@ -304,12 +334,11 @@
 
     
     <section id="footer">
-      <p>Built with <a href="https://github.com/matcornic/hugo-theme-learn"><i class="fas fa-heart"></i></a> from <a href="http://getgrav.org">Grav</a> and <a href="http://gohugo.io/">Hugo</a></p>
+      <p>Built with <a href="https://github.com/matcornic/hugo-theme-learn"><i class="fas fa-heart"></i></a> from <a href="https://getgrav.org">Grav</a> and <a href="https://gohugo.io/">Hugo</a></p>
 
     </section>
   </div>
 </nav>
-
 
 
 
@@ -330,6 +359,8 @@
                     </span>
                   
                   <span class="links">
+                 
+                 
                     
           
           
@@ -339,16 +370,19 @@
           
             <a href='../'>Introduction to Shiny</a> > User Interface design
           
-         
+        
           
-           
+        
+                 
                   </span>
                 </div>
                 
               </div>
             </div>
             
-
+        <div id="head-tags">
+        
+        </div>
         
           <div id="chapter">
         
@@ -359,47 +393,36 @@
 
 
 
-
-<h3 id="chapter-2">Chapter 2</h3>
-
+	<h3 id="chapter-2">Chapter 2</h3>
 <h1 id="user-interface-design">User interface design.</h1>
-
 <p>We can see in the example app that it is split into two sections; the user interface (<code>ui</code>), and a server function.   We&rsquo;ll deal with each of these in turn..</p>
-
 <h2 id="the-ui-section">The UI section</h2>
-
 <p>The user interface of the default app uses the <code>fluidPage()</code> to create the app&rsquo;s layout. The fluidPage layout will automatically respond to changes in browser size.  Within the <code>fluidPage()</code>, we use a <code>sidebarLayout()</code> to split the page into two sections; the <code>sidebarPanel()</code> which contain (in the example) the app&rsquo;s input (the slider) and the <code>mainPanel()</code> which in the example app contains the histogram output.   This is a fairly typical layout for a Shiny app (note that there&rsquo;s nothing stopping us putting more output above the <code>sidebarLayout()</code> - for example the <code>titlePanel()</code>, or after it).   Each element of the page is an argument to a function, with <code>fluidPage()</code> at the top level.  It&rsquo;s easy to forget this when building an interface, and to forget to place the commas between arguments.</p>
-
-<p>More flexible, but complex layout options are available, such as <code>navBarPage()</code>, to <a href="https://shiny.rstudio.com/gallery/navbar-example.html" target="_blank">produce a page with a navigation bar</a>.  It&rsquo;s also possible to build a <a href="https://shiny.rstudio.com/articles/html-ui.html" target="_blank">user interface from scratch</a>, using HTML, CSS etc.</p>
-
+<p>More flexible, but complex layout options are available, such as <code>navBarPage()</code>, to <a href="https://shiny.rstudio.com/gallery/navbar-example.html">produce a page with a navigation bar</a>.  It&rsquo;s also possible to build a <a href="https://shiny.rstudio.com/articles/html-ui.html">user interface from scratch</a>, using HTML, CSS etc.</p>
 <p>For this tutorial we&rsquo;ll stick with the <code>fluidPage()</code> approach.</p>
-
 <p>Most common html tags have a builder function associated with them.  So to add a paragraph of text to the app, we can pass another argument to the <code>fluidPage()</code> function:</p>
-<div class="highlight"><pre style="color:#d0d0d0;background-color:#202020;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-r" data-lang="r">ui &lt;- fluidPage(
+<div class="highlight"><pre style="color:#d0d0d0;background-color:#202020;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-r" data-lang="r">ui &lt;- <span style="color:#447fcf">fluidPage</span>(
    
    <span style="color:#999;font-style:italic"># Application title</span>
-   titlePanel(<span style="color:#ed9d13">&#34;Old Faithful Geyser Data&#34;</span>),
-   p(<span style="color:#ed9d13">&#34;Here is some text&#34;</span>),
+   <span style="color:#447fcf">titlePanel</span>(<span style="color:#ed9d13">&#34;Old Faithful Geyser Data&#34;</span>),
+   <span style="color:#447fcf">p</span>(<span style="color:#ed9d13">&#34;Here is some text&#34;</span>),
    <span style="color:#999;font-style:italic"># Sidebar with a slider input for number of bins </span>
-   sidebarLayout(<span style="color:#3677a9">.</span><span style="color:#6ab825;font-weight:bold">...</span></code></pre></div>
-<p>A very important type of element we can add to the app is a widget.  This provides a control that lets us interact with our app.  The default app has a single widget - the slider that  lets us select the number of bins we want the histogram to have:</p>
-<div class="highlight"><pre style="color:#d0d0d0;background-color:#202020;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-r" data-lang="r">sliderInput(<span style="color:#ed9d13">&#34;bins&#34;</span>,
+   <span style="color:#447fcf">sidebarLayout</span>(....
+</code></pre></div><p>A very important type of element we can add to the app is a widget.  This provides a control that lets us interact with our app.  The default app has a single widget - the slider that  lets us select the number of bins we want the histogram to have:</p>
+<div class="highlight"><pre style="color:#d0d0d0;background-color:#202020;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-r" data-lang="r"><span style="color:#447fcf">sliderInput</span>(<span style="color:#ed9d13">&#34;bins&#34;</span>,
             <span style="color:#ed9d13">&#34;Number of bins:&#34;</span>,
             min = <span style="color:#3677a9">1</span>,
             max = <span style="color:#3677a9">50</span>,
-            value = <span style="color:#3677a9">30</span>)</code></pre></div>
-<p>The first argument of the function defines the <code>inputId</code> - essentially this is the name of the variable that the widget&rsquo;s output (in this case the selected number of bins) is assigned to.  The second argument defines the label for widget.  The other arguments are widget specific; in this case they define the scale of the widget and its default value.</p>
+            value = <span style="color:#3677a9">30</span>)
+</code></pre></div><p>The first argument of the function defines the <code>inputId</code> - essentially this is the name of the variable that the widget&rsquo;s output (in this case the selected number of bins) is assigned to.  The second argument defines the label for widget.  The other arguments are widget specific; in this case they define the scale of the widget and its default value.</p>
 
 <div class="notices tip" ><p>You can get help on any of the widget&rsquo;s parameters (or on any R function) by typing <code>?functionName</code>.</p>
 </div>
 
-
-<p>Shiny comes with a number of built in widgets that give different ways of interacting with our app. <a href="https://shiny.rstudio.com/gallery/widget-gallery.html" target="_blank">The Shiny Widget Gallery</a> lists built in widgets, along with example code to use them.</p>
-
+<p>Shiny comes with a number of built in widgets that give different ways of interacting with our app. <a href="https://shiny.rstudio.com/gallery/widget-gallery.html">The Shiny Widget Gallery</a> lists built in widgets, along with example code to use them.</p>
 <h3 id="exercise">Exercise:</h3>
-
 <ul>
-<li>We want to be able to show the data for selected continents only.   The <code>checkboxGroupInput()</code> widget will let us do this.   Add one to the app, with <code>inputId=&quot;continent&quot;</code>.<br /></li>
+<li>We want to be able to show the data for selected continents only.   The <code>checkboxGroupInput()</code> widget will let us do this.   Add one to the app, with <code>inputId=&quot;continent&quot;</code>.</li>
 </ul>
 
 <div class="notices tip" ><p>You will need to provide a vector containing the continent names as the <code>choices</code> argument; this can be done using <code>levels(gapminder$continent)</code>.  By default none of the check-boxes are selected; this can be changed using the <code>selected</code> argument.</p>
@@ -409,45 +432,34 @@
 <div class="notices note" ><p>For now the check boxes won&rsquo;t do anything; we&rsquo;ve not made use of the widget&rsquo;s values anywhere in the app - we&rsquo;ll do this shortly.</p>
 </div>
 
-
 <ul>
 <li>Change the title of the app in the <code>titlePanel()</code> to something sensible</li>
 </ul>
-
 <h3 id="solution">Solution:</h3>
-
-<p><a href="https://github.com/UoMResearchIT/r-shiny-course-materials/commit/1966cbfbf977956c82944ac11241e57d96e664c7" target="_blank">03_continentwidget</a></p>
-
+<p><a href="https://github.com/UoMResearchIT/r-shiny-course-materials/commit/1966cbfbf977956c82944ac11241e57d96e664c7">03_continentwidget</a></p>
 <h2 id="displaying-r-outputs">Displaying R outputs</h2>
-
 <p>The <code>mainPanel()</code> of the user interface contains a single element in the example app.  The <code>plotOutput()</code> displays a plot - in the example app called <code>distPlot</code>.  We&rsquo;ll come to how that plot is defined in a moment.  For now, note that there are several <code>...Output()</code> functions for displaying various types of output from R.  The actual production of each peice of <code>....Output()</code> takes place in the server function.</p>
-
-<p>There is more information on altering the layout of Shiny apps, and altering the theme of the apps in the extra <a href="../goingfurther/layout/" target="_blank">app layout</a> lesson.</p>
-
+<p>There is more information on altering the layout of Shiny apps, and altering the theme of the apps in the extra <a href="../goingfurther/layout/">app layout</a> lesson.</p>
 <h2 id="the-server-function">The server function</h2>
-
 <p>The server function contains the code behind the webapp.   Each <code>...Output()</code> function in the user interface has a corresponding <code>render...()</code> function.   The first argument of the <code>render...()</code> function contains the R code to generate the thing we want to render.  For example, in the example app, the <code>renderPlot()</code> function contains the code that will generate a histogram.  As this neeeds to b a single expression this will typically be contained in <code>{}</code>s</p>
-
 <p>Let&rsquo;s briefly look at the example code that generates the histogram:</p>
-<div class="highlight"><pre style="color:#d0d0d0;background-color:#202020;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-r" data-lang="r">   output$distPlot &lt;- renderPlot({
+<div class="highlight"><pre style="color:#d0d0d0;background-color:#202020;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-r" data-lang="r">   output$distPlot &lt;- <span style="color:#447fcf">renderPlot</span>({
       <span style="color:#999;font-style:italic"># generate bins based on input$bins from ui.R</span>
       x    &lt;- faithful[, <span style="color:#3677a9">2</span>] 
-      bins &lt;- <span style="color:#6ab825">seq</span>(<span style="color:#6ab825">min</span>(x), <span style="color:#6ab825">max</span>(x), length.out = input$bins + <span style="color:#3677a9">1</span>)
+      bins &lt;- <span style="color:#447fcf">seq</span>(<span style="color:#447fcf">min</span>(x), <span style="color:#447fcf">max</span>(x), length.out = input$bins + <span style="color:#3677a9">1</span>)
       
       <span style="color:#999;font-style:italic"># draw the histogram with the specified number of bins</span>
-      hist(x, breaks = bins, col = <span style="color:#ed9d13">&#39;darkgray&#39;</span>, border = <span style="color:#ed9d13">&#39;white&#39;</span>)
-   })</code></pre></div>
-<p><code>input$bins</code> will contain the value of the slider which was defined in the user interface (which was called <code>bins</code>).   This is how we connect elements of the user interface to the the server logic.</p>
-
-<p>The first argument of <code>renderPlot()</code> returns a graph; <em>how</em> we make that graph is up to us.  In the example app, base R graphic are used.  We&rsquo;ll be using ggplot2 in this workshop, as it&rsquo;s easier to make nice looking graphs with it.  To simplify things I&rsquo;ve put the ggplot functions within a wrapper function, which we loaded earlier ( <a href="https://github.com/UoMResearchIT/r-shiny-course-materials/commit/f634302b6cdcc46c7d543ccb90f0cad49f7a32ab" target="_blank">02_loaddata</a> ) .  The important thing is that the first (and in the example, only) argument returns a graph object.   We can also pass arguments to manually control the width and height of the plot, etc.</p>
-
+      <span style="color:#447fcf">hist</span>(x, breaks = bins, col = <span style="color:#ed9d13">&#39;darkgray&#39;</span>, border = <span style="color:#ed9d13">&#39;white&#39;</span>)
+   })
+</code></pre></div><p><code>input$bins</code> will contain the value of the slider which was defined in the user interface (which was called <code>bins</code>).   This is how we connect elements of the user interface to the the server logic.</p>
+<p>The first argument of <code>renderPlot()</code> returns a graph; <em>how</em> we make that graph is up to us.  In the example app, base R graphic are used.  We&rsquo;ll be using ggplot2 in this workshop, as it&rsquo;s easier to make nice looking graphs with it.  To simplify things I&rsquo;ve put the ggplot functions within a wrapper function, which we loaded earlier ( <a href="https://github.com/UoMResearchIT/r-shiny-course-materials/commit/f634302b6cdcc46c7d543ccb90f0cad49f7a32ab">02_loaddata</a> ) .  The important thing is that the first (and in the example, only) argument returns a graph object.   We can also pass arguments to manually control the width and height of the plot, etc.</p>
 <h2 id="reactivity-how-shiny-responds-to-events">Reactivity (How Shiny responds to events)</h2>
-
 <p>Shiny uses a reactive programming model.  This means that when something changes (such as the slider being moved), everything that depends on that something will be updated automatically.   In the example app the only thing that depends on the slider is the <code>distPlot</code> graph, so this will be redrawn if we move the slider.</p>
-
 <p>The graph also depends on some other properties of the app, which we can&rsquo;t see directly, such as the window size.  If we resize the window, Shiny knows that the graph depends on that property of the app, and so will redraw the graph.</p>
+<p>Shiny automatically takes care of the dependencies between the various elements, and only updates what is needed.  This is covered in more detail in the section on <a href="../goingfurther/reactive/">reactivity</a>.</p>
 
-<p>Shiny automatically takes care of the dependencies between the various elements, and only updates what is needed.  This is covered in more detail in the section on <a href="../goingfurther/reactive/" target="_blank">reactivity</a>.</p>
+
+
 
 
 <footer class=" footline" >
@@ -457,7 +469,7 @@
         
             </div> 
         
-        </div> 
+        </div>
         
 
       </div>
@@ -465,7 +477,7 @@
     <div id="navigation">
         
         
-        
+
         
             
             
@@ -637,40 +649,44 @@
                     
             
         
-        
+
         
 
 
-        
-            <a class="nav nav-prev" href="../basics/" title="Getting started"> <i class="fas fa-chevron-left"></i></a>
-        
-        
-            <a class="nav nav-next" href="../plotting/" title="Producing plots" style="margin-right: 0px;"><i class="fas fa-chevron-right"></i></a>
-        
+	 
+	 
+		
+			<a class="nav nav-prev" href="../basics/" title="Getting started"> <i class="fa fa-chevron-left"></i></a>
+		
+		
+			<a class="nav nav-next" href="../plotting/" title="Producing plots" style="margin-right: 0px;"><i class="fa fa-chevron-right"></i></a>
+		
+	
     </div>
 
     </section>
-    
+
     <div style="left: -1000px; overflow: scroll; position: absolute; top: -1000px; border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;">
       <div style="border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;"></div>
     </div>
-    <script src="../js/clipboard.min.js?1544000441"></script>
-    <script src="../js/perfect-scrollbar.min.js?1544000441"></script>
-    <script src="../js/perfect-scrollbar.jquery.min.js?1544000441"></script>
-    <script src="../js/jquery.sticky.js?1544000441"></script>
-    <script src="../js/featherlight.min.js?1544000441"></script>
-    <script src="../js/html5shiv-printshiv.min.js?1544000441"></script>
-    <script src="../js/highlight.pack.js?1544000441"></script>
+    <script src="../js/clipboard.min.js?1634552042"></script>
+    <script src="../js/perfect-scrollbar.min.js?1634552042"></script>
+    <script src="../js/perfect-scrollbar.jquery.min.js?1634552042"></script>
+    <script src="../js/jquery.sticky.js?1634552042"></script>
+    <script src="../js/featherlight.min.js?1634552042"></script>
+    <script src="../js/highlight.pack.js?1634552042"></script>
     <script>hljs.initHighlightingOnLoad();</script>
-    <script src="../js/modernizr.custom.71422.js?1544000441"></script>
-    <script src="../js/learn.js?1544000441"></script>
-    <script src="../js/hugo-learn.js?1544000441"></script>
-
-    <link href="../mermaid/mermaid.css?1544000441" type="text/css" rel="stylesheet" />
-    <script src="../mermaid/mermaid.js?1544000441"></script>
-    <script>
-        mermaid.initialize({ startOnLoad: true });
-    </script>
+    <script src="../js/modernizr.custom-3.6.0.js?1634552042"></script>
+    <script src="../js/learn.js?1634552042"></script>
+    <script src="../js/hugo-learn.js?1634552042"></script>
+    
+        
+            <script src="../mermaid/mermaid.js?1634552042"></script>
+        
+        <script>
+            mermaid.initialize({ startOnLoad: true });
+        </script>
+    
     
 
   </body>

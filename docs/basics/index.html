@@ -3,28 +3,31 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="generator" content="Hugo 0.45" />
+    <meta name="generator" content="Hugo 0.80.0" />
     <meta name="description" content="An introduction to Shiny">
 <meta name="author" content="David Mawdsley">
 
-    <link rel="shortcut icon" href="../images/favicon.png" type="image/x-icon" />
-<link rel="icon" href="../images/favicon.png" type="image/x-icon" />
+    <link rel="icon" href="../images/favicon.png" type="image/png">
+
     <title>Getting started :: Introduction to Shiny</title>
 
     
-    <link href="../css/nucleus.css?1544000441" rel="stylesheet">
-    <link href="../css/fontawesome-all.min.css?1544000441" rel="stylesheet">
-    <link href="../css/hybrid.css?1544000441" rel="stylesheet">
-    <link href="../css/featherlight.min.css?1544000441" rel="stylesheet">
-    <link href="../css/perfect-scrollbar.min.css?1544000441" rel="stylesheet">
-    <link href="../css/auto-complete.css?1544000441" rel="stylesheet">
-    <link href="../css/theme.css?1544000441" rel="stylesheet">
-    <link href="../css/hugo-theme.css?1544000441" rel="stylesheet">
+    <link href="../css/nucleus.css?1634552041" rel="stylesheet">
+    <link href="../css/fontawesome-all.min.css?1634552041" rel="stylesheet">
+    <link href="../css/hybrid.css?1634552041" rel="stylesheet">
+    <link href="../css/featherlight.min.css?1634552041" rel="stylesheet">
+    <link href="../css/perfect-scrollbar.min.css?1634552041" rel="stylesheet">
+    <link href="../css/auto-complete.css?1634552041" rel="stylesheet">
+    <link href="../css/atom-one-dark-reasonable.css?1634552041" rel="stylesheet">
+    <link href="../css/theme.css?1634552041" rel="stylesheet">
+    <link href="../css/tabs.css?1634552041" rel="stylesheet">
+    <link href="../css/hugo-theme.css?1634552041" rel="stylesheet">
+    
     
 
-    <script src="../js/jquery-2.x.min.js?1544000441"></script>
+    <script src="../js/jquery-3.3.1.min.js?1634552041"></script>
 
-    <style type="text/css">
+    <style>
       :root #header + #content > #left > #rlblock_left{
           display:none !important;
       }
@@ -36,7 +39,7 @@
     </style>
     
   </head>
-  <body class="" data-url="/basics/">
+  <body class="" data-url="../basics/">
     <nav id="sidebar" class="">
 
 
@@ -48,6 +51,15 @@
     </div>
     
   </div>
+  
+    <section id="homelinks">
+      <ul>
+        <li>
+            <a class="padding" href='../'><i class='fas fa-home'></i> Home</a>
+        </li>
+      </ul>
+    </section>
+  
 
     <div class="highlightable">
     <ul class="topics">
@@ -57,10 +69,12 @@
           
 
 
+
+
  
   
     
-    <li data-nav-id="/basics/" title="Getting started" class="dd-item 
+    <li data-nav-id="/basics/" title="Getting started" class="dd-item
         parent
         active
         
@@ -70,7 +84,7 @@
           
       </a>
       
-              
+      
     </li>
   
  
@@ -79,10 +93,12 @@
           
 
 
+
+
  
   
     
-    <li data-nav-id="/ui/" title="User Interface design" class="dd-item 
+    <li data-nav-id="/ui/" title="User Interface design" class="dd-item
         
         
         
@@ -92,7 +108,7 @@
           
       </a>
       
-              
+      
     </li>
   
  
@@ -101,10 +117,12 @@
           
 
 
+
+
  
   
     
-    <li data-nav-id="/plotting/" title="Producing plots" class="dd-item 
+    <li data-nav-id="/plotting/" title="Producing plots" class="dd-item
         
         
         
@@ -114,7 +132,7 @@
           
       </a>
       
-              
+      
     </li>
   
  
@@ -123,10 +141,12 @@
           
 
 
+
+
  
   
     
-    <li data-nav-id="/together/" title="Putting it all together" class="dd-item 
+    <li data-nav-id="/together/" title="Putting it all together" class="dd-item
         
         
         
@@ -136,7 +156,7 @@
           
       </a>
       
-              
+      
     </li>
   
  
@@ -145,10 +165,12 @@
           
 
 
+
+
  
   
     
-    <li data-nav-id="/deploy/" title="Deploying Shiny apps" class="dd-item 
+    <li data-nav-id="/deploy/" title="Deploying Shiny apps" class="dd-item
         
         
         
@@ -158,7 +180,7 @@
           
       </a>
       
-              
+      
     </li>
   
  
@@ -167,10 +189,12 @@
           
 
 
+
+
  
   
     
-    <li data-nav-id="/goingfurther/" title="Going further" class="dd-item 
+    <li data-nav-id="/goingfurther/" title="Going further" class="dd-item
         
         
         
@@ -187,11 +211,13 @@
             
           
           
-          
+
         
           
             
             
+
+
 
 
  
@@ -213,10 +239,12 @@
             
 
 
+
+
  
   
     
-    <li data-nav-id="/goingfurther/graphs/" title="Interacting with graphs" class="dd-item 
+    <li data-nav-id="/goingfurther/graphs/" title="Interacting with graphs" class="dd-item
         
         
         
@@ -226,7 +254,7 @@
           
       </a>
       
-              
+      
     </li>
   
  
@@ -237,10 +265,12 @@
             
 
 
+
+
  
   
     
-    <li data-nav-id="/goingfurther/layout/" title="App layout" class="dd-item 
+    <li data-nav-id="/goingfurther/layout/" title="App layout" class="dd-item
         
         
         
@@ -250,7 +280,7 @@
           
       </a>
       
-              
+      
     </li>
   
  
@@ -259,13 +289,13 @@
           
         
         </ul>
-              
+      
     </li>
   
  
 
           
-         
+        
     </ul>
 
     
@@ -274,27 +304,27 @@
         <h3>More</h3>
         <ul>
           
-              <li> 
+              <li>
                   <a class="padding" href="../about/">About</a>
               </li>
           
-              <li> 
+              <li>
                   <a class="padding" href="https://github.com/UoMResearchIT/r-shiny-course/raw/master/runningExample.zip">Download materials</a>
               </li>
           
-              <li> 
+              <li>
                   <a class="padding" href="http://bit.ly/2xP95Ef">Feedback</a>
               </li>
           
-              <li> 
+              <li>
                   <a class="padding" href="https://github.com/uomresearchit/r-shiny-course-materials/">GitHub materials</a>
               </li>
           
-              <li> 
+              <li>
                   <a class="padding" href="../">Home</a>
               </li>
           
-              <li> 
+              <li>
                   <a class="padding" href="../slides/">Slides</a>
               </li>
           
@@ -304,12 +334,11 @@
 
     
     <section id="footer">
-      <p>Built with <a href="https://github.com/matcornic/hugo-theme-learn"><i class="fas fa-heart"></i></a> from <a href="http://getgrav.org">Grav</a> and <a href="http://gohugo.io/">Hugo</a></p>
+      <p>Built with <a href="https://github.com/matcornic/hugo-theme-learn"><i class="fas fa-heart"></i></a> from <a href="https://getgrav.org">Grav</a> and <a href="https://gohugo.io/">Hugo</a></p>
 
     </section>
   </div>
 </nav>
-
 
 
 
@@ -330,6 +359,8 @@
                     </span>
                   
                   <span class="links">
+                 
+                 
                     
           
           
@@ -339,16 +370,19 @@
           
             <a href='../'>Introduction to Shiny</a> > Getting started
           
-         
+        
           
-           
+        
+                 
                   </span>
                 </div>
                 
               </div>
             </div>
             
-
+        <div id="head-tags">
+        
+        </div>
         
           <div id="chapter">
         
@@ -359,39 +393,28 @@
 
 
 
-
-<h3 id="chapter-1">Chapter 1</h3>
-
+	<h3 id="chapter-1">Chapter 1</h3>
 <h1 id="getting-started-with-shiny">Getting started with Shiny</h1>
-
 <h2 id="creating-a-shiny-app">Creating a Shiny app</h2>
-
 <p>We&rsquo;ll start by making a new project to contain our app.   We suggest making this in <code>C:\work</code>.  From RStudio, choose File, New Project, New Directory, Shiny Web Application.</p>
-
-<p>Choose a suitable name for the directory (e.g. &ldquo;gapminder&rdquo;).   For &ldquo;Creat project a subdirectory of:&rdquo; we suggest using <code>c:\work</code>.  At the end of the course, you can copy your project directory to your P drive.  <a href="https://github.com/UoMResearchIT/r-shiny-course-materials/commit/630e15f29031d4ac180423251fd8324e36ee9a2f" target="_blank">01_defaultapp</a></p>
+<p>Choose a suitable name for the directory (e.g. &ldquo;gapminder&rdquo;).   For &ldquo;Creat project a subdirectory of:&rdquo; we suggest using <code>c:\work</code>.  At the end of the course, you can copy your project directory to your P drive.  <a href="https://github.com/UoMResearchIT/r-shiny-course-materials/commit/630e15f29031d4ac180423251fd8324e36ee9a2f">01_defaultapp</a></p>
 
 <div class="notices info" ><p>When we create a new Shiny app we can create a single file (<code>app.R</code>), or as two separate files (<code>ui.R</code> and <code>server.R</code>).   The latter format used to be the only method of defining an Shiny app, but can still be useful when building a more complicated app, as it allows us to separate the user interface (<code>ui.R</code>) from the server logic (<code>server.R</code>).  As we will be building a relatively small app, we&rsquo;ll use the single file approach.</p>
 </div>
 
-
 <p>When we create a new Shiny app in R Studio, it creates an example app that allows us to alter the number of bins in a histogram.  This uses an example data-set that is provided with R of the waiting times for the eruption of the &ldquo;Old Faithful&rdquo; geyser.</p>
-
 <p>We can run the app by pressing the &ldquo;Run App&rdquo; button in the tool-bar (or by pressing Ctrl+Shift+Enter).  This will launch an browser window within R Studio where we can interact with our app.</p>
 
 <div class="notices tip" ><p>There is a cheat sheet for Shiny included with R Studio.  This can be accessed from the menu: Help, Cheatsheets, Web Applications with shiny.</p>
 </div>
 
-
 <h2 id="loading-our-libraries-and-functions">Loading our libraries and functions</h2>
-
 <p>The default app doesn&rsquo;t use any additional libraries, functions or external data.  Before going any further we&rsquo;ll add these to the example app.</p>
 
 <div class="notices tip" ><p>The working directory of your R session is probably your <code>P:/</code> (this is displayed at the top of the console window).  When you run the app, it runs in its own working directory (e.g. <code>c:/work/gapminder</code>).   If you&rsquo;re interactively running bits of your code you may find it helpful to set the working directory to your app&rsquo;s directory. You can do this by typing <code>setwd(&quot;c:/work/gapminder&quot;)</code></p>
 </div>
 
-
 <h3 id="exercise">Exercise</h3>
-
 <ul>
 <li>Copy the <code>gapminder.rds</code> and <code>workshopFunctions.R</code> files into your app directory.</li>
 <li>load the <code>ggplot2</code> and <code>dplyr</code> libraries at the start of the app</li>
@@ -403,10 +426,11 @@
 <div class="notices tip" ><p>You may wish to look at the <code>codeExample.R</code> file, which contains examples of loading libraries and functions</p>
 </div>
 
-
 <h3 id="solution">Solution</h3>
+<p><a href="https://github.com/UoMResearchIT/r-shiny-course-materials/commit/f634302b6cdcc46c7d543ccb90f0cad49f7a32ab">02_loaddata</a></p>
 
-<p><a href="https://github.com/UoMResearchIT/r-shiny-course-materials/commit/f634302b6cdcc46c7d543ccb90f0cad49f7a32ab" target="_blank">02_loaddata</a></p>
+
+
 
 
 <footer class=" footline" >
@@ -416,7 +440,7 @@
         
             </div> 
         
-        </div> 
+        </div>
         
 
       </div>
@@ -424,7 +448,7 @@
     <div id="navigation">
         
         
-        
+
         
             
             
@@ -593,40 +617,44 @@
                     
             
         
-        
+
         
 
 
-        
-            <a class="nav nav-prev" href="../" title="Introduction to Shiny"> <i class="fas fa-chevron-left"></i></a>
-        
-        
-            <a class="nav nav-next" href="../ui/" title="User Interface design" style="margin-right: 0px;"><i class="fas fa-chevron-right"></i></a>
-        
+	 
+	 
+		
+			<a class="nav nav-prev" href="../" title="Introduction to Shiny"> <i class="fa fa-chevron-left"></i></a>
+		
+		
+			<a class="nav nav-next" href="../ui/" title="User Interface design" style="margin-right: 0px;"><i class="fa fa-chevron-right"></i></a>
+		
+	
     </div>
 
     </section>
-    
+
     <div style="left: -1000px; overflow: scroll; position: absolute; top: -1000px; border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;">
       <div style="border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;"></div>
     </div>
-    <script src="../js/clipboard.min.js?1544000441"></script>
-    <script src="../js/perfect-scrollbar.min.js?1544000441"></script>
-    <script src="../js/perfect-scrollbar.jquery.min.js?1544000441"></script>
-    <script src="../js/jquery.sticky.js?1544000441"></script>
-    <script src="../js/featherlight.min.js?1544000441"></script>
-    <script src="../js/html5shiv-printshiv.min.js?1544000441"></script>
-    <script src="../js/highlight.pack.js?1544000441"></script>
+    <script src="../js/clipboard.min.js?1634552042"></script>
+    <script src="../js/perfect-scrollbar.min.js?1634552042"></script>
+    <script src="../js/perfect-scrollbar.jquery.min.js?1634552042"></script>
+    <script src="../js/jquery.sticky.js?1634552042"></script>
+    <script src="../js/featherlight.min.js?1634552042"></script>
+    <script src="../js/highlight.pack.js?1634552042"></script>
     <script>hljs.initHighlightingOnLoad();</script>
-    <script src="../js/modernizr.custom.71422.js?1544000441"></script>
-    <script src="../js/learn.js?1544000441"></script>
-    <script src="../js/hugo-learn.js?1544000441"></script>
-
-    <link href="../mermaid/mermaid.css?1544000441" type="text/css" rel="stylesheet" />
-    <script src="../mermaid/mermaid.js?1544000441"></script>
-    <script>
-        mermaid.initialize({ startOnLoad: true });
-    </script>
+    <script src="../js/modernizr.custom-3.6.0.js?1634552042"></script>
+    <script src="../js/learn.js?1634552042"></script>
+    <script src="../js/hugo-learn.js?1634552042"></script>
+    
+        
+            <script src="../mermaid/mermaid.js?1634552042"></script>
+        
+        <script>
+            mermaid.initialize({ startOnLoad: true });
+        </script>
+    
     
 
   </body>

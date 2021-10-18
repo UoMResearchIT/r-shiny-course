@@ -3,28 +3,31 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="generator" content="Hugo 0.45" />
+    <meta name="generator" content="Hugo 0.80.0" />
     <meta name="description" content="An introduction to Shiny">
 <meta name="author" content="David Mawdsley">
 
-    <link rel="shortcut icon" href="../images/favicon.png" type="image/x-icon" />
-<link rel="icon" href="../images/favicon.png" type="image/x-icon" />
+    <link rel="icon" href="../images/favicon.png" type="image/png">
+
     <title>Producing plots :: Introduction to Shiny</title>
 
     
-    <link href="../css/nucleus.css?1544000441" rel="stylesheet">
-    <link href="../css/fontawesome-all.min.css?1544000441" rel="stylesheet">
-    <link href="../css/hybrid.css?1544000441" rel="stylesheet">
-    <link href="../css/featherlight.min.css?1544000441" rel="stylesheet">
-    <link href="../css/perfect-scrollbar.min.css?1544000441" rel="stylesheet">
-    <link href="../css/auto-complete.css?1544000441" rel="stylesheet">
-    <link href="../css/theme.css?1544000441" rel="stylesheet">
-    <link href="../css/hugo-theme.css?1544000441" rel="stylesheet">
+    <link href="../css/nucleus.css?1634552042" rel="stylesheet">
+    <link href="../css/fontawesome-all.min.css?1634552042" rel="stylesheet">
+    <link href="../css/hybrid.css?1634552042" rel="stylesheet">
+    <link href="../css/featherlight.min.css?1634552042" rel="stylesheet">
+    <link href="../css/perfect-scrollbar.min.css?1634552042" rel="stylesheet">
+    <link href="../css/auto-complete.css?1634552042" rel="stylesheet">
+    <link href="../css/atom-one-dark-reasonable.css?1634552042" rel="stylesheet">
+    <link href="../css/theme.css?1634552042" rel="stylesheet">
+    <link href="../css/tabs.css?1634552042" rel="stylesheet">
+    <link href="../css/hugo-theme.css?1634552042" rel="stylesheet">
+    
     
 
-    <script src="../js/jquery-2.x.min.js?1544000441"></script>
+    <script src="../js/jquery-3.3.1.min.js?1634552042"></script>
 
-    <style type="text/css">
+    <style>
       :root #header + #content > #left > #rlblock_left{
           display:none !important;
       }
@@ -36,7 +39,7 @@
     </style>
     
   </head>
-  <body class="" data-url="/plotting/">
+  <body class="" data-url="../plotting/">
     <nav id="sidebar" class="">
 
 
@@ -48,6 +51,15 @@
     </div>
     
   </div>
+  
+    <section id="homelinks">
+      <ul>
+        <li>
+            <a class="padding" href='../'><i class='fas fa-home'></i> Home</a>
+        </li>
+      </ul>
+    </section>
+  
 
     <div class="highlightable">
     <ul class="topics">
@@ -57,10 +69,12 @@
           
 
 
+
+
  
   
     
-    <li data-nav-id="/basics/" title="Getting started" class="dd-item 
+    <li data-nav-id="/basics/" title="Getting started" class="dd-item
         
         
         
@@ -70,7 +84,7 @@
           
       </a>
       
-              
+      
     </li>
   
  
@@ -79,10 +93,12 @@
           
 
 
+
+
  
   
     
-    <li data-nav-id="/ui/" title="User Interface design" class="dd-item 
+    <li data-nav-id="/ui/" title="User Interface design" class="dd-item
         
         
         
@@ -92,7 +108,7 @@
           
       </a>
       
-              
+      
     </li>
   
  
@@ -101,10 +117,12 @@
           
 
 
+
+
  
   
     
-    <li data-nav-id="/plotting/" title="Producing plots" class="dd-item 
+    <li data-nav-id="/plotting/" title="Producing plots" class="dd-item
         parent
         active
         
@@ -114,7 +132,7 @@
           
       </a>
       
-              
+      
     </li>
   
  
@@ -123,10 +141,12 @@
           
 
 
+
+
  
   
     
-    <li data-nav-id="/together/" title="Putting it all together" class="dd-item 
+    <li data-nav-id="/together/" title="Putting it all together" class="dd-item
         
         
         
@@ -136,7 +156,7 @@
           
       </a>
       
-              
+      
     </li>
   
  
@@ -145,10 +165,12 @@
           
 
 
+
+
  
   
     
-    <li data-nav-id="/deploy/" title="Deploying Shiny apps" class="dd-item 
+    <li data-nav-id="/deploy/" title="Deploying Shiny apps" class="dd-item
         
         
         
@@ -158,7 +180,7 @@
           
       </a>
       
-              
+      
     </li>
   
  
@@ -167,10 +189,12 @@
           
 
 
+
+
  
   
     
-    <li data-nav-id="/goingfurther/" title="Going further" class="dd-item 
+    <li data-nav-id="/goingfurther/" title="Going further" class="dd-item
         
         
         
@@ -187,11 +211,13 @@
             
           
           
-          
+
         
           
             
             
+
+
 
 
  
@@ -213,10 +239,12 @@
             
 
 
+
+
  
   
     
-    <li data-nav-id="/goingfurther/graphs/" title="Interacting with graphs" class="dd-item 
+    <li data-nav-id="/goingfurther/graphs/" title="Interacting with graphs" class="dd-item
         
         
         
@@ -226,7 +254,7 @@
           
       </a>
       
-              
+      
     </li>
   
  
@@ -237,10 +265,12 @@
             
 
 
+
+
  
   
     
-    <li data-nav-id="/goingfurther/layout/" title="App layout" class="dd-item 
+    <li data-nav-id="/goingfurther/layout/" title="App layout" class="dd-item
         
         
         
@@ -250,7 +280,7 @@
           
       </a>
       
-              
+      
     </li>
   
  
@@ -259,13 +289,13 @@
           
         
         </ul>
-              
+      
     </li>
   
  
 
           
-         
+        
     </ul>
 
     
@@ -274,27 +304,27 @@
         <h3>More</h3>
         <ul>
           
-              <li> 
+              <li>
                   <a class="padding" href="../about/">About</a>
               </li>
           
-              <li> 
+              <li>
                   <a class="padding" href="https://github.com/UoMResearchIT/r-shiny-course/raw/master/runningExample.zip">Download materials</a>
               </li>
           
-              <li> 
+              <li>
                   <a class="padding" href="http://bit.ly/2xP95Ef">Feedback</a>
               </li>
           
-              <li> 
+              <li>
                   <a class="padding" href="https://github.com/uomresearchit/r-shiny-course-materials/">GitHub materials</a>
               </li>
           
-              <li> 
+              <li>
                   <a class="padding" href="../">Home</a>
               </li>
           
-              <li> 
+              <li>
                   <a class="padding" href="../slides/">Slides</a>
               </li>
           
@@ -304,12 +334,11 @@
 
     
     <section id="footer">
-      <p>Built with <a href="https://github.com/matcornic/hugo-theme-learn"><i class="fas fa-heart"></i></a> from <a href="http://getgrav.org">Grav</a> and <a href="http://gohugo.io/">Hugo</a></p>
+      <p>Built with <a href="https://github.com/matcornic/hugo-theme-learn"><i class="fas fa-heart"></i></a> from <a href="https://getgrav.org">Grav</a> and <a href="https://gohugo.io/">Hugo</a></p>
 
     </section>
   </div>
 </nav>
-
 
 
 
@@ -330,6 +359,8 @@
                     </span>
                   
                   <span class="links">
+                 
+                 
                     
           
           
@@ -339,16 +370,19 @@
           
             <a href='../'>Introduction to Shiny</a> > Producing plots
           
-         
+        
           
-           
+        
+                 
                   </span>
                 </div>
                 
               </div>
             </div>
             
-
+        <div id="head-tags">
+        
+        </div>
         
           <div id="chapter">
         
@@ -359,27 +393,18 @@
 
 
 
-
-<h3 id="chapter-3">Chapter 3</h3>
-
+	<h3 id="chapter-3">Chapter 3</h3>
 <h1 id="producing-plots">Producing plots</h1>
-
 <h2 id="plotting-a-gapminder-graph">Plotting a &ldquo;gapminder&rdquo; graph</h2>
-
-<p>In order to avoid getting bogged down on the syntax of ggplot2, a function to produce a &ldquo;gapminder&rdquo; plot is provided in the <code>workshopFunctions.R</code> file, which we load at the start of our app (See <a href="https://github.com/UoMResearchIT/r-shiny-course-materials/commit/f634302b6cdcc46c7d543ccb90f0cad49f7a32ab" target="_blank">02_loaddata</a> ).  This uses ggplot2 to produce a graph, deals with setting fixed axes, consistent colours etc.</p>
-
+<p>In order to avoid getting bogged down on the syntax of ggplot2, a function to produce a &ldquo;gapminder&rdquo; plot is provided in the <code>workshopFunctions.R</code> file, which we load at the start of our app (See <a href="https://github.com/UoMResearchIT/r-shiny-course-materials/commit/f634302b6cdcc46c7d543ccb90f0cad49f7a32ab">02_loaddata</a> ).  This uses ggplot2 to produce a graph, deals with setting fixed axes, consistent colours etc.</p>
 <p>If you haven&rsquo;t already, set R&rsquo;s working directory to that of your app (<code>setwd(&quot;~/myworkshop/gapminder)</code>).  Then manually execute the lines of code that load the libraries, data and code by selecting them and pressing Ctrl+Enter.</p>
-
 <p>Having loaded the data, libraries and functions, we can produce a gapminder plot in R using the following code:</p>
 <div class="highlight"><pre style="color:#d0d0d0;background-color:#202020;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-r" data-lang="r">gapminder %&gt;% 
-  filter(year == <span style="color:#3677a9">2000</span>) %&gt;% 
-  produceGapminderPlot()</code></pre></div>
-<p><img src="figure/unnamed-chunk-2-1.png" alt="plot of chunk unnamed-chunk-2" /></p>
-
+  <span style="color:#447fcf">filter</span>(year == <span style="color:#3677a9">2000</span>) %&gt;% 
+  <span style="color:#447fcf">produceGapminderPlot</span>()
+</code></pre></div><p><img src="figure/unnamed-chunk-2-1.png" alt="plot of chunk unnamed-chunk-2"></p>
 <h2 id="exercise">Exercise:</h2>
-
 <p>Add another <code>filter</code> to the example to only show countries that are in Europe and Africa</p>
-
 <h2 id="solution">Solution:</h2>
 
 <div class="expand">
@@ -394,16 +419,19 @@
     </div>
     <div class="expand-content" style="display: none;">
         <div class="highlight"><pre style="color:#d0d0d0;background-color:#202020;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-r" data-lang="r">gapminder %&gt;% 
-  filter(year == <span style="color:#3677a9">2000</span>) %&gt;% 
-  filter(continent %in% <span style="color:#6ab825;font-weight:bold">c</span>(<span style="color:#ed9d13">&#34;Europe&#34;</span>, <span style="color:#ed9d13">&#34;Africa&#34;</span>)) %&gt;% 
-  produceGapminderPlot()</code></pre></div>
-<p><img src="figure/unnamed-chunk-3-1.png" alt="plot of chunk unnamed-chunk-3" /></p>
+  <span style="color:#447fcf">filter</span>(year == <span style="color:#3677a9">2000</span>) %&gt;% 
+  <span style="color:#447fcf">filter</span>(continent %in% <span style="color:#447fcf">c</span>(<span style="color:#ed9d13">&#34;Europe&#34;</span>, <span style="color:#ed9d13">&#34;Africa&#34;</span>)) %&gt;% 
+  <span style="color:#447fcf">produceGapminderPlot</span>()
+</code></pre></div><p><img src="figure/unnamed-chunk-3-1.png" alt="plot of chunk unnamed-chunk-3"></p>
 
     </div>
 </div>
 
-<div class="notices tip" ><p>Further examples of using the plotting functions are given in the <code>codeExamples.R</code> file, which is in the <a href="https://github.com/UoMResearchIT/r-shiny-course/raw/master/runningExample.zip" target="_blank">course materials zip file</a>.</p>
+<div class="notices tip" ><p>Further examples of using the plotting functions are given in the <code>codeExamples.R</code> file, which is in the <a href="https://github.com/UoMResearchIT/r-shiny-course/raw/master/runningExample.zip">course materials zip file</a>.</p>
 </div>
+
+
+
 
 
 
@@ -414,7 +442,7 @@
         
             </div> 
         
-        </div> 
+        </div>
         
 
       </div>
@@ -422,7 +450,7 @@
     <div id="navigation">
         
         
-        
+
         
             
             
@@ -594,40 +622,44 @@
                     
             
         
-        
+
         
 
 
-        
-            <a class="nav nav-prev" href="../ui/" title="User Interface design"> <i class="fas fa-chevron-left"></i></a>
-        
-        
-            <a class="nav nav-next" href="../together/" title="Putting it all together" style="margin-right: 0px;"><i class="fas fa-chevron-right"></i></a>
-        
+	 
+	 
+		
+			<a class="nav nav-prev" href="../ui/" title="User Interface design"> <i class="fa fa-chevron-left"></i></a>
+		
+		
+			<a class="nav nav-next" href="../together/" title="Putting it all together" style="margin-right: 0px;"><i class="fa fa-chevron-right"></i></a>
+		
+	
     </div>
 
     </section>
-    
+
     <div style="left: -1000px; overflow: scroll; position: absolute; top: -1000px; border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;">
       <div style="border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;"></div>
     </div>
-    <script src="../js/clipboard.min.js?1544000441"></script>
-    <script src="../js/perfect-scrollbar.min.js?1544000441"></script>
-    <script src="../js/perfect-scrollbar.jquery.min.js?1544000441"></script>
-    <script src="../js/jquery.sticky.js?1544000441"></script>
-    <script src="../js/featherlight.min.js?1544000441"></script>
-    <script src="../js/html5shiv-printshiv.min.js?1544000441"></script>
-    <script src="../js/highlight.pack.js?1544000441"></script>
+    <script src="../js/clipboard.min.js?1634552042"></script>
+    <script src="../js/perfect-scrollbar.min.js?1634552042"></script>
+    <script src="../js/perfect-scrollbar.jquery.min.js?1634552042"></script>
+    <script src="../js/jquery.sticky.js?1634552042"></script>
+    <script src="../js/featherlight.min.js?1634552042"></script>
+    <script src="../js/highlight.pack.js?1634552042"></script>
     <script>hljs.initHighlightingOnLoad();</script>
-    <script src="../js/modernizr.custom.71422.js?1544000441"></script>
-    <script src="../js/learn.js?1544000441"></script>
-    <script src="../js/hugo-learn.js?1544000441"></script>
-
-    <link href="../mermaid/mermaid.css?1544000441" type="text/css" rel="stylesheet" />
-    <script src="../mermaid/mermaid.js?1544000441"></script>
-    <script>
-        mermaid.initialize({ startOnLoad: true });
-    </script>
+    <script src="../js/modernizr.custom-3.6.0.js?1634552042"></script>
+    <script src="../js/learn.js?1634552042"></script>
+    <script src="../js/hugo-learn.js?1634552042"></script>
+    
+        
+            <script src="../mermaid/mermaid.js?1634552042"></script>
+        
+        <script>
+            mermaid.initialize({ startOnLoad: true });
+        </script>
+    
     
 
   </body>

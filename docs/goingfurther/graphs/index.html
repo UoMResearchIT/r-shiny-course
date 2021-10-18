@@ -3,28 +3,31 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="generator" content="Hugo 0.45" />
+    <meta name="generator" content="Hugo 0.80.0" />
     <meta name="description" content="An introduction to Shiny">
 <meta name="author" content="David Mawdsley">
 
-    <link rel="shortcut icon" href="../../images/favicon.png" type="image/x-icon" />
-<link rel="icon" href="../../images/favicon.png" type="image/x-icon" />
+    <link rel="icon" href="../../images/favicon.png" type="image/png">
+
     <title>Interacting with graphs :: Introduction to Shiny</title>
 
     
-    <link href="../../css/nucleus.css?1544000441" rel="stylesheet">
-    <link href="../../css/fontawesome-all.min.css?1544000441" rel="stylesheet">
-    <link href="../../css/hybrid.css?1544000441" rel="stylesheet">
-    <link href="../../css/featherlight.min.css?1544000441" rel="stylesheet">
-    <link href="../../css/perfect-scrollbar.min.css?1544000441" rel="stylesheet">
-    <link href="../../css/auto-complete.css?1544000441" rel="stylesheet">
-    <link href="../../css/theme.css?1544000441" rel="stylesheet">
-    <link href="../../css/hugo-theme.css?1544000441" rel="stylesheet">
+    <link href="../../css/nucleus.css?1634552042" rel="stylesheet">
+    <link href="../../css/fontawesome-all.min.css?1634552042" rel="stylesheet">
+    <link href="../../css/hybrid.css?1634552042" rel="stylesheet">
+    <link href="../../css/featherlight.min.css?1634552042" rel="stylesheet">
+    <link href="../../css/perfect-scrollbar.min.css?1634552042" rel="stylesheet">
+    <link href="../../css/auto-complete.css?1634552042" rel="stylesheet">
+    <link href="../../css/atom-one-dark-reasonable.css?1634552042" rel="stylesheet">
+    <link href="../../css/theme.css?1634552042" rel="stylesheet">
+    <link href="../../css/tabs.css?1634552042" rel="stylesheet">
+    <link href="../../css/hugo-theme.css?1634552042" rel="stylesheet">
+    
     
 
-    <script src="../../js/jquery-2.x.min.js?1544000441"></script>
+    <script src="../../js/jquery-3.3.1.min.js?1634552042"></script>
 
-    <style type="text/css">
+    <style>
       :root #header + #content > #left > #rlblock_left{
           display:none !important;
       }
@@ -36,7 +39,7 @@
     </style>
     
   </head>
-  <body class="" data-url="/goingfurther/graphs/">
+  <body class="" data-url="../../goingfurther/graphs/">
     <nav id="sidebar" class="">
 
 
@@ -48,6 +51,15 @@
     </div>
     
   </div>
+  
+    <section id="homelinks">
+      <ul>
+        <li>
+            <a class="padding" href='../../'><i class='fas fa-home'></i> Home</a>
+        </li>
+      </ul>
+    </section>
+  
 
     <div class="highlightable">
     <ul class="topics">
@@ -57,10 +69,12 @@
           
 
 
+
+
  
   
     
-    <li data-nav-id="/basics/" title="Getting started" class="dd-item 
+    <li data-nav-id="/basics/" title="Getting started" class="dd-item
         
         
         
@@ -70,7 +84,7 @@
           
       </a>
       
-              
+      
     </li>
   
  
@@ -79,10 +93,12 @@
           
 
 
+
+
  
   
     
-    <li data-nav-id="/ui/" title="User Interface design" class="dd-item 
+    <li data-nav-id="/ui/" title="User Interface design" class="dd-item
         
         
         
@@ -92,7 +108,7 @@
           
       </a>
       
-              
+      
     </li>
   
  
@@ -101,10 +117,12 @@
           
 
 
+
+
  
   
     
-    <li data-nav-id="/plotting/" title="Producing plots" class="dd-item 
+    <li data-nav-id="/plotting/" title="Producing plots" class="dd-item
         
         
         
@@ -114,7 +132,7 @@
           
       </a>
       
-              
+      
     </li>
   
  
@@ -123,10 +141,12 @@
           
 
 
+
+
  
   
     
-    <li data-nav-id="/together/" title="Putting it all together" class="dd-item 
+    <li data-nav-id="/together/" title="Putting it all together" class="dd-item
         
         
         
@@ -136,7 +156,7 @@
           
       </a>
       
-              
+      
     </li>
   
  
@@ -145,10 +165,12 @@
           
 
 
+
+
  
   
     
-    <li data-nav-id="/deploy/" title="Deploying Shiny apps" class="dd-item 
+    <li data-nav-id="/deploy/" title="Deploying Shiny apps" class="dd-item
         
         
         
@@ -158,7 +180,7 @@
           
       </a>
       
-              
+      
     </li>
   
  
@@ -167,10 +189,12 @@
           
 
 
+
+
  
   
     
-    <li data-nav-id="/goingfurther/" title="Going further" class="dd-item 
+    <li data-nav-id="/goingfurther/" title="Going further" class="dd-item
         parent
         
         
@@ -187,11 +211,13 @@
             
           
           
-          
+
         
           
             
             
+
+
 
 
  
@@ -213,10 +239,12 @@
             
 
 
+
+
  
   
     
-    <li data-nav-id="/goingfurther/graphs/" title="Interacting with graphs" class="dd-item 
+    <li data-nav-id="/goingfurther/graphs/" title="Interacting with graphs" class="dd-item
         parent
         active
         
@@ -226,7 +254,7 @@
           
       </a>
       
-              
+      
     </li>
   
  
@@ -237,10 +265,12 @@
             
 
 
+
+
  
   
     
-    <li data-nav-id="/goingfurther/layout/" title="App layout" class="dd-item 
+    <li data-nav-id="/goingfurther/layout/" title="App layout" class="dd-item
         
         
         
@@ -250,7 +280,7 @@
           
       </a>
       
-              
+      
     </li>
   
  
@@ -259,13 +289,13 @@
           
         
         </ul>
-              
+      
     </li>
   
  
 
           
-         
+        
     </ul>
 
     
@@ -274,27 +304,27 @@
         <h3>More</h3>
         <ul>
           
-              <li> 
+              <li>
                   <a class="padding" href="../../about/">About</a>
               </li>
           
-              <li> 
+              <li>
                   <a class="padding" href="https://github.com/UoMResearchIT/r-shiny-course/raw/master/runningExample.zip">Download materials</a>
               </li>
           
-              <li> 
+              <li>
                   <a class="padding" href="http://bit.ly/2xP95Ef">Feedback</a>
               </li>
           
-              <li> 
+              <li>
                   <a class="padding" href="https://github.com/uomresearchit/r-shiny-course-materials/">GitHub materials</a>
               </li>
           
-              <li> 
+              <li>
                   <a class="padding" href="../../">Home</a>
               </li>
           
-              <li> 
+              <li>
                   <a class="padding" href="../../slides/">Slides</a>
               </li>
           
@@ -304,12 +334,11 @@
 
     
     <section id="footer">
-      <p>Built with <a href="https://github.com/matcornic/hugo-theme-learn"><i class="fas fa-heart"></i></a> from <a href="http://getgrav.org">Grav</a> and <a href="http://gohugo.io/">Hugo</a></p>
+      <p>Built with <a href="https://github.com/matcornic/hugo-theme-learn"><i class="fas fa-heart"></i></a> from <a href="https://getgrav.org">Grav</a> and <a href="https://gohugo.io/">Hugo</a></p>
 
     </section>
   </div>
 </nav>
-
 
 
 
@@ -332,6 +361,8 @@
                   <span id="toc-menu"><i class="fas fa-list-alt"></i></span>
                   
                   <span class="links">
+                 
+                 
                     
           
           
@@ -345,40 +376,41 @@
           
             <a href='../../'>Introduction to Shiny</a> > <a href='../../goingfurther/'>Going further</a> > Interacting with graphs
           
-         
+        
           
-         
+        
           
-           
+        
+                 
                   </span>
                 </div>
                 
                     <div class="progress">
     <div class="wrapper">
 <nav id="TableOfContents">
-<ul>
-<li>
-<ul>
-<li><a href="#getting-the-graph-co-ordinates">Getting the graph co-ordinates</a>
-<ul>
-<li><a href="#exercise">Exercise</a></li>
-<li><a href="#solution">Solution</a></li>
-</ul></li>
-<li><a href="#which-points-are-close-to-the-data">Which points are close to the data?</a>
-<ul>
-<li><a href="#exercise-1">Exercise</a></li>
-<li><a href="#solution-1">Solution</a></li>
-</ul></li>
-<li><a href="#retaining-the-click-data">Retaining the click data</a></li>
-<li><a href="#showing-the-country-s-historic-data">Showing the country&rsquo;s historic data</a>
-<ul>
-<li><a href="#exercise-2">Exercise</a></li>
-<li><a href="#solution-2">Solution</a></li>
-<li><a href="#exercise-3">Exercise</a></li>
-<li><a href="#solution-3">Solution</a></li>
-</ul></li>
-</ul></li>
-</ul>
+  <ul>
+    <li><a href="#getting-the-graph-co-ordinates">Getting the graph co-ordinates</a>
+      <ul>
+        <li><a href="#exercise">Exercise</a></li>
+        <li><a href="#solution">Solution</a></li>
+      </ul>
+    </li>
+    <li><a href="#which-points-are-close-to-the-data">Which points are close to the data?</a>
+      <ul>
+        <li><a href="#exercise-1">Exercise</a></li>
+        <li><a href="#solution-1">Solution</a></li>
+      </ul>
+    </li>
+    <li><a href="#retaining-the-click-data">Retaining the click data</a></li>
+    <li><a href="#showing-the-countrys-historic-data">Showing the country&rsquo;s historic data</a>
+      <ul>
+        <li><a href="#exercise-2">Exercise</a></li>
+        <li><a href="#solution-2">Solution</a></li>
+        <li><a href="#exercise-3">Exercise</a></li>
+        <li><a href="#solution-3">Solution</a></li>
+      </ul>
+    </li>
+  </ul>
 </nav>
     </div>
 </div>
@@ -387,124 +419,103 @@
               </div>
             </div>
             
-
+        <div id="head-tags">
+        
+        </div>
         
         <div id="body-inner">
           
-            <h1>Interacting with graphs</h1>
+            <h1>
+              
+              Interacting with graphs
+            </h1>
           
 
         
 
 
 
-
-<p>In this section we&rsquo;ll look at how to interact with the graph.  When we click on a graph we will show the name of the country that has been selected, and show this historic data for the country on the graph. For example:</p>
+	<p>In this section we&rsquo;ll look at how to interact with the graph.  When we click on a graph we will show the name of the country that has been selected, and show this historic data for the country on the graph. For example:</p>
 <div class="highlight"><pre style="color:#d0d0d0;background-color:#202020;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-r" data-lang="r">historicdata &lt;- gapminder %&gt;% 
-  filter(year &lt;= <span style="color:#3677a9">2000</span>) %&gt;% 
-  filter(country == <span style="color:#ed9d13">&#34;United Kingdom&#34;</span>)
+  <span style="color:#447fcf">filter</span>(year &lt;= <span style="color:#3677a9">2000</span>) %&gt;% 
+  <span style="color:#447fcf">filter</span>(country == <span style="color:#ed9d13">&#34;United Kingdom&#34;</span>)
 
 <span style="color:#999;font-style:italic"># addHistoricPlot() will add a trace showing the trajectory of a country</span>
 <span style="color:#999;font-style:italic"># to an existing plot: (makeSemiTransParent will make the points semi-transparent</span>
 <span style="color:#999;font-style:italic"># so that the historic data is more obvious)</span>
 gapminder %&gt;% 
-  filter(year == <span style="color:#3677a9">2000</span>) %&gt;% 
-  produceGapminderPlot(makeSemiTransparent = <span style="color:#6ab825;font-weight:bold">TRUE</span>) %&gt;% 
-  addHistoricPlot(historicdata)</code></pre></div>
-<p><img src="figure/unnamed-chunk-2-1.png" alt="plot of chunk unnamed-chunk-2" /></p>
+  <span style="color:#447fcf">filter</span>(year == <span style="color:#3677a9">2000</span>) %&gt;% 
+  <span style="color:#447fcf">produceGapminderPlot</span>(makeSemiTransparent = <span style="color:#6ab825;font-weight:bold">TRUE</span>) %&gt;% 
+  <span style="color:#447fcf">addHistoricPlot</span>(historicdata)
+</code></pre></div><p><img src="figure/unnamed-chunk-2-1.png" alt="plot of chunk unnamed-chunk-2"></p>
 
 <div class="notices note" ><p>You should complete the <a href="../../goingfurther/reactive/">reactive data</a> lesson before this lesson.</p>
 </div>
 
-
 <p>There are a number of steps to go through to get to this point:</p>
-
 <ol>
 <li>Returning the co-ordinates of the graph (only) when we click on it</li>
 <li>Working out which point (i.e. country) is closest to where we clicked</li>
 <li>Generating the <code>historicdata</code> set, to show the &ldquo;trace&rdquo;</li>
 <li>Adding the historic data to the plot.</li>
 </ol>
-
 <h2 id="getting-the-graph-co-ordinates">Getting the graph co-ordinates</h2>
-
 <p>The <code>plotOutput()</code> function (in the user interface) takes a <code>click</code> option, which will return the co-ordinates of the graph when it is selected:</p>
-<div class="highlight"><pre style="color:#d0d0d0;background-color:#202020;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-r" data-lang="r"> plotOutput(<span style="color:#ed9d13">&#34;gapminderPlot&#34;</span>, click = <span style="color:#ed9d13">&#34;plotClick&#34;</span>)</code></pre></div>
-<p>We can access the value of <code>plotClick</code> using <code>input$plotClick</code>.  The click data is returned as a list.</p>
+<div class="highlight"><pre style="color:#d0d0d0;background-color:#202020;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-r" data-lang="r"> <span style="color:#447fcf">plotOutput</span>(<span style="color:#ed9d13">&#34;gapminderPlot&#34;</span>, click = <span style="color:#ed9d13">&#34;plotClick&#34;</span>)
+</code></pre></div><p>We can access the value of <code>plotClick</code> using <code>input$plotClick</code>.  The click data is returned as a list.</p>
 
 <div class="notices tip" ><p>You can also capture double click, hover and brush (e.g. selecting an area) events - see <code>?plotOutput()</code> for more details.</p>
 </div>
 
-
 <h3 id="exercise">Exercise</h3>
-
 <p>Capture click data from the graph, by setting the <code>click=</code> option.   Use <code>renderPrint()</code> in the server function, and <code>verbatimTextOuput()</code> in the UI to show the captured data.   Having clicked on the graph and obtained click data, try selecting another year or continent.  You will find that the click data disappears; as soon as the graph is redrawn the click event is invalidated (this is also the case if the graph is resized).  We&rsquo;ll deal with this issue later.</p>
-
 <h3 id="solution">Solution</h3>
-
-<p><a href="https://github.com/UoMResearchIT/r-shiny-course-materials/commit/f44d98ccf9574ac8684f2ca8faa8cd09ac9a6c01" target="_blank">10_clickdata</a></p>
-
+<p><a href="https://github.com/UoMResearchIT/r-shiny-course-materials/commit/f44d98ccf9574ac8684f2ca8faa8cd09ac9a6c01">10_clickdata</a></p>
 <h2 id="which-points-are-close-to-the-data">Which points are close to the data?</h2>
-
 <p>You may have noticed that the click data contains the x and y coordinates of where we clicked.  Shiny provides a function, <code>nearPoints(df, coordinfo)</code> which, given a tibble of input data and the clickdata returns a tibble the rows of data for points near the click (you can adjust the definition of &ldquo;near&rdquo; using the <code>threshold</code> option, and the maximum number of points returned using the <code>maxpoints</code> option)</p>
-
 <h3 id="exercise-1">Exercise</h3>
-
 <p>Modify your <code>renderPrint()</code> function to return information on the country nearest the click.</p>
-
 <h3 id="solution-1">Solution</h3>
-
-<p><a href="https://github.com/UoMResearchIT/r-shiny-course-materials/commit/ee34c67388e004696870d446e3e51b05b43c858e" target="_blank">11_nearpoints</a></p>
-
+<p><a href="https://github.com/UoMResearchIT/r-shiny-course-materials/commit/ee34c67388e004696870d446e3e51b05b43c858e">11_nearpoints</a></p>
 <h2 id="retaining-the-click-data">Retaining the click data</h2>
-
 <p>As soon as the graph is redrawn, the click event becomes invalidated.  Because of the reactive programming approach this means that Shiny recalulates all the clicks dependencies (such as the output), and returns no country information.  We need to store the country information, and only update this when a new click event is detected.  We need to do two things:</p>
-
 <ol>
 <li>Create a reactive value to store the currently selected country</li>
 <li>use the <code>observeEvent()</code> function to observe when a click occurs, and only <em>then</em> put the output of that click into the reactive value we created above.</li>
 </ol>
-
-<p>To do this, we modify the server function as follows <a href="https://github.com/UoMResearchIT/r-shiny-course-materials/commit/d3fc11f305c9d0a4e163c82d549ccb88644b55bf" target="_blank">12_observeevent</a>:</p>
+<p>To do this, we modify the server function as follows <a href="https://github.com/UoMResearchIT/r-shiny-course-materials/commit/d3fc11f305c9d0a4e163c82d549ccb88644b55bf">12_observeevent</a>:</p>
 <div class="highlight"><pre style="color:#d0d0d0;background-color:#202020;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-r" data-lang="r"><span style="color:#999;font-style:italic"># Create a reactive value to store the country we seleect</span>
-activeCountry &lt;- reactiveVal()
+activeCountry &lt;- <span style="color:#447fcf">reactiveVal</span>()
 
 <span style="color:#999;font-style:italic"># Update the value of activeCountry() when we detect an input$plotClick event</span>
 <span style="color:#999;font-style:italic"># (Note how we update a reactiveVal() )</span>
-observeEvent(input$plotClick, 
+<span style="color:#447fcf">observeEvent</span>(input$plotClick, 
              {
-               nearCountry &lt;- nearPoints(plotData(), input$plotClick, maxpoints = <span style="color:#3677a9">1</span>)
-               activeCountry(<span style="color:#6ab825">as.character</span>(nearCountry$country)) <span style="color:#999;font-style:italic"># Extract just the country name and assign it to activeCountry()</span>
+               nearCountry &lt;- <span style="color:#447fcf">nearPoints</span>(<span style="color:#447fcf">plotData</span>(), input$plotClick, maxpoints = <span style="color:#3677a9">1</span>)
+               <span style="color:#447fcf">activeCountry</span>(<span style="color:#447fcf">as.character</span>(nearCountry$country)) <span style="color:#999;font-style:italic"># Extract just the country name and assign it to activeCountry()</span>
              })
 
 
 <span style="color:#999;font-style:italic"># Create a reactive value to store the country we seleect</span>
-activeCountry &lt;- reactiveVal(value = <span style="color:#6ab825;font-weight:bold">NA</span>)</code></pre></div>
-<p>We&rsquo;ll also modify <code>output$clickData</code> to only display the active country:</p>
-<div class="highlight"><pre style="color:#d0d0d0;background-color:#202020;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-r" data-lang="r">output$clickData &lt;- renderPrint(({
-  activeCountry()
-}))</code></pre></div>
-<p>Run your app and check everything works.  Notice that <code>activeCountry()</code> is initalised to <code>NULL</code>.  If we click on the graph where there isn&rsquo;t a visible country, <code>nearPoints()</code> will, as we saw earlier, return a tibble with 0 rows.  When we extract the country from the tibble, using the <code>$</code> operator, it will return a character vector of length 0.</p>
-
-<h2 id="showing-the-country-s-historic-data">Showing the country&rsquo;s historic data</h2>
-
+activeCountry &lt;- <span style="color:#447fcf">reactiveVal</span>(value = <span style="color:#6ab825;font-weight:bold">NA</span>)
+</code></pre></div><p>We&rsquo;ll also modify <code>output$clickData</code> to only display the active country:</p>
+<div class="highlight"><pre style="color:#d0d0d0;background-color:#202020;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-r" data-lang="r">output$clickData &lt;- <span style="color:#447fcf">renderPrint</span>(({
+  <span style="color:#447fcf">activeCountry</span>()
+}))
+</code></pre></div><p>Run your app and check everything works.  Notice that <code>activeCountry()</code> is initalised to <code>NULL</code>.  If we click on the graph where there isn&rsquo;t a visible country, <code>nearPoints()</code> will, as we saw earlier, return a tibble with 0 rows.  When we extract the country from the tibble, using the <code>$</code> operator, it will return a character vector of length 0.</p>
+<h2 id="showing-the-countrys-historic-data">Showing the country&rsquo;s historic data</h2>
 <p><code>codeExample.R</code>, and the example at the top of this lesson show how to add the historic &ldquo;trace&rdquo; data for a country.  We need to create a tibble containing this historic data, and then add this to the plot.</p>
-
 <h3 id="exercise-2">Exercise</h3>
-
 <p>Create a reactive data set, using <code>reactive()</code> which contains the historic data (i.e. for all years up to and including the selected year) for the currently selected country.  If no country is selected this will have 0 rows.</p>
-
 <h3 id="solution-2">Solution</h3>
-
-<p><a href="https://github.com/UoMResearchIT/r-shiny-course-materials/commit/be7716137481d0c46b87b01d43bf0ebaff48328a" target="_blank">13_historic</a></p>
-
+<p><a href="https://github.com/UoMResearchIT/r-shiny-course-materials/commit/be7716137481d0c46b87b01d43bf0ebaff48328a">13_historic</a></p>
 <h3 id="exercise-3">Exercise</h3>
-
 <p>The final thing to do is to add the historic data to the plot, if a country is selected. Modify the <code>renderPlot()</code> to produce the regular graph if the length of <code>activeCountry()</code> is 0 (i.e. no country is selected), and to produce the  plot including the historic data otherwise (the code example at the start of the episode shows how to add historic data to a plot).</p>
-
 <h3 id="solution-3">Solution</h3>
+<p><a href="https://github.com/UoMResearchIT/r-shiny-course-materials/commit/89c591b10256f7bc7ad0a6cee6c258f1482137a3">14_showhistoric</a></p>
 
-<p><a href="https://github.com/UoMResearchIT/r-shiny-course-materials/commit/89c591b10256f7bc7ad0a6cee6c258f1482137a3" target="_blank">14_showhistoric</a></p>
+
+
 
 
 <footer class=" footline" >
@@ -512,7 +523,7 @@ activeCountry &lt;- reactiveVal(value = <span style="color:#6ab825;font-weight:b
 </footer>
 
         
-        </div> 
+        </div>
         
 
       </div>
@@ -520,7 +531,7 @@ activeCountry &lt;- reactiveVal(value = <span style="color:#6ab825;font-weight:b
     <div id="navigation">
         
         
-        
+
         
             
             
@@ -696,40 +707,44 @@ activeCountry &lt;- reactiveVal(value = <span style="color:#6ab825;font-weight:b
                     
             
         
-        
+
         
 
 
-        
-            <a class="nav nav-prev" href="../../goingfurther/reactive/" title="Reactive data"> <i class="fas fa-chevron-left"></i></a>
-        
-        
-            <a class="nav nav-next" href="../../goingfurther/layout/" title="App layout" style="margin-right: 0px;"><i class="fas fa-chevron-right"></i></a>
-        
+	 
+	 
+		
+			<a class="nav nav-prev" href="../../goingfurther/reactive/" title="Reactive data"> <i class="fa fa-chevron-left"></i></a>
+		
+		
+			<a class="nav nav-next" href="../../goingfurther/layout/" title="App layout" style="margin-right: 0px;"><i class="fa fa-chevron-right"></i></a>
+		
+	
     </div>
 
     </section>
-    
+
     <div style="left: -1000px; overflow: scroll; position: absolute; top: -1000px; border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;">
       <div style="border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;"></div>
     </div>
-    <script src="../../js/clipboard.min.js?1544000441"></script>
-    <script src="../../js/perfect-scrollbar.min.js?1544000441"></script>
-    <script src="../../js/perfect-scrollbar.jquery.min.js?1544000441"></script>
-    <script src="../../js/jquery.sticky.js?1544000441"></script>
-    <script src="../../js/featherlight.min.js?1544000441"></script>
-    <script src="../../js/html5shiv-printshiv.min.js?1544000441"></script>
-    <script src="../../js/highlight.pack.js?1544000441"></script>
+    <script src="../../js/clipboard.min.js?1634552042"></script>
+    <script src="../../js/perfect-scrollbar.min.js?1634552042"></script>
+    <script src="../../js/perfect-scrollbar.jquery.min.js?1634552042"></script>
+    <script src="../../js/jquery.sticky.js?1634552042"></script>
+    <script src="../../js/featherlight.min.js?1634552042"></script>
+    <script src="../../js/highlight.pack.js?1634552042"></script>
     <script>hljs.initHighlightingOnLoad();</script>
-    <script src="../../js/modernizr.custom.71422.js?1544000441"></script>
-    <script src="../../js/learn.js?1544000441"></script>
-    <script src="../../js/hugo-learn.js?1544000441"></script>
-
-    <link href="../../mermaid/mermaid.css?1544000441" type="text/css" rel="stylesheet" />
-    <script src="../../mermaid/mermaid.js?1544000441"></script>
-    <script>
-        mermaid.initialize({ startOnLoad: true });
-    </script>
+    <script src="../../js/modernizr.custom-3.6.0.js?1634552042"></script>
+    <script src="../../js/learn.js?1634552042"></script>
+    <script src="../../js/hugo-learn.js?1634552042"></script>
+    
+        
+            <script src="../../mermaid/mermaid.js?1634552042"></script>
+        
+        <script>
+            mermaid.initialize({ startOnLoad: true });
+        </script>
+    
     
 
   </body>

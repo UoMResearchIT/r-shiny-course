@@ -18,10 +18,8 @@ We can construct more flexible `fluidPage()` layout using the `fluidRow()` and `
 ui <- fluidPage(
   fluidRow(
     column(4,
-
     ),
     column(8,
-
     )
   ),
   fluidRow(

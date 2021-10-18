@@ -1,15 +1,11 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Introduction to Shiny</title>
     <link>/</link>
     <description>Recent content on Introduction to Shiny</description>
     <generator>Hugo -- gohugo.io</generator>
-    <language>en-us</language>
-    
-	<atom:link href="/index.xml" rel="self" type="application/rss+xml" />
-    
-    
+    <language>en-us</language><atom:link href="/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Reactive data</title>
       <link>/goingfurther/reactive/</link>
@@ -18,15 +14,6 @@
       <guid>/goingfurther/reactive/</guid>
       <description>In this example we only use the filtered gapminder data in a single place - to plot the graph. For this reason we did the filtering within the renderPlot() function.
 Let&amp;rsquo;s add another output to the app; we&amp;rsquo;ll show which country is the richest displayed on the graph, and what its GDP per capita is. This means that we&amp;rsquo;ll be using the gapminder data filtered by year and country in two places; on the graph itself and in the logic where we work out what the richest country is.</description>
-    </item>
-    
-    <item>
-      <title></title>
-      <link>/slides/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>/slides/</guid>
-      <description>Introduction to Shiny Workshop div.sourceCode { overflow-x: auto; } table.sourceCode, tr.sourceCode, td.lineNumbers, td.sourceCode { margin: 0; padding: 0; vertical-align: baseline; border: none; } table.sourceCode { width: 100%; line-height: 100%; } td.lineNumbers { text-align: right; padding-right: 4px; padding-left: 4px; color: #aaaaaa; border-right: 1px solid #aaaaaa; } td.sourceCode { padding-left: 5px; } code  span.kw { color: #007020; font-weight: bold; } /* Keyword */ code  span.dt { color: #902000; } /* DataType */ code  span.</description>
     </item>
     
     <item>
