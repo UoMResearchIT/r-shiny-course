@@ -21,7 +21,7 @@ pygmentsStyle = "native"
     url = "https://github.com/UoMResearchIT/r-shiny-course/raw/master/runningExample.zip"
 [[menu.shortcuts]]
     name = "Slides"
-    url = "/slides/"
+    url = "/slides.html"
 [[menu.shortcuts]]
     name = "GitHub materials"
     url = "https://github.com/uomresearchit/r-shiny-course-materials/"
