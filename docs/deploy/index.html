@@ -12,20 +12,20 @@
     <title>Deploying Shiny apps :: Introduction to Shiny</title>
 
     
-    <link href="../css/nucleus.css?1641809028" rel="stylesheet">
-    <link href="../css/fontawesome-all.min.css?1641809028" rel="stylesheet">
-    <link href="../css/hybrid.css?1641809028" rel="stylesheet">
-    <link href="../css/featherlight.min.css?1641809028" rel="stylesheet">
-    <link href="../css/perfect-scrollbar.min.css?1641809028" rel="stylesheet">
-    <link href="../css/auto-complete.css?1641809028" rel="stylesheet">
-    <link href="../css/atom-one-dark-reasonable.css?1641809028" rel="stylesheet">
-    <link href="../css/theme.css?1641809028" rel="stylesheet">
-    <link href="../css/tabs.css?1641809028" rel="stylesheet">
-    <link href="../css/hugo-theme.css?1641809028" rel="stylesheet">
+    <link href="../css/nucleus.css?1641812264" rel="stylesheet">
+    <link href="../css/fontawesome-all.min.css?1641812264" rel="stylesheet">
+    <link href="../css/hybrid.css?1641812264" rel="stylesheet">
+    <link href="../css/featherlight.min.css?1641812264" rel="stylesheet">
+    <link href="../css/perfect-scrollbar.min.css?1641812264" rel="stylesheet">
+    <link href="../css/auto-complete.css?1641812264" rel="stylesheet">
+    <link href="../css/atom-one-dark-reasonable.css?1641812264" rel="stylesheet">
+    <link href="../css/theme.css?1641812264" rel="stylesheet">
+    <link href="../css/tabs.css?1641812264" rel="stylesheet">
+    <link href="../css/hugo-theme.css?1641812264" rel="stylesheet">
     
     
 
-    <script src="../js/jquery-3.3.1.min.js?1641809028"></script>
+    <script src="../js/jquery-3.3.1.min.js?1641812264"></script>
 
     <style>
       :root #header + #content > #left > #rlblock_left{
@@ -397,6 +397,7 @@
 <h1 id="deploying-shiny-apps">Deploying Shiny apps</h1>
 <p>If we want to use our app out of R Studio we will need to deploy it to a Shiny Server.  There are a number of options for doing this:</p>
 <ul>
+<li>(UoM staff/students only) Host the app on Research IT&rsquo;s pilot Shiny Server</li>
 <li>Host a <a href="https://www.rstudio.com/products/shiny/shiny-server/">Shiny Server instance</a>.   Shiny Server comes in both open source and commercial editions.</li>
 <li>Deploy the app to <a href="https://www.shinyapps.io">shinyapps.io</a>
 <ul>
@@ -404,7 +405,47 @@
 </ul>
 </li>
 </ul>
-<p>Setting up a Shiny Server is beyond the scope of this workshop (though there are some brief notes on the options for doing this in <a href="../goingfurther/">going further</a>.   In this workshop we&rsquo;ll deploy our app to <a href="https://www.shinyapps.io">shinyapps.io</a>.</p>
+<p>Setting up a Shiny Server is beyond the scope of this workshop (though there are some brief notes on the options for doing this in <a href="../goingfurther/">going further</a>.</p>
+<h2 id="deploying-apps-using-the-pilot-shiny-server">Deploying apps using the pilot Shiny Server</h2>
+<p>Research IT is running a Shiny app hosting service pilot.  This allows you to
+deploy public Shiny apps on a University hosted machine.   We have also provided
+an R package to make deployment of apps easier.</p>
+<p>To use this service you will need to request access from david &ldquo;dot&rdquo; <a href="mailto:mawdsley@manchester.ac.uk">mawdsley@manchester.ac.uk</a></p>
+<p>Having obtained access, you will need to install our &ldquo;shinysender&rdquo; package.
+This isn&rsquo;t on CRAN, so you will first need to install the &ldquo;devtools&rdquo; package
+if you don&rsquo;t already have it:</p>
+<div class="highlight"><pre style="color:#d0d0d0;background-color:#202020;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-r" data-lang="r"><span style="color:#447fcf">install.packages</span>(<span style="color:#ed9d13">&#34;devtools&#34;</span>)  <span style="color:#999;font-style:italic"># If you don&#39;t already have devtools installed</span>
+devtools::<span style="color:#447fcf">install_github</span>(<span style="color:#ed9d13">&#34;UoMResearchIT/r-shinysender&#34;</span>)
+</code></pre></div><p>You then need to set two environment variables to let R know your UoM username
+and the name of the server you wish to deploy your app to:</p>
+<div class="highlight"><pre style="color:#d0d0d0;background-color:#202020;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-r" data-lang="r"><span style="color:#447fcf">Sys.setenv</span>(SHINYSENDER_SERVER=<span style="color:#ed9d13">&#34;shiny.its.manchester.ac.uk&#34;</span>)  
+<span style="color:#999;font-style:italic"># Your username is your UoM login</span>
+<span style="color:#447fcf">Sys.setenv</span>(SHINYSENDER_USER=<span style="color:#ed9d13">&#34;alice&#34;</span>)
+</code></pre></div><p>(To avoid having to do this each time you start R, you could set these in your
+<code>.Rprofile</code> or <code>.Renviron</code> file)</p>
+<p>Once you have performed these steps, check that your working directory contains
+your Shiny app (the working directory is displayed above the console in RStudio,
+or use <code>getwd()</code> to display it).</p>
+<p>You can then deploy your app by selecting &ldquo;Addins&rdquo; from the toolbar, and choosing &ldquo;Upload app&rdquo;</p>
+
+<div class="notices info" ><p>The first time you do this you may be prompted to update/install the miniUI
+package.</p>
+</div>
+
+<p>You will then be prompted for your UoM password, to connect to the server.</p>
+<p>You app wil then be &ldquo;bundled&rdquo; and uploaded to the remote server.  This will
+deploy the app into an environment with the same versions of packages as on
+your local machine.  (The first time you deploy an app it will take several
+minutes to download and compile the packages.  Subsequent deployments cache
+the packages, and so should be much qucker).</p>
+<p>If you want to update your app, simply upload it again.</p>
+<p>Your app will be deployed to <a href="https://shiny.its.manchester.ac.uk/username/appname">https://shiny.its.manchester.ac.uk/username/appname</a></p>
+<p>Further details of how to use the service are <a href="https://github.com/UoMResearchIT/r-shinysender/blob/master/README.md">here</a></p>
+<h2 id="deploying-apps-using-shinyappsio">Deploying apps using shinyapps.io</h2>
+<p>This section describes how to deploy an app to
+<a href="https://www.shinyapps.io">shinyapps.io</a>.  This is a service provided by RStudio.
+The free tier offers hosting for a limited number of applications, with a limited
+amount of compute time per month (i.e time yout apps are being used).  Higher &ldquo;tiers&rdquo; of service can be paid for, which relax these restrictions.</p>
 
 <div class="notices info" ><p>There is an issue with the package versions installed on the machines in G11.  Before linking your shinyapps.io account to Rstudio, you will need to type <code>options(rsconnect.check.certificate = FALSE)</code> into the R console.</p>
 </div>
@@ -633,19 +674,19 @@ rsconnect::<span style="color:#447fcf">deployApp</span>()
     <div style="left: -1000px; overflow: scroll; position: absolute; top: -1000px; border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;">
       <div style="border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;"></div>
     </div>
-    <script src="../js/clipboard.min.js?1641809028"></script>
-    <script src="../js/perfect-scrollbar.min.js?1641809028"></script>
-    <script src="../js/perfect-scrollbar.jquery.min.js?1641809028"></script>
-    <script src="../js/jquery.sticky.js?1641809028"></script>
-    <script src="../js/featherlight.min.js?1641809028"></script>
-    <script src="../js/highlight.pack.js?1641809028"></script>
+    <script src="../js/clipboard.min.js?1641812264"></script>
+    <script src="../js/perfect-scrollbar.min.js?1641812264"></script>
+    <script src="../js/perfect-scrollbar.jquery.min.js?1641812264"></script>
+    <script src="../js/jquery.sticky.js?1641812264"></script>
+    <script src="../js/featherlight.min.js?1641812264"></script>
+    <script src="../js/highlight.pack.js?1641812264"></script>
     <script>hljs.initHighlightingOnLoad();</script>
-    <script src="../js/modernizr.custom-3.6.0.js?1641809028"></script>
-    <script src="../js/learn.js?1641809028"></script>
-    <script src="../js/hugo-learn.js?1641809028"></script>
+    <script src="../js/modernizr.custom-3.6.0.js?1641812264"></script>
+    <script src="../js/learn.js?1641812264"></script>
+    <script src="../js/hugo-learn.js?1641812264"></script>
     
         
-            <script src="../mermaid/mermaid.js?1641809028"></script>
+            <script src="../mermaid/mermaid.js?1641812264"></script>
         
         <script>
             mermaid.initialize({ startOnLoad: true });

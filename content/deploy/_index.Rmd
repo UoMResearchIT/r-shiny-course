@@ -10,11 +10,81 @@ pre: "<b>5. </b>"
 
 If we want to use our app out of R Studio we will need to deploy it to a Shiny Server.  There are a number of options for doing this:
 
+* (UoM staff/students only) Host the app on Research IT's pilot Shiny Server
 * Host a [Shiny Server instance](https://www.rstudio.com/products/shiny/shiny-server/).   Shiny Server comes in both open source and commercial editions.   
 * Deploy the app to [shinyapps.io](https://www.shinyapps.io)
    * Free and paid for versions
 
-Setting up a Shiny Server is beyond the scope of this workshop (though there are some brief notes on the options for doing this in [going further]({{< ref "goingfurther" >}}).   In this workshop we'll deploy our app to [shinyapps.io](https://www.shinyapps.io).
+Setting up a Shiny Server is beyond the scope of this workshop (though there are some brief notes on the options for doing this in [going further]({{< ref "goingfurther" >}}).   
+
+
+## Deploying apps using the pilot Shiny Server
+
+Research IT is running a Shiny app hosting service pilot.  This allows you to 
+deploy public Shiny apps on a University hosted machine.   We have also provided
+an R package to make deployment of apps easier.   
+
+To use this service you will need to request access from david "dot" mawdsley@manchester.ac.uk
+
+Having obtained access, you will need to install our "shinysender" package.
+This isn't on CRAN, so you will first need to install the "devtools" package
+if you don't already have it:
+
+```{r, eval=FALSE}
+install.packages("devtools")  # If you don't already have devtools installed
+devtools::install_github("UoMResearchIT/r-shinysender")
+
+```
+
+You then need to set two environment variables to let R know your UoM username
+and the name of the server you wish to deploy your app to:
+
+
+```{r, eval=FALSE}
+Sys.setenv(SHINYSENDER_SERVER="shiny.its.manchester.ac.uk")  
+# Your username is your UoM login
+Sys.setenv(SHINYSENDER_USER="alice")
+```
+
+(To avoid having to do this each time you start R, you could set these in your
+`.Rprofile` or `.Renviron` file)
+
+Once you have performed these steps, check that your working directory contains
+your Shiny app (the working directory is displayed above the console in RStudio,
+or use `getwd()` to display it).  
+
+You can then deploy your app by selecting "Addins" from the toolbar, and choosing "Upload app"
+
+{{% notice info %}}
+The first time you do this you may be prompted to update/install the miniUI 
+package.  
+{{% /notice %}}
+
+You will then be prompted for your UoM password, to connect to the server.
+
+You app wil then be "bundled" and uploaded to the remote server.  This will 
+deploy the app into an environment with the same versions of packages as on 
+your local machine.  (The first time you deploy an app it will take several 
+minutes to download and compile the packages.  Subsequent deployments cache
+the packages, and so should be much qucker).
+
+If you want to update your app, simply upload it again.
+
+Your app will be deployed to https://shiny.its.manchester.ac.uk/username/appname
+
+Further details of how to use the service are [here](https://github.com/UoMResearchIT/r-shinysender/blob/master/README.md)
+
+
+
+
+
+
+## Deploying apps using shinyapps.io
+
+This section describes how to deploy an app to 
+[shinyapps.io](https://www.shinyapps.io).  This is a service provided by RStudio.
+The free tier offers hosting for a limited number of applications, with a limited
+amount of compute time per month (i.e time yout apps are being used).  Higher "tiers" of service can be paid for, which relax these restrictions.
 
 
 {{% notice info %}}
