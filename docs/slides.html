@@ -1084,27 +1084,26 @@ visibility: hidden; }
 
 
 <style type="text/css">
-pre > code.sourceCode { white-space: pre; position: relative; }
-pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
-pre > code.sourceCode > span:empty { height: 1.2em; }
-code.sourceCode > span { color: inherit; text-decoration: inherit; }
+a.sourceLine { display: inline-block; line-height: 1.25; }
+a.sourceLine { pointer-events: none; color: inherit; text-decoration: inherit; }
+a.sourceLine:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode { white-space: pre; position: relative; }
 div.sourceCode { margin: 1em 0; }
 pre.sourceCode { margin: 0; }
 @media screen {
 div.sourceCode { overflow: auto; }
 }
 @media print {
-pre > code.sourceCode { white-space: pre-wrap; }
-pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+code.sourceCode { white-space: pre-wrap; }
+a.sourceLine { text-indent: -1em; padding-left: 1em; }
 }
-pre.numberSource code
-  { counter-reset: source-line 0; }
-pre.numberSource code > span
-  { position: relative; left: -4em; counter-increment: source-line; }
-pre.numberSource code > span > a:first-child::before
-  { content: counter(source-line);
+pre.numberSource a.sourceLine
+  { position: relative; left: -4em; }
+pre.numberSource a.sourceLine::before
+  { content: attr(title);
     position: relative; left: -1em; text-align: right; vertical-align: baseline;
-    border: none; display: inline-block;
+    border: none; pointer-events: all; display: inline-block;
     -webkit-touch-callout: none; -webkit-user-select: none;
     -khtml-user-select: none; -moz-user-select: none;
     -ms-user-select: none; user-select: none;
@@ -1113,9 +1112,9 @@ pre.numberSource code > span > a:first-child::before
   }
 pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
 div.sourceCode
-  {   }
+  {  }
 @media screen {
-pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+a.sourceLine::before { text-decoration: underline; }
 }
 code span.al { color: #ff0000; font-weight: bold; } /* Alert */
 code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
@@ -1850,19 +1849,6 @@ document.getElementsByTagName('head')[0].appendChild(style);
     	<!--  <img class="slide-logo" src="corporate-logo.png"/> -->
     	<p class="slide-footer"><a href="https://uomresearchit.github.io/r-shiny-course/">https://uomresearchit.github.io/r-shiny-course/</a></p>
     </div>
-    <script>// Pandoc 2.9 adds attributes on both header and div. We remove the former (to
-// be compatible with the behavior of Pandoc < 2.8).
-document.addEventListener('DOMContentLoaded', function(e) {
-  var hs = document.querySelectorAll("div.section[class*='level'] > :first-child");
-  var i, h, a;
-  for (i = 0; i < hs.length; i++) {
-    h = hs[i];
-    if (!/^h[1-6]$/i.test(h.tagName)) continue;  // it should be a header h1-h6
-    a = h.attributes;
-    while (a.length > 0) h.removeAttribute(a[0].name);
-  }
-});
-</script>
 </head>
 <body>
   <div class="reveal">
@@ -1985,9 +1971,9 @@ For example:</li>
 <section id="getting-started" class="slide level2">
 <h2>Getting started</h2>
 <ul>
-<li><p>The course builds on a single worked example.</p></li>
-<li><p>Download the <a href="https://github.com/UoMResearchIT/r-shiny-course/raw/master/runningExample.zip">zip file</a></p></li>
-<li><p>Decompress this to a directory within <code>C:\work</code></p></li>
+<li>The course builds on a single worked example.</li>
+<li>Download the <a href="https://github.com/UoMResearchIT/r-shiny-course/raw/master/runningExample.zip">zip file</a></li>
+<li>Decompress this to a directory within <code>C:\work</code></li>
 <li><p>Each step is separate labelled folder, which is cross referenced in the notes, e.g. <a href="https://github.com/UoMResearchIT/r-shiny-course-materials/commit/630e15f29031d4ac180423251fd8324e36ee9a2f">01_defaultapp</a>.</p></li>
 <li><p>The course website <a href="https://uomresearchit.github.io/r-shiny-course/" class="uri">https://uomresearchit.github.io/r-shiny-course/</a> contains all the exercises, links to solutions and more detail than these slides.</p></li>
 </ul>
@@ -2077,7 +2063,7 @@ For example:</li>
 <section id="exercise---getting-ready-for-the-rest-of-the-course." class="slide level2">
 <h2>Exercise - getting ready for the rest of the course.</h2>
 <ul>
-<li><p>Copy the gapminder data (<code>gapminder.rds</code>) and <code>workshopFunctions.R</code> to your app directory</p></li>
+<li>Copy the gapminder data (<code>gapminder.rds</code>) and <code>workshopFunctions.R</code> to your app directory</li>
 <li><p>Modify the app to load the ggplot2 and dplyr libraries, gapminder data, and <code>workshopFunctions.R</code></p></li>
 <li><p>Check your app still works</p></li>
 </ul>
@@ -2118,12 +2104,12 @@ For example:</li>
 <h2>Deploying Shiny apps</h2>
 <ul>
 <li><p>Run from R(Studio)</p></li>
-<li><p><a href="https://shinyapps.io" class="uri">https://shinyapps.io</a></p>
+<li><a href="https://shinyapps.io" class="uri">https://shinyapps.io</a>
 <ul>
 <li>Easy deployment from RStudio</li>
 <li>Various pricing tiers (inc. free)</li>
 </ul></li>
-<li><p>Shiny server</p>
+<li>Shiny server
 <ul>
 <li>Free and commercial versions</li>
 <li>Authentication requires commercial version</li>
@@ -2148,18 +2134,18 @@ For example:</li>
 <li>The default apps <code>sidebarLayout()</code> is a good starting point.</li>
 <li>The <code>fluidPage()</code> layout gives us more control.</li>
 </ul>
-<div class="sourceCode" id="cb5"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true"></a>ui &lt;-<span class="st"> </span><span class="kw">fluidPage</span>(</span>
-<span id="cb5-2"><a href="#cb5-2" aria-hidden="true"></a>  <span class="kw">titlePanel</span>(<span class="st">&quot;Gapminder visualisation&quot;</span>), <span class="co"># Will cover whole width</span></span>
-<span id="cb5-3"><a href="#cb5-3" aria-hidden="true"></a>  <span class="kw">plotOutput</span>(<span class="st">&quot;gapminderPlot&quot;</span>, <span class="dt">click =</span> <span class="st">&quot;plotClick&quot;</span>), <span class="co"># Ditto</span></span>
-<span id="cb5-4"><a href="#cb5-4" aria-hidden="true"></a>  <span class="kw">fluidRow</span>( </span>
-<span id="cb5-5"><a href="#cb5-5" aria-hidden="true"></a>    <span class="kw">column</span>(<span class="dv">6</span>, <span class="co"># column width</span></span>
-<span id="cb5-6"><a href="#cb5-6" aria-hidden="true"></a>           <span class="kw">sliderInput</span>(<span class="dt">inputId =</span> <span class="st">&quot;year&quot;</span>, ....) <span class="co"># Things to include in the column</span></span>
-<span id="cb5-7"><a href="#cb5-7" aria-hidden="true"></a>    ),</span>
-<span id="cb5-8"><a href="#cb5-8" aria-hidden="true"></a>    <span class="kw">column</span>(<span class="dv">6</span>, <span class="co"># Next column</span></span>
-<span id="cb5-9"><a href="#cb5-9" aria-hidden="true"></a>           <span class="kw">checkboxGroupInput</span>(<span class="st">&quot;continent&quot;</span>, ....)<span class="co"># Things to include in second column</span></span>
-<span id="cb5-10"><a href="#cb5-10" aria-hidden="true"></a>    )</span>
-<span id="cb5-11"><a href="#cb5-11" aria-hidden="true"></a>  )</span>
-<span id="cb5-12"><a href="#cb5-12" aria-hidden="true"></a>)</span></code></pre></div>
+<div class="sourceCode" id="cb5"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb5-1" title="1">ui &lt;-<span class="st"> </span><span class="kw">fluidPage</span>(</a>
+<a class="sourceLine" id="cb5-2" title="2">  <span class="kw">titlePanel</span>(<span class="st">&quot;Gapminder visualisation&quot;</span>), <span class="co"># Will cover whole width</span></a>
+<a class="sourceLine" id="cb5-3" title="3">  <span class="kw">plotOutput</span>(<span class="st">&quot;gapminderPlot&quot;</span>, <span class="dt">click =</span> <span class="st">&quot;plotClick&quot;</span>), <span class="co"># Ditto</span></a>
+<a class="sourceLine" id="cb5-4" title="4">  <span class="kw">fluidRow</span>( </a>
+<a class="sourceLine" id="cb5-5" title="5">    <span class="kw">column</span>(<span class="dv">6</span>, <span class="co"># column width</span></a>
+<a class="sourceLine" id="cb5-6" title="6">           <span class="kw">sliderInput</span>(<span class="dt">inputId =</span> <span class="st">&quot;year&quot;</span>, ....) <span class="co"># Things to include in the column</span></a>
+<a class="sourceLine" id="cb5-7" title="7">    ),</a>
+<a class="sourceLine" id="cb5-8" title="8">    <span class="kw">column</span>(<span class="dv">6</span>, <span class="co"># Next column</span></a>
+<a class="sourceLine" id="cb5-9" title="9">           <span class="kw">checkboxGroupInput</span>(<span class="st">&quot;continent&quot;</span>, ....)<span class="co"># Things to include in second column</span></a>
+<a class="sourceLine" id="cb5-10" title="10">    )</a>
+<a class="sourceLine" id="cb5-11" title="11">  )</a>
+<a class="sourceLine" id="cb5-12" title="12">)</a></code></pre></div>
 <ul>
 <li>The widths of each row of columns should sum to 12 <a href="https://github.com/UoMResearchIT/r-shiny-course-materials/commit/01a9bb7435bbe75a870c8720adbb7b7df308efda">15_layout</a></li>
 </ul>

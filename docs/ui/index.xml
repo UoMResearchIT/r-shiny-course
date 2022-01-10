@@ -5,6 +5,10 @@
     <link>/ui/</link>
     <description>Recent content in User Interface design on Introduction to Shiny</description>
     <generator>Hugo -- gohugo.io</generator>
-    <language>en-us</language><atom:link href="/ui/index.xml" rel="self" type="application/rss+xml" />
+    <language>en-us</language>
+    
+	<atom:link href="/ui/index.xml" rel="self" type="application/rss+xml" />
+    
+    
   </channel>
 </rss>
