@@ -1,3 +1,7 @@
 [submodule "coursematerial"]
 	path = coursematerial
 	url = https://github.com/UoMResearchIT/r-shiny-course-materials.git
+[submodule "hugo-theme-learn"]
+	path = themes/hugo-theme-learn
+	url = https://github.com/matcornic/hugo-theme-learn.git
+
