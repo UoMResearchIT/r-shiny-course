@@ -1,5 +1,7 @@
 # Manchester University Research IT Shiny Course 
 
+**UPDATE August 2025: This course is no longer active so the training matrial website has been shut down and this repository is archived. Please contact the [RSE team](https://research-it.manchester.ac.uk/services/research-software-engineering/) for more information**
+
 This repo contains the website,  slides and other material for the The University of Manchester Shiny Course.  It is based on the workshop that was given at the [RSE2018 conference](https://rse.ac.uk/conf2018/).  The material as delivered at the conference is archived at https://github.com/UoMResearchIT/RSE18-shiny-workshop ( [![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.1409659.svg)](https://doi.org/10.5281/zenodo.1409659) ).
 
 The website for the workshop is at https://uomresearchit.github.io/r-shiny-course
